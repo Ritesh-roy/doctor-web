@@ -37,7 +37,8 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetail() {
-  const s = Route.useLoaderData();
+  const params = Route.useParams();
+  const s = getService(params.slug)!;
   const related = SERVICES.filter((r) => r.slug !== s.slug).slice(0, 3);
 
   return (
