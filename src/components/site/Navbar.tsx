@@ -1,0 +1,155 @@
+import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { Menu, X, Phone, Calendar, Clock, Star, Ambulance, Mail } from "lucide-react";
+import { Logo } from "./Logo";
+import { CLINIC } from "@/data/clinic";
+
+const NAV = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Doctor", to: "/doctor" },
+  { label: "Facilities", to: "/facilities" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "Reviews", to: "/testimonials" },
+  { label: "FAQs", to: "/faqs" },
+  { label: "Contact", to: "/contact" },
+] as const;
+
+export function TopBar() {
+  return (
+    <div className="hidden border-b border-primary/10 bg-primary text-primary-foreground lg:block">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
+        <div className="flex items-center gap-6 opacity-95">
+          <a href={`tel:${CLINIC.phoneTel}`} className="flex items-center gap-2">
+            <Phone className="h-3.5 w-3.5" /> {CLINIC.phone}
+          </a>
+          <a href={`mailto:${CLINIC.email}`} className="flex items-center gap-2">
+            <Mail className="h-3.5 w-3.5" /> {CLINIC.email}
+          </a>
+          <span className="hidden items-center gap-2 xl:flex">
+            <Clock className="h-3.5 w-3.5" /> {CLINIC.hours}
+          </span>
+        </div>
+        <div className="flex items-center gap-5 opacity-95">
+          <span className="flex items-center gap-1.5">
+            <Star className="h-3.5 w-3.5 fill-current text-emerald-accent" />
+            <span className="font-semibold">{CLINIC.rating}</span> Google Rating
+          </span>
+          <a
+            href={`tel:${CLINIC.phoneTel}`}
+            className="flex items-center gap-2 rounded-full bg-emerald-accent/90 px-3 py-1 font-semibold"
+          >
+            <Ambulance className="h-3.5 w-3.5" /> Emergency 24×7
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 12);
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <>
+      <TopBar />
+      <header
+        className={`sticky top-0 z-40 transition-all duration-300 ${
+          scrolled ? "glass-card shadow-soft" : "bg-background/70 backdrop-blur"
+        }`}
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:py-4">
+          <Logo />
+
+          <nav className="hidden items-center justify-center gap-1 lg:flex">
+            {NAV.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                activeOptions={{ exact: n.to === "/" }}
+                activeProps={{ className: "bg-primary-soft/70 text-foreground" }}
+                className="rounded-full px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:bg-primary-soft/60 hover:text-foreground"
+              >
+                {n.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 justify-end">
+            <a
+              href={`tel:${CLINIC.phoneTel}`}
+              className="hidden h-11 items-center gap-2 rounded-full border border-primary/15 px-4 text-sm font-medium text-foreground xl:inline-flex"
+            >
+              <Phone className="h-4 w-4" /> {CLINIC.phone}
+            </a>
+            <Link
+              to="/book-appointment"
+              className="hidden h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-semibold text-background shadow-soft transition-transform hover:-translate-y-0.5 sm:inline-flex"
+            >
+              <Calendar className="h-4 w-4" /> Book Appointment
+            </Link>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              className="grid h-11 w-11 place-items-center rounded-full border border-primary/15 lg:hidden"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+        </div>
+
+        {open && (
+          <div className="fixed inset-x-0 top-[64px] z-40 max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-primary/10 bg-background/95 backdrop-blur lg:hidden">
+            <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
+              {NAV.map((n) => (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  activeOptions={{ exact: n.to === "/" }}
+                  activeProps={{ className: "bg-primary-soft/70" }}
+                  className="rounded-xl px-3 py-3 text-base font-medium text-foreground/85 hover:bg-primary-soft/60"
+                >
+                  {n.label}
+                </Link>
+              ))}
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                <a
+                  href={`tel:${CLINIC.phoneTel}`}
+                  onClick={() => setOpen(false)}
+                  className="flex h-12 items-center justify-center gap-2 rounded-full border border-primary/20 text-sm font-semibold"
+                >
+                  <Phone className="h-4 w-4" /> Call
+                </a>
+                <Link
+                  to="/book-appointment"
+                  onClick={() => setOpen(false)}
+                  className="flex h-12 items-center justify-center gap-2 rounded-full bg-foreground text-sm font-semibold text-background"
+                >
+                  <Calendar className="h-4 w-4" /> Book
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
+  );
+}

@@ -1,0 +1,114 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { PageHero } from "@/components/site/PageHero";
+import { CLINIC } from "@/data/clinic";
+import { SERVICES } from "@/data/services";
+import { Phone, MessageCircle, Check } from "lucide-react";
+
+export const Route = createFileRoute("/book-appointment")({
+  component: Book,
+  head: () => ({
+    meta: [
+      { title: "Book Appointment — Sanjeevani Clinic, Kirari" },
+      { name: "description", content: "Book your appointment with Dr. B.P. Singh at Sanjeevani Clinic, Kirari, Delhi." },
+      { property: "og:title", content: "Book Appointment — Sanjeevani Clinic" },
+      { property: "og:description", content: "Reserve a slot online in seconds." },
+      { property: "og:url", content: "/book-appointment" },
+    ],
+    links: [{ rel: "canonical", href: "/book-appointment" }],
+  }),
+});
+
+function Book() {
+  const [sent, setSent] = useState(false);
+
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
+    const msg =
+      `Hello Sanjeevani Clinic, I'd like to book an appointment.%0A%0A` +
+      `Name: ${f.get("name")}%0A` +
+      `Phone: ${f.get("phone")}%0A` +
+      `Service: ${f.get("service")}%0A` +
+      `Preferred date: ${f.get("date")}%0A` +
+      `Preferred time: ${f.get("time")}%0A` +
+      `Notes: ${f.get("notes") || "-"}`;
+    window.open(`${CLINIC.whatsapp}?text=${msg}`, "_blank");
+    setSent(true);
+  };
+
+  return (
+    <SiteLayout>
+      <PageHero
+        eyebrow="Book appointment"
+        title="Reserve your slot in under a minute."
+        intro="We'll confirm your appointment on WhatsApp. For urgent visits, please call us directly."
+        crumbs={[{ label: "Home", to: "/" }, { label: "Book appointment" }]}
+      />
+
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 sm:px-6 sm:pb-24 lg:grid-cols-[1.2fr_1fr]">
+        <form onSubmit={submit} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card sm:p-8">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="block sm:col-span-2">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Full name</span>
+              <input name="name" required className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+            </label>
+            <label className="block">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Phone</span>
+              <input name="phone" required inputMode="tel" className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+            </label>
+            <label className="block">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Service</span>
+              <select name="service" required defaultValue="" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
+                <option value="" disabled>Select a service</option>
+                {SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label className="block">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Preferred date</span>
+              <input name="date" type="date" required className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+            </label>
+            <label className="block">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Preferred time</span>
+              <select name="time" required defaultValue="" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
+                <option value="" disabled>Select a slot</option>
+                <option>Morning · 9 AM – 1 PM</option>
+                <option>Evening · 5 PM – 9 PM</option>
+              </select>
+            </label>
+            <label className="block sm:col-span-2">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Notes (optional)</span>
+              <textarea name="notes" rows={3} className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+            </label>
+          </div>
+          <button type="submit" className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-glow sm:w-auto">
+            <MessageCircle className="h-4 w-4" /> Send request on WhatsApp
+          </button>
+          {sent && (
+            <div className="mt-4 flex items-center gap-2 rounded-xl bg-emerald-accent/10 p-3 text-sm text-emerald-accent">
+              <Check className="h-4 w-4" /> Opening WhatsApp… we'll confirm shortly.
+            </div>
+          )}
+        </form>
+
+        <aside className="space-y-4">
+          <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary-soft/40 to-white p-6 shadow-card">
+            <h2 className="font-display text-xl text-foreground">Prefer to call?</h2>
+            <p className="mt-2 text-sm text-muted-foreground">We pick up quickly during clinic hours.</p>
+            <a href={`tel:${CLINIC.phoneTel}`} className="mt-4 inline-flex h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-semibold text-background">
+              <Phone className="h-4 w-4" /> {CLINIC.phone}
+            </a>
+          </div>
+          <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card">
+            <h3 className="font-display text-lg text-foreground">Clinic hours</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{CLINIC.hours}</p>
+            <h3 className="mt-5 font-display text-lg text-foreground">Address</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{CLINIC.address}</p>
+          </div>
+        </aside>
+      </section>
+    </SiteLayout>
+  );
+}
