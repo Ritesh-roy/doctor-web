@@ -4,6 +4,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Award, HeartPulse, Users, ShieldCheck, Sparkles, Target, Eye } from "lucide-react";
 import doctorAsset from "@/assets/doctor-hero.asset.json";
+import teamGroup from "@/assets/team-group.png.asset.json";
 import { CLINIC } from "@/data/clinic";
 
 export const Route = createFileRoute("/about")({
