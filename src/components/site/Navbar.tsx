@@ -74,7 +74,7 @@ export function Navbar() {
           scrolled ? "glass-card shadow-soft" : "bg-background/70 backdrop-blur"
         }`}
       >
-        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:py-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:py-4">
           <Logo />
 
           <nav className="hidden items-center justify-center gap-1 lg:flex">
