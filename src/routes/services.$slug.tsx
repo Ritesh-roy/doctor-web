@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { SERVICES, getService } from "@/data/services";
+import { SERVICES, getService, type Service } from "@/data/services";
 import { Check, ArrowRight, Calendar } from "lucide-react";
 import {
   Accordion,
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/services/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): Service => {
     const s = getService(params.slug);
     if (!s) throw notFound();
     return s;
