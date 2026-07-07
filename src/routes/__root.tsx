@@ -77,21 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sanjeevani Clinic — Trusted Healthcare in Kirari, Delhi" },
+      { title: "Sanjeevani Clinic — Trusted Family Healthcare in Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Sanjeevani Clinic in Karan Vihar, Kirari, Delhi. 15+ years of trusted care led by Dr. B.P. Singh. Physiotherapy, diagnostics, radiology, eye check-up and general medicine.",
+          "Sanjeevani Clinic in Karan Vihar, Kirari, Delhi. 15+ years of trusted care led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and family medicine.",
       },
       { name: "author", content: "Sanjeevani Clinic" },
-      { property: "og:title", content: "Sanjeevani Clinic — Premium Family Healthcare" },
-      {
-        property: "og:description",
-        content:
-          "Trusted healthcare for you & your family. Book appointments online with Dr. B.P. Singh at Sanjeevani Clinic, Kirari, Delhi.",
-      },
+      { property: "og:site_name", content: "Sanjeevani Clinic" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#1d4ed8" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -101,27 +97,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-      },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "MedicalClinic",
-          name: "Sanjeevani Clinic",
-          image: "",
-          telephone: "+91-8853515351",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "ADD--B, 327 a, Karan Vihar Rd, Karan Vihar Phase I, part 5",
-            addressLocality: "Kirari, Delhi",
-            postalCode: "110086",
-            addressCountry: "IN",
-          },
-          openingHours: ["Mo-Su 09:00-13:00", "Mo-Su 17:00-21:00"],
-          url: "https://sanjeevaniclinic.icu/",
-        }),
       },
     ],
   }),
