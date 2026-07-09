@@ -1,7 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { User, Calendar, Heart, ShoppingCart, FileText, LogOut } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
+import { useAuth } from "@/lib/auth";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/my-account")({
   component: MyAccount,
@@ -23,6 +26,23 @@ const tiles = [
 ] as const;
 
 function MyAccount() {
+  const { user, loading, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && !user) navigate({ to: "/login" });
+  }, [loading, user, navigate]);
+
+  if (loading || !user) {
+    return (
+      <SiteLayout>
+        <div className="mx-auto max-w-md px-4 py-24 text-center text-sm text-muted-foreground">Loading your account…</div>
+      </SiteLayout>
+    );
+  }
+
+  const name = (user.user_metadata?.full_name as string | undefined) || user.email || user.phone || "Patient";
+
   return (
     <SiteLayout>
       <PageHero eyebrow="My Account" title="Welcome back" intro="Manage your profile, bookings and reports in one place." crumbs={[{ label: "Home", to: "/" }, { label: "My Account" }]} />
@@ -32,11 +52,16 @@ function MyAccount() {
             <div className="flex items-center gap-4">
               <div className="grid h-14 w-14 place-items-center rounded-full bg-primary text-primary-foreground"><User className="h-6 w-6" /></div>
               <div>
-                <div className="font-display text-xl font-semibold text-foreground">Guest Patient</div>
-                <div className="text-sm text-muted-foreground">Sign in to sync your bookings & reports.</div>
+                <div className="font-display text-xl font-semibold text-foreground">{name}</div>
+                <div className="text-sm text-muted-foreground">{user.email || user.phone}</div>
               </div>
             </div>
-            <Link to="/login" className="inline-flex h-11 items-center gap-2 rounded-full border border-primary/20 px-4 text-sm font-semibold"><LogOut className="h-4 w-4" /> Sign in</Link>
+            <button
+              onClick={async () => { await signOut(); toast.success("Signed out"); navigate({ to: "/" }); }}
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-primary/20 px-4 text-sm font-semibold hover:bg-primary-soft/60"
+            >
+              <LogOut className="h-4 w-4" /> Sign out
+            </button>
           </div>
         </div>
 
