@@ -6,6 +6,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Mail, Phone, ArrowLeft } from "lucide-react";
+import { isValidEmail, isValidPhone, sanitizePhoneInput } from "@/lib/validators";
 
 export const Route = createFileRoute("/login")({
   component: Login,
@@ -41,7 +42,8 @@ function Login() {
   }
 
   const sendOtp = async () => {
-    if (!identifier.trim()) return toast.error("Enter your email or mobile");
+    if (channel === "email" && !isValidEmail(identifier)) return toast.error("Enter a valid email address");
+    if (channel === "phone" && !isValidPhone(identifier)) return toast.error("Enter a valid mobile number");
     setLoading(true);
     try {
       if (channel === "email") {
@@ -106,9 +108,10 @@ function Login() {
                 <span className="mb-1 block font-medium text-foreground">{channel === "email" ? "Email address" : "Mobile number"}</span>
                 <input
                   type={channel === "email" ? "email" : "tel"}
+                  inputMode={channel === "phone" ? "tel" : undefined}
                   autoComplete={channel === "email" ? "email" : "tel"}
                   value={identifier}
-                  onChange={(e) => setIdentifier(e.target.value)}
+                  onChange={(e) => setIdentifier(channel === "phone" ? sanitizePhoneInput(e.target.value) : e.target.value)}
                   placeholder={channel === "email" ? "you@email.com" : "+91 XXXXX XXXXX"}
                   className="h-12 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
                 />
