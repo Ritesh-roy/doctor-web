@@ -1,10 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { toast } from "sonner";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CLINIC } from "@/data/clinic";
 import { SERVICES } from "@/data/services";
 import { Phone, MessageCircle, Check } from "lucide-react";
+import {
+  isValidName,
+  isValidPhone,
+  isFutureOrToday,
+  sanitizeNameInput,
+  sanitizePhoneInput,
+  todayISO,
+} from "@/lib/validators";
 
 export const Route = createFileRoute("/book-appointment")({
   component: Book,
@@ -22,16 +31,23 @@ export const Route = createFileRoute("/book-appointment")({
 
 function Book() {
   const [sent, setSent] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState("");
+  const minDate = todayISO();
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
+    if (!isValidPhone(phone)) return toast.error("Enter a valid phone number (10–15 digits)");
+    if (!isFutureOrToday(date)) return toast.error("Choose today or a future date");
     const f = new FormData(e.currentTarget);
     const msg =
       `Hello Sanjeevani Clinic, I'd like to book an appointment.%0A%0A` +
-      `Name: ${f.get("name")}%0A` +
-      `Phone: ${f.get("phone")}%0A` +
+      `Name: ${name}%0A` +
+      `Phone: ${phone}%0A` +
       `Service: ${f.get("service")}%0A` +
-      `Preferred date: ${f.get("date")}%0A` +
+      `Preferred date: ${date}%0A` +
       `Preferred time: ${f.get("time")}%0A` +
       `Notes: ${f.get("notes") || "-"}`;
     window.open(`${CLINIC.whatsapp}?text=${msg}`, "_blank");
@@ -48,15 +64,34 @@ function Book() {
       />
 
       <section className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 sm:px-6 sm:pb-24 lg:grid-cols-[1.2fr_1fr]">
-        <form onSubmit={submit} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card sm:p-8">
+        <form onSubmit={submit} noValidate className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card sm:p-8">
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block sm:col-span-2">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Full name</span>
-              <input name="name" required className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+              <input
+                name="name"
+                required
+                value={name}
+                onChange={(e) => setName(sanitizeNameInput(e.target.value))}
+                pattern="[A-Za-z][A-Za-z\s.'\-]{1,79}"
+                title="Letters and spaces only"
+                autoComplete="name"
+                className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary"
+              />
             </label>
             <label className="block">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Phone</span>
-              <input name="phone" required inputMode="tel" className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+              <input
+                name="phone"
+                required
+                inputMode="tel"
+                autoComplete="tel"
+                value={phone}
+                onChange={(e) => setPhone(sanitizePhoneInput(e.target.value))}
+                pattern="\+?\d{10,15}"
+                title="10–15 digits, digits only"
+                className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary"
+              />
             </label>
             <label className="block">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Service</span>
@@ -68,7 +103,15 @@ function Book() {
             </label>
             <label className="block">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Preferred date</span>
-              <input name="date" type="date" required className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+              <input
+                name="date"
+                type="date"
+                required
+                min={minDate}
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary"
+              />
             </label>
             <label className="block">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Preferred time</span>
@@ -80,11 +123,11 @@ function Book() {
             </label>
             <label className="block sm:col-span-2">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Notes (optional)</span>
-              <textarea name="notes" rows={3} className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
+              <textarea name="notes" rows={3} maxLength={500} className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary" />
             </label>
           </div>
           <button type="submit" className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-glow sm:w-auto">
-            <MessageCircle className="h-4 w-4" /> Send request on WhatsApp
+            <MessageCircle className="h-4 w-4" /> Book Appointment
           </button>
           {sent && (
             <div className="mt-4 flex items-center gap-2 rounded-xl bg-emerald-accent/10 p-3 text-sm text-emerald-accent">
@@ -92,6 +135,7 @@ function Book() {
             </div>
           )}
         </form>
+
 
         <aside className="space-y-4">
           <div className="rounded-3xl border border-primary/10 bg-gradient-to-br from-primary-soft/40 to-white p-6 shadow-card">

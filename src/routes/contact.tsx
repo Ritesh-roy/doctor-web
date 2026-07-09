@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { toast } from "sonner";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CLINIC } from "@/data/clinic";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Ambulance } from "lucide-react";
+import { isValidName, isValidPhone, sanitizeNameInput, sanitizePhoneInput } from "@/lib/validators";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -19,10 +22,15 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
   const send = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
+    if (!isValidPhone(phone)) return toast.error("Enter a valid phone number");
     const f = new FormData(e.currentTarget);
-    const msg = `Hi, I'd like to get in touch.%0A%0AName: ${f.get("name")}%0APhone: ${f.get("phone")}%0AMessage: ${f.get("message")}`;
+    const msg = `Hi, I'd like to get in touch.%0A%0AName: ${name}%0APhone: ${phone}%0AMessage: ${f.get("message")}`;
     window.open(`${CLINIC.whatsapp}?text=${msg}`, "_blank");
   };
 
