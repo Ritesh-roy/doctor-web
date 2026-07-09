@@ -1,20 +1,29 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, Calendar, Clock, Star, Ambulance, Mail } from "lucide-react";
+import { Menu, X, Phone, Calendar, Clock, Star, Ambulance, Mail, ChevronDown } from "lucide-react";
 import { Logo } from "./Logo";
 import { CLINIC } from "@/data/clinic";
+import { SERVICES } from "@/data/services";
 
-const NAV = [
+type NavItem =
+  | { label: string; to: string; children?: undefined }
+  | { label: string; to: string; children: { label: string; to: string; description?: string }[] };
+
+const SERVICE_CHILDREN = [
+  { label: "All Services", to: "/services", description: "Overview of everything we offer" },
+  ...SERVICES.map((s) => ({ label: s.title, to: `/services/${s.slug}`, description: s.short })),
+  { label: "Blood Test", to: "/services/blood-test", description: "Fast, accurate pathology" },
+  { label: "Pharmacy", to: "/pharmacy", description: "In-house medicines & refills" },
+];
+
+const NAV: NavItem[] = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Services", to: "/services" },
-  { label: "Doctor", to: "/doctor" },
-  { label: "Facilities", to: "/facilities" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "Reviews", to: "/testimonials" },
-  { label: "FAQs", to: "/faqs" },
+  { label: "Services", to: "/services", children: SERVICE_CHILDREN },
+  { label: "Doctors", to: "/doctor" },
+  { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
-] as const;
+];
 
 export function TopBar() {
   return (
@@ -51,6 +60,7 @@ export function TopBar() {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);
@@ -78,17 +88,45 @@ export function Navbar() {
           <Logo />
 
           <nav className="hidden items-center justify-center gap-1 lg:flex">
-            {NAV.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                activeOptions={{ exact: n.to === "/" }}
-                activeProps={{ className: "bg-primary-soft/70 text-foreground" }}
-                className="rounded-full px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:bg-primary-soft/60 hover:text-foreground"
-              >
-                {n.label}
-              </Link>
-            ))}
+            {NAV.map((n) =>
+              n.children ? (
+                <div key={n.to} className="relative group">
+                  <Link
+                    to={n.to}
+                    activeProps={{ className: "bg-primary-soft/70 text-foreground" }}
+                    className="inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:bg-primary-soft/60 hover:text-foreground"
+                  >
+                    {n.label} <ChevronDown className="h-3.5 w-3.5" />
+                  </Link>
+                  <div className="invisible absolute left-1/2 top-full z-50 mt-1 w-[520px] -translate-x-1/2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
+                    <div className="grid grid-cols-2 gap-1 rounded-2xl border border-primary/10 bg-background/95 p-3 shadow-glow backdrop-blur">
+                      {n.children.map((c) => (
+                        <Link
+                          key={c.to}
+                          to={c.to}
+                          className="rounded-xl px-3 py-2 text-sm hover:bg-primary-soft/60"
+                        >
+                          <div className="font-semibold text-foreground">{c.label}</div>
+                          {c.description && (
+                            <div className="mt-0.5 text-xs text-muted-foreground line-clamp-1">{c.description}</div>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  activeOptions={{ exact: n.to === "/" }}
+                  activeProps={{ className: "bg-primary-soft/70 text-foreground" }}
+                  className="rounded-full px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:bg-primary-soft/60 hover:text-foreground"
+                >
+                  {n.label}
+                </Link>
+              )
+            )}
           </nav>
 
           <div className="flex items-center gap-2 justify-end">
@@ -118,18 +156,44 @@ export function Navbar() {
         {open && (
           <div className="fixed inset-x-0 top-[64px] z-40 max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-primary/10 bg-background/95 backdrop-blur lg:hidden">
             <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
-              {NAV.map((n) => (
-                <Link
-                  key={n.to}
-                  to={n.to}
-                  onClick={() => setOpen(false)}
-                  activeOptions={{ exact: n.to === "/" }}
-                  activeProps={{ className: "bg-primary-soft/70" }}
-                  className="rounded-xl px-3 py-3 text-base font-medium text-foreground/85 hover:bg-primary-soft/60"
-                >
-                  {n.label}
-                </Link>
-              ))}
+              {NAV.map((n) =>
+                n.children ? (
+                  <div key={n.to} className="rounded-xl">
+                    <button
+                      onClick={() => setServicesOpen((v) => !v)}
+                      className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-base font-medium text-foreground/85 hover:bg-primary-soft/60"
+                    >
+                      {n.label}
+                      <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {servicesOpen && (
+                      <div className="ml-3 mt-1 flex flex-col gap-0.5 border-l border-primary/15 pl-3">
+                        {n.children.map((c) => (
+                          <Link
+                            key={c.to}
+                            to={c.to}
+                            onClick={() => setOpen(false)}
+                            className="rounded-lg px-3 py-2 text-sm text-foreground/75 hover:bg-primary-soft/60"
+                          >
+                            {c.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={n.to}
+                    to={n.to}
+                    onClick={() => setOpen(false)}
+                    activeOptions={{ exact: n.to === "/" }}
+                    activeProps={{ className: "bg-primary-soft/70" }}
+                    className="rounded-xl px-3 py-3 text-base font-medium text-foreground/85 hover:bg-primary-soft/60"
+                  >
+                    {n.label}
+                  </Link>
+                )
+              )}
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <a
                   href={`tel:${CLINIC.phoneTel}`}
