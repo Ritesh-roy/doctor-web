@@ -11,7 +11,6 @@ import {
   Mail,
   ChevronDown,
   ShoppingCart,
-  Heart,
   User,
   Search,
 } from "lucide-react";
@@ -97,7 +96,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const { cartCount, wishlist } = useStore();
+  const { cartCount } = useStore();
   const { user, signOut } = useAuth();
 
   useEffect(() => {
@@ -171,12 +170,6 @@ export function Navbar() {
           <div className="flex items-center gap-1.5 justify-end">
             <Link to="/search" aria-label="Search" className="grid h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60">
               <Search className="h-4 w-4" />
-            </Link>
-            <Link to="/wishlist" aria-label="Wishlist" className="relative grid h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60">
-              <Heart className="h-4 w-4" />
-              {wishlist.length > 0 && (
-                <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-emerald-accent px-1 text-[10px] font-bold text-white">{wishlist.length}</span>
-              )}
             </Link>
             <Link to="/cart" aria-label="Cart" className="relative grid h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60">
               <ShoppingCart className="h-4 w-4" />

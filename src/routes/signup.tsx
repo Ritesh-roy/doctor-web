@@ -5,6 +5,13 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { supabase } from "@/integrations/supabase/client";
 import { Mail, Phone, ArrowLeft } from "lucide-react";
+import {
+  isValidName,
+  isValidEmail,
+  isValidPhone,
+  sanitizeNameInput,
+  sanitizePhoneInput,
+} from "@/lib/validators";
 
 export const Route = createFileRoute("/signup")({
   component: Signup,
@@ -38,9 +45,9 @@ function Signup() {
   const identifier = channel === "email" ? email.trim() : normalizePhone(phone);
 
   const sendOtp = async () => {
-    if (!fullName.trim()) return toast.error("Enter your full name");
-    if (channel === "email" && !email.trim()) return toast.error("Enter your email");
-    if (channel === "phone" && !phone.trim()) return toast.error("Enter your mobile");
+    if (!isValidName(fullName)) return toast.error("Name may only contain letters and spaces");
+    if (channel === "email" && !isValidEmail(email)) return toast.error("Enter a valid email address");
+    if (channel === "phone" && !isValidPhone(phone)) return toast.error("Enter a valid mobile number");
     setLoading(true);
     try {
       const options = { data: { full_name: fullName.trim() }, shouldCreateUser: true };
@@ -58,6 +65,7 @@ function Signup() {
       setLoading(false);
     }
   };
+
 
   const verifyOtp = async () => {
     if (otp.length < 4) return toast.error("Enter the OTP");
@@ -95,11 +103,29 @@ function Signup() {
                 </button>
               </div>
               <div className="space-y-4">
-                <Field label="Full Name" value={fullName} onChange={setFullName} placeholder="Your name" />
+                <Field
+                  label="Full Name"
+                  value={fullName}
+                  onChange={(v) => setFullName(sanitizeNameInput(v))}
+                  placeholder="Your name"
+                  pattern="[A-Za-z][A-Za-z\s.'\-]{1,79}"
+                  title="Letters and spaces only"
+                  autoComplete="name"
+                />
                 {channel === "email" ? (
-                  <Field label="Email" type="email" value={email} onChange={setEmail} placeholder="you@email.com" />
+                  <Field label="Email" type="email" value={email} onChange={setEmail} placeholder="you@email.com" autoComplete="email" />
                 ) : (
-                  <Field label="Mobile Number" type="tel" value={phone} onChange={setPhone} placeholder="+91 XXXXX XXXXX" />
+                  <Field
+                    label="Mobile Number"
+                    type="tel"
+                    inputMode="tel"
+                    value={phone}
+                    onChange={(v) => setPhone(sanitizePhoneInput(v))}
+                    placeholder="+91 XXXXX XXXXX"
+                    pattern="\+?\d{10,15}"
+                    title="10–15 digits, digits only"
+                    autoComplete="tel"
+                  />
                 )}
               </div>
               <button onClick={sendOtp} disabled={loading} className="mt-5 flex h-12 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground disabled:opacity-60">

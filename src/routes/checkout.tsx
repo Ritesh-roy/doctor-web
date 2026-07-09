@@ -1,10 +1,20 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { toast } from "sonner";
 import { CreditCard, Lock, Wallet, ShieldCheck } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
 import { formatINR } from "@/data/products";
+import {
+  isValidName,
+  isValidPhone,
+  isValidEmail,
+  isFutureOrToday,
+  sanitizeNameInput,
+  sanitizePhoneInput,
+  todayISO,
+} from "@/lib/validators";
 
 export const Route = createFileRoute("/checkout")({
   component: Checkout,
@@ -24,9 +34,18 @@ function Checkout() {
   const navigate = useNavigate();
   const [payment, setPayment] = useState<"cod" | "upi" | "card">("cod");
   const [placing, setPlacing] = useState(false);
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [date, setDate] = useState("");
+  const minDate = todayISO();
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
+    if (!isValidPhone(mobile)) return toast.error("Enter a valid mobile number");
+    if (email && !isValidEmail(email)) return toast.error("Enter a valid email");
+    if (!isFutureOrToday(date)) return toast.error("Choose today or a future date");
     setPlacing(true);
     await new Promise((r) => setTimeout(r, 800));
     clearCart();
@@ -50,23 +69,63 @@ function Checkout() {
       <PageHero eyebrow="Checkout" title="Complete your booking" intro="Confirm your details and preferred slot to finish." crumbs={[{ label: "Home", to: "/" }, { label: "Cart", to: "/cart" }, { label: "Checkout" }]} />
 
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-        <form onSubmit={submit} className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+        <form onSubmit={submit} noValidate className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
           <div className="space-y-6">
             <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card">
               <h3 className="font-display text-lg font-semibold text-foreground">Patient details</h3>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <Field label="Full name" required><input required className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm" /></Field>
-                <Field label="Mobile" required><input required type="tel" placeholder="+91" className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm" /></Field>
-                <Field label="Email"><input type="email" className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm" /></Field>
-                <Field label="Age"><input type="number" min={1} className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm" /></Field>
-                <Field label="Address (for home visit)" full><textarea rows={2} className="w-full rounded-2xl border border-primary/15 bg-background p-3 text-sm" /></Field>
+                <Field label="Full name" required>
+                  <input
+                    required
+                    value={name}
+                    onChange={(e) => setName(sanitizeNameInput(e.target.value))}
+                    pattern="[A-Za-z][A-Za-z\s.'\-]{1,79}"
+                    title="Letters and spaces only"
+                    autoComplete="name"
+                    className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
+                  />
+                </Field>
+                <Field label="Mobile" required>
+                  <input
+                    required
+                    type="tel"
+                    inputMode="tel"
+                    value={mobile}
+                    onChange={(e) => setMobile(sanitizePhoneInput(e.target.value))}
+                    pattern="\+?\d{10,15}"
+                    title="10–15 digits, digits only"
+                    placeholder="+91"
+                    autoComplete="tel"
+                    className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
+                  />
+                </Field>
+                <Field label="Email">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
+                    className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
+                  />
+                </Field>
+                <Field label="Age"><input type="number" min={1} max={120} className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm" /></Field>
+                <Field label="Address (for home visit)" full><textarea rows={2} maxLength={300} className="w-full rounded-2xl border border-primary/15 bg-background p-3 text-sm" /></Field>
               </div>
             </div>
 
             <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card">
               <h3 className="font-display text-lg font-semibold text-foreground">Preferred slot</h3>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <Field label="Date" required><input required type="date" className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm" /></Field>
+                <Field label="Date" required>
+                  <input
+                    required
+                    type="date"
+                    min={minDate}
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
+                  />
+                </Field>
                 <Field label="Time" required>
                   <select required className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-3 text-sm">
                     <option value="">Select…</option>
@@ -78,6 +137,7 @@ function Checkout() {
                 </Field>
               </div>
             </div>
+
 
             <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card">
               <h3 className="font-display text-lg font-semibold text-foreground">Payment method</h3>
