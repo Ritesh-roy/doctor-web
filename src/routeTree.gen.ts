@@ -13,16 +13,19 @@ import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as PharmacyRouteImport } from './routes/pharmacy'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as DoctorRouteImport } from './routes/doctor'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
@@ -42,6 +45,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmacyRoute = PharmacyRouteImport.update({
+  id: '/pharmacy',
+  path: '/pharmacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -74,6 +82,11 @@ const BookAppointmentRoute = BookAppointmentRouteImport.update({
   path: '/book-appointment',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -94,35 +107,46 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ServicesRoute,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
   '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
+  '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
   '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
+  '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -130,16 +154,19 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
   '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
   '/gallery': typeof GalleryRoute
+  '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -148,47 +175,56 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/blog'
     | '/book-appointment'
     | '/contact'
     | '/doctor'
     | '/facilities'
     | '/faqs'
     | '/gallery'
+    | '/pharmacy'
     | '/privacy-policy'
     | '/services'
     | '/terms'
     | '/testimonials'
+    | '/blog/$slug'
     | '/services/$slug'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/blog'
     | '/book-appointment'
     | '/contact'
     | '/doctor'
     | '/facilities'
     | '/faqs'
     | '/gallery'
+    | '/pharmacy'
     | '/privacy-policy'
     | '/terms'
     | '/testimonials'
+    | '/blog/$slug'
     | '/services/$slug'
     | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/blog'
     | '/book-appointment'
     | '/contact'
     | '/doctor'
     | '/facilities'
     | '/faqs'
     | '/gallery'
+    | '/pharmacy'
     | '/privacy-policy'
     | '/services'
     | '/terms'
     | '/testimonials'
+    | '/blog/$slug'
     | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -196,12 +232,14 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BookAppointmentRoute: typeof BookAppointmentRoute
   ContactRoute: typeof ContactRoute
   DoctorRoute: typeof DoctorRoute
   FacilitiesRoute: typeof FacilitiesRoute
   FaqsRoute: typeof FaqsRoute
   GalleryRoute: typeof GalleryRoute
+  PharmacyRoute: typeof PharmacyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   TermsRoute: typeof TermsRoute
@@ -236,6 +274,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacy': {
+      id: '/pharmacy'
+      path: '/pharmacy'
+      fullPath: '/pharmacy'
+      preLoaderRoute: typeof PharmacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -280,6 +325,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookAppointmentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -308,8 +360,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -328,12 +397,14 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogRoute: BlogRouteWithChildren,
   BookAppointmentRoute: BookAppointmentRoute,
   ContactRoute: ContactRoute,
   DoctorRoute: DoctorRoute,
   FacilitiesRoute: FacilitiesRoute,
   FaqsRoute: FaqsRoute,
   GalleryRoute: GalleryRoute,
+  PharmacyRoute: PharmacyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServicesRoute: ServicesRouteWithChildren,
   TermsRoute: TermsRoute,
