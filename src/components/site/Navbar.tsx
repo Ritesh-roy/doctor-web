@@ -19,6 +19,7 @@ import { Logo } from "./Logo";
 import { CLINIC } from "@/data/clinic";
 import { CATEGORIES } from "@/data/products";
 import { useStore } from "@/lib/store";
+import { useAuth } from "@/lib/auth";
 
 type Child = { label: string; to: string; params?: Record<string, string>; description?: string };
 type NavItem =
