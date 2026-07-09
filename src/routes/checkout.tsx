@@ -1,10 +1,20 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { toast } from "sonner";
 import { CreditCard, Lock, Wallet, ShieldCheck } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
 import { formatINR } from "@/data/products";
+import {
+  isValidName,
+  isValidPhone,
+  isValidEmail,
+  isFutureOrToday,
+  sanitizeNameInput,
+  sanitizePhoneInput,
+  todayISO,
+} from "@/lib/validators";
 
 export const Route = createFileRoute("/checkout")({
   component: Checkout,
@@ -24,9 +34,18 @@ function Checkout() {
   const navigate = useNavigate();
   const [payment, setPayment] = useState<"cod" | "upi" | "card">("cod");
   const [placing, setPlacing] = useState(false);
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [date, setDate] = useState("");
+  const minDate = todayISO();
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
+    if (!isValidPhone(mobile)) return toast.error("Enter a valid mobile number");
+    if (email && !isValidEmail(email)) return toast.error("Enter a valid email");
+    if (!isFutureOrToday(date)) return toast.error("Choose today or a future date");
     setPlacing(true);
     await new Promise((r) => setTimeout(r, 800));
     clearCart();

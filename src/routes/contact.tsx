@@ -69,24 +69,43 @@ function Contact() {
         </div>
 
         <div>
-          <form onSubmit={send} className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card sm:p-8">
+          <form onSubmit={send} noValidate className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card sm:p-8">
             <h2 className="font-display text-2xl text-foreground">Send us a message</h2>
             <p className="mt-1 text-sm text-muted-foreground">We'll reply on WhatsApp for the fastest response.</p>
             <div className="mt-6 grid gap-4">
               <label className="block">
                 <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Your name</span>
-                <input name="name" required className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
+                <input
+                  name="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(sanitizeNameInput(e.target.value))}
+                  pattern="[A-Za-z][A-Za-z\s.'\-]{1,79}"
+                  title="Letters and spaces only"
+                  autoComplete="name"
+                  className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary"
+                />
               </label>
               <label className="block">
                 <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Phone</span>
-                <input name="phone" required inputMode="tel" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
+                <input
+                  name="phone"
+                  required
+                  inputMode="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(sanitizePhoneInput(e.target.value))}
+                  pattern="\+?\d{10,15}"
+                  title="10–15 digits, digits only"
+                  autoComplete="tel"
+                  className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary"
+                />
               </label>
               <label className="block">
                 <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">How can we help?</span>
-                <textarea name="message" rows={4} required className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
+                <textarea name="message" rows={4} required maxLength={1000} className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
               </label>
               <button type="submit" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-glow">
-                Send via WhatsApp
+                Send Message
               </button>
             </div>
           </form>
