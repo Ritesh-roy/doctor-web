@@ -247,8 +247,17 @@ export function Navbar() {
                 ),
               )}
               <div className="mt-2 grid grid-cols-2 gap-2">
-                <Link to="/login" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign in</Link>
-                <Link to="/signup" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign up</Link>
+                {user ? (
+                  <>
+                    <Link to="/my-account" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">My Account</Link>
+                    <button onClick={() => { setOpen(false); signOut(); }} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign out</button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign in</Link>
+                    <Link to="/signup" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign up</Link>
+                  </>
+                )}
               </div>
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <a
