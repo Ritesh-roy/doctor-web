@@ -22,36 +22,64 @@ export type Product = {
   homeVisit?: boolean;
 };
 
+const IMG = {
+  physioCategory: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80",
+  diagnosticsCategory: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?auto=format&fit=crop&w=900&q=80",
+  radiologyCategory: "https://images.unsplash.com/photo-1583912086096-8c60d75a53f9?auto=format&fit=crop&w=900&q=80",
+  eyeCategory: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=900&q=80",
+  medicalCategory: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",
+  essentialBlood: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80",
+  advanceBlood: "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=900&q=80",
+  premiumBlood: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=900&q=80",
+  superPremiumBlood: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=80",
+  cupping: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80",
+  fireCupping: "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=900&q=80",
+  fitness: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
+  massage: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80",
+  hijama: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80",
+  jaanuVasti: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80",
+  katiVasti: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=900&q=80",
+  yogaMassage: "https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=900&q=80",
+  ctScan: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=900&q=80",
+  mri: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=900&q=80",
+  xray: "https://images.unsplash.com/photo-1583911860205-72f8ac8ddcbe?auto=format&fit=crop&w=900&q=80",
+  eyeCheckup: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80",
+  lensReplace: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80",
+  ecg: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=900&q=80",
+};
+
+export const PRODUCT_IMAGE_FALLBACK = IMG.medicalCategory;
+
 export const CATEGORIES: { slug: ProductCategorySlug; label: string; description: string; image: string }[] = [
   {
     slug: "physiotherapy",
     label: "Physiotherapy",
     description: "Cupping, hijama, massage, kati-vasti and fitness therapy delivered by trained therapists.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
+    image: IMG.physioCategory,
   },
   {
     slug: "diognostick",
     label: "Diagnostics",
     description: "Essential to super-premium blood profiles processed in-house with same-day reports.",
-    image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
+    image: IMG.diagnosticsCategory,
   },
   {
     slug: "radiologist",
     label: "Radiologist",
     description: "X-Ray, CT scan and MRI booked and coordinated through trusted radiology partners.",
-    image: "https://images.unsplash.com/photo-1516069677018-378971dc3d0d?auto=format&fit=crop&w=800&q=80",
+    image: IMG.radiologyCategory,
   },
   {
     slug: "eye-treatment",
     label: "Eye Treatment",
     description: "Comprehensive eye check-ups, lens replacement and vision screening for the whole family.",
-    image: "https://images.unsplash.com/photo-1594824388858-a92a5abbcbde?auto=format&fit=crop&w=800&q=80",
+    image: IMG.eyeCategory,
   },
   {
     slug: "medical",
     label: "General Medical",
     description: "ECG, vitals and general OPD checkups by our resident doctor.",
-    image: "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&w=800&q=80",
+    image: IMG.medicalCategory,
   },
 ];
 
@@ -64,7 +92,7 @@ export const PRODUCTS: Product[] = [
     price: 999,
     oldPrice: 1499,
     onSale: true,
-    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80",
+    image: IMG.essentialBlood,
     shortDescription: "Essential blood profile covering CBC, sugar, lipid & liver markers.",
     description:
       "Our Essential Blood Test bundles the most commonly needed markers — Complete Blood Count (CBC), Fasting Blood Sugar, Lipid Profile, Kidney & Liver Function — into a single low-cost package. Reports are shared digitally the same day and reviewed with you by the doctor.",
@@ -80,7 +108,7 @@ export const PRODUCTS: Product[] = [
     price: 1699,
     oldPrice: 2499,
     onSale: true,
-    image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
+    image: IMG.advanceBlood,
     shortDescription: "Advance profile with thyroid, HbA1c, vitamin D & B12 panels.",
     description:
       "The Advance package adds Thyroid Profile, HbA1c, Vitamin D and Vitamin B12 to every essential marker — ideal for a yearly deep-dive or if you have fatigue, weight change or metabolic concerns.",
@@ -96,7 +124,7 @@ export const PRODUCTS: Product[] = [
     price: 1999,
     oldPrice: 2999,
     onSale: true,
-    image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
+    image: IMG.premiumBlood,
     shortDescription: "Premium 70+ parameter profile with hormonal & cardiac markers.",
     description:
       "A deep 70+ parameter panel including full thyroid, iron studies, cardiac risk markers, electrolytes and inflammation indicators — perfect for anyone over 35 or with a family history of chronic disease.",
@@ -112,7 +140,7 @@ export const PRODUCTS: Product[] = [
     price: 2499,
     oldPrice: 3999,
     onSale: true,
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80",
+    image: IMG.superPremiumBlood,
     shortDescription: "Comprehensive 87-parameter yearly master health package.",
     description:
       "The Super Premium package covers 87 parameters across metabolic, cardiac, hepatic, renal, thyroid, inflammatory, vitamin and mineral markers. Includes a detailed consultation to interpret every result.",
@@ -126,7 +154,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 400,
-    image: "https://images.unsplash.com/photo-1631651363531-fe4bd07217a5?auto=format&fit=crop&w=800&q=80",
+    image: IMG.cupping,
     shortDescription: "Traditional dry cupping to release muscle tension and improve circulation.",
     description:
       "Dry cupping uses gentle suction over knots and tight muscles to lift fascia, boost local circulation and speed recovery. Ideal for shoulder, back and neck stiffness.",
@@ -139,7 +167,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 450,
-    image: "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=800&q=80",
+    image: IMG.fireCupping,
     shortDescription: "Classical fire-cupping for deeper muscular release and detox.",
     description:
       "Fire cupping applies traditional heat-based suction that goes deeper than dry cupping — recommended for chronic back pain, sciatica and post-exercise recovery.",
@@ -152,7 +180,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 300,
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+    image: IMG.fitness,
     shortDescription: "Guided rehab exercises for posture, mobility and strength.",
     description:
       "One-on-one fitness therapy sessions to correct posture, strengthen core and rehabilitate injuries. Every session includes a home exercise plan.",
@@ -167,7 +195,7 @@ export const PRODUCTS: Product[] = [
     price: 999,
     oldPrice: 2100,
     onSale: true,
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80",
+    image: IMG.massage,
     shortDescription: "Full-body relaxation and therapeutic massage combo — save over 50%.",
     description:
       "A relaxing yet therapeutic full-body oil massage combined with warm compress — designed to relieve stress, ease muscle stiffness and improve sleep. Best-selling combo.",
@@ -180,7 +208,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 600,
-    image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80",
+    image: IMG.hijama,
     shortDescription: "Sunnah-style hijama (wet cupping) by certified practitioner.",
     description:
       "Traditional wet cupping (hijama) performed with strict sterile technique — helpful for chronic pain, migraines and detoxification. Performed by a certified hijama practitioner.",
@@ -193,7 +221,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 500,
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
+    image: IMG.jaanuVasti,
     shortDescription: "Ayurvedic knee therapy for stiffness, arthritis and knee pain.",
     description:
       "Jaanu Vasti pools warm medicated oil around the knee joint to reduce inflammation, lubricate cartilage and relieve chronic knee pain — a proven Ayurvedic therapy.",
@@ -206,7 +234,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 500,
-    image: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=800&q=80",
+    image: IMG.katiVasti,
     shortDescription: "Ayurvedic lower-back therapy for sciatica, spondylosis and back pain.",
     description:
       "Kati Vasti retains warm medicated oil over the lumbar spine to soothe muscles, decompress nerves and reduce lower-back pain. Excellent for sciatica and lumbar spondylosis.",
@@ -219,7 +247,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 400,
-    image: "https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=800&q=80",
+    image: IMG.yogaMassage,
     shortDescription: "Assisted yoga stretches with therapeutic massage for full-body mobility.",
     description:
       "A blend of assisted yoga stretches and deep-tissue massage that improves flexibility, releases tight fascia and calms the nervous system.",
@@ -232,7 +260,7 @@ export const PRODUCTS: Product[] = [
     category: "radiologist",
     categoryLabel: "Radiologist",
     price: 2500,
-    image: "https://images.unsplash.com/photo-1516069677018-378971dc3d0d?auto=format&fit=crop&w=800&q=80",
+    image: IMG.ctScan,
     shortDescription: "CT scan booking with trusted radiology partners.",
     description:
       "We coordinate CT scan bookings with senior radiologists at partner imaging centres — with clear preparation instructions, appointment reminders and doctor review of your report.",
@@ -246,7 +274,7 @@ export const PRODUCTS: Product[] = [
     price: 3500,
     oldPrice: 7000,
     onSale: true,
-    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=800&q=80",
+    image: IMG.mri,
     shortDescription: "MRI booking at 50% off — via partner radiology centres.",
     description:
       "High-resolution MRI at partner centres at a specially negotiated rate for Sanjeevani patients. Includes booking coordination, doctor's referral and post-report consultation.",
@@ -258,7 +286,7 @@ export const PRODUCTS: Product[] = [
     category: "radiologist",
     categoryLabel: "Radiologist",
     price: 400,
-    image: "https://images.unsplash.com/photo-1583911860205-72f8ac8ddcbe?auto=format&fit=crop&w=800&q=80",
+    image: IMG.xray,
     shortDescription: "Digital X-Ray with low radiation dose and same-day report.",
     description:
       "Digital X-Ray imaging with low-dose exposure. Reports are typically ready the same day and reviewed with you by our doctor.",
@@ -271,7 +299,7 @@ export const PRODUCTS: Product[] = [
     category: "eye-treatment",
     categoryLabel: "Eye Treatment",
     price: 1,
-    image: "https://images.unsplash.com/photo-1587613864411-4a5cd5b4f5d8?auto=format&fit=crop&w=800&q=80",
+    image: IMG.eyeCheckup,
     shortDescription: "Comprehensive eye examination — currently free (₹1 nominal charge).",
     description:
       "Comprehensive eye examination: visual acuity, refraction, pressure check and fundus review. Currently offered at a nominal ₹1 booking charge as part of our community outreach.",
@@ -284,7 +312,7 @@ export const PRODUCTS: Product[] = [
     category: "eye-treatment",
     categoryLabel: "Eye Treatment",
     price: 500,
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80",
+    image: IMG.lensReplace,
     shortDescription: "Replace lenses on existing frames — quick and accurate.",
     description:
       "Get new prescription lenses fitted into your existing frames. Includes free power check and 15-day comfort guarantee.",
@@ -297,7 +325,7 @@ export const PRODUCTS: Product[] = [
     categoryLabel: "General Medical",
     price: 300,
     rating: 5,
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    image: IMG.ecg,
     shortDescription: "12-lead ECG with instant tracing and doctor review.",
     description:
       "Quick 12-lead ECG with instant tracing and immediate review by our doctor. Rated 5.0 by patients.",

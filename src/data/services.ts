@@ -1,9 +1,11 @@
 import servicePhysio from "@/assets/service-physio.jpg";
-import serviceDiagnostic from "@/assets/service-diagnostic.jpg";
 import serviceRadiology from "@/assets/service-radiology.jpg";
 import serviceEye from "@/assets/service-eye.jpg";
 import serviceGeneral from "@/assets/service-general.jpg";
 import serviceCheckup from "@/assets/service-checkup.jpg";
+
+const serviceBloodTest = "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?auto=format&fit=crop&w=1200&q=80";
+const servicePathology = "https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=1200&q=80";
 
 export type Service = {
   slug: string;
@@ -56,7 +58,7 @@ export const SERVICES: Service[] = [
     short: "Accurate blood work with same-day reports and optional home collection.",
     description:
       "From routine CBC and lipid profiles to specialised hormonal, diabetic and thyroid panels, our in-house pathology unit delivers accurate blood test reports quickly — with trained phlebotomists, low-discomfort sampling and clear pre-test guidance.",
-    image: serviceDiagnostic,
+    image: serviceBloodTest,
     icon: "microscope",
     benefits: [
       "Same-day reports for most common blood tests",
@@ -81,7 +83,7 @@ export const SERVICES: Service[] = [
     short: "In-house pathology and blood work with rapid, accurate reports.",
     description:
       "From routine blood tests to specialised panels, our in-house lab delivers timely, accurate reports so treatment never has to wait. Samples are collected in a clean, comfortable environment with clear pre-test guidance.",
-    image: serviceDiagnostic,
+    image: servicePathology,
     icon: "microscope",
     benefits: [
       "Same-day reports for most common tests",

@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { SERVICES, getService, type Service } from "@/data/services";
+import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { Check, ArrowRight, Calendar } from "lucide-react";
 import {
   Accordion,
@@ -53,7 +54,14 @@ function ServiceDetail() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div className="overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-glow">
-            <img src={s.image} alt={s.title} className="aspect-[4/3] w-full object-cover" />
+            <img
+              src={s.image}
+              alt={s.title}
+              onError={(e) => {
+                e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+              }}
+              className="aspect-[4/3] w-full object-cover"
+            />
           </div>
           <div className="flex flex-col justify-center">
             <p className="text-muted-foreground">{s.description}</p>
@@ -109,7 +117,15 @@ function ServiceDetail() {
           {related.map((r) => (
             <Link key={r.slug} to="/services/$slug" params={{ slug: r.slug }} className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-transform hover:-translate-y-1">
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={r.image} alt={r.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img
+                  src={r.image}
+                  alt={r.title}
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+                  }}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
               </div>
               <div className="p-5">
                 <div className="font-display text-lg font-semibold text-foreground">{r.title}</div>

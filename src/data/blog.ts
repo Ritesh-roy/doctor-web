@@ -30,9 +30,9 @@ const IMG = {
   fullBodyPhysio:
     "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1600&q=80",
   eyeCampaign:
-    "https://images.unsplash.com/photo-1587613864411-4a5cd5b4f5d8?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=1600&q=80",
   bloodTest:
-    "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=1600&q=80",
   bloodReport:
     "https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&w=1600&q=80",
   eyeCheck:
@@ -40,7 +40,7 @@ const IMG = {
   diabetes:
     "https://images.unsplash.com/photo-1579154392429-0e6b4e850ad2?auto=format&fit=crop&w=1600&q=80",
   bp:
-    "https://images.unsplash.com/photo-1631815588090-d1bcbe9a8537?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1584516150909-c43483ee7932?auto=format&fit=crop&w=1600&q=80",
   annualCheck:
     "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80",
   backPain:

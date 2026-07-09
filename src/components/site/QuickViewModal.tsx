@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { X, Heart, ShoppingCart, Calendar, Check } from "lucide-react";
 import { useEffect } from "react";
-import { formatINR, type Product } from "@/data/products";
+import { formatINR, PRODUCT_IMAGE_FALLBACK, type Product } from "@/data/products";
 import { useStore } from "@/lib/store";
 
 export function QuickViewModal({ product, onClose }: { product: Product; onClose: () => void }) {
@@ -33,7 +33,14 @@ export function QuickViewModal({ product, onClose }: { product: Product; onClose
         </button>
 
         <div className="aspect-square overflow-hidden bg-primary-soft/30">
-          <img src={product.image} alt={product.title} className="h-full w-full object-cover" />
+          <img
+            src={product.image}
+            alt={product.title}
+            onError={(e) => {
+              e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+            }}
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="flex flex-col gap-3 p-6">

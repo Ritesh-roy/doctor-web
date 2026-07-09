@@ -4,7 +4,7 @@ import { Check, Heart, ShoppingCart, Calendar, Minus, Plus, Star, Home } from "l
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { ProductCard } from "@/components/site/ProductCard";
-import { formatINR, getProduct, PRODUCTS } from "@/data/products";
+import { formatINR, getProduct, PRODUCTS, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { useStore } from "@/lib/store";
 
 export const Route = createFileRoute("/product/$slug")({
@@ -61,7 +61,14 @@ function ProductDetail() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div className="relative overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-glow">
-            <img src={p.image} alt={p.title} className="aspect-square w-full object-cover" />
+            <img
+              src={p.image}
+              alt={p.title}
+              onError={(e) => {
+                e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+              }}
+              className="aspect-square w-full object-cover"
+            />
             {discount > 0 && (
               <span className="absolute left-4 top-4 rounded-full bg-emerald-accent px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white">
                 −{discount}% Off
