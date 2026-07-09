@@ -9,21 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as PharmacyRouteImport } from './routes/pharmacy'
+import { Route as MyBookingsRouteImport } from './routes/my-bookings'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FreeEyeCheckupRouteImport } from './routes/free-eye-checkup'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as DoctorRouteImport } from './routes/doctor'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CancelPaymentRouteImport } from './routes/cancel-payment'
 import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AppointmentCancelledRouteImport } from './routes/appointment-cancelled'
+import { Route as AppointmentCancellationConfirmationRouteImport } from './routes/appointment-cancellation-confirmation'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -44,9 +61,29 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PharmacyRoute = PharmacyRouteImport.update({
+  id: '/pharmacy',
+  path: '/pharmacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyBookingsRoute = MyBookingsRouteImport.update({
+  id: '/my-bookings',
+  path: '/my-bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeEyeCheckupRoute = FreeEyeCheckupRouteImport.update({
+  id: '/free-eye-checkup',
+  path: '/free-eye-checkup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqsRoute = FaqsRouteImport.update({
@@ -69,11 +106,42 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CancelPaymentRoute = CancelPaymentRouteImport.update({
+  id: '/cancel-payment',
+  path: '/cancel-payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookAppointmentRoute = BookAppointmentRouteImport.update({
   id: '/book-appointment',
   path: '/book-appointment',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppointmentCancelledRoute = AppointmentCancelledRouteImport.update({
+  id: '/appointment-cancelled',
+  path: '/appointment-cancelled',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppointmentCancellationConfirmationRoute =
+  AppointmentCancellationConfirmationRouteImport.update({
+    id: '/appointment-cancellation-confirmation',
+    path: '/appointment-cancellation-confirmation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -94,35 +162,64 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ServicesRoute,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/appointment-cancellation-confirmation': typeof AppointmentCancellationConfirmationRoute
+  '/appointment-cancelled': typeof AppointmentCancelledRoute
+  '/blog': typeof BlogRouteWithChildren
   '/book-appointment': typeof BookAppointmentRoute
+  '/cancel-payment': typeof CancelPaymentRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
+  '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
+  '/my-bookings': typeof MyBookingsRoute
+  '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/appointment-cancellation-confirmation': typeof AppointmentCancellationConfirmationRoute
+  '/appointment-cancelled': typeof AppointmentCancelledRoute
+  '/blog': typeof BlogRouteWithChildren
   '/book-appointment': typeof BookAppointmentRoute
+  '/cancel-payment': typeof CancelPaymentRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
+  '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
+  '/my-bookings': typeof MyBookingsRoute
+  '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -130,16 +227,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/appointment-cancellation-confirmation': typeof AppointmentCancellationConfirmationRoute
+  '/appointment-cancelled': typeof AppointmentCancelledRoute
+  '/blog': typeof BlogRouteWithChildren
   '/book-appointment': typeof BookAppointmentRoute
+  '/cancel-payment': typeof CancelPaymentRoute
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
+  '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
+  '/login': typeof LoginRoute
+  '/my-bookings': typeof MyBookingsRoute
+  '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/services': typeof ServicesRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
+  '/thank-you': typeof ThankYouRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -148,47 +257,83 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/appointment-cancellation-confirmation'
+    | '/appointment-cancelled'
+    | '/blog'
     | '/book-appointment'
+    | '/cancel-payment'
+    | '/cart'
+    | '/checkout'
     | '/contact'
     | '/doctor'
     | '/facilities'
     | '/faqs'
+    | '/free-eye-checkup'
     | '/gallery'
+    | '/login'
+    | '/my-bookings'
+    | '/pharmacy'
     | '/privacy-policy'
     | '/services'
     | '/terms'
     | '/testimonials'
+    | '/thank-you'
+    | '/blog/$slug'
     | '/services/$slug'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/appointment-cancellation-confirmation'
+    | '/appointment-cancelled'
+    | '/blog'
     | '/book-appointment'
+    | '/cancel-payment'
+    | '/cart'
+    | '/checkout'
     | '/contact'
     | '/doctor'
     | '/facilities'
     | '/faqs'
+    | '/free-eye-checkup'
     | '/gallery'
+    | '/login'
+    | '/my-bookings'
+    | '/pharmacy'
     | '/privacy-policy'
     | '/terms'
     | '/testimonials'
+    | '/thank-you'
+    | '/blog/$slug'
     | '/services/$slug'
     | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/appointment-cancellation-confirmation'
+    | '/appointment-cancelled'
+    | '/blog'
     | '/book-appointment'
+    | '/cancel-payment'
+    | '/cart'
+    | '/checkout'
     | '/contact'
     | '/doctor'
     | '/facilities'
     | '/faqs'
+    | '/free-eye-checkup'
     | '/gallery'
+    | '/login'
+    | '/my-bookings'
+    | '/pharmacy'
     | '/privacy-policy'
     | '/services'
     | '/terms'
     | '/testimonials'
+    | '/thank-you'
+    | '/blog/$slug'
     | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -196,20 +341,38 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AppointmentCancellationConfirmationRoute: typeof AppointmentCancellationConfirmationRoute
+  AppointmentCancelledRoute: typeof AppointmentCancelledRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BookAppointmentRoute: typeof BookAppointmentRoute
+  CancelPaymentRoute: typeof CancelPaymentRoute
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   DoctorRoute: typeof DoctorRoute
   FacilitiesRoute: typeof FacilitiesRoute
   FaqsRoute: typeof FaqsRoute
+  FreeEyeCheckupRoute: typeof FreeEyeCheckupRoute
   GalleryRoute: typeof GalleryRoute
+  LoginRoute: typeof LoginRoute
+  MyBookingsRoute: typeof MyBookingsRoute
+  PharmacyRoute: typeof PharmacyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  ThankYouRoute: typeof ThankYouRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -238,11 +401,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pharmacy': {
+      id: '/pharmacy'
+      path: '/pharmacy'
+      fullPath: '/pharmacy'
+      preLoaderRoute: typeof PharmacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-bookings': {
+      id: '/my-bookings'
+      path: '/my-bookings'
+      fullPath: '/my-bookings'
+      preLoaderRoute: typeof MyBookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-eye-checkup': {
+      id: '/free-eye-checkup'
+      path: '/free-eye-checkup'
+      fullPath: '/free-eye-checkup'
+      preLoaderRoute: typeof FreeEyeCheckupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faqs': {
@@ -273,11 +464,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancel-payment': {
+      id: '/cancel-payment'
+      path: '/cancel-payment'
+      fullPath: '/cancel-payment'
+      preLoaderRoute: typeof CancelPaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/book-appointment': {
       id: '/book-appointment'
       path: '/book-appointment'
       fullPath: '/book-appointment'
       preLoaderRoute: typeof BookAppointmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appointment-cancelled': {
+      id: '/appointment-cancelled'
+      path: '/appointment-cancelled'
+      fullPath: '/appointment-cancelled'
+      preLoaderRoute: typeof AppointmentCancelledRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appointment-cancellation-confirmation': {
+      id: '/appointment-cancellation-confirmation'
+      path: '/appointment-cancellation-confirmation'
+      fullPath: '/appointment-cancellation-confirmation'
+      preLoaderRoute: typeof AppointmentCancellationConfirmationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -308,8 +541,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -328,27 +578,29 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AppointmentCancellationConfirmationRoute:
+    AppointmentCancellationConfirmationRoute,
+  AppointmentCancelledRoute: AppointmentCancelledRoute,
+  BlogRoute: BlogRouteWithChildren,
   BookAppointmentRoute: BookAppointmentRoute,
+  CancelPaymentRoute: CancelPaymentRoute,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   DoctorRoute: DoctorRoute,
   FacilitiesRoute: FacilitiesRoute,
   FaqsRoute: FaqsRoute,
+  FreeEyeCheckupRoute: FreeEyeCheckupRoute,
   GalleryRoute: GalleryRoute,
+  LoginRoute: LoginRoute,
+  MyBookingsRoute: MyBookingsRoute,
+  PharmacyRoute: PharmacyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServicesRoute: ServicesRouteWithChildren,
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
+  ThankYouRoute: ThankYouRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

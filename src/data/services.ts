@@ -51,6 +51,31 @@ export const SERVICES: Service[] = [
     ],
   },
   {
+    slug: "blood-test",
+    title: "Blood Test & Sample Collection",
+    short: "Accurate blood work with same-day reports and optional home collection.",
+    description:
+      "From routine CBC and lipid profiles to specialised hormonal, diabetic and thyroid panels, our in-house pathology unit delivers accurate blood test reports quickly — with trained phlebotomists, low-discomfort sampling and clear pre-test guidance.",
+    image: serviceDiagnostic,
+    icon: "microscope",
+    benefits: [
+      "Same-day reports for most common blood tests",
+      "Optional home sample collection in Kirari and nearby areas",
+      "Digital reports on WhatsApp and email",
+      "Reviewed personally by the doctor",
+    ],
+    process: [
+      { step: "Book", detail: "Walk-in or call to schedule your fasting slot." },
+      { step: "Collection", detail: "Sample taken by a trained phlebotomist at the clinic or your home." },
+      { step: "Testing", detail: "Processed in-house on calibrated analysers." },
+      { step: "Report", detail: "Digital report shared, then reviewed with you." },
+    ],
+    faqs: [
+      { q: "Do I need to fast before a blood test?", a: "Fasting is required for sugar, lipid and some liver tests — usually 8 to 12 hours." },
+      { q: "How quickly will I receive the report?", a: "Most reports are ready the same day; specialised tests may take 24 to 72 hours." },
+    ],
+  },
+  {
     slug: "diagnostics",
     title: "Diagnostic & Pathology",
     short: "In-house pathology and blood work with rapid, accurate reports.",
