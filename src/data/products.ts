@@ -27,31 +27,31 @@ export const CATEGORIES: { slug: ProductCategorySlug; label: string; description
     slug: "physiotherapy",
     label: "Physiotherapy",
     description: "Cupping, hijama, massage, kati-vasti and fitness therapy delivered by trained therapists.",
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/woman-doing-leg-exercises-hospital-300x300.jpg",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "diognostick",
     label: "Diagnostics",
     description: "Essential to super-premium blood profiles processed in-house with same-day reports.",
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/Hand-with-protective-gloves-holding-a-blood-samples-for-covid-test-_-Free-Photo-Brave-20_09_2025-18_30_55-300x300.png",
+    image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "radiologist",
     label: "Radiologist",
     description: "X-Ray, CT scan and MRI booked and coordinated through trusted radiology partners.",
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/doctor-getting-patient-ready-ct-scan-300x300.jpg",
+    image: "https://images.unsplash.com/photo-1516069677018-378971dc3d0d?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "eye-treatment",
     label: "Eye Treatment",
     description: "Comprehensive eye check-ups, lens replacement and vision screening for the whole family.",
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/little-girl-checking-up-her-sight-ophthalmology-center-300x300.jpg",
+    image: "https://images.unsplash.com/photo-1594824388858-a92a5abbcbde?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "medical",
     label: "General Medical",
     description: "ECG, vitals and general OPD checkups by our resident doctor.",
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/Edit-_home_-with-Elementor-Brave-15_09_2025-18_27_32-300x300.png",
+    image: "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -62,7 +62,9 @@ export const PRODUCTS: Product[] = [
     category: "diognostick",
     categoryLabel: "Diagnostics",
     price: 999,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/coronavirus-blood-samples-arrangement-lab-1-300x300.jpg",
+    oldPrice: 1499,
+    onSale: true,
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Essential blood profile covering CBC, sugar, lipid & liver markers.",
     description:
       "Our Essential Blood Test bundles the most commonly needed markers — Complete Blood Count (CBC), Fasting Blood Sugar, Lipid Profile, Kidney & Liver Function — into a single low-cost package. Reports are shared digitally the same day and reviewed with you by the doctor.",
@@ -76,7 +78,9 @@ export const PRODUCTS: Product[] = [
     category: "diognostick",
     categoryLabel: "Diagnostics",
     price: 1699,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/Hand-with-protective-gloves-holding-a-blood-samples-for-covid-test-_-Free-Photo-Brave-20_09_2025-18_30_55-300x300.png",
+    oldPrice: 2499,
+    onSale: true,
+    image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Advance profile with thyroid, HbA1c, vitamin D & B12 panels.",
     description:
       "The Advance package adds Thyroid Profile, HbA1c, Vitamin D and Vitamin B12 to every essential marker — ideal for a yearly deep-dive or if you have fatigue, weight change or metabolic concerns.",
@@ -90,7 +94,9 @@ export const PRODUCTS: Product[] = [
     category: "diognostick",
     categoryLabel: "Diagnostics",
     price: 1999,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/sample-vial-blood-label-coronavirus-test-sticker-own-design-dummy-barcode-data-green-orange-syringe-above-blurred-183771270.jpg-800%C3%97478-Brave-15_09_2025-18_15_11-300x300.png",
+    oldPrice: 2999,
+    onSale: true,
+    image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Premium 70+ parameter profile with hormonal & cardiac markers.",
     description:
       "A deep 70+ parameter panel including full thyroid, iron studies, cardiac risk markers, electrolytes and inflammation indicators — perfect for anyone over 35 or with a family history of chronic disease.",
@@ -104,7 +110,9 @@ export const PRODUCTS: Product[] = [
     category: "diognostick",
     categoryLabel: "Diagnostics",
     price: 2499,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/hand-with-protective-gloves-holding-blood-samples-covid-test-300x300.jpg",
+    oldPrice: 3999,
+    onSale: true,
+    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Comprehensive 87-parameter yearly master health package.",
     description:
       "The Super Premium package covers 87 parameters across metabolic, cardiac, hepatic, renal, thyroid, inflammatory, vitamin and mineral markers. Includes a detailed consultation to interpret every result.",
@@ -238,7 +246,7 @@ export const PRODUCTS: Product[] = [
     price: 3500,
     oldPrice: 7000,
     onSale: true,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/doctor-getting-patient-ready-ct-scan-300x300.jpg",
+    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=800&q=80",
     shortDescription: "MRI booking at 50% off — via partner radiology centres.",
     description:
       "High-resolution MRI at partner centres at a specially negotiated rate for Sanjeevani patients. Includes booking coordination, doctor's referral and post-report consultation.",
@@ -289,7 +297,7 @@ export const PRODUCTS: Product[] = [
     categoryLabel: "General Medical",
     price: 300,
     rating: 5,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/Edit-_home_-with-Elementor-Brave-15_09_2025-18_27_32-300x300.png",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
     shortDescription: "12-lead ECG with instant tracing and doctor review.",
     description:
       "Quick 12-lead ECG with instant tracing and immediate review by our doctor. Rated 5.0 by patients.",
