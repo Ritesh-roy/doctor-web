@@ -11,7 +11,6 @@ import {
   Mail,
   ChevronDown,
   ShoppingCart,
-  Heart,
   User,
   Search,
 } from "lucide-react";
@@ -97,7 +96,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const { cartCount, wishlist } = useStore();
+  const { cartCount } = useStore();
   const { user, signOut } = useAuth();
 
   useEffect(() => {
