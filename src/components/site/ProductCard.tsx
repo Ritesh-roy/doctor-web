@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Heart, ShoppingCart, Eye, Calendar, Star } from "lucide-react";
 import { useState } from "react";
-import { formatINR, type Product } from "@/data/products";
+import { formatINR, PRODUCT_IMAGE_FALLBACK, type Product } from "@/data/products";
 import { useStore } from "@/lib/store";
 import { QuickViewModal } from "./QuickViewModal";
 
@@ -24,6 +24,9 @@ export function ProductCard({ product }: { product: Product }) {
               src={product.image}
               alt={product.title}
               loading="lazy"
+              onError={(e) => {
+                e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+              }}
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </Link>

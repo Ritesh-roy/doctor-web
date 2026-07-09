@@ -3,7 +3,7 @@ import { ShoppingCart, Trash2, Minus, Plus, ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
-import { formatINR } from "@/data/products";
+import { formatINR, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 
 export const Route = createFileRoute("/cart")({
   component: Cart,
@@ -50,7 +50,14 @@ function Cart() {
               <div className="divide-y divide-primary/10">
                 {cartItems.map((item) => (
                   <div key={item.slug} className="grid grid-cols-[80px_1fr] items-center gap-4 py-4 sm:grid-cols-[80px_1fr_120px_100px_40px]">
-                    <img src={item.product.image} alt={item.product.title} className="h-20 w-20 rounded-2xl object-cover" />
+                    <img
+                      src={item.product.image}
+                      alt={item.product.title}
+                      onError={(e) => {
+                        e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+                      }}
+                      className="h-20 w-20 rounded-2xl object-cover"
+                    />
                     <div className="min-w-0">
                       <div className="text-[11px] font-semibold uppercase tracking-wider text-primary">{item.product.categoryLabel}</div>
                       <Link to="/product/$slug" params={{ slug: item.slug }} className="font-display text-base font-semibold text-foreground hover:text-primary">

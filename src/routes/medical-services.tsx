@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
-import { CATEGORIES, PRODUCTS } from "@/data/products";
+import { CATEGORIES, PRODUCTS, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { ArrowRight, Home } from "lucide-react";
 
 export const Route = createFileRoute("/medical-services")({
@@ -40,7 +40,14 @@ function MedicalServices() {
                 className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={c.image} alt={c.label} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img
+                    src={c.image}
+                    alt={c.label}
+                    onError={(e) => {
+                      e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+                    }}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                   <div className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
                     {count} {count === 1 ? "Product" : "Products"}
                   </div>

@@ -5,7 +5,7 @@ import { CreditCard, Lock, Wallet, ShieldCheck } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
-import { formatINR } from "@/data/products";
+import { formatINR, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import {
   isValidName,
   isValidPhone,
@@ -178,7 +178,14 @@ function Checkout() {
             <div className="mt-4 space-y-3 border-b border-primary/10 pb-4">
               {cartItems.map((i) => (
                 <div key={i.slug} className="flex items-center gap-3">
-                  <img src={i.product.image} alt={i.product.title} className="h-14 w-14 rounded-xl object-cover" />
+                  <img
+                    src={i.product.image}
+                    alt={i.product.title}
+                    onError={(e) => {
+                      e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+                    }}
+                    className="h-14 w-14 rounded-xl object-cover"
+                  />
                   <div className="min-w-0 flex-1">
                     <div className="truncate text-sm font-semibold">{i.product.title}</div>
                     <div className="text-xs text-muted-foreground">Qty {i.qty}</div>

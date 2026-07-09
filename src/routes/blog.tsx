@@ -41,22 +41,27 @@ function BlogIndex() {
               key={p.slug}
               to="/blog/$slug"
               params={{ slug: p.slug }}
-              className="group flex flex-col overflow-hidden rounded-3xl border border-primary/10 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-glow"
+              className="group flex flex-col overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition hover:-translate-y-1 hover:shadow-glow"
             >
-              <span className="inline-flex w-fit items-center rounded-full bg-primary-soft px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">
-                {p.category}
-              </span>
-              <h2 className="mt-4 font-display text-xl leading-snug text-foreground group-hover:text-primary">
-                {p.title}
-              </h2>
-              <p className="mt-3 flex-1 text-sm text-muted-foreground">{p.excerpt}</p>
-              <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5">
-                  <Clock className="h-3.5 w-3.5" /> {p.readMinutes} min read
+              <div className="aspect-[16/10] overflow-hidden bg-primary-soft/30">
+                <img src={p.cover} alt={p.featuredImageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <span className="inline-flex w-fit items-center rounded-full bg-primary-soft px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">
+                  {p.category}
                 </span>
-                <span className="inline-flex items-center gap-1 font-semibold text-primary">
-                  Read <ArrowRight className="h-3.5 w-3.5" />
-                </span>
+                <h2 className="mt-4 font-display text-xl leading-snug text-foreground group-hover:text-primary">
+                  {p.title}
+                </h2>
+                <p className="mt-3 flex-1 text-sm text-muted-foreground">{p.excerpt}</p>
+                <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5">
+                    <Clock className="h-3.5 w-3.5" /> {p.readMinutes} min read
+                  </span>
+                  <span className="inline-flex items-center gap-1 font-semibold text-primary">
+                    Read <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
