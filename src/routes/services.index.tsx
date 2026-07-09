@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { SERVICES } from "@/data/services";
+import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { Activity, Microscope, Sparkles, Eye, Stethoscope, HeartPulse, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/services/")({
@@ -37,7 +38,15 @@ function ServicesIndex() {
             return (
               <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-transform hover:-translate-y-1">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
+                    }}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                   <span className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-xl bg-white/90 text-primary shadow-soft backdrop-blur"><I className="h-5 w-5" /></span>
                 </div>
                 <div className="p-6">
