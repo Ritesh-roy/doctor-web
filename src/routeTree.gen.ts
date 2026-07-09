@@ -41,6 +41,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as ProductCategorySlugRouteImport } from './routes/product-category.$slug'
@@ -207,6 +208,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -264,6 +270,7 @@ export interface FileRoutesByFullPath {
   '/product-category/$slug': typeof ProductCategorySlugRoute
   '/product/$slug': typeof ProductSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -272,7 +279,6 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/appointment-cancellation-confirmation': typeof AppointmentCancellationConfirmationRoute
   '/appointment-cancelled': typeof AppointmentCancelledRoute
-  '/blog': typeof BlogRouteWithChildren
   '/book-appointment': typeof BookAppointmentRoute
   '/cancel-payment': typeof CancelPaymentRoute
   '/cart': typeof CartRoute
@@ -301,6 +307,7 @@ export interface FileRoutesByTo {
   '/product-category/$slug': typeof ProductCategorySlugRoute
   '/product/$slug': typeof ProductSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -340,6 +347,7 @@ export interface FileRoutesById {
   '/product-category/$slug': typeof ProductCategorySlugRoute
   '/product/$slug': typeof ProductSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -380,6 +388,7 @@ export interface FileRouteTypes {
     | '/product-category/$slug'
     | '/product/$slug'
     | '/services/$slug'
+    | '/blog/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -388,7 +397,6 @@ export interface FileRouteTypes {
     | '/admin'
     | '/appointment-cancellation-confirmation'
     | '/appointment-cancelled'
-    | '/blog'
     | '/book-appointment'
     | '/cancel-payment'
     | '/cart'
@@ -417,6 +425,7 @@ export interface FileRouteTypes {
     | '/product-category/$slug'
     | '/product/$slug'
     | '/services/$slug'
+    | '/blog'
     | '/services'
   id:
     | '__root__'
@@ -455,6 +464,7 @@ export interface FileRouteTypes {
     | '/product-category/$slug'
     | '/product/$slug'
     | '/services/$slug'
+    | '/blog/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -720,6 +730,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
@@ -753,10 +770,12 @@ declare module '@tanstack/react-router' {
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
