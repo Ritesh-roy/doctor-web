@@ -48,7 +48,7 @@ const NAV: NavItem[] = [
 ];
 
 export function TopBar() {
-  const { user, signOut } = useAuth();
+  const { user, signOut, isAdmin } = useAuth();
   return (
     <div className="hidden border-b border-primary/10 bg-primary text-primary-foreground lg:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
@@ -66,6 +66,7 @@ export function TopBar() {
         <div className="flex items-center gap-4 opacity-95">
           {user ? (
             <>
+              {isAdmin && <Link to="/admin" className="rounded-full bg-emerald-accent/90 px-3 py-1 font-semibold">Admin</Link>}
               <Link to="/my-account" className="hover:underline">My Account</Link>
               <Link to="/my-bookings" className="hover:underline">My Bookings</Link>
               <button onClick={() => signOut()} className="hover:underline">Sign out</button>
@@ -97,7 +98,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const { cartCount } = useStore();
-  const { user, signOut } = useAuth();
+  const { user, signOut, isAdmin } = useAuth();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);

@@ -37,6 +37,7 @@ import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AppointmentCancelledRouteImport } from './routes/appointment-cancelled'
 import { Route as AppointmentCancellationConfirmationRouteImport } from './routes/appointment-cancellation-confirmation'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -186,6 +187,11 @@ const AppointmentCancellationConfirmationRoute =
     path: '/appointment-cancellation-confirmation',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -225,6 +231,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/appointment-cancellation-confirmation': typeof AppointmentCancellationConfirmationRoute
   '/appointment-cancelled': typeof AppointmentCancelledRoute
   '/blog': typeof BlogRouteWithChildren
@@ -262,6 +269,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/appointment-cancellation-confirmation': typeof AppointmentCancellationConfirmationRoute
   '/appointment-cancelled': typeof AppointmentCancelledRoute
   '/blog': typeof BlogRouteWithChildren
@@ -299,6 +307,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/appointment-cancellation-confirmation': typeof AppointmentCancellationConfirmationRoute
   '/appointment-cancelled': typeof AppointmentCancelledRoute
   '/blog': typeof BlogRouteWithChildren
@@ -338,6 +347,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
     | '/appointment-cancellation-confirmation'
     | '/appointment-cancelled'
     | '/blog'
@@ -375,6 +385,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/admin'
     | '/appointment-cancellation-confirmation'
     | '/appointment-cancelled'
     | '/blog'
@@ -411,6 +422,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
     | '/appointment-cancellation-confirmation'
     | '/appointment-cancelled'
     | '/blog'
@@ -449,6 +461,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
   AppointmentCancellationConfirmationRoute: typeof AppointmentCancellationConfirmationRoute
   AppointmentCancelledRoute: typeof AppointmentCancelledRoute
   BlogRoute: typeof BlogRouteWithChildren
@@ -679,6 +692,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppointmentCancellationConfirmationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -758,6 +778,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
   AppointmentCancellationConfirmationRoute:
     AppointmentCancellationConfirmationRoute,
   AppointmentCancelledRoute: AppointmentCancelledRoute,

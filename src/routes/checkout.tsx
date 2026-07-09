@@ -37,7 +37,9 @@ function Checkout() {
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
   const minDate = todayISO();
 
   const submit = async (e: React.FormEvent) => {
@@ -47,9 +49,30 @@ function Checkout() {
     if (email && !isValidEmail(email)) return toast.error("Enter a valid email");
     if (!isFutureOrToday(date)) return toast.error("Choose today or a future date");
     setPlacing(true);
-    await new Promise((r) => setTimeout(r, 800));
-    clearCart();
-    navigate({ to: "/thank-you" });
+    try {
+      const { supabase } = await import("@/integrations/supabase/client");
+      const { data: userData } = await supabase.auth.getUser();
+      const { error } = await supabase.from("orders").insert({
+        user_id: userData.user?.id ?? null,
+        customer_name: name.trim(),
+        phone: mobile.trim(),
+        email: email.trim() || null,
+        address: address.trim() || null,
+        preferred_date: date,
+        preferred_time: time || null,
+        items: cartItems.map((i) => ({ slug: i.slug, title: i.product.title, price: i.product.price, qty: i.qty })),
+        total_amount: cartTotal,
+        payment_method: payment,
+      });
+      if (error) throw error;
+      toast.success("Order placed successfully");
+      clearCart();
+      navigate({ to: "/thank-you" });
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : "Could not place order");
+    } finally {
+      setPlacing(false);
+    }
   };
 
   if (cartItems.length === 0) {
@@ -109,7 +132,7 @@ function Checkout() {
                   />
                 </Field>
                 <Field label="Age"><input type="number" min={1} max={120} className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm" /></Field>
-                <Field label="Address (for home visit)" full><textarea rows={2} maxLength={300} className="w-full rounded-2xl border border-primary/15 bg-background p-3 text-sm" /></Field>
+                <Field label="Address (for home visit)" full><textarea value={address} onChange={(e) => setAddress(e.target.value)} rows={2} maxLength={300} className="w-full rounded-2xl border border-primary/15 bg-background p-3 text-sm" /></Field>
               </div>
             </div>
 
@@ -127,7 +150,7 @@ function Checkout() {
                   />
                 </Field>
                 <Field label="Time" required>
-                  <select required className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-3 text-sm">
+                  <select required value={time} onChange={(e) => setTime(e.target.value)} className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-3 text-sm">
                     <option value="">Select…</option>
                     <option>9:00 – 11:00 AM</option>
                     <option>11:00 AM – 1:00 PM</option>
