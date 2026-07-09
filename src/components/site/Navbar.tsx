@@ -49,6 +49,7 @@ const NAV: NavItem[] = [
 ];
 
 export function TopBar() {
+  const { user, signOut } = useAuth();
   return (
     <div className="hidden border-b border-primary/10 bg-primary text-primary-foreground lg:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
@@ -64,8 +65,18 @@ export function TopBar() {
           </span>
         </div>
         <div className="flex items-center gap-4 opacity-95">
-          <Link to="/my-account" className="hover:underline">My Account</Link>
-          <Link to="/my-bookings" className="hover:underline">My Bookings</Link>
+          {user ? (
+            <>
+              <Link to="/my-account" className="hover:underline">My Account</Link>
+              <Link to="/my-bookings" className="hover:underline">My Bookings</Link>
+              <button onClick={() => signOut()} className="hover:underline">Sign out</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="hover:underline">Sign in</Link>
+              <Link to="/signup" className="hover:underline">Sign up</Link>
+            </>
+          )}
           <span className="flex items-center gap-1.5">
             <Star className="h-3.5 w-3.5 fill-current text-emerald-accent" />
             <span className="font-semibold">{CLINIC.rating}</span> Google
