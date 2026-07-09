@@ -1,46 +1,25 @@
+# Sanjeevani Clinic — Full Rebuild Plan
 
-## Goal
-Rebuild the current single-page site into a premium, fully responsive, multi-page healthcare website using only the real clinic info (Dr. B.P. Singh, Karan Vihar/Kirari address, +91 88535 15351, Mon–Sun 9–1 & 5–9, services, etc.).
+## Delivery
+- **Phase 1 (this turn): structure + SEO shells** for every page in the sitemap.
+- **Phase 2:** premium long-form English content (800–1500 words) per page, blog articles, service deep dives.
+- **Phase 3:** enable Lovable Cloud, add real auth (Email + Google), booking DB, cart, checkout, my-bookings, admin.
 
-## Pages (each = separate TanStack route with own hero, breadcrumb, SEO, CTA)
-- `/` Home
-- `/about` About + Mission/Vision/Achievements
-- `/services` Services overview
-- `/services/$slug` Detail (physiotherapy, diagnostics, radiology, general-medicine, eye-checkup, health-checkup) with benefits, process, FAQs, related services
-- `/doctor` Dr. B.P. Singh profile
-- `/facilities` Clinic facilities
-- `/gallery` Masonry gallery
-- `/testimonials` Google-review-style cards
-- `/faqs`
-- `/contact` Map + form + hours
-- `/book-appointment` Form
-- `/privacy-policy`, `/terms`
+## Sitemap (all routes exist now)
+Public: `/`, `/about`, `/doctor`, `/facilities`, `/gallery`, `/testimonials`, `/faqs`, `/contact`, `/blog`, `/blog/$slug`, `/free-eye-checkup`, `/pharmacy`
+Services: `/services`, `/services/physiotherapy`, `/services/blood-test`, `/services/diagnostics`, `/services/radiology`, `/services/eye-checkup`, `/services/general-medicine`, `/services/health-checkup`
+Transactional (Phase 3 wiring): `/book-appointment`, `/my-bookings`, `/cart`, `/checkout`, `/login`, `/thank-you`, `/appointment-cancelled`, `/appointment-cancellation-confirmation`, `/cancel-payment`
+Legal: `/privacy-policy`, `/terms`
 
-## Shared layout
-- New `SiteLayout` with sticky glass navbar (real links, mobile Sheet drawer), top utility bar, footer.
-- New premium SVG logo (blue medical cross + monogram), light + dark variants, favicon.
-- Floating call/WhatsApp buttons, sized correctly on all breakpoints.
-- Framer Motion page transitions.
+## Navigation (grouped)
+Nav: Home · About · Services▾ (7 services + Pharmacy) · Doctors · Blog · Contact · **Book Appointment** (CTA)
+Footer: Quick Links / Medical Services / Support / Legal + social
 
-## Critical fixes
-- Responsive audit: nav collapses to hamburger < lg, hero grid stacks < md, buttons `w-full sm:w-auto`, no fixed widths, `min-w-0` + `truncate` in header row, container `px-4 sm:px-6 lg:px-8`.
-- Book Appointment + Call buttons: consistent height, same alignment, wrap correctly.
-- Remove fake AI service images (physio, radiology); replace via lovable-assets with realistic stock medical photography URLs (Unsplash medical).
-
-## Design system
-- Keep existing tokens (medical blue, sky, emerald). Refine spacing scale, add subtle noise/gradient hero, glass cards, generous whitespace.
-- Typography: Fraunces display + Plus Jakarta Sans (already loaded).
+## Blog (10 posts stubbed, full content in Phase 2)
+Physio-at-home Rohini · Full-body physio for stress · Free eye checkup campaign · When to book a blood test · Reading your blood report · 5 signs for eye checkup · Diabetes 30s/40s · BP daily habits · Annual checkup guide · Back pain when to see a doctor.
 
 ## SEO
-- Per-route `head()` with unique title/description/og, canonical, breadcrumb JSON-LD, MedicalClinic schema on Home/Contact, Service schema per service detail.
+Every route has unique title, description, keywords, og:*, canonical. Blog posts include Article JSON-LD. Home/Contact keep MedicalClinic schema.
 
-## Technical notes
-- Add routes as flat files under `src/routes/` (`about.tsx`, `services.tsx`, `services.$slug.tsx`, etc.).
-- Extract Navbar/Footer/FloatingActions into `src/components/site/`.
-- Move service data to `src/data/services.ts`.
-- Use `<Link>` for all nav.
-- Replace bad AI images with new lovable-assets pointers sourced from realistic imagery.
-
-## Out of scope
-- No backend / booking persistence (form is client-side, opens WhatsApp/mailto).
-- No CMS.
+## Out of scope for Phase 1
+Long-form body copy (Phase 2), real payments/auth/DB (Phase 3).
