@@ -66,6 +66,7 @@ export function TopBar() {
         <div className="flex items-center gap-4 opacity-95">
           {user ? (
             <>
+              {isAdmin && <Link to="/admin" className="rounded-full bg-emerald-accent/90 px-3 py-1 font-semibold">Admin</Link>}
               <Link to="/my-account" className="hover:underline">My Account</Link>
               <Link to="/my-bookings" className="hover:underline">My Bookings</Link>
               <button onClick={() => signOut()} className="hover:underline">Sign out</button>

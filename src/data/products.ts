@@ -126,7 +126,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 400,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/man-suction-cups-session-300x300.jpg",
+    image: "https://images.unsplash.com/photo-1631651363531-fe4bd07217a5?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Traditional dry cupping to release muscle tension and improve circulation.",
     description:
       "Dry cupping uses gentle suction over knots and tight muscles to lift fascia, boost local circulation and speed recovery. Ideal for shoulder, back and neck stiffness.",
@@ -139,7 +139,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 450,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/high-angle-suction-cup-process-300x300.webp",
+    image: "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Classical fire-cupping for deeper muscular release and detox.",
     description:
       "Fire cupping applies traditional heat-based suction that goes deeper than dry cupping — recommended for chronic back pain, sciatica and post-exercise recovery.",
@@ -152,7 +152,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 300,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/Edit-product-Hijama-Cupping-Therapy-%E2%80%B9-Sanjeevani-Clinic-%E2%80%94-WordPress-Brave-24_09_2025-18_31_26-300x300.webp",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Guided rehab exercises for posture, mobility and strength.",
     description:
       "One-on-one fitness therapy sessions to correct posture, strengthen core and rehabilitate injuries. Every session includes a home exercise plan.",
@@ -167,7 +167,7 @@ export const PRODUCTS: Product[] = [
     price: 999,
     oldPrice: 2100,
     onSale: true,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/10/Generated-Image-October-08-2025-5_59PM-300x300.webp",
+    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Full-body relaxation and therapeutic massage combo — save over 50%.",
     description:
       "A relaxing yet therapeutic full-body oil massage combined with warm compress — designed to relieve stress, ease muscle stiffness and improve sleep. Best-selling combo.",
@@ -180,7 +180,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 600,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/A-hijama-master-performs-a-vacuum-blood-suction-procedure-for-a-young-girl-_.webp",
+    image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Sunnah-style hijama (wet cupping) by certified practitioner.",
     description:
       "Traditional wet cupping (hijama) performed with strict sterile technique — helpful for chronic pain, migraines and detoxification. Performed by a certified hijama practitioner.",
@@ -193,7 +193,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 500,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/Janu-Vasti-1-300x300.webp",
+    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Ayurvedic knee therapy for stiffness, arthritis and knee pain.",
     description:
       "Jaanu Vasti pools warm medicated oil around the knee joint to reduce inflammation, lubricate cartilage and relieve chronic knee pain — a proven Ayurvedic therapy.",
@@ -206,7 +206,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 500,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/Edit-product-Hijama-Cupping-Therapy-%E2%80%B9-Sanjeevani-Clinic-%E2%80%94-WordPress-Brave-24_09_2025-18_53_11-1-300x300.webp",
+    image: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Ayurvedic lower-back therapy for sciatica, spondylosis and back pain.",
     description:
       "Kati Vasti retains warm medicated oil over the lumbar spine to soothe muscles, decompress nerves and reduce lower-back pain. Excellent for sciatica and lumbar spondylosis.",
@@ -219,7 +219,7 @@ export const PRODUCTS: Product[] = [
     category: "physiotherapy",
     categoryLabel: "Physiotherapy",
     price: 400,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/closeup-man-having-back-massage-spa-treatment-wellness-center-300x300.webp",
+    image: "https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Assisted yoga stretches with therapeutic massage for full-body mobility.",
     description:
       "A blend of assisted yoga stretches and deep-tissue massage that improves flexibility, releases tight fascia and calms the nervous system.",
@@ -232,7 +232,7 @@ export const PRODUCTS: Product[] = [
     category: "radiologist",
     categoryLabel: "Radiologist",
     price: 2500,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/istockphoto-1778188514-1024x1024-1-300x300.webp",
+    image: "https://images.unsplash.com/photo-1516069677018-378971dc3d0d?auto=format&fit=crop&w=800&q=80",
     shortDescription: "CT scan booking with trusted radiology partners.",
     description:
       "We coordinate CT scan bookings with senior radiologists at partner imaging centres — with clear preparation instructions, appointment reminders and doctor review of your report.",
@@ -258,7 +258,7 @@ export const PRODUCTS: Product[] = [
     category: "radiologist",
     categoryLabel: "Radiologist",
     price: 400,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/pexels-shvetsa-4225882-1-300x300.jpg",
+    image: "https://images.unsplash.com/photo-1583911860205-72f8ac8ddcbe?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Digital X-Ray with low radiation dose and same-day report.",
     description:
       "Digital X-Ray imaging with low-dose exposure. Reports are typically ready the same day and reviewed with you by our doctor.",
@@ -271,7 +271,7 @@ export const PRODUCTS: Product[] = [
     category: "eye-treatment",
     categoryLabel: "Eye Treatment",
     price: 1,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/little-girl-checking-up-her-sight-ophthalmology-center-300x300.jpg",
+    image: "https://images.unsplash.com/photo-1587613864411-4a5cd5b4f5d8?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Comprehensive eye examination — currently free (₹1 nominal charge).",
     description:
       "Comprehensive eye examination: visual acuity, refraction, pressure check and fundus review. Currently offered at a nominal ₹1 booking charge as part of our community outreach.",
@@ -284,7 +284,7 @@ export const PRODUCTS: Product[] = [
     category: "eye-treatment",
     categoryLabel: "Eye Treatment",
     price: 500,
-    image: "https://sanjeevaniclinic.icu/wp-content/uploads/2025/09/v4-460px-Replace-Sunglass-Lenses-Step-12-300x300.webp",
+    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80",
     shortDescription: "Replace lenses on existing frames — quick and accurate.",
     description:
       "Get new prescription lenses fitted into your existing frames. Includes free power check and 15-day comfort guarantee.",
