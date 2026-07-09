@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/sanjeevani-logo.png.asset.json";
+const logoAsset = { url: "/favicon.png" };
 
 export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   return (
