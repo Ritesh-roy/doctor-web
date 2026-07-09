@@ -21,6 +21,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PharmacyRouteImport } from './routes/pharmacy'
 import { Route as MyBookingsRouteImport } from './routes/my-bookings'
 import { Route as MyAccountRouteImport } from './routes/my-account'
+import { Route as MedicalServicesRouteImport } from './routes/medical-services'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FreeEyeCheckupRouteImport } from './routes/free-eye-checkup'
@@ -102,6 +103,11 @@ const MyBookingsRoute = MyBookingsRouteImport.update({
 const MyAccountRoute = MyAccountRouteImport.update({
   id: '/my-account',
   path: '/my-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicalServicesRoute = MedicalServicesRouteImport.update({
+  id: '/medical-services',
+  path: '/medical-services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -234,6 +240,7 @@ export interface FileRoutesByFullPath {
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/medical-services': typeof MedicalServicesRoute
   '/my-account': typeof MyAccountRoute
   '/my-bookings': typeof MyBookingsRoute
   '/pharmacy': typeof PharmacyRoute
@@ -270,6 +277,7 @@ export interface FileRoutesByTo {
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/medical-services': typeof MedicalServicesRoute
   '/my-account': typeof MyAccountRoute
   '/my-bookings': typeof MyBookingsRoute
   '/pharmacy': typeof PharmacyRoute
@@ -306,6 +314,7 @@ export interface FileRoutesById {
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/medical-services': typeof MedicalServicesRoute
   '/my-account': typeof MyAccountRoute
   '/my-bookings': typeof MyBookingsRoute
   '/pharmacy': typeof PharmacyRoute
@@ -344,6 +353,7 @@ export interface FileRouteTypes {
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
+    | '/medical-services'
     | '/my-account'
     | '/my-bookings'
     | '/pharmacy'
@@ -380,6 +390,7 @@ export interface FileRouteTypes {
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
+    | '/medical-services'
     | '/my-account'
     | '/my-bookings'
     | '/pharmacy'
@@ -415,6 +426,7 @@ export interface FileRouteTypes {
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
+    | '/medical-services'
     | '/my-account'
     | '/my-bookings'
     | '/pharmacy'
@@ -452,6 +464,7 @@ export interface RootRouteChildren {
   FreeEyeCheckupRoute: typeof FreeEyeCheckupRoute
   GalleryRoute: typeof GalleryRoute
   LoginRoute: typeof LoginRoute
+  MedicalServicesRoute: typeof MedicalServicesRoute
   MyAccountRoute: typeof MyAccountRoute
   MyBookingsRoute: typeof MyBookingsRoute
   PharmacyRoute: typeof PharmacyRoute
@@ -552,6 +565,13 @@ declare module '@tanstack/react-router' {
       path: '/my-account'
       fullPath: '/my-account'
       preLoaderRoute: typeof MyAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medical-services': {
+      id: '/medical-services'
+      path: '/medical-services'
+      fullPath: '/medical-services'
+      preLoaderRoute: typeof MedicalServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -754,6 +774,7 @@ const rootRouteChildren: RootRouteChildren = {
   FreeEyeCheckupRoute: FreeEyeCheckupRoute,
   GalleryRoute: GalleryRoute,
   LoginRoute: LoginRoute,
+  MedicalServicesRoute: MedicalServicesRoute,
   MyAccountRoute: MyAccountRoute,
   MyBookingsRoute: MyBookingsRoute,
   PharmacyRoute: PharmacyRoute,
