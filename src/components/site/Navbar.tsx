@@ -98,6 +98,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const { cartCount, wishlist } = useStore();
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);
