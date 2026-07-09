@@ -184,7 +184,7 @@ export function Navbar() {
                 <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-emerald-accent px-1 text-[10px] font-bold text-white">{cartCount}</span>
               )}
             </Link>
-            <Link to="/my-account" aria-label="My account" className="hidden h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60 sm:grid">
+            <Link to={user ? "/my-account" : "/login"} aria-label={user ? "My account" : "Sign in"} className="hidden h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60 sm:grid">
               <User className="h-4 w-4" />
             </Link>
             <Link
