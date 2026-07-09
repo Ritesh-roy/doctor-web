@@ -9,16 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SearchRouteImport } from './routes/search'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PharmacyRouteImport } from './routes/pharmacy'
 import { Route as MyBookingsRouteImport } from './routes/my-bookings'
+import { Route as MyAccountRouteImport } from './routes/my-account'
+import { Route as MedicalServicesRouteImport } from './routes/medical-services'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FreeEyeCheckupRouteImport } from './routes/free-eye-checkup'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as DoctorRouteImport } from './routes/doctor'
@@ -34,8 +41,15 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as ProductSlugRouteImport } from './routes/product.$slug'
+import { Route as ProductCategorySlugRouteImport } from './routes/product-category.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ThankYouRoute = ThankYouRouteImport.update({
   id: '/thank-you',
   path: '/thank-you',
@@ -51,9 +65,24 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -71,6 +100,16 @@ const MyBookingsRoute = MyBookingsRouteImport.update({
   path: '/my-bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MyAccountRoute = MyAccountRouteImport.update({
+  id: '/my-account',
+  path: '/my-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicalServicesRoute = MedicalServicesRouteImport.update({
+  id: '/medical-services',
+  path: '/medical-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -84,6 +123,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const FreeEyeCheckupRoute = FreeEyeCheckupRouteImport.update({
   id: '/free-eye-checkup',
   path: '/free-eye-checkup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqsRoute = FaqsRouteImport.update({
@@ -162,6 +206,16 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ProductSlugRoute = ProductSlugRouteImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductCategorySlugRoute = ProductCategorySlugRouteImport.update({
+  id: '/product-category/$slug',
+  path: '/product-category/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -182,17 +236,26 @@ export interface FileRoutesByFullPath {
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/medical-services': typeof MedicalServicesRoute
+  '/my-account': typeof MyAccountRoute
   '/my-bookings': typeof MyBookingsRoute
   '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
+  '/shop': typeof ShopRoute
+  '/signup': typeof SignupRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/thank-you': typeof ThankYouRoute
+  '/wishlist': typeof WishlistRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/product-category/$slug': typeof ProductCategorySlugRoute
+  '/product/$slug': typeof ProductSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -210,16 +273,25 @@ export interface FileRoutesByTo {
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/medical-services': typeof MedicalServicesRoute
+  '/my-account': typeof MyAccountRoute
   '/my-bookings': typeof MyBookingsRoute
   '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/search': typeof SearchRoute
+  '/shop': typeof ShopRoute
+  '/signup': typeof SignupRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/thank-you': typeof ThankYouRoute
+  '/wishlist': typeof WishlistRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/product-category/$slug': typeof ProductCategorySlugRoute
+  '/product/$slug': typeof ProductSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -238,17 +310,26 @@ export interface FileRoutesById {
   '/doctor': typeof DoctorRoute
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
+  '/medical-services': typeof MedicalServicesRoute
+  '/my-account': typeof MyAccountRoute
   '/my-bookings': typeof MyBookingsRoute
   '/pharmacy': typeof PharmacyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/search': typeof SearchRoute
   '/services': typeof ServicesRouteWithChildren
+  '/shop': typeof ShopRoute
+  '/signup': typeof SignupRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/thank-you': typeof ThankYouRoute
+  '/wishlist': typeof WishlistRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/product-category/$slug': typeof ProductCategorySlugRoute
+  '/product/$slug': typeof ProductSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -268,17 +349,26 @@ export interface FileRouteTypes {
     | '/doctor'
     | '/facilities'
     | '/faqs'
+    | '/forgot-password'
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
+    | '/medical-services'
+    | '/my-account'
     | '/my-bookings'
     | '/pharmacy'
     | '/privacy-policy'
+    | '/search'
     | '/services'
+    | '/shop'
+    | '/signup'
     | '/terms'
     | '/testimonials'
     | '/thank-you'
+    | '/wishlist'
     | '/blog/$slug'
+    | '/product-category/$slug'
+    | '/product/$slug'
     | '/services/$slug'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -296,16 +386,25 @@ export interface FileRouteTypes {
     | '/doctor'
     | '/facilities'
     | '/faqs'
+    | '/forgot-password'
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
+    | '/medical-services'
+    | '/my-account'
     | '/my-bookings'
     | '/pharmacy'
     | '/privacy-policy'
+    | '/search'
+    | '/shop'
+    | '/signup'
     | '/terms'
     | '/testimonials'
     | '/thank-you'
+    | '/wishlist'
     | '/blog/$slug'
+    | '/product-category/$slug'
+    | '/product/$slug'
     | '/services/$slug'
     | '/services'
   id:
@@ -323,17 +422,26 @@ export interface FileRouteTypes {
     | '/doctor'
     | '/facilities'
     | '/faqs'
+    | '/forgot-password'
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
+    | '/medical-services'
+    | '/my-account'
     | '/my-bookings'
     | '/pharmacy'
     | '/privacy-policy'
+    | '/search'
     | '/services'
+    | '/shop'
+    | '/signup'
     | '/terms'
     | '/testimonials'
     | '/thank-you'
+    | '/wishlist'
     | '/blog/$slug'
+    | '/product-category/$slug'
+    | '/product/$slug'
     | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -352,20 +460,36 @@ export interface RootRouteChildren {
   DoctorRoute: typeof DoctorRoute
   FacilitiesRoute: typeof FacilitiesRoute
   FaqsRoute: typeof FaqsRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   FreeEyeCheckupRoute: typeof FreeEyeCheckupRoute
   GalleryRoute: typeof GalleryRoute
   LoginRoute: typeof LoginRoute
+  MedicalServicesRoute: typeof MedicalServicesRoute
+  MyAccountRoute: typeof MyAccountRoute
   MyBookingsRoute: typeof MyBookingsRoute
   PharmacyRoute: typeof PharmacyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SearchRoute: typeof SearchRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  ShopRoute: typeof ShopRoute
+  SignupRoute: typeof SignupRoute
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   ThankYouRoute: typeof ThankYouRoute
+  WishlistRoute: typeof WishlistRoute
+  ProductCategorySlugRoute: typeof ProductCategorySlugRoute
+  ProductSlugRoute: typeof ProductSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/thank-you': {
       id: '/thank-you'
       path: '/thank-you'
@@ -387,11 +511,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -415,6 +560,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MyBookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/my-account': {
+      id: '/my-account'
+      path: '/my-account'
+      fullPath: '/my-account'
+      preLoaderRoute: typeof MyAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medical-services': {
+      id: '/medical-services'
+      path: '/medical-services'
+      fullPath: '/medical-services'
+      preLoaderRoute: typeof MedicalServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -434,6 +593,13 @@ declare module '@tanstack/react-router' {
       path: '/free-eye-checkup'
       fullPath: '/free-eye-checkup'
       preLoaderRoute: typeof FreeEyeCheckupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faqs': {
@@ -541,6 +707,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-category/$slug': {
+      id: '/product-category/$slug'
+      path: '/product-category/$slug'
+      fullPath: '/product-category/$slug'
+      preLoaderRoute: typeof ProductCategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -590,16 +770,25 @@ const rootRouteChildren: RootRouteChildren = {
   DoctorRoute: DoctorRoute,
   FacilitiesRoute: FacilitiesRoute,
   FaqsRoute: FaqsRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   FreeEyeCheckupRoute: FreeEyeCheckupRoute,
   GalleryRoute: GalleryRoute,
   LoginRoute: LoginRoute,
+  MedicalServicesRoute: MedicalServicesRoute,
+  MyAccountRoute: MyAccountRoute,
   MyBookingsRoute: MyBookingsRoute,
   PharmacyRoute: PharmacyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SearchRoute: SearchRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  ShopRoute: ShopRoute,
+  SignupRoute: SignupRoute,
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
   ThankYouRoute: ThankYouRoute,
+  WishlistRoute: WishlistRoute,
+  ProductCategorySlugRoute: ProductCategorySlugRoute,
+  ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
