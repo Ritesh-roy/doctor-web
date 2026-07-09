@@ -19,6 +19,7 @@ import { Logo } from "./Logo";
 import { CLINIC } from "@/data/clinic";
 import { CATEGORIES } from "@/data/products";
 import { useStore } from "@/lib/store";
+import { useAuth } from "@/lib/auth";
 
 type Child = { label: string; to: string; params?: Record<string, string>; description?: string };
 type NavItem =
@@ -48,6 +49,7 @@ const NAV: NavItem[] = [
 ];
 
 export function TopBar() {
+  const { user, signOut } = useAuth();
   return (
     <div className="hidden border-b border-primary/10 bg-primary text-primary-foreground lg:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
@@ -63,8 +65,18 @@ export function TopBar() {
           </span>
         </div>
         <div className="flex items-center gap-4 opacity-95">
-          <Link to="/my-account" className="hover:underline">My Account</Link>
-          <Link to="/my-bookings" className="hover:underline">My Bookings</Link>
+          {user ? (
+            <>
+              <Link to="/my-account" className="hover:underline">My Account</Link>
+              <Link to="/my-bookings" className="hover:underline">My Bookings</Link>
+              <button onClick={() => signOut()} className="hover:underline">Sign out</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="hover:underline">Sign in</Link>
+              <Link to="/signup" className="hover:underline">Sign up</Link>
+            </>
+          )}
           <span className="flex items-center gap-1.5">
             <Star className="h-3.5 w-3.5 fill-current text-emerald-accent" />
             <span className="font-semibold">{CLINIC.rating}</span> Google
@@ -86,6 +98,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const { cartCount, wishlist } = useStore();
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);
@@ -171,7 +184,7 @@ export function Navbar() {
                 <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-emerald-accent px-1 text-[10px] font-bold text-white">{cartCount}</span>
               )}
             </Link>
-            <Link to="/my-account" aria-label="My account" className="hidden h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60 sm:grid">
+            <Link to={user ? "/my-account" : "/login"} aria-label={user ? "My account" : "Sign in"} className="hidden h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60 sm:grid">
               <User className="h-4 w-4" />
             </Link>
             <Link
@@ -234,8 +247,17 @@ export function Navbar() {
                 ),
               )}
               <div className="mt-2 grid grid-cols-2 gap-2">
-                <Link to="/login" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign in</Link>
-                <Link to="/signup" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign up</Link>
+                {user ? (
+                  <>
+                    <Link to="/my-account" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">My Account</Link>
+                    <button onClick={() => { setOpen(false); signOut(); }} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign out</button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign in</Link>
+                    <Link to="/signup" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign up</Link>
+                  </>
+                )}
               </div>
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <a
