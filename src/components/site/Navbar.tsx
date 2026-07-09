@@ -1,25 +1,47 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, Calendar, Clock, Star, Ambulance, Mail, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  Calendar,
+  Clock,
+  Star,
+  Ambulance,
+  Mail,
+  ChevronDown,
+  ShoppingCart,
+  Heart,
+  User,
+  Search,
+} from "lucide-react";
 import { Logo } from "./Logo";
 import { CLINIC } from "@/data/clinic";
-import { SERVICES } from "@/data/services";
+import { CATEGORIES } from "@/data/products";
+import { useStore } from "@/lib/store";
 
+type Child = { label: string; to: string; params?: Record<string, string>; description?: string };
 type NavItem =
   | { label: string; to: string; children?: undefined }
-  | { label: string; to: string; children: { label: string; to: string; description?: string }[] };
+  | { label: string; to: string; children: Child[] };
 
-const SERVICE_CHILDREN = [
-  { label: "All Services", to: "/services", description: "Overview of everything we offer" },
-  ...SERVICES.map((s) => ({ label: s.title, to: `/services/${s.slug}`, description: s.short })),
-  { label: "Blood Test", to: "/services/blood-test", description: "Fast, accurate pathology" },
+const SERVICE_CHILDREN: Child[] = [
+  { label: "All Services", to: "/medical-services", description: "Overview of everything we offer" },
+  { label: "Shop All (18 packages)", to: "/shop", description: "Every service with real prices" },
+  ...CATEGORIES.map((c) => ({
+    label: c.label,
+    to: "/product-category/$slug",
+    params: { slug: c.slug },
+    description: c.description,
+  })),
   { label: "Pharmacy", to: "/pharmacy", description: "In-house medicines & refills" },
 ];
 
 const NAV: NavItem[] = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Services", to: "/services", children: SERVICE_CHILDREN },
+  { label: "Services", to: "/medical-services", children: SERVICE_CHILDREN },
+  { label: "Shop", to: "/shop" },
   { label: "Doctors", to: "/doctor" },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
@@ -40,10 +62,12 @@ export function TopBar() {
             <Clock className="h-3.5 w-3.5" /> {CLINIC.hours}
           </span>
         </div>
-        <div className="flex items-center gap-5 opacity-95">
+        <div className="flex items-center gap-4 opacity-95">
+          <Link to="/my-account" className="hover:underline">My Account</Link>
+          <Link to="/my-bookings" className="hover:underline">My Bookings</Link>
           <span className="flex items-center gap-1.5">
             <Star className="h-3.5 w-3.5 fill-current text-emerald-accent" />
-            <span className="font-semibold">{CLINIC.rating}</span> Google Rating
+            <span className="font-semibold">{CLINIC.rating}</span> Google
           </span>
           <a
             href={`tel:${CLINIC.phoneTel}`}
@@ -61,6 +85,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const { cartCount, wishlist } = useStore();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);
@@ -102,8 +127,9 @@ export function Navbar() {
                     <div className="grid grid-cols-2 gap-1 rounded-2xl border border-primary/10 bg-background/95 p-3 shadow-glow backdrop-blur">
                       {n.children.map((c) => (
                         <Link
-                          key={c.to}
+                          key={`${c.to}-${c.label}`}
                           to={c.to}
+                          params={c.params as never}
                           className="rounded-xl px-3 py-2 text-sm hover:bg-primary-soft/60"
                         >
                           <div className="font-semibold text-foreground">{c.label}</div>
@@ -125,22 +151,34 @@ export function Navbar() {
                 >
                   {n.label}
                 </Link>
-              )
+              ),
             )}
           </nav>
 
-          <div className="flex items-center gap-2 justify-end">
-            <a
-              href={`tel:${CLINIC.phoneTel}`}
-              className="hidden h-11 items-center gap-2 rounded-full border border-primary/15 px-4 text-sm font-medium text-foreground xl:inline-flex"
-            >
-              <Phone className="h-4 w-4" /> {CLINIC.phone}
-            </a>
+          <div className="flex items-center gap-1.5 justify-end">
+            <Link to="/search" aria-label="Search" className="grid h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60">
+              <Search className="h-4 w-4" />
+            </Link>
+            <Link to="/wishlist" aria-label="Wishlist" className="relative grid h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60">
+              <Heart className="h-4 w-4" />
+              {wishlist.length > 0 && (
+                <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-emerald-accent px-1 text-[10px] font-bold text-white">{wishlist.length}</span>
+              )}
+            </Link>
+            <Link to="/cart" aria-label="Cart" className="relative grid h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60">
+              <ShoppingCart className="h-4 w-4" />
+              {cartCount > 0 && (
+                <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-emerald-accent px-1 text-[10px] font-bold text-white">{cartCount}</span>
+              )}
+            </Link>
+            <Link to="/my-account" aria-label="My account" className="hidden h-11 w-11 place-items-center rounded-full border border-primary/15 text-foreground hover:bg-primary-soft/60 sm:grid">
+              <User className="h-4 w-4" />
+            </Link>
             <Link
               to="/book-appointment"
-              className="hidden h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-semibold text-background shadow-soft transition-transform hover:-translate-y-0.5 sm:inline-flex"
+              className="hidden h-11 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-semibold text-background shadow-soft transition-transform hover:-translate-y-0.5 xl:inline-flex"
             >
-              <Calendar className="h-4 w-4" /> Book Appointment
+              <Calendar className="h-4 w-4" /> Book
             </Link>
             <button
               onClick={() => setOpen((v) => !v)}
@@ -170,8 +208,9 @@ export function Navbar() {
                       <div className="ml-3 mt-1 flex flex-col gap-0.5 border-l border-primary/15 pl-3">
                         {n.children.map((c) => (
                           <Link
-                            key={c.to}
+                            key={`${c.to}-${c.label}`}
                             to={c.to}
+                            params={c.params as never}
                             onClick={() => setOpen(false)}
                             className="rounded-lg px-3 py-2 text-sm text-foreground/75 hover:bg-primary-soft/60"
                           >
@@ -192,8 +231,12 @@ export function Navbar() {
                   >
                     {n.label}
                   </Link>
-                )
+                ),
               )}
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                <Link to="/login" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign in</Link>
+                <Link to="/signup" onClick={() => setOpen(false)} className="rounded-xl border border-primary/15 px-3 py-3 text-center text-sm font-semibold">Sign up</Link>
+              </div>
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <a
                   href={`tel:${CLINIC.phoneTel}`}
