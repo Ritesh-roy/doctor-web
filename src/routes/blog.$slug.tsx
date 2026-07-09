@@ -60,7 +60,7 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogPostPage() {
-  const { post } = Route.useLoaderData();
+  const { post } = Route.useLoaderData() as { post: BlogPost };
   const related = BLOG_POSTS.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 3);
   const fallbackRelated = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
   const relatedPosts = related.length ? related : fallbackRelated;
