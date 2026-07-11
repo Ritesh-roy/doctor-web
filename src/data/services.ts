@@ -1,11 +1,13 @@
-import servicePhysio from "@/assets/service-physio.jpg";
-import serviceRadiology from "@/assets/service-radiology.jpg";
-import serviceEye from "@/assets/service-eye.jpg";
-import serviceGeneral from "@/assets/service-general.jpg";
-import serviceCheckup from "@/assets/service-checkup.jpg";
-
-const serviceBloodTest = "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?auto=format&fit=crop&w=1200&q=80";
-const servicePathology = "https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=1200&q=80";
+// Real clinic imagery. Service-specific photos pending upload from clinic;
+// branded placeholder used until real photos are provided.
+const PLACEHOLDER = "/photos/placeholder.jpg";
+const servicePhysio = PLACEHOLDER;
+const serviceRadiology = PLACEHOLDER;
+const serviceEye = PLACEHOLDER;
+const serviceGeneral = "/photos/doctor-consultation.jpg";
+const serviceCheckup = "/photos/health-checkup-1.jpg";
+const serviceBloodTest = PLACEHOLDER;
+const servicePathology = PLACEHOLDER;
 
 export type Service = {
   slug: string;

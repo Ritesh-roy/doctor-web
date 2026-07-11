@@ -22,30 +22,33 @@ export type Product = {
   homeVisit?: boolean;
 };
 
+// Real clinic imagery only. Category-specific product photos pending upload
+// from the clinic; branded placeholder used until then.
+const PLACEHOLDER = "/photos/placeholder.jpg";
 const IMG = {
-  physioCategory: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80",
-  diagnosticsCategory: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?auto=format&fit=crop&w=900&q=80",
-  radiologyCategory: "https://images.unsplash.com/photo-1583912086096-8c60d75a53f9?auto=format&fit=crop&w=900&q=80",
-  eyeCategory: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=900&q=80",
-  medicalCategory: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",
-  essentialBlood: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80",
-  advanceBlood: "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=900&q=80",
-  premiumBlood: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=900&q=80",
-  superPremiumBlood: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=80",
-  cupping: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80",
-  fireCupping: "https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=900&q=80",
-  fitness: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-  massage: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80",
-  hijama: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80",
-  jaanuVasti: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80",
-  katiVasti: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=900&q=80",
-  yogaMassage: "https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=900&q=80",
-  ctScan: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=900&q=80",
-  mri: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=900&q=80",
-  xray: "https://images.unsplash.com/photo-1583911860205-72f8ac8ddcbe?auto=format&fit=crop&w=900&q=80",
-  eyeCheckup: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80",
-  lensReplace: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80",
-  ecg: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=900&q=80",
+  physioCategory: PLACEHOLDER,
+  diagnosticsCategory: PLACEHOLDER,
+  radiologyCategory: PLACEHOLDER,
+  eyeCategory: PLACEHOLDER,
+  medicalCategory: "/photos/doctor-consultation.jpg",
+  essentialBlood: PLACEHOLDER,
+  advanceBlood: PLACEHOLDER,
+  premiumBlood: PLACEHOLDER,
+  superPremiumBlood: PLACEHOLDER,
+  cupping: PLACEHOLDER,
+  fireCupping: PLACEHOLDER,
+  fitness: PLACEHOLDER,
+  massage: PLACEHOLDER,
+  hijama: PLACEHOLDER,
+  jaanuVasti: PLACEHOLDER,
+  katiVasti: PLACEHOLDER,
+  yogaMassage: PLACEHOLDER,
+  ctScan: PLACEHOLDER,
+  mri: PLACEHOLDER,
+  xray: PLACEHOLDER,
+  eyeCheckup: PLACEHOLDER,
+  lensReplace: PLACEHOLDER,
+  ecg: PLACEHOLDER,
 };
 
 export const PRODUCT_IMAGE_FALLBACK = IMG.medicalCategory;
