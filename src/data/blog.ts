@@ -23,28 +23,20 @@ export type BlogPost = {
   faqs: BlogFAQ[];
 };
 
-// Unsplash medical/healthcare imagery — free, HD, unique per post.
+// Real clinic imagery only. Post-specific photos pending upload; branded
+// placeholder used for topics without a matching real photo.
+const PLACEHOLDER = "/photos/placeholder.jpg";
 const IMG = {
-  physioHome:
-    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=80",
-  fullBodyPhysio:
-    "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1600&q=80",
-  eyeCampaign:
-    "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=1600&q=80",
-  bloodTest:
-    "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=1600&q=80",
-  bloodReport:
-    "https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&w=1600&q=80",
-  eyeCheck:
-    "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1600&q=80",
-  diabetes:
-    "https://images.unsplash.com/photo-1579154392429-0e6b4e850ad2?auto=format&fit=crop&w=1600&q=80",
-  bp:
-    "https://images.unsplash.com/photo-1584516150909-c43483ee7932?auto=format&fit=crop&w=1600&q=80",
-  annualCheck:
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80",
-  backPain:
-    "https://images.unsplash.com/photo-1620064916958-605375619af8?auto=format&fit=crop&w=1600&q=80",
+  physioHome: PLACEHOLDER,
+  fullBodyPhysio: PLACEHOLDER,
+  eyeCampaign: "/photos/health-checkup-2.jpg",
+  bloodTest: PLACEHOLDER,
+  bloodReport: PLACEHOLDER,
+  eyeCheck: "/photos/health-checkup-3.jpg",
+  diabetes: PLACEHOLDER,
+  bp: PLACEHOLDER,
+  annualCheck: "/photos/health-checkup-4.jpg",
+  backPain: PLACEHOLDER,
 };
 
 export const BLOG_POSTS: BlogPost[] = [

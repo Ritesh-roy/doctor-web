@@ -2,16 +2,26 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import reception from "@/assets/facility-reception.jpg";
-import lab from "@/assets/facility-lab.jpg";
-import room from "@/assets/gallery-room.jpg";
-import equipment from "@/assets/gallery-equipment.jpg";
-import waiting from "@/assets/gallery-waiting.jpg";
-import galleryReception from "@/assets/gallery-reception.jpg";
-import physio from "@/assets/service-physio.jpg";
-import radiology from "@/assets/service-radiology.jpg";
-import eye from "@/assets/service-eye.jpg";
-import checkup from "@/assets/service-checkup.jpg";
+// Real clinic photos.
+const clinicExterior = "/photos/clinic-exterior.jpg";
+const doctorConsult = "/photos/doctor-consultation.jpg";
+const doctorDesk = "/photos/doctor.jpg";
+const doctorPortrait = "/photos/doctor-portrait.jpg";
+const doctorAward = "/photos/doctor-award.jpg";
+const team = "/photos/team.jpg";
+const teamBack = "/photos/team-back.jpg";
+const award1 = "/photos/award-1.jpg";
+const award2 = "/photos/award-2.jpg";
+const award3 = "/photos/award-3.jpg";
+const awardPlaque = "/photos/award-plaque.jpg";
+const awardCeremony = "/photos/award-ceremony.jpg";
+const awardCeremony2 = "/photos/award-ceremony-2.jpg";
+const healthCheckup1 = "/photos/health-checkup-1.jpg";
+const healthCheckup2 = "/photos/health-checkup-2.jpg";
+const healthCheckup3 = "/photos/health-checkup-3.jpg";
+const healthCheckup4 = "/photos/health-checkup-4.jpg";
+const healthCheckup5 = "/photos/health-checkup-5.jpg";
+const family = "/photos/family.jpg";
 
 export const Route = createFileRoute("/gallery")({
   component: Gallery,
@@ -28,16 +38,25 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const items = [
-  { src: reception, alt: "Reception" },
-  { src: room, alt: "Consultation room" },
-  { src: lab, alt: "Pathology lab" },
-  { src: physio, alt: "Physiotherapy session" },
-  { src: equipment, alt: "Medical equipment" },
-  { src: radiology, alt: "Radiology suite" },
-  { src: waiting, alt: "Waiting lounge" },
-  { src: eye, alt: "Eye check-up" },
-  { src: checkup, alt: "Preventive check-up" },
-  { src: galleryReception, alt: "Front desk" },
+  { src: clinicExterior, alt: "Sanjeevani Clinic — Kirari, Delhi" },
+  { src: doctorConsult, alt: "Dr. Bhanu Pratap Singh in consultation" },
+  { src: doctorDesk, alt: "Doctor's consultation room" },
+  { src: healthCheckup1, alt: "Bal Deep Model School health check-up camp" },
+  { src: award1, alt: "Sardar Patel Unity Award 2026" },
+  { src: healthCheckup2, alt: "Community health check-up in progress" },
+  { src: awardCeremony, alt: "Award ceremony — outstanding contribution to healthcare" },
+  { src: healthCheckup3, alt: "Doctor examining a student at school camp" },
+  { src: team, alt: "Sanjeevani Clinic team" },
+  { src: awardPlaque, alt: "Honorary Doctorate Award" },
+  { src: healthCheckup4, alt: "Health screening at Bal Deep Model School" },
+  { src: teamBack, alt: "Clinic staff attending an event" },
+  { src: award2, alt: "Sardar Patel Unity Award trophy" },
+  { src: healthCheckup5, alt: "Health check-up camp banner" },
+  { src: doctorPortrait, alt: "Dr. Bhanu Pratap Singh at the clinic" },
+  { src: awardCeremony2, alt: "On-stage award ceremony" },
+  { src: award3, alt: "Meghmani Lifesciences appreciation award" },
+  { src: doctorAward, alt: "Doctor receiving recognition" },
+  { src: family, alt: "Family gathering — clinic community" },
 ];
 
 function Gallery() {
