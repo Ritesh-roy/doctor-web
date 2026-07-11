@@ -22,41 +22,37 @@ export type Product = {
   homeVisit?: boolean;
 };
 
-// Real clinic imagery where available, otherwise carefully generated
-// medical photos so every product/category has a proper visual.
-const PHYSIO = "/photos/ai-physiotherapy.jpg";
-const BLOOD = "/photos/ai-blood-test.jpg";
-const LAB = "/photos/ai-diagnostics.jpg";
-const RAD = "/photos/ai-radiology.jpg";
-const CUPPING = "/photos/ai-cupping.jpg";
-const MASSAGE = "/photos/ai-massage.jpg";
-const ECG = "/photos/ai-ecg.jpg";
-const EYE = "/photos/ai-eye-exam.jpg";
+// Real clinic photos only. Products without a matching real photo use a
+// soft branded gradient placeholder (no logo, no stock imagery).
+const PLACEHOLDER = "/photos/placeholder.svg";
 const IMG = {
-  physioCategory: PHYSIO,
-  diagnosticsCategory: LAB,
-  radiologyCategory: RAD,
-  eyeCategory: EYE,
-  medicalCategory: "/photos/doctor-consultation.jpg",
-  essentialBlood: BLOOD,
-  advanceBlood: BLOOD,
-  premiumBlood: LAB,
-  superPremiumBlood: LAB,
-  cupping: CUPPING,
-  fireCupping: CUPPING,
-  fitness: PHYSIO,
-  massage: MASSAGE,
-  hijama: CUPPING,
-  jaanuVasti: MASSAGE,
-  katiVasti: MASSAGE,
-  yogaMassage: MASSAGE,
-  ctScan: RAD,
-  mri: RAD,
-  xray: RAD,
-  eyeCheckup: EYE,
-  lensReplace: EYE,
-  ecg: ECG,
+  // Category headers
+  physioCategory: "/photos/team-selfie.jpg",
+  diagnosticsCategory: "/photos/school-checkup-students.jpg",
+  radiologyCategory: PLACEHOLDER,
+  eyeCategory: "/photos/school-checkup-doctor.jpg",
+  medicalCategory: "/photos/doctor-desk-3.jpg",
+  // Individual products — each unique
+  essentialBlood: "/photos/school-checkup-desk.jpg",
+  advanceBlood: "/photos/school-checkup-hall.jpg",
+  premiumBlood: "/photos/award-blood-donor.jpg",
+  superPremiumBlood: "/photos/school-checkup-lineup.jpg",
+  cupping: PLACEHOLDER,
+  fireCupping: PLACEHOLDER,
+  fitness: "/photos/team-back-blue.jpg",
+  massage: PLACEHOLDER,
+  hijama: PLACEHOLDER,
+  jaanuVasti: PLACEHOLDER,
+  katiVasti: PLACEHOLDER,
+  yogaMassage: PLACEHOLDER,
+  ctScan: PLACEHOLDER,
+  mri: PLACEHOLDER,
+  xray: PLACEHOLDER,
+  eyeCheckup: "/photos/doctor-desk-2.jpg",
+  lensReplace: PLACEHOLDER,
+  ecg: "/photos/doctor-desk-4.jpg",
 };
+
 
 export const PRODUCT_IMAGE_FALLBACK = "/photos/placeholder.svg";
 
