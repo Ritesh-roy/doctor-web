@@ -1,9 +1,9 @@
-// Real clinic imagery. Service-specific photos pending upload from clinic;
-// branded placeholder used until real photos are provided.
-const PLACEHOLDER = "/photos/placeholder.jpg";
+// Real clinic imagery. Service-specific photos use a soft branded gradient
+// placeholder (no logo) where no real photo has been provided yet.
+const PLACEHOLDER = "/photos/placeholder.svg";
 const servicePhysio = PLACEHOLDER;
 const serviceRadiology = PLACEHOLDER;
-const serviceEye = PLACEHOLDER;
+const serviceEye = "/photos/health-checkup-2.jpg";
 const serviceGeneral = "/photos/doctor-consultation.jpg";
 const serviceCheckup = "/photos/health-checkup-1.jpg";
 const serviceBloodTest = PLACEHOLDER;
