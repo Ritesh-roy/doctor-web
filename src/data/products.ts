@@ -22,36 +22,43 @@ export type Product = {
   homeVisit?: boolean;
 };
 
-// Real clinic imagery only. Category-specific product photos use a soft
-// branded gradient placeholder (no logo) until real photos are provided.
-const PLACEHOLDER = "/photos/placeholder.svg";
+// Real clinic imagery where available, otherwise carefully generated
+// medical photos so every product/category has a proper visual.
+const PHYSIO = "/photos/ai-physiotherapy.jpg";
+const BLOOD = "/photos/ai-blood-test.jpg";
+const LAB = "/photos/ai-diagnostics.jpg";
+const RAD = "/photos/ai-radiology.jpg";
+const CUPPING = "/photos/ai-cupping.jpg";
+const MASSAGE = "/photos/ai-massage.jpg";
+const ECG = "/photos/ai-ecg.jpg";
+const EYE = "/photos/ai-eye-exam.jpg";
 const IMG = {
-  physioCategory: PLACEHOLDER,
-  diagnosticsCategory: PLACEHOLDER,
-  radiologyCategory: PLACEHOLDER,
-  eyeCategory: "/photos/health-checkup-3.jpg",
+  physioCategory: PHYSIO,
+  diagnosticsCategory: LAB,
+  radiologyCategory: RAD,
+  eyeCategory: EYE,
   medicalCategory: "/photos/doctor-consultation.jpg",
-  essentialBlood: PLACEHOLDER,
-  advanceBlood: PLACEHOLDER,
-  premiumBlood: PLACEHOLDER,
-  superPremiumBlood: PLACEHOLDER,
-  cupping: PLACEHOLDER,
-  fireCupping: PLACEHOLDER,
-  fitness: PLACEHOLDER,
-  massage: PLACEHOLDER,
-  hijama: PLACEHOLDER,
-  jaanuVasti: PLACEHOLDER,
-  katiVasti: PLACEHOLDER,
-  yogaMassage: PLACEHOLDER,
-  ctScan: PLACEHOLDER,
-  mri: PLACEHOLDER,
-  xray: PLACEHOLDER,
-  eyeCheckup: "/photos/health-checkup-5.jpg",
-  lensReplace: PLACEHOLDER,
-  ecg: PLACEHOLDER,
+  essentialBlood: BLOOD,
+  advanceBlood: BLOOD,
+  premiumBlood: LAB,
+  superPremiumBlood: LAB,
+  cupping: CUPPING,
+  fireCupping: CUPPING,
+  fitness: PHYSIO,
+  massage: MASSAGE,
+  hijama: CUPPING,
+  jaanuVasti: MASSAGE,
+  katiVasti: MASSAGE,
+  yogaMassage: MASSAGE,
+  ctScan: RAD,
+  mri: RAD,
+  xray: RAD,
+  eyeCheckup: EYE,
+  lensReplace: EYE,
+  ecg: ECG,
 };
 
-export const PRODUCT_IMAGE_FALLBACK = PLACEHOLDER;
+export const PRODUCT_IMAGE_FALLBACK = "/photos/placeholder.svg";
 
 export const CATEGORIES: { slug: ProductCategorySlug; label: string; description: string; image: string }[] = [
   {

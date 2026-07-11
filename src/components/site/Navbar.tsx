@@ -43,6 +43,7 @@ const NAV: NavItem[] = [
   { label: "Services", to: "/medical-services", children: SERVICE_CHILDREN },
   { label: "Shop", to: "/shop" },
   { label: "Doctors", to: "/doctor" },
+  { label: "Gallery", to: "/gallery" },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },
 ];

@@ -1,13 +1,12 @@
-// Real clinic imagery. Service-specific photos use a soft branded gradient
-// placeholder (no logo) where no real photo has been provided yet.
-const PLACEHOLDER = "/photos/placeholder.svg";
-const servicePhysio = PLACEHOLDER;
-const serviceRadiology = PLACEHOLDER;
-const serviceEye = "/photos/health-checkup-2.jpg";
+// Real clinic imagery mixed with carefully generated medical photos so
+// every service has a fitting visual.
+const servicePhysio = "/photos/ai-physiotherapy.jpg";
+const serviceRadiology = "/photos/ai-radiology.jpg";
+const serviceEye = "/photos/ai-eye-exam.jpg";
 const serviceGeneral = "/photos/doctor-consultation.jpg";
 const serviceCheckup = "/photos/health-checkup-1.jpg";
-const serviceBloodTest = PLACEHOLDER;
-const servicePathology = PLACEHOLDER;
+const serviceBloodTest = "/photos/ai-blood-test.jpg";
+const servicePathology = "/photos/ai-diagnostics.jpg";
 
 export type Service = {
   slug: string;
