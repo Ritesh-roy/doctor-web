@@ -1,14 +1,23 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { Heart, ShoppingCart, Eye, Calendar, Star } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { formatINR, PRODUCT_IMAGE_FALLBACK, type Product } from "@/data/products";
 import { useStore } from "@/lib/store";
+import { useAuth } from "@/lib/auth";
 import { QuickViewModal } from "./QuickViewModal";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addToCart, toggleWishlist, inWishlist } = useStore();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [qv, setQv] = useState(false);
   const wished = inWishlist(product.slug);
+  const requireLogin = () => {
+    toast.error("Please sign in to continue");
+    navigate({ to: "/login" });
+  };
+
   const discount =
     product.oldPrice && product.oldPrice > product.price
       ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)

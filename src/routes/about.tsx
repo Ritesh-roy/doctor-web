@@ -3,9 +3,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Award, HeartPulse, Users, ShieldCheck, Sparkles, Target, Eye } from "lucide-react";
-import doctorAsset from "@/assets/doctor-hero.asset.json";
-import teamGroup from "@/assets/team-group.png.asset.json";
 import { CLINIC } from "@/data/clinic";
+
 
 export const Route = createFileRoute("/about")({
   component: About,
@@ -176,11 +175,12 @@ function TeamSection() {
       {/* Hero team photo */}
       <div className="relative mt-12 overflow-hidden rounded-[32px] border border-white/60 shadow-glow">
         <img
-          src={teamGroup.url}
-          alt="The Sanjeevani Clinic team at the Karan Vihar reception"
+          src="/photos/team-selfie.jpg"
+          alt="The Sanjeevani Clinic team at Karan Vihar, Kirari"
           loading="lazy"
           className="aspect-[21/9] w-full object-cover object-center transition-transform duration-[1200ms] hover:scale-[1.03]"
         />
+
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-4 p-6 sm:p-8">
           <div className="text-white">
