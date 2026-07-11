@@ -141,26 +141,36 @@ function ProductDetail() {
                 </button>
               </div>
               <button
-                onClick={() => addToCart(p.slug, qty)}
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow"
+                onClick={() => (user ? addToCart(p.slug, qty) : requireLogin())}
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:-translate-y-0.5"
               >
                 <ShoppingCart className="h-4 w-4" /> Add to Cart
               </button>
               <button
                 onClick={() => toggleWishlist(p.slug)}
                 aria-label="Wishlist"
-                className={`grid h-12 w-12 place-items-center rounded-full border border-primary/20 ${wished ? "text-emerald-accent" : "text-foreground"}`}
+                className={`grid h-12 w-12 place-items-center rounded-full border border-primary/20 transition-all hover:-translate-y-0.5 ${wished ? "text-emerald-accent" : "text-foreground"}`}
               >
                 <Heart className={`h-5 w-5 ${wished ? "fill-current" : ""}`} />
               </button>
             </div>
 
-            <Link
-              to="/book-appointment"
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 px-6 py-3 text-sm font-semibold text-foreground"
-            >
-              <Calendar className="h-4 w-4" /> Book Appointment Instead
-            </Link>
+            {user ? (
+              <Link
+                to="/book-appointment"
+                className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60"
+              >
+                <Calendar className="h-4 w-4" /> Book Appointment Instead
+              </Link>
+            ) : (
+              <button
+                onClick={requireLogin}
+                className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60"
+              >
+                <Calendar className="h-4 w-4" /> Sign in to Book Appointment
+              </button>
+            )}
+
           </div>
         </div>
       </section>
