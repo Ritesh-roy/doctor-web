@@ -1,11 +1,14 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Check, Heart, ShoppingCart, Calendar, Minus, Plus, Star, Home } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { ProductCard } from "@/components/site/ProductCard";
 import { formatINR, getProduct, PRODUCTS, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { useStore } from "@/lib/store";
+import { useAuth } from "@/lib/auth";
+
 
 export const Route = createFileRoute("/product/$slug")({
   loader: ({ params }) => {
@@ -39,10 +42,17 @@ function ProductDetail() {
   const params = Route.useParams();
   const p = getProduct(params.slug)!;
   const { addToCart, toggleWishlist, inWishlist } = useStore();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [qty, setQty] = useState(1);
   const wished = inWishlist(p.slug);
   const related = PRODUCTS.filter((r) => r.category === p.category && r.slug !== p.slug).slice(0, 4);
   const discount = p.oldPrice ? Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100) : 0;
+  const requireLogin = () => {
+    toast.error("Please sign in to continue");
+    navigate({ to: "/login" });
+  };
+
 
   return (
     <SiteLayout>

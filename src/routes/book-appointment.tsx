@@ -32,13 +32,36 @@ export const Route = createFileRoute("/book-appointment")({
 });
 
 function Book() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [sent, setSent] = useState(false);
   const [saving, setSaving] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const minDate = todayISO();
+
+  if (!loading && !user) {
+    return (
+      <SiteLayout>
+        <PageHero
+          eyebrow="Book appointment"
+          title="Please sign in to book an appointment."
+          intro="For your safety and to keep your booking history in one place, you need an account before booking."
+          crumbs={[{ label: "Home", to: "/" }, { label: "Book appointment" }]}
+        />
+        <section className="mx-auto max-w-2xl px-4 pb-24 sm:px-6">
+          <div className="rounded-3xl border border-primary/10 bg-white p-8 text-center shadow-card">
+            <p className="text-sm text-muted-foreground">Sign in or create a free account in seconds — then come right back to book.</p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <a href="/login" className="inline-flex h-11 items-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:-translate-y-0.5">Sign in</a>
+              <a href="/signup" className="inline-flex h-11 items-center rounded-full border border-primary/20 px-6 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60">Create account</a>
+            </div>
+          </div>
+        </section>
+      </SiteLayout>
+    );
+  }
+
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
