@@ -27,9 +27,9 @@ export type Product = {
 const PLACEHOLDER = "/photos/placeholder.svg";
 const IMG = {
   // Category headers
-  physioCategory: "/photos/team-selfie.jpg",
+  physioCategory: "/photos/ai-cupping.jpg",
   diagnosticsCategory: "/photos/school-checkup-students.jpg",
-  radiologyCategory: PLACEHOLDER,
+  radiologyCategory: "/photos/ai-radiology.jpg",
   eyeCategory: "/photos/school-checkup-doctor.jpg",
   medicalCategory: "/photos/doctor-desk-3.jpg",
   // Individual products — each unique
@@ -37,21 +37,22 @@ const IMG = {
   advanceBlood: "/photos/school-checkup-hall.jpg",
   premiumBlood: "/photos/award-blood-donor.jpg",
   superPremiumBlood: "/photos/school-checkup-lineup.jpg",
-  cupping: PLACEHOLDER,
-  fireCupping: PLACEHOLDER,
+  cupping: "/photos/ai-cupping.jpg",
+  fireCupping: "/photos/ai-fire-cupping.jpg",
   fitness: "/photos/team-back-blue.jpg",
-  massage: PLACEHOLDER,
-  hijama: PLACEHOLDER,
-  jaanuVasti: PLACEHOLDER,
-  katiVasti: PLACEHOLDER,
-  yogaMassage: PLACEHOLDER,
-  ctScan: PLACEHOLDER,
-  mri: PLACEHOLDER,
-  xray: PLACEHOLDER,
+  massage: "/photos/ai-massage.jpg",
+  hijama: "/photos/ai-hijama.jpg",
+  jaanuVasti: "/photos/ai-jaanu-vasti.jpg",
+  katiVasti: "/photos/ai-kati-vasti.jpg",
+  yogaMassage: "/photos/ai-yoga-massage.jpg",
+  ctScan: "/photos/ai-ct-scan.jpg",
+  mri: "/photos/ai-mri.jpg",
+  xray: "/photos/ai-xray.jpg",
   eyeCheckup: "/photos/doctor-desk-2.jpg",
-  lensReplace: PLACEHOLDER,
+  lensReplace: "/photos/ai-lens-replace.jpg",
   ecg: "/photos/doctor-desk-4.jpg",
 };
+
 
 
 export const PRODUCT_IMAGE_FALLBACK = "/photos/placeholder.svg";
