@@ -3,9 +3,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Award, HeartPulse, Users, ShieldCheck, Sparkles, Target, Eye } from "lucide-react";
-import doctorAsset from "@/assets/doctor-hero.asset.json";
-import teamGroup from "@/assets/team-group.png.asset.json";
 import { CLINIC } from "@/data/clinic";
+
 
 export const Route = createFileRoute("/about")({
   component: About,
@@ -36,14 +35,14 @@ function About() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-primary/20 to-emerald-accent/20 blur-2xl" />
             <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-glow">
-              <img src={doctorAsset.url} alt="Dr. B.P. Singh at Sanjeevani Clinic" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+              <img src="/photos/clinic-front.jpg" alt="Sanjeevani Clinic — Karan Vihar, Kirari, Delhi" loading="lazy" className="aspect-[4/5] w-full object-cover" />
             </div>
           </div>
           <div>
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Our story</span>
             <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Care that started in a small room, and never lost its warmth.</h2>
             <p className="mt-5 text-muted-foreground">
-              Sanjeevani Clinic opened its doors in {CLINIC.since} with a single consulting room, a small pharmacy shelf and one clear promise:
+              Sanjeevani Clinic opened its doors in {CLINIC.since} on Karan Vihar Road with a single consulting room, a small pharmacy shelf and one clear promise:
               treat every patient with time, honesty and dignity. Fifteen years on, we're now a full family clinic with in-house pathology,
               physiotherapy, imaging support and preventive health programmes — but that same promise still runs the place.
             </p>
@@ -59,9 +58,14 @@ function About() {
                 </div>
               ))}
             </div>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <img src="/photos/doctor-desk-1.jpg" alt="Dr. B.P. Singh consulting a patient at Sanjeevani Clinic" loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card" />
+              <img src="/photos/clinic-street-bw.jpg" alt="Sanjeevani Clinic street view" loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card" />
+            </div>
           </div>
         </div>
       </section>
+
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -171,11 +175,12 @@ function TeamSection() {
       {/* Hero team photo */}
       <div className="relative mt-12 overflow-hidden rounded-[32px] border border-white/60 shadow-glow">
         <img
-          src={teamGroup.url}
-          alt="The Sanjeevani Clinic team at the Karan Vihar reception"
+          src="/photos/team-selfie.jpg"
+          alt="The Sanjeevani Clinic team at Karan Vihar, Kirari"
           loading="lazy"
           className="aspect-[21/9] w-full object-cover object-center transition-transform duration-[1200ms] hover:scale-[1.03]"
         />
+
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-4 p-6 sm:p-8">
           <div className="text-white">

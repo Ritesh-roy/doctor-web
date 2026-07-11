@@ -23,21 +23,22 @@ export type BlogPost = {
   faqs: BlogFAQ[];
 };
 
-// Real clinic imagery only. Post-specific photos use a soft branded
-// gradient placeholder (no logo) where no real photo matches the topic.
+// Real clinic photos only. Posts without a matching photo use a soft
+// branded gradient placeholder (no logo, no stock imagery).
 const PLACEHOLDER = "/photos/placeholder.svg";
 const IMG = {
   physioHome: PLACEHOLDER,
   fullBodyPhysio: PLACEHOLDER,
-  eyeCampaign: "/photos/health-checkup-2.jpg",
-  bloodTest: PLACEHOLDER,
-  bloodReport: PLACEHOLDER,
-  eyeCheck: "/photos/health-checkup-3.jpg",
+  eyeCampaign: "/photos/school-checkup-students.jpg",
+  bloodTest: "/photos/school-checkup-desk.jpg",
+  bloodReport: "/photos/school-checkup-hall.jpg",
+  eyeCheck: "/photos/school-checkup-doctor.jpg",
   diabetes: PLACEHOLDER,
   bp: PLACEHOLDER,
-  annualCheck: "/photos/health-checkup-4.jpg",
+  annualCheck: "/photos/school-checkup-lineup.jpg",
   backPain: PLACEHOLDER,
 };
+
 
 export const BLOG_POSTS: BlogPost[] = [
   {

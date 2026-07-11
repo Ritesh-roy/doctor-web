@@ -1,14 +1,23 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { Heart, ShoppingCart, Eye, Calendar, Star } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { formatINR, PRODUCT_IMAGE_FALLBACK, type Product } from "@/data/products";
 import { useStore } from "@/lib/store";
+import { useAuth } from "@/lib/auth";
 import { QuickViewModal } from "./QuickViewModal";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addToCart, toggleWishlist, inWishlist } = useStore();
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [qv, setQv] = useState(false);
   const wished = inWishlist(product.slug);
+  const requireLogin = () => {
+    toast.error("Please sign in to continue");
+    navigate({ to: "/login" });
+  };
+
   const discount =
     product.oldPrice && product.oldPrice > product.price
       ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
@@ -98,19 +107,29 @@ export function ProductCard({ product }: { product: Product }) {
 
           <div className="mt-4 flex gap-2">
             <button
-              onClick={() => addToCart(product.slug)}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground transition-all hover:opacity-90"
+              onClick={() => (user ? addToCart(product.slug) : requireLogin())}
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:opacity-90 hover:shadow-soft"
             >
               <ShoppingCart className="h-3.5 w-3.5" /> Select Options
             </button>
-            <Link
-              to="/book-appointment"
-              search={{ service: product.slug } as never}
-              className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/20 px-3 py-2 text-xs font-semibold text-foreground hover:bg-primary-soft/60"
-            >
-              <Calendar className="h-3.5 w-3.5" /> Book Now
-            </Link>
+            {user ? (
+              <Link
+                to="/book-appointment"
+                search={{ service: product.slug } as never}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/20 px-3 py-2 text-xs font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60"
+              >
+                <Calendar className="h-3.5 w-3.5" /> Book Now
+              </Link>
+            ) : (
+              <button
+                onClick={requireLogin}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/20 px-3 py-2 text-xs font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60"
+              >
+                <Calendar className="h-3.5 w-3.5" /> Book Now
+              </button>
+            )}
           </div>
+
         </div>
       </div>
 

@@ -1,12 +1,14 @@
-// Real clinic imagery mixed with carefully generated medical photos so
-// every service has a fitting visual.
-const servicePhysio = "/photos/ai-physiotherapy.jpg";
-const serviceRadiology = "/photos/ai-radiology.jpg";
-const serviceEye = "/photos/ai-eye-exam.jpg";
-const serviceGeneral = "/photos/doctor-consultation.jpg";
-const serviceCheckup = "/photos/health-checkup-1.jpg";
-const serviceBloodTest = "/photos/ai-blood-test.jpg";
-const servicePathology = "/photos/ai-diagnostics.jpg";
+// Real clinic photos only — each service uses a unique image.
+// Services without a matching photo fall back to the branded placeholder.
+const PLACEHOLDER = "/photos/placeholder.svg";
+const servicePhysio = "/photos/team-back-blue.jpg";
+const serviceRadiology = PLACEHOLDER;
+const serviceEye = "/photos/school-checkup-doctor.jpg";
+const serviceGeneral = "/photos/doctor-desk-2.jpg";
+const serviceCheckup = "/photos/school-checkup-lineup.jpg";
+const serviceBloodTest = "/photos/school-checkup-desk.jpg";
+const servicePathology = "/photos/school-checkup-hall.jpg";
+
 
 export type Service = {
   slug: string;

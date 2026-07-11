@@ -10,7 +10,7 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — Sanjeevani Clinic, Kirari, Delhi" },
-      { name: "description", content: "A look inside Sanjeevani Clinic — our rooms, team, treatments, camps and awards." },
+      { name: "description", content: "A look inside Sanjeevani Clinic — our clinic, doctor, team, community camps and awards." },
       { property: "og:title", content: "Gallery — Sanjeevani Clinic" },
       { property: "og:description", content: "A look inside our clinic." },
       { property: "og:url", content: "/gallery" },
@@ -31,143 +31,200 @@ type GalleryItem = {
 
 const items: GalleryItem[] = [
   {
-    src: "/photos/clinic-exterior.jpg",
-    alt: "Sanjeevani Clinic exterior",
-    title: "Our Clinic in Kirari",
+    src: "/photos/clinic-front.jpg",
+    alt: "Sanjeevani Clinic front entrance in Karan Vihar, Kirari",
+    title: "Sanjeevani Clinic — Karan Vihar",
     category: "Clinic",
     description:
-      "Sanjeevani Clinic on Karan Vihar Road — the trusted neighbourhood healthcare address for families across Kirari, Delhi since 2009.",
-    location: "Karan Vihar, Kirari, Delhi",
+      "Our clinic on Karan Vihar Road — the trusted neighbourhood healthcare address for families across Kirari, Delhi. Open 9 AM – 1 PM and 5 PM – 9 PM, seven days a week.",
+    location: "ADD-B, 327a, Karan Vihar Road, Kirari, Delhi 110086",
   },
   {
-    src: "/photos/doctor-consultation.jpg",
-    alt: "Dr. Bhanu Pratap Singh in consultation",
-    title: "Doctor in Consultation",
+    src: "/photos/clinic-street-bw.jpg",
+    alt: "Sanjeevani Clinic street view",
+    title: "A familiar corner of Kirari",
+    category: "Clinic",
+    description:
+      "You can spot the red Sanjeevani Clinic signboard from the top of Karan Vihar Road. A quiet, easy landmark for anyone walking in for the first time.",
+    location: "Karan Vihar, Kirari",
+  },
+  {
+    src: "/photos/doctor-desk-1.jpg",
+    alt: "Dr. B.P. Singh at his consulting desk",
+    title: "Dr. B.P. Singh — Consulting Room",
     category: "Doctor",
     description:
-      "Unhurried one-on-one consultations with Dr. Bhanu Pratap Singh — where every patient is heard before a single prescription is written.",
+      "Unhurried one-on-one consultations. Every patient is heard before a single prescription is written. Behind the doctor are 15+ years of certificates, awards and continued-education proofs.",
   },
   {
-    src: "/photos/doctor.jpg",
-    alt: "Doctor's consultation room",
-    title: "Consultation Room",
-    category: "Clinic",
-    description: "Calm, clean and private — designed so families can talk about their health without hesitation.",
+    src: "/photos/doctor-desk-2.jpg",
+    alt: "Doctor reviewing a patient chart",
+    title: "Reviewing Reports Together",
+    category: "Doctor",
+    description:
+      "Every blood report, ECG or scan is walked through with the patient — in Hindi, English or Bhojpuri — until the plan is clearly understood.",
   },
   {
-    src: "/photos/health-checkup-1.jpg",
-    alt: "Bal Deep Model School health check-up",
-    title: "School Health Check-up Camp",
-    category: "Camps",
-    description: "Free full health check-up camp for students at Bal Deep Model School as part of our community outreach.",
-    location: "Bal Deep Model School",
+    src: "/photos/doctor-desk-3.jpg",
+    alt: "Doctor at work in the consulting room",
+    title: "Behind the Desk",
+    category: "Doctor",
+    description:
+      "A calm, brightly lit consulting room designed so families feel comfortable talking about their health without hesitation.",
   },
   {
-    src: "/photos/award-1.jpg",
-    alt: "Sardar Patel Unity Award 2026",
-    title: "Sardar Patel Unity Award 2026",
+    src: "/photos/doctor-desk-4.jpg",
+    alt: "Doctor writing notes",
+    title: "Clinical Notes",
+    category: "Doctor",
+    description:
+      "Detailed clinical notes for every patient — because good follow-up starts with a good record.",
+  },
+  {
+    src: "/photos/doctor-with-award.jpg",
+    alt: "Dr. B.P. Singh holding an award plaque",
+    title: "A Quiet Moment of Pride",
+    category: "Doctor",
+    description:
+      "Dr. B.P. Singh with a recognition plaque from a national health foundation — awarded for consistent contribution to community medicine.",
+  },
+  {
+    src: "/photos/team-selfie.jpg",
+    alt: "Sanjeevani Clinic team selfie",
+    title: "The Sanjeevani Team",
+    category: "Team",
+    description:
+      "Our doctors, nurses, phlebotomists and therapists — the people who make Sanjeevani feel like family.",
+  },
+  {
+    src: "/photos/team-back-blue.jpg",
+    alt: "Sanjeevani team in blue uniform",
+    title: "Uniform of Care",
+    category: "Team",
+    description:
+      "The Sanjeevani blue — worn every day by the physiotherapy and OPD team.",
+  },
+  {
+    src: "/photos/family-with-doctor.jpg",
+    alt: "A family with Dr. B.P. Singh at a community event",
+    title: "Family Medicine, Literally",
+    category: "Community",
+    description:
+      "Many of our patients are second-generation — we now care for the children of the families we started with in 2009.",
+  },
+  {
+    src: "/photos/award-unity-frame-1.jpg",
+    alt: "Sardar Patel Unity Award 2026 frame",
+    title: "Sardar Patel Unity Award — 2026",
     category: "Awards",
-    description: "Recognised with the Sardar Patel Unity Award for consistent contribution to community healthcare.",
+    description:
+      "Awarded to Dr. Bhanu Pratap Singh (Director, Sanjeevani Clinic Pvt. Ltd.) for Outstanding Contribution to Healthcare Services.",
+    date: "21 May 2026",
+    location: "Shangri-La's Eros, New Delhi",
+  },
+  {
+    src: "/photos/award-unity-frame-2.jpg",
+    alt: "Sardar Patel Unity Award — framed close-up",
+    title: "The Unity Award — Framed",
+    category: "Awards",
+    description:
+      "A close-up of the framed Sardar Patel Unity Award 2026 citation.",
     date: "2026",
   },
   {
-    src: "/photos/health-checkup-2.jpg",
-    alt: "Community health check-up in progress",
-    title: "Community Health Check-up",
-    category: "Camps",
-    description: "Screening blood pressure, sugar and vision for community members — completely free of cost.",
-  },
-  {
-    src: "/photos/award-ceremony.jpg",
-    alt: "Award ceremony",
-    title: "Outstanding Contribution to Healthcare",
+    src: "/photos/award-unity-side.jpg",
+    alt: "Sardar Patel Unity Award frame side view",
+    title: "The Unity Citation",
     category: "Awards",
-    description: "Honoured at a state-level ceremony for outstanding contribution to accessible neighbourhood healthcare.",
+    description:
+      "The Unity Award citation on display at the clinic's certificate wall.",
   },
   {
-    src: "/photos/health-checkup-3.jpg",
-    alt: "Doctor examining a student",
-    title: "Student Screening",
-    category: "Camps",
-    description: "General physical examination for students — early detection saves years of trouble later.",
-  },
-  {
-    src: "/photos/team.jpg",
-    alt: "Sanjeevani Clinic team",
-    title: "The Sanjeevani Team",
-    category: "Team",
-    description: "Our doctors, nurses, phlebotomists and therapists — the people who make Sanjeevani feel like family.",
-  },
-  {
-    src: "/photos/award-plaque.jpg",
-    alt: "Honorary Doctorate Award",
-    title: "Honorary Doctorate",
-    category: "Awards",
-    description: "An honorary doctorate awarded for years of service in community medicine and health education.",
-  },
-  {
-    src: "/photos/health-checkup-4.jpg",
-    alt: "Health screening at Bal Deep Model School",
-    title: "School Screening Drive",
-    category: "Camps",
-    description: "A day-long screening drive covering hundreds of children in a single visit.",
-    location: "Bal Deep Model School",
-  },
-  {
-    src: "/photos/team-back.jpg",
-    alt: "Clinic staff at an event",
-    title: "Team at a Community Event",
-    category: "Team",
-    description: "Our team attending a community health event alongside partner organisations.",
-  },
-  {
-    src: "/photos/award-2.jpg",
+    src: "/photos/award-trophy-black.jpg",
     alt: "Sardar Patel Unity Award trophy",
     title: "Unity Award Trophy",
     category: "Awards",
-    description: "The Sardar Patel Unity Award trophy — a reminder of why we do this work.",
+    description:
+      "The obsidian-black Sardar Patel Unity Award trophy — a quiet reminder of why we do this work.",
+    date: "2026",
   },
   {
-    src: "/photos/health-checkup-5.jpg",
-    alt: "Health check-up camp banner",
-    title: "Free Health Check-up Camp",
-    category: "Camps",
-    description: "Camp banner from a free health check-up event — announced door-to-door in the neighbourhood.",
-  },
-  {
-    src: "/photos/doctor-portrait.jpg",
-    alt: "Dr. Bhanu Pratap Singh",
-    title: "Dr. Bhanu Pratap Singh",
-    category: "Doctor",
-    description: "Founder and lead physician at Sanjeevani Clinic — 15+ years of family-medicine experience.",
-  },
-  {
-    src: "/photos/award-ceremony-2.jpg",
+    src: "/photos/award-stage-1.jpg",
     alt: "On-stage award ceremony",
     title: "On-stage Recognition",
     category: "Awards",
-    description: "Accepting recognition on stage at a healthcare summit for community medicine work.",
+    description:
+      "Accepting the Sardar Patel Unity Award on stage at a national healthcare summit.",
+    location: "New Delhi",
   },
   {
-    src: "/photos/award-3.jpg",
-    alt: "Meghmani Lifesciences appreciation award",
+    src: "/photos/award-stage-2.jpg",
+    alt: "Award being handed over on stage",
+    title: "Receiving the Citation",
+    category: "Awards",
+    description:
+      "The citation being handed over on stage — dedicated to every family that has trusted Sanjeevani over the last 15 years.",
+  },
+  {
+    src: "/photos/award-blood-donor.jpg",
+    alt: "Blood Donor & Environment Protection award",
+    title: "Blood Donor & Environment Protection Award",
+    category: "Awards",
+    description:
+      "Recognition for continued participation in blood donation drives and environmental health awareness.",
+  },
+  {
+    src: "/photos/award-meghmani.jpg",
+    alt: "Meghmani Lifesciences appreciation plaque",
     title: "Meghmani Lifesciences Appreciation",
     category: "Awards",
-    description: "Appreciation from Meghmani Lifesciences for continued dedication to patient care.",
+    description:
+      "\"You are a True Hero\" — an appreciation from Meghmani Lifesciences for continued dedication to patient care.",
   },
   {
-    src: "/photos/doctor-award.jpg",
-    alt: "Doctor receiving recognition",
-    title: "Recognition Moment",
-    category: "Awards",
-    description: "A quiet moment of pride at receiving formal recognition for years of service.",
+    src: "/photos/school-checkup-doctor.jpg",
+    alt: "Doctor examining a student at Bal Deep Model School",
+    title: "Student Screening",
+    category: "Camps",
+    description:
+      "A general physical examination for students during a free school health camp — early detection saves years of trouble later.",
+    location: "Bal Deep Model School",
   },
   {
-    src: "/photos/family.jpg",
-    alt: "Family gathering",
-    title: "Our Extended Family",
-    category: "Community",
-    description: "Patients, well-wishers and family — the community that has grown around Sanjeevani over 15 years.",
+    src: "/photos/school-checkup-hall.jpg",
+    alt: "Bal Deep Model School health check-up in the hall",
+    title: "School Health Check-up Camp",
+    category: "Camps",
+    description:
+      "A free full health check-up camp for students at Bal Deep Model School — part of our regular community outreach.",
+    location: "Bal Deep Model School",
+  },
+  {
+    src: "/photos/school-checkup-students.jpg",
+    alt: "Students queued for check-up",
+    title: "One School, One Day, Every Child",
+    category: "Camps",
+    description:
+      "A day-long screening drive covering hundreds of children in a single visit.",
+    location: "Bal Deep Model School",
+  },
+  {
+    src: "/photos/school-checkup-lineup.jpg",
+    alt: "Students in line for the health camp",
+    title: "Line Up, Get Checked, Go Play",
+    category: "Camps",
+    description:
+      "Vitals, vision and general examination — students are back in class or on the playground within minutes.",
+    location: "Bal Deep Model School",
+  },
+  {
+    src: "/photos/school-checkup-desk.jpg",
+    alt: "Doctor consulting a student at a camp desk",
+    title: "One Child at a Time",
+    category: "Camps",
+    description:
+      "Every child gets a proper sit-down consultation, not just a rushed vitals check.",
+    location: "Bal Deep Model School",
   },
 ];
 

@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
-const reception = "/photos/clinic-exterior.jpg";
-const lab = "/photos/health-checkup-1.jpg";
-const room = "/photos/doctor-consultation.jpg";
-const equipment = "/photos/doctor.jpg";
+const reception = "/photos/clinic-front.jpg";
+const lab = "/photos/school-checkup-desk.jpg";
+const room = "/photos/doctor-desk-3.jpg";
+const equipment = "/photos/doctor-desk-4.jpg";
+
 import { Wifi, ShieldCheck, Accessibility, ParkingCircle, Stethoscope, Microscope, Building2 } from "lucide-react";
 
 export const Route = createFileRoute("/facilities")({
