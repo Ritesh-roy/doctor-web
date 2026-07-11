@@ -6,6 +6,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
 import { formatINR, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
+import { useAuth } from "@/lib/auth";
 import {
   isValidName,
   isValidPhone,
@@ -15,6 +16,7 @@ import {
   sanitizePhoneInput,
   todayISO,
 } from "@/lib/validators";
+
 
 export const Route = createFileRoute("/checkout")({
   component: Checkout,
@@ -31,6 +33,7 @@ export const Route = createFileRoute("/checkout")({
 
 function Checkout() {
   const { cartItems, cartTotal, clearCart } = useStore();
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
   const [payment, setPayment] = useState<"cod" | "upi" | "card">("cod");
   const [placing, setPlacing] = useState(false);
@@ -41,6 +44,24 @@ function Checkout() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const minDate = todayISO();
+
+  if (!loading && !user) {
+    return (
+      <SiteLayout>
+        <PageHero eyebrow="Checkout" title="Please sign in to complete your purchase." crumbs={[{ label: "Home", to: "/" }, { label: "Checkout" }]} />
+        <section className="mx-auto max-w-2xl px-4 pb-24 text-center sm:px-6">
+          <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-card">
+            <p className="text-sm text-muted-foreground">You need an account to place an order. Your cart is safe — sign in and come right back.</p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link to="/login" className="inline-flex h-11 items-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:-translate-y-0.5">Sign in</Link>
+              <Link to="/signup" className="inline-flex h-11 items-center rounded-full border border-primary/20 px-6 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60">Create account</Link>
+            </div>
+          </div>
+        </section>
+      </SiteLayout>
+    );
+  }
+
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
