@@ -22,14 +22,14 @@ export type Product = {
   homeVisit?: boolean;
 };
 
-// Real clinic imagery only. Category-specific product photos pending upload
-// from the clinic; branded placeholder used until then.
-const PLACEHOLDER = "/photos/placeholder.jpg";
+// Real clinic imagery only. Category-specific product photos use a soft
+// branded gradient placeholder (no logo) until real photos are provided.
+const PLACEHOLDER = "/photos/placeholder.svg";
 const IMG = {
   physioCategory: PLACEHOLDER,
   diagnosticsCategory: PLACEHOLDER,
   radiologyCategory: PLACEHOLDER,
-  eyeCategory: PLACEHOLDER,
+  eyeCategory: "/photos/health-checkup-3.jpg",
   medicalCategory: "/photos/doctor-consultation.jpg",
   essentialBlood: PLACEHOLDER,
   advanceBlood: PLACEHOLDER,
@@ -46,12 +46,12 @@ const IMG = {
   ctScan: PLACEHOLDER,
   mri: PLACEHOLDER,
   xray: PLACEHOLDER,
-  eyeCheckup: PLACEHOLDER,
+  eyeCheckup: "/photos/health-checkup-5.jpg",
   lensReplace: PLACEHOLDER,
   ecg: PLACEHOLDER,
 };
 
-export const PRODUCT_IMAGE_FALLBACK = IMG.medicalCategory;
+export const PRODUCT_IMAGE_FALLBACK = PLACEHOLDER;
 
 export const CATEGORIES: { slug: ProductCategorySlug; label: string; description: string; image: string }[] = [
   {

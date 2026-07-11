@@ -23,9 +23,9 @@ export type BlogPost = {
   faqs: BlogFAQ[];
 };
 
-// Real clinic imagery only. Post-specific photos pending upload; branded
-// placeholder used for topics without a matching real photo.
-const PLACEHOLDER = "/photos/placeholder.jpg";
+// Real clinic imagery only. Post-specific photos use a soft branded
+// gradient placeholder (no logo) where no real photo matches the topic.
+const PLACEHOLDER = "/photos/placeholder.svg";
 const IMG = {
   physioHome: PLACEHOLDER,
   fullBodyPhysio: PLACEHOLDER,
