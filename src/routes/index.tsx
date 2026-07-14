@@ -20,6 +20,8 @@ import {
   Home,
   Leaf,
   BookOpen,
+} from "lucide-react";
+
 
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CtaBanner } from "@/components/site/CtaBanner";
