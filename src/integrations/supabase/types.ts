@@ -67,11 +67,16 @@ export type Database = {
           email: string | null
           id: string
           items: Json
+          order_number: string | null
           payment_method: string
           phone: string
           preferred_date: string | null
           preferred_time: string | null
+          razorpay_order_id: string | null
+          razorpay_payment_id: string | null
+          razorpay_signature: string | null
           status: string
+          therapy_titles: string | null
           total_amount: number
           updated_at: string
           user_id: string | null
@@ -83,11 +88,16 @@ export type Database = {
           email?: string | null
           id?: string
           items: Json
+          order_number?: string | null
           payment_method: string
           phone: string
           preferred_date?: string | null
           preferred_time?: string | null
+          razorpay_order_id?: string | null
+          razorpay_payment_id?: string | null
+          razorpay_signature?: string | null
           status?: string
+          therapy_titles?: string | null
           total_amount: number
           updated_at?: string
           user_id?: string | null
@@ -99,11 +109,16 @@ export type Database = {
           email?: string | null
           id?: string
           items?: Json
+          order_number?: string | null
           payment_method?: string
           phone?: string
           preferred_date?: string | null
           preferred_time?: string | null
+          razorpay_order_id?: string | null
+          razorpay_payment_id?: string | null
+          razorpay_signature?: string | null
           status?: string
+          therapy_titles?: string | null
           total_amount?: number
           updated_at?: string
           user_id?: string | null

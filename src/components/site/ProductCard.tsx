@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { Heart, ShoppingCart, Eye, Calendar, Star } from "lucide-react";
+import { Heart, ShoppingCart, Eye, Calendar, Star, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { formatINR, PRODUCT_IMAGE_FALLBACK, type Product } from "@/data/products";
@@ -105,12 +105,16 @@ export function ProductCard({ product }: { product: Product }) {
             )}
           </div>
 
-          <div className="mt-4 flex gap-2">
+          {product.duration && (
+            <div className="mt-2 text-[11px] font-semibold text-primary/80">⏱ {product.duration}</div>
+          )}
+
+          <div className="mt-4 grid grid-cols-2 gap-2">
             <button
               onClick={() => (user ? addToCart(product.slug) : requireLogin())}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:opacity-90 hover:shadow-soft"
+              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:opacity-90 hover:shadow-soft"
             >
-              <ShoppingCart className="h-3.5 w-3.5" /> Select Options
+              <ShoppingCart className="h-3.5 w-3.5" /> Add
             </button>
             {user ? (
               <Link
@@ -118,16 +122,24 @@ export function ProductCard({ product }: { product: Product }) {
                 search={{ service: product.slug } as never}
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/20 px-3 py-2 text-xs font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60"
               >
-                <Calendar className="h-3.5 w-3.5" /> Book Now
+                <Calendar className="h-3.5 w-3.5" /> Book
               </Link>
             ) : (
               <button
                 onClick={requireLogin}
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-primary/20 px-3 py-2 text-xs font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60"
               >
-                <Calendar className="h-3.5 w-3.5" /> Book Now
+                <Calendar className="h-3.5 w-3.5" /> Book
               </button>
             )}
+            <a
+              href={`https://wa.me/918853515351?text=${encodeURIComponent(`Hi, I want to know more about ${product.title} (₹${product.price}).`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="col-span-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-emerald-accent px-3 py-2 text-xs font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+            >
+              <MessageCircle className="h-3.5 w-3.5" /> WhatsApp Enquiry
+            </a>
           </div>
 
         </div>

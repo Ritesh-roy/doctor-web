@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Check, Heart, ShoppingCart, Calendar, Minus, Plus, Star, Home } from "lucide-react";
+import { Check, Heart, ShoppingCart, Calendar, Minus, Plus, Star, Home, MessageCircle, Sparkles } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { ProductCard } from "@/components/site/ProductCard";
@@ -108,14 +108,36 @@ function ProductDetail() {
 
             <p className="mt-5 text-sm text-foreground/80">{p.description}</p>
 
-            <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-              {p.highlights.map((h) => (
-                <li key={h} className="flex items-start gap-2 rounded-xl border border-primary/10 bg-white p-3 text-sm">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-accent" />
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-4 rounded-2xl border border-primary/10 bg-primary-soft/30 p-4">
+              <div className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-primary">हिंदी में</div>
+              <p className="text-sm text-foreground/80" lang="hi">{p.hindiDescription}</p>
+            </div>
+
+            <div className="mt-5">
+              <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+                <Sparkles className="h-4 w-4" /> Benefits
+              </div>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                {p.benefits.map((b) => (
+                  <li key={b} className="flex items-start gap-2 rounded-xl border border-primary/10 bg-white p-3 text-sm">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-accent" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-5">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">Highlights</div>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                {p.highlights.map((h) => (
+                  <li key={h} className="flex items-start gap-2 rounded-xl border border-primary/10 bg-white p-3 text-sm">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-accent" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {(p.duration || p.homeVisit) && (
               <div className="mt-5 flex flex-wrap gap-2 text-xs">
@@ -170,6 +192,15 @@ function ProductDetail() {
                 <Calendar className="h-4 w-4" /> Sign in to Book Appointment
               </button>
             )}
+
+            <a
+              href={`https://wa.me/918853515351?text=${encodeURIComponent(`Hi, I'd like to book ${p.title} (₹${p.price}).`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-emerald-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+            >
+              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+            </a>
 
           </div>
         </div>

@@ -1,9 +1,4 @@
-export type ProductCategorySlug =
-  | "physiotherapy"
-  | "diognostick"
-  | "radiologist"
-  | "eye-treatment"
-  | "medical";
+export type ProductCategorySlug = "physiotherapy";
 
 export type Product = {
   slug: string;
@@ -17,327 +12,247 @@ export type Product = {
   image: string;
   shortDescription: string;
   description: string;
+  hindiDescription: string;
   highlights: string[];
+  benefits: string[];
   duration?: string;
   homeVisit?: boolean;
 };
-
-// Real clinic photos only. Products without a matching real photo use a
-// soft branded gradient placeholder (no logo, no stock imagery).
-const PLACEHOLDER = "/photos/placeholder.svg";
-const IMG = {
-  // Category headers
-  physioCategory: "/photos/cupping-back-real.jpg",
-  diagnosticsCategory: "/photos/school-checkup-students.jpg",
-  radiologyCategory: "/photos/ai-radiology.jpg",
-  eyeCategory: "/photos/school-checkup-doctor.jpg",
-  medicalCategory: "/photos/doctor-desk-3.jpg",
-  // Individual products — each unique
-  essentialBlood: "/photos/school-checkup-desk.jpg",
-  advanceBlood: "/photos/school-checkup-hall.jpg",
-  premiumBlood: "/photos/award-blood-donor.jpg",
-  superPremiumBlood: "/photos/school-checkup-lineup.jpg",
-  cupping: "/photos/cupping-back-real.jpg",
-  fireCupping: "/photos/ai-fire-cupping.jpg",
-  fitness: "/photos/team-back-blue.jpg",
-  massage: "/photos/massage-back-real.jpg",
-  hijama: "/photos/ai-hijama.jpg",
-  jaanuVasti: "/photos/knee-pain-real.jpg",
-  katiVasti: "/photos/ai-kati-vasti.jpg",
-  yogaMassage: "/photos/ai-yoga-massage.jpg",
-  ctScan: "/photos/ai-ct-scan.jpg",
-  mri: "/photos/ai-mri.jpg",
-  xray: "/photos/ai-xray.jpg",
-  eyeCheckup: "/photos/doctor-desk-2.jpg",
-  lensReplace: "/photos/ai-lens-replace.jpg",
-  ecg: "/photos/doctor-desk-4.jpg",
-};
-
-
 
 export const PRODUCT_IMAGE_FALLBACK = "/photos/placeholder.svg";
 
 export const CATEGORIES: { slug: ProductCategorySlug; label: string; description: string; image: string }[] = [
   {
     slug: "physiotherapy",
-    label: "Physiotherapy",
-    description: "Cupping, hijama, massage, kati-vasti and fitness therapy delivered by trained therapists.",
-    image: IMG.physioCategory,
-  },
-  {
-    slug: "diognostick",
-    label: "Diagnostics",
-    description: "Essential to super-premium blood profiles processed in-house with same-day reports.",
-    image: IMG.diagnosticsCategory,
-  },
-  {
-    slug: "radiologist",
-    label: "Radiologist",
-    description: "X-Ray, CT scan and MRI booked and coordinated through trusted radiology partners.",
-    image: IMG.radiologyCategory,
-  },
-  {
-    slug: "eye-treatment",
-    label: "Eye Treatment",
-    description: "Comprehensive eye check-ups, lens replacement and vision screening for the whole family.",
-    image: IMG.eyeCategory,
-  },
-  {
-    slug: "medical",
-    label: "General Medical",
-    description: "ECG, vitals and general OPD checkups by our resident doctor.",
-    image: IMG.medicalCategory,
+    label: "Therapy Services",
+    description:
+      "Evidence-based physiotherapy, traditional cupping and digital traction therapies performed in-clinic and at home.",
+    image: "/photos/cupping-back-real.jpg",
   },
 ];
 
 export const PRODUCTS: Product[] = [
   {
-    slug: "essential-blood-test",
-    title: "Blood Test (Essential)",
-    category: "diognostick",
-    categoryLabel: "Diagnostics",
-    price: 999,
-    oldPrice: 1499,
-    onSale: true,
-    image: IMG.essentialBlood,
-    shortDescription: "Essential blood profile covering CBC, sugar, lipid & liver markers.",
+    slug: "ift-therapy",
+    title: "I.F.T. Therapy",
+    category: "physiotherapy",
+    categoryLabel: "Therapy Services",
+    price: 300,
+    image: "/photos/ai-ift-therapy.jpg",
+    shortDescription: "Interferential Therapy for deep pain relief in muscles and joints.",
     description:
-      "Our Essential Blood Test bundles the most commonly needed markers — Complete Blood Count (CBC), Fasting Blood Sugar, Lipid Profile, Kidney & Liver Function — into a single low-cost package. Reports are shared digitally the same day and reviewed with you by the doctor.",
-    highlights: ["Same-day digital report", "Fasting sample from 9:00 AM", "Reviewed by doctor", "Home collection available"],
-    duration: "15 min sampling",
+      "Interferential Therapy (IFT) uses medium-frequency electrical currents to reach deep tissues, blocking pain signals and relaxing muscle spasms. Excellent for chronic back, shoulder and joint pain.",
+    hindiDescription:
+      "आई.एफ.टी. थेरेपी में मध्यम-आवृत्ति की विद्युत तरंगें गहरे ऊतकों तक पहुँचकर दर्द और मांसपेशियों की जकड़न को कम करती हैं। पीठ, कंधे और जोड़ों के पुराने दर्द में बहुत लाभकारी।",
+    highlights: ["Deep tissue pain relief", "Reduces muscle spasm", "Non-invasive & safe", "Trained physiotherapist"],
+    benefits: [
+      "Relieves chronic back & joint pain",
+      "Improves blood circulation",
+      "Reduces inflammation and swelling",
+      "Speeds up muscle recovery",
+    ],
+    duration: "20 min",
     homeVisit: true,
   },
   {
-    slug: "blood-testadvance",
-    title: "Blood Test (Advance)",
-    category: "diognostick",
-    categoryLabel: "Diagnostics",
-    price: 1699,
-    oldPrice: 2499,
-    onSale: true,
-    image: IMG.advanceBlood,
-    shortDescription: "Advance profile with thyroid, HbA1c, vitamin D & B12 panels.",
+    slug: "tens-therapy",
+    title: "TENS Therapy",
+    category: "physiotherapy",
+    categoryLabel: "Therapy Services",
+    price: 250,
+    image: "/photos/ai-tens-therapy.jpg",
+    shortDescription: "Transcutaneous Electrical Nerve Stimulation for nerve and muscle pain.",
     description:
-      "The Advance package adds Thyroid Profile, HbA1c, Vitamin D and Vitamin B12 to every essential marker — ideal for a yearly deep-dive or if you have fatigue, weight change or metabolic concerns.",
-    highlights: ["50+ parameters", "Thyroid + HbA1c included", "Vitamin D & B12", "Digital PDF report"],
-    duration: "15 min sampling",
-    homeVisit: true,
-  },
-  {
-    slug: "premium",
-    title: "Premium (Profile 2.3)",
-    category: "diognostick",
-    categoryLabel: "Diagnostics",
-    price: 1999,
-    oldPrice: 2999,
-    onSale: true,
-    image: IMG.premiumBlood,
-    shortDescription: "Premium 70+ parameter profile with hormonal & cardiac markers.",
-    description:
-      "A deep 70+ parameter panel including full thyroid, iron studies, cardiac risk markers, electrolytes and inflammation indicators — perfect for anyone over 35 or with a family history of chronic disease.",
-    highlights: ["70+ parameters", "Cardiac risk markers", "Iron studies", "Detailed doctor consult"],
-    duration: "20 min sampling",
-    homeVisit: true,
-  },
-  {
-    slug: "super-premium-blood-test-87-test",
-    title: "Super Premium (Blood Test) – 87 Test",
-    category: "diognostick",
-    categoryLabel: "Diagnostics",
-    price: 2499,
-    oldPrice: 3999,
-    onSale: true,
-    image: IMG.superPremiumBlood,
-    shortDescription: "Comprehensive 87-parameter yearly master health package.",
-    description:
-      "The Super Premium package covers 87 parameters across metabolic, cardiac, hepatic, renal, thyroid, inflammatory, vitamin and mineral markers. Includes a detailed consultation to interpret every result.",
-    highlights: ["87 parameters", "Full hormonal panel", "Vitamins & minerals", "30-min doctor review"],
-    duration: "25 min sampling",
+      "TENS delivers gentle low-voltage electrical impulses through skin electrodes to relieve acute and chronic pain. Ideal for cervical pain, sciatica, arthritis and post-injury recovery.",
+    hindiDescription:
+      "टेन्स थेरेपी में त्वचा पर लगे इलेक्ट्रोड के माध्यम से हल्की विद्युत तरंगें नसों को शांत करती हैं। गर्दन दर्द, साइटिका और अर्थराइटिस में तुरंत आराम देती है।",
+    highlights: ["Instant pain relief", "Safe & drug-free", "Adjustable intensity", "Sterile pads used"],
+    benefits: [
+      "Quick relief from nerve pain",
+      "Reduces dependency on pain-killers",
+      "Improves nerve function",
+      "Helps in post-surgery recovery",
+    ],
+    duration: "20 min",
     homeVisit: true,
   },
   {
     slug: "cupping-therapy",
     title: "Cupping Therapy",
     category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
+    categoryLabel: "Therapy Services",
     price: 400,
-    image: IMG.cupping,
+    image: "/photos/cupping-back-real.jpg",
     shortDescription: "Traditional dry cupping to release muscle tension and improve circulation.",
     description:
-      "Dry cupping uses gentle suction over knots and tight muscles to lift fascia, boost local circulation and speed recovery. Ideal for shoulder, back and neck stiffness.",
+      "Dry cupping uses gentle suction over knots and tight muscles to lift fascia, boost local circulation and speed recovery. Excellent for shoulder, back and neck stiffness.",
+    hindiDescription:
+      "कपिंग थेरेपी में विशेष कप द्वारा त्वचा पर हल्का वैक्यूम बनाकर मांसपेशियों की जकड़न खोली जाती है। कंधे, पीठ और गर्दन के दर्द में तुरंत राहत।",
     highlights: ["Sterile single-use cups", "Trained therapist", "30-minute session", "Immediate relief"],
+    benefits: [
+      "Releases muscle knots",
+      "Improves blood & lymph flow",
+      "Detoxifies tissues",
+      "Reduces stiffness and stress",
+    ],
     duration: "30 min",
+    homeVisit: true,
   },
   {
     slug: "fire-cupping-therapy",
     title: "Fire Cupping Therapy",
     category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
+    categoryLabel: "Therapy Services",
     price: 450,
-    image: IMG.fireCupping,
+    image: "/photos/ai-fire-cupping.jpg",
     shortDescription: "Classical fire-cupping for deeper muscular release and detox.",
     description:
       "Fire cupping applies traditional heat-based suction that goes deeper than dry cupping — recommended for chronic back pain, sciatica and post-exercise recovery.",
+    hindiDescription:
+      "फायर कपिंग में आग की गर्मी से बना वैक्यूम गहरी मांसपेशियों तक असर करता है। पुराने पीठ दर्द, साइटिका और थकान में विशेष रूप से लाभकारी।",
     highlights: ["Deeper suction", "Chronic pain relief", "Improved circulation", "Trained cupping expert"],
+    benefits: [
+      "Deep muscle relaxation",
+      "Effective in chronic pain",
+      "Boosts immunity",
+      "Enhances energy levels",
+    ],
     duration: "35 min",
+    homeVisit: true,
   },
   {
-    slug: "fitness-therapy",
-    title: "Fitness Therapy",
+    slug: "paraffin-wax-therapy",
+    title: "Paraffin Wax Therapy",
     category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
-    price: 300,
-    image: IMG.fitness,
-    shortDescription: "Guided rehab exercises for posture, mobility and strength.",
+    categoryLabel: "Therapy Services",
+    price: 350,
+    image: "/photos/paraffin-wax-hand.jpg",
+    shortDescription: "Warm paraffin wax dip for joint pain, arthritis and stiff hands.",
     description:
-      "One-on-one fitness therapy sessions to correct posture, strengthen core and rehabilitate injuries. Every session includes a home exercise plan.",
-    highlights: ["Personal exercise plan", "Posture correction", "Injury rehab", "Home programme"],
-    duration: "45 min",
+      "Paraffin wax therapy warms and softens joints of the hands, wrists and feet — highly effective for arthritis, rheumatoid pain and post-fracture stiffness.",
+    hindiDescription:
+      "पैराफिन वैक्स थेरेपी में गर्म वैक्स से हाथ-पैरों के जोड़ों को सेंका जाता है। गठिया, अर्थराइटिस और फ्रैक्चर के बाद की जकड़न में बहुत आराम मिलता है।",
+    highlights: ["Deep heat therapy", "Arthritis relief", "Soft skin & joints", "Trained therapist"],
+    benefits: [
+      "Eases arthritis pain",
+      "Loosens stiff joints",
+      "Improves skin texture",
+      "Increases joint flexibility",
+    ],
+    duration: "25 min",
+    homeVisit: true,
   },
   {
-    slug: "full-body-combo",
-    title: "Full Body Massage Combo",
+    slug: "body-massage-therapy",
+    title: "Body Massage Therapy",
     category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
+    categoryLabel: "Therapy Services",
     price: 999,
-    oldPrice: 2100,
+    oldPrice: 1499,
     onSale: true,
-    image: IMG.massage,
-    shortDescription: "Full-body relaxation and therapeutic massage combo — save over 50%.",
+    image: "/photos/massage-back-real.jpg",
+    shortDescription: "Full-body therapeutic massage with warm herbal oils.",
     description:
-      "A relaxing yet therapeutic full-body oil massage combined with warm compress — designed to relieve stress, ease muscle stiffness and improve sleep. Best-selling combo.",
+      "A relaxing yet therapeutic full-body oil massage designed to relieve stress, ease muscle stiffness and improve sleep. One of our best-selling therapies.",
+    hindiDescription:
+      "पूरे शरीर की मालिश गर्म हर्बल तेलों से की जाती है, जो तनाव, थकान और मांसपेशियों की जकड़न को दूर करती है और नींद बेहतर बनाती है।",
     highlights: ["60-minute full-body", "Warm herbal oils", "Relieves stress & pain", "Best value combo"],
+    benefits: [
+      "Complete body relaxation",
+      "Relieves muscle fatigue",
+      "Improves sleep quality",
+      "Boosts overall wellness",
+    ],
     duration: "60 min",
+    homeVisit: true,
   },
   {
-    slug: "hijama-cupping-therapy",
-    title: "Hijama Cupping Therapy",
+    slug: "body-relaxation-foot-massage",
+    title: "Body Relaxation & Foot Massage",
     category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
+    categoryLabel: "Therapy Services",
+    price: 500,
+    image: "/photos/ai-foot-massage.jpg",
+    shortDescription: "Reflexology-based foot & body relaxation for stress relief.",
+    description:
+      "Combines gentle body relaxation with focused foot reflexology to calm the nervous system, ease headaches and improve sleep quality.",
+    hindiDescription:
+      "पैरों की रिफ्लेक्सोलॉजी और शरीर की हल्की मालिश से नसें शांत होती हैं, सिरदर्द कम होता है और नींद अच्छी आती है।",
+    highlights: ["Reflexology techniques", "Stress relief", "Improved sleep", "Gentle & safe"],
+    benefits: [
+      "Relieves fatigue and stress",
+      "Improves blood circulation",
+      "Reduces headaches",
+      "Calms the mind",
+    ],
+    duration: "40 min",
+    homeVisit: true,
+  },
+  {
+    slug: "cupping-hijama-therapy",
+    title: "Cupping Hijama Therapy",
+    category: "physiotherapy",
+    categoryLabel: "Therapy Services",
     price: 600,
-    image: IMG.hijama,
+    image: "/photos/ai-hijama.jpg",
     shortDescription: "Sunnah-style hijama (wet cupping) by certified practitioner.",
     description:
       "Traditional wet cupping (hijama) performed with strict sterile technique — helpful for chronic pain, migraines and detoxification. Performed by a certified hijama practitioner.",
+    hindiDescription:
+      "हिजामा (वेट कपिंग) प्रमाणित विशेषज्ञ द्वारा पूर्ण सफाई के साथ की जाती है। पुराने दर्द, माइग्रेन और शरीर की सफाई में लाभकारी।",
     highlights: ["Certified hijama expert", "Fully sterile setup", "Migraine & pain relief", "Male & female slots"],
+    benefits: [
+      "Detoxifies the body",
+      "Relieves chronic pain",
+      "Helps in migraine and BP",
+      "Boosts immunity",
+    ],
     duration: "45 min",
+    homeVisit: true,
   },
   {
-    slug: "jaanu-vasti-therapy",
-    title: "Jaanu Vasti Therapy",
+    slug: "digital-cervical-therapy",
+    title: "Digital Cervical Therapy",
     category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
+    categoryLabel: "Therapy Services",
     price: 500,
-    image: IMG.jaanuVasti,
-    shortDescription: "Ayurvedic knee therapy for stiffness, arthritis and knee pain.",
+    image: "/photos/ai-cervical-therapy.jpg",
+    shortDescription: "Computerised cervical traction for neck pain and spondylosis.",
     description:
-      "Jaanu Vasti pools warm medicated oil around the knee joint to reduce inflammation, lubricate cartilage and relieve chronic knee pain — a proven Ayurvedic therapy.",
-    highlights: ["Warm medicated oil", "Knee arthritis relief", "Ayurvedic therapist", "Course of 5–7 sittings recommended"],
-    duration: "40 min",
+      "Digital cervical traction gently stretches the neck to decompress discs and nerves — highly effective for cervical spondylosis, disc bulge and chronic neck pain.",
+    hindiDescription:
+      "डिजिटल सर्वाइकल थेरेपी में मशीन द्वारा गर्दन का नियंत्रित खिंचाव किया जाता है, जिससे सर्वाइकल स्पॉन्डिलाइटिस, डिस्क समस्या और गर्दन दर्द में आराम मिलता है।",
+    highlights: ["Computerised traction", "Cervical spondylosis relief", "Disc decompression", "Trained physio"],
+    benefits: [
+      "Reduces neck and shoulder pain",
+      "Relieves numbness in arms",
+      "Improves posture",
+      "Decompresses cervical discs",
+    ],
+    duration: "20 min",
+    homeVisit: false,
   },
   {
-    slug: "kati-vasti-therapy",
-    title: "Kati Vasti Therapy",
+    slug: "digital-lumbar-therapy",
+    title: "Digital Lumbar Therapy",
     category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
+    categoryLabel: "Therapy Services",
     price: 500,
-    image: IMG.katiVasti,
-    shortDescription: "Ayurvedic lower-back therapy for sciatica, spondylosis and back pain.",
+    image: "/photos/ai-lumbar-therapy.jpg",
+    shortDescription: "Computerised lumbar traction for back pain and sciatica.",
     description:
-      "Kati Vasti retains warm medicated oil over the lumbar spine to soothe muscles, decompress nerves and reduce lower-back pain. Excellent for sciatica and lumbar spondylosis.",
-    highlights: ["Lower-back & sciatica", "Warm herbal oil", "Ayurvedic therapist", "Course pricing available"],
-    duration: "40 min",
-  },
-  {
-    slug: "yoga-massage-therapy",
-    title: "Yoga Massage Therapy",
-    category: "physiotherapy",
-    categoryLabel: "Physiotherapy",
-    price: 400,
-    image: IMG.yogaMassage,
-    shortDescription: "Assisted yoga stretches with therapeutic massage for full-body mobility.",
-    description:
-      "A blend of assisted yoga stretches and deep-tissue massage that improves flexibility, releases tight fascia and calms the nervous system.",
-    highlights: ["Assisted stretching", "Deep-tissue release", "Improved flexibility", "45-minute session"],
-    duration: "45 min",
-  },
-  {
-    slug: "c-t-scan-test",
-    title: "C-T Scan Test",
-    category: "radiologist",
-    categoryLabel: "Radiologist",
-    price: 2500,
-    image: IMG.ctScan,
-    shortDescription: "CT scan booking with trusted radiology partners.",
-    description:
-      "We coordinate CT scan bookings with senior radiologists at partner imaging centres — with clear preparation instructions, appointment reminders and doctor review of your report.",
-    highlights: ["Partner imaging centre", "Senior radiologist", "Report review by doctor", "Home report delivery"],
-  },
-  {
-    slug: "mri-magnetic-resonance-imaging",
-    title: "MRI (Magnetic Resonance Imaging)",
-    category: "radiologist",
-    categoryLabel: "Radiologist",
-    price: 3500,
-    oldPrice: 7000,
-    onSale: true,
-    image: IMG.mri,
-    shortDescription: "MRI booking at 50% off — via partner radiology centres.",
-    description:
-      "High-resolution MRI at partner centres at a specially negotiated rate for Sanjeevani patients. Includes booking coordination, doctor's referral and post-report consultation.",
-    highlights: ["50% off partner rate", "High-resolution scan", "Referral & booking help", "Doctor report review"],
-  },
-  {
-    slug: "x-ray-test",
-    title: "X-Ray Test",
-    category: "radiologist",
-    categoryLabel: "Radiologist",
-    price: 400,
-    image: IMG.xray,
-    shortDescription: "Digital X-Ray with low radiation dose and same-day report.",
-    description:
-      "Digital X-Ray imaging with low-dose exposure. Reports are typically ready the same day and reviewed with you by our doctor.",
-    highlights: ["Low radiation dose", "Digital plates", "Same-day report", "Doctor interpretation"],
-    duration: "15 min",
-  },
-  {
-    slug: "eye-cheackup",
-    title: "Eye Checkup",
-    category: "eye-treatment",
-    categoryLabel: "Eye Treatment",
-    price: 1,
-    image: IMG.eyeCheckup,
-    shortDescription: "Comprehensive eye examination — currently free (₹1 nominal charge).",
-    description:
-      "Comprehensive eye examination: visual acuity, refraction, pressure check and fundus review. Currently offered at a nominal ₹1 booking charge as part of our community outreach.",
-    highlights: ["Full refraction", "Pressure check", "Fundus review", "Child-friendly"],
-    duration: "30 min",
-  },
-  {
-    slug: "lens-replace-on-glasses",
-    title: "Lens Replace on Glasses",
-    category: "eye-treatment",
-    categoryLabel: "Eye Treatment",
-    price: 500,
-    image: IMG.lensReplace,
-    shortDescription: "Replace lenses on existing frames — quick and accurate.",
-    description:
-      "Get new prescription lenses fitted into your existing frames. Includes free power check and 15-day comfort guarantee.",
-    highlights: ["Existing frame welcome", "Free power check", "15-day comfort guarantee", "Multiple lens options"],
-  },
-  {
-    slug: "ecg",
-    title: "ECG Checkup",
-    category: "medical",
-    categoryLabel: "General Medical",
-    price: 300,
-    rating: 5,
-    image: IMG.ecg,
-    shortDescription: "12-lead ECG with instant tracing and doctor review.",
-    description:
-      "Quick 12-lead ECG with instant tracing and immediate review by our doctor. Rated 5.0 by patients.",
-    highlights: ["12-lead tracing", "Instant results", "Doctor review", "Walk-in available"],
-    duration: "10 min",
+      "Digital lumbar traction relieves pressure on lower spine discs and nerves — proven for lumbar spondylosis, slipped disc, and sciatica pain.",
+    hindiDescription:
+      "डिजिटल लम्बर थेरेपी में मशीन द्वारा कमर का खिंचाव किया जाता है, जिससे स्लिप डिस्क, साइटिका और कमर दर्द में उत्तम लाभ मिलता है।",
+    highlights: ["Computerised traction", "Sciatica relief", "Disc decompression", "Trained physio"],
+    benefits: [
+      "Relieves lower back pain",
+      "Eases sciatica & leg pain",
+      "Improves spine flexibility",
+      "Non-surgical relief",
+    ],
+    duration: "20 min",
+    homeVisit: false,
   },
 ];
 
