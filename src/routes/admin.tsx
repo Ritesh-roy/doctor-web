@@ -96,7 +96,9 @@ function Admin() {
     return <SiteLayout><div className="mx-auto max-w-md px-4 py-24 text-center text-sm text-muted-foreground">Checking access…</div></SiteLayout>;
   }
 
-  const revenue = orders.filter((o) => o.status !== "cancelled").reduce((s, o) => s + Number(o.total_amount), 0);
+  const revenue = orders
+    .filter((o) => o.status === "paid" || o.status === "confirmed_cod")
+    .reduce((s, o) => s + Number(o.total_amount), 0);
   const stats = [
     { label: "Total bookings", value: bookings.length, icon: Calendar },
     { label: "Total orders", value: orders.length, icon: Package },
