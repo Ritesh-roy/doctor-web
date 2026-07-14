@@ -1,10 +1,10 @@
 export const CLINIC = {
   name: "Sanjeevani Clinic",
   tagline: "Trusted Family Healthcare · Kirari, Delhi",
-  phone: "+91 88535 15351",
-  phoneTel: "+918853515351",
+  phone: "+91 77019 86188",
+  phoneTel: "+917701986188",
   whatsapp: "https://wa.me/918853515351",
-  email: "care@sanjeevaniclinic.icu",
+  email: "sanjeevaniclinic793@gmail.com",
   address:
     "ADD-B, 327a, Karan Vihar Rd, Karan Vihar Phase I, Kirari, Delhi 110086",
   addressShort: "Karan Vihar, Kirari, Delhi",

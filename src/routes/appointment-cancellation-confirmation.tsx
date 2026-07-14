@@ -23,7 +23,7 @@ function CancellationConfirm() {
         <p className="text-muted-foreground">
           If any payment was made, our team will process the refund according to our{" "}
           <Link to="/terms" className="text-primary underline">cancellation policy</Link>. For any questions please call{" "}
-          <a href="tel:+918853515351" className="font-semibold text-primary">+91 88535 15351</a>.
+          <a href="tel:+917701986188" className="font-semibold text-primary">+91 77019 86188</a>.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/book-appointment" className="inline-flex h-12 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">Rebook</Link>

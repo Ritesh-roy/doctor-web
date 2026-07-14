@@ -41,7 +41,7 @@ function Pharmacy() {
       >
         <div className="flex flex-wrap gap-3">
           <Link to="/book-appointment" className="inline-flex h-12 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">Consult a Doctor</Link>
-          <a href="tel:+918853515351" className="inline-flex h-12 items-center rounded-full border border-primary/20 px-5 text-sm font-semibold text-foreground">Order a Refill</a>
+          <a href="tel:+917701986188" className="inline-flex h-12 items-center rounded-full border border-primary/20 px-5 text-sm font-semibold text-foreground">Order a Refill</a>
         </div>
       </PageHero>
 

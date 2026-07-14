@@ -105,7 +105,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "How to book with Sanjeevani Clinic",
         paragraphs: [
-          "Booking is a two-step conversation. Call or WhatsApp us on +91 88535 15351 with a short description of the case — age of the patient, condition, any recent surgery, current medications. We schedule a short doctor consultation (in-clinic or over the phone), assign the right therapist and confirm your first home visit within 24–48 hours across Rohini, Kirari, Karan Vihar, Sultanpuri and nearby areas.",
+          "Booking is a two-step conversation. Call us on +91 77019 86188 or WhatsApp us on +91 88535 15351 with a short description of the case — age of the patient, condition, any recent surgery, current medications. We schedule a short doctor consultation (in-clinic or over the phone), assign the right therapist and confirm your first home visit within 24–48 hours across Rohini, Kirari, Karan Vihar, Sultanpuri and nearby areas.",
         ],
       },
     ],
