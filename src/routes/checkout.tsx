@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { CreditCard, Lock, Wallet, ShieldCheck } from "lucide-react";
@@ -7,7 +8,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
 import { formatINR, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { useAuth } from "@/lib/auth";
-import { createRazorpayOrder, verifyRazorpayPayment } from "@/lib/razorpay.functions";
+import { createCheckoutOrder, createRazorpayOrder, verifyRazorpayPayment } from "@/lib/razorpay.functions";
 import {
   isValidName,
   isValidPhone,
@@ -68,6 +69,9 @@ function Checkout() {
   const { cartItems, cartTotal, clearCart } = useStore();
   const { user, loading } = useAuth();
   const navigate = useNavigate();
+  const createCheckoutOrderFn = useServerFn(createCheckoutOrder);
+  const createRazorpayOrderFn = useServerFn(createRazorpayOrder);
+  const verifyRazorpayPaymentFn = useServerFn(verifyRazorpayPayment);
   const [payment, setPayment] = useState<"cod" | "razorpay">("razorpay");
   const [placing, setPlacing] = useState(false);
   const [name, setName] = useState("");
@@ -129,35 +133,24 @@ function Checkout() {
 
     setPlacing(true);
     try {
-      const { supabase } = await import("@/integrations/supabase/client");
-      const { data: userData } = await supabase.auth.getUser();
-
       const therapyTitles = cartItems.map((i) => `${i.product.title} × ${i.qty}`).join(", ");
-
-      const { data: inserted, error: insertErr } = await supabase
-        .from("orders")
-        .insert({
-          user_id: userData.user?.id ?? null,
-          customer_name: name.trim(),
+      const inserted = await createCheckoutOrderFn({
+        data: {
+          customerName: name.trim(),
           phone: mobile.trim(),
-          email: email.trim() || null,
-          address: address.trim() || null,
-          preferred_date: date,
-          preferred_time: time,
+          email: email.trim(),
+          address: address.trim(),
+          preferredDate: date,
+          preferredTime: time,
           items: cartItems.map((i) => ({ slug: i.slug, title: i.product.title, price: i.product.price, qty: i.qty })),
-          total_amount: cartTotal,
-          payment_method: payment,
-          therapy_titles: therapyTitles,
-          status: "pending",
-        })
-        .select("id, order_number")
-        .single();
-
-      if (insertErr || !inserted) throw insertErr ?? new Error("Could not create order");
+          totalAmount: cartTotal,
+          paymentMethod: payment,
+          therapyTitles,
+        },
+      });
 
       // ------- COD flow -------
       if (payment === "cod") {
-        await supabase.from("orders").update({ status: "confirmed_cod" }).eq("id", inserted.id);
         persistLastOrder({
           order_number: inserted.order_number,
           id: inserted.id,
@@ -182,7 +175,7 @@ function Checkout() {
         throw new Error("Payment gateway failed to load. Please check your internet and try again.");
       }
 
-      const rzpOrder = await createRazorpayOrder({
+      const rzpOrder = await createRazorpayOrderFn({
         data: { orderDbId: inserted.id, amount: Math.round(cartTotal), currency: "INR" },
       });
 
@@ -202,7 +195,7 @@ function Checkout() {
           },
           handler: async (response: RazorpayResponse) => {
             try {
-              await verifyRazorpayPayment({
+              await verifyRazorpayPaymentFn({
                 data: {
                   orderDbId: inserted.id,
                   razorpay_order_id: response.razorpay_order_id,
