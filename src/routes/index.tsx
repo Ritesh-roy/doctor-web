@@ -292,13 +292,130 @@ function ReviewStrip() {
   );
 }
 
+function FounderPreview() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+      <div className="grid gap-10 overflow-hidden rounded-[32px] border border-primary/10 bg-gradient-to-br from-white via-primary-soft/30 to-white p-6 sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div className="relative order-2 lg:order-1">
+          <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-primary/20 to-emerald-accent/20 blur-2xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-glow">
+            <img src="/photos/doctor-portrait-2.jpg" alt="Mr. D.R. B.P. Singh — Founder" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+          </div>
+        </div>
+        <div className="order-1 lg:order-2">
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">
+            <BookOpen className="h-3.5 w-3.5" /> Founder Story
+          </span>
+          <h2 className="mt-4 font-display text-3xl leading-tight text-foreground sm:text-4xl lg:text-5xl">
+            A single room in 2009. A mission bigger than any wall.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Mr. D.R. B.P. Singh started Sanjeevani Clinic in Kirari with limited resources
+            but a bigger vision — quality healthcare should never be a privilege for a few.
+            15 years, 125+ countries and 70,000+ lives later, that mission has only grown.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link to="/founder-story" className="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5">
+              <BookOpen className="h-4 w-4" /> Read full story
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link to="/about" className="inline-flex h-12 items-center gap-2 rounded-full border border-primary/20 bg-white px-6 text-sm font-semibold text-foreground">
+              About the clinic
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomeVisitBanner() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
+      <div className="relative overflow-hidden rounded-[32px] border border-emerald-accent/20 bg-gradient-to-br from-emerald-accent/15 via-white to-primary/10 p-8 sm:p-12">
+        <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-emerald-accent/20 blur-3xl" />
+        <div className="relative grid gap-6 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+          <div className="grid h-16 w-16 place-items-center rounded-2xl bg-emerald-accent text-white shadow-glow">
+            <HomeIcon className="h-8 w-8" />
+          </div>
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-accent">Home Visit Available</div>
+            <h3 className="mt-2 font-display text-2xl font-semibold text-foreground sm:text-3xl">
+              Healthcare at your doorstep — ₹700 only
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Trained therapists visit your home for physiotherapy, cupping, hijama, wax and
+              massage therapy. Affordable, fast response and fully sterile equipment.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Link to="/book-appointment" className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-glow">
+              <Calendar className="h-4 w-4" /> Book Home Visit
+            </Link>
+            <a href={CLINIC.whatsapp} target="_blank" rel="noreferrer" className="inline-flex h-11 items-center gap-2 rounded-full border border-emerald-accent/40 bg-white px-5 text-sm font-semibold text-emerald-accent">
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NeoreoSection() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+      <div className="grid gap-8 overflow-hidden rounded-[32px] border border-primary/10 bg-gradient-to-br from-primary/5 via-white to-emerald-accent/10 p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-accent/15 px-3 py-1 text-xs font-semibold text-emerald-accent">
+            <Leaf className="h-3.5 w-3.5" /> NEOREO Healthcare
+          </span>
+          <h2 className="mt-4 font-display text-3xl leading-tight text-foreground sm:text-4xl lg:text-5xl">
+            Our own healthcare brand — trusted, affordable, quality assured.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            NEOREO is Sanjeevani Clinic's in-house healthcare brand. Every product is
+            developed with the same ethos we treat patients with — high quality, honest
+            pricing and complete transparency. Because good health should never be a luxury.
+          </p>
+          <div className="mt-6 grid grid-cols-3 gap-3">
+            {[{ k: "100%", l: "Quality tested" }, { k: "Made in", l: "India" }, { k: "Fair", l: "Pricing" }].map((s) => (
+              <div key={s.l} className="rounded-2xl border border-primary/10 bg-white p-4">
+                <div className="font-display text-xl font-semibold text-foreground">{s.k}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{s.l}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="https://www.sanjeevnionlineshop.com/" target="_blank" rel="noreferrer" className="inline-flex h-12 items-center gap-2 rounded-full bg-emerald-accent px-6 text-sm font-semibold text-white shadow-glow transition-transform hover:-translate-y-0.5">
+              Visit Online Store <ArrowRight className="h-4 w-4" />
+            </a>
+            <Link to="/shop" className="inline-flex h-12 items-center gap-2 rounded-full border border-primary/20 bg-white px-6 text-sm font-semibold text-foreground">
+              Browse clinic shop
+            </Link>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-emerald-accent/25 to-primary/15 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white shadow-glow">
+            <img src="/photos/paraffin-wax-hand.jpg" alt="NEOREO Healthcare products" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   return (
     <SiteLayout>
       <Hero />
       <ValueProps />
       <ServicesGrid />
+      <HomeVisitBanner />
+      <FounderPreview />
       <DoctorStrip />
+      <NeoreoSection />
       <ReviewStrip />
       <CtaBanner />
     </SiteLayout>
