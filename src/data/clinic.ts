@@ -17,5 +17,5 @@ export const CLINIC = {
   reviewCount: 320,
   since: 2009,
   years: 15,
-  patients: 25000,
+  patients: 70000,
 };

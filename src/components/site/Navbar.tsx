@@ -40,9 +40,9 @@ const SERVICE_CHILDREN: Child[] = [
 const NAV: NavItem[] = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "Founder Story", to: "/founder-story" },
   { label: "Services", to: "/medical-services", children: SERVICE_CHILDREN },
   { label: "Shop", to: "/shop" },
-  { label: "Doctors", to: "/doctor" },
   { label: "Gallery", to: "/gallery" },
   { label: "Blog", to: "/blog" },
   { label: "Contact", to: "/contact" },

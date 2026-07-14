@@ -27,7 +27,7 @@ export type Product = {
 const PLACEHOLDER = "/photos/placeholder.svg";
 const IMG = {
   // Category headers
-  physioCategory: "/photos/ai-cupping.jpg",
+  physioCategory: "/photos/cupping-back-real.jpg",
   diagnosticsCategory: "/photos/school-checkup-students.jpg",
   radiologyCategory: "/photos/ai-radiology.jpg",
   eyeCategory: "/photos/school-checkup-doctor.jpg",
@@ -37,12 +37,12 @@ const IMG = {
   advanceBlood: "/photos/school-checkup-hall.jpg",
   premiumBlood: "/photos/award-blood-donor.jpg",
   superPremiumBlood: "/photos/school-checkup-lineup.jpg",
-  cupping: "/photos/ai-cupping.jpg",
+  cupping: "/photos/cupping-back-real.jpg",
   fireCupping: "/photos/ai-fire-cupping.jpg",
   fitness: "/photos/team-back-blue.jpg",
-  massage: "/photos/ai-massage.jpg",
+  massage: "/photos/massage-back-real.jpg",
   hijama: "/photos/ai-hijama.jpg",
-  jaanuVasti: "/photos/ai-jaanu-vasti.jpg",
+  jaanuVasti: "/photos/knee-pain-real.jpg",
   katiVasti: "/photos/ai-kati-vasti.jpg",
   yogaMassage: "/photos/ai-yoga-massage.jpg",
   ctScan: "/photos/ai-ct-scan.jpg",
