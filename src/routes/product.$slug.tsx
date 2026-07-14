@@ -193,6 +193,15 @@ function ProductDetail() {
               </button>
             )}
 
+            <a
+              href={`https://wa.me/918853515351?text=${encodeURIComponent(`Hi, I'd like to book ${p.title} (₹${p.price}).`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-emerald-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
+            >
+              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+            </a>
+
           </div>
         </div>
       </section>
