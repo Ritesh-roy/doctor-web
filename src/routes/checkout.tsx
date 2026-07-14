@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { CreditCard, Lock, Wallet, ShieldCheck } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -7,6 +7,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
 import { formatINR, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { useAuth } from "@/lib/auth";
+import { createRazorpayOrder, verifyRazorpayPayment } from "@/lib/razorpay.functions";
 import {
   isValidName,
   isValidPhone,
@@ -17,13 +18,45 @@ import {
   todayISO,
 } from "@/lib/validators";
 
+type RazorpayResponse = {
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  razorpay_signature: string;
+};
+
+declare global {
+  interface Window {
+    Razorpay?: new (options: Record<string, unknown>) => { open: () => void; on: (e: string, cb: (x: unknown) => void) => void };
+  }
+}
+
+const RAZORPAY_SCRIPT = "https://checkout.razorpay.com/v1/checkout.js";
+
+function loadRazorpay(): Promise<boolean> {
+  return new Promise((resolve) => {
+    if (typeof window === "undefined") return resolve(false);
+    if (window.Razorpay) return resolve(true);
+    const existing = document.querySelector(`script[src="${RAZORPAY_SCRIPT}"]`) as HTMLScriptElement | null;
+    if (existing) {
+      existing.addEventListener("load", () => resolve(true));
+      existing.addEventListener("error", () => resolve(false));
+      return;
+    }
+    const s = document.createElement("script");
+    s.src = RAZORPAY_SCRIPT;
+    s.async = true;
+    s.onload = () => resolve(true);
+    s.onerror = () => resolve(false);
+    document.body.appendChild(s);
+  });
+}
 
 export const Route = createFileRoute("/checkout")({
   component: Checkout,
   head: () => ({
     meta: [
       { title: "Checkout — Sanjeevani Clinic" },
-      { name: "description", content: "Complete your Sanjeevani Clinic booking securely." },
+      { name: "description", content: "Complete your Sanjeevani Clinic booking securely with Razorpay." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/checkout" },
     ],
@@ -35,7 +68,7 @@ function Checkout() {
   const { cartItems, cartTotal, clearCart } = useStore();
   const { user, loading } = useAuth();
   const navigate = useNavigate();
-  const [payment, setPayment] = useState<"cod" | "upi" | "card">("cod");
+  const [payment, setPayment] = useState<"cod" | "razorpay">("razorpay");
   const [placing, setPlacing] = useState(false);
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
@@ -45,10 +78,14 @@ function Checkout() {
   const [time, setTime] = useState("");
   const minDate = todayISO();
 
+  useEffect(() => {
+    loadRazorpay();
+  }, []);
+
   if (!loading && !user) {
     return (
       <SiteLayout>
-        <PageHero eyebrow="Checkout" title="Please sign in to complete your purchase." crumbs={[{ label: "Home", to: "/" }, { label: "Checkout" }]} />
+        <PageHero eyebrow="Checkout" title="Please sign in to complete your booking." crumbs={[{ label: "Home", to: "/" }, { label: "Checkout" }]} />
         <section className="mx-auto max-w-2xl px-4 pb-24 text-center sm:px-6">
           <div className="rounded-3xl border border-primary/10 bg-white p-8 shadow-card">
             <p className="text-sm text-muted-foreground">You need an account to place an order. Your cart is safe — sign in and come right back.</p>
@@ -62,35 +99,149 @@ function Checkout() {
     );
   }
 
+  const persistLastOrder = (order: {
+    order_number: string | null;
+    id: string;
+    customer_name: string;
+    therapy_titles: string;
+    total_amount: number;
+    payment_status: string;
+    payment_method: string;
+    appointment_status: string;
+    preferred_date: string;
+    preferred_time: string;
+  }) => {
+    try {
+      sessionStorage.setItem("sanjeevani.lastOrder", JSON.stringify(order));
+    } catch {
+      /* ignore storage errors */
+    }
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
     if (!isValidPhone(mobile)) return toast.error("Enter a valid mobile number");
     if (email && !isValidEmail(email)) return toast.error("Enter a valid email");
-    if (!isFutureOrToday(date)) return toast.error("Choose today or a future date");
+    if (!date || !isFutureOrToday(date)) return toast.error("Choose today or a future date");
+    if (!time) return toast.error("Please pick a preferred time slot");
+    if (cartItems.length === 0) return toast.error("Your cart is empty");
+
     setPlacing(true);
     try {
       const { supabase } = await import("@/integrations/supabase/client");
       const { data: userData } = await supabase.auth.getUser();
-      const { error } = await supabase.from("orders").insert({
-        user_id: userData.user?.id ?? null,
-        customer_name: name.trim(),
-        phone: mobile.trim(),
-        email: email.trim() || null,
-        address: address.trim() || null,
-        preferred_date: date,
-        preferred_time: time || null,
-        items: cartItems.map((i) => ({ slug: i.slug, title: i.product.title, price: i.product.price, qty: i.qty })),
-        total_amount: cartTotal,
-        payment_method: payment,
+
+      const therapyTitles = cartItems.map((i) => `${i.product.title} × ${i.qty}`).join(", ");
+
+      const { data: inserted, error: insertErr } = await supabase
+        .from("orders")
+        .insert({
+          user_id: userData.user?.id ?? null,
+          customer_name: name.trim(),
+          phone: mobile.trim(),
+          email: email.trim() || null,
+          address: address.trim() || null,
+          preferred_date: date,
+          preferred_time: time,
+          items: cartItems.map((i) => ({ slug: i.slug, title: i.product.title, price: i.product.price, qty: i.qty })),
+          total_amount: cartTotal,
+          payment_method: payment,
+          therapy_titles: therapyTitles,
+          status: "pending",
+        })
+        .select("id, order_number")
+        .single();
+
+      if (insertErr || !inserted) throw insertErr ?? new Error("Could not create order");
+
+      // ------- COD flow -------
+      if (payment === "cod") {
+        await supabase.from("orders").update({ status: "confirmed_cod" }).eq("id", inserted.id);
+        persistLastOrder({
+          order_number: inserted.order_number,
+          id: inserted.id,
+          customer_name: name.trim(),
+          therapy_titles: therapyTitles,
+          total_amount: cartTotal,
+          payment_status: "Pay at clinic",
+          payment_method: "cod",
+          appointment_status: "Awaiting confirmation call",
+          preferred_date: date,
+          preferred_time: time,
+        });
+        clearCart();
+        toast.success("Booking confirmed! We'll call you soon.");
+        navigate({ to: "/thank-you" });
+        return;
+      }
+
+      // ------- Razorpay flow -------
+      const ready = await loadRazorpay();
+      if (!ready || !window.Razorpay) {
+        throw new Error("Payment gateway failed to load. Please check your internet and try again.");
+      }
+
+      const rzpOrder = await createRazorpayOrder({
+        data: { orderDbId: inserted.id, amount: Math.round(cartTotal), currency: "INR" },
       });
-      if (error) throw error;
-      toast.success("Order placed successfully");
-      clearCart();
-      navigate({ to: "/thank-you" });
+
+      await new Promise<void>((resolve, reject) => {
+        const options = {
+          key: rzpOrder.keyId,
+          amount: rzpOrder.amount,
+          currency: rzpOrder.currency,
+          order_id: rzpOrder.orderId,
+          name: "Sanjeevani Clinic",
+          description: therapyTitles.slice(0, 80),
+          prefill: { name: name.trim(), email: email.trim() || undefined, contact: mobile.trim() },
+          notes: { orderDbId: inserted.id },
+          theme: { color: "#0d9488" },
+          modal: {
+            ondismiss: () => reject(new Error("Payment cancelled")),
+          },
+          handler: async (response: RazorpayResponse) => {
+            try {
+              await verifyRazorpayPayment({
+                data: {
+                  orderDbId: inserted.id,
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                },
+              });
+              persistLastOrder({
+                order_number: inserted.order_number,
+                id: inserted.id,
+                customer_name: name.trim(),
+                therapy_titles: therapyTitles,
+                total_amount: cartTotal,
+                payment_status: "Paid (Razorpay)",
+                payment_method: "razorpay",
+                appointment_status: "Confirmed — team will call to schedule",
+                preferred_date: date,
+                preferred_time: time,
+              });
+              clearCart();
+              toast.success("Payment successful!");
+              navigate({ to: "/thank-you" });
+              resolve();
+            } catch (err) {
+              reject(err instanceof Error ? err : new Error("Verification failed"));
+            }
+          },
+        };
+        const rzp = new window.Razorpay!(options);
+        rzp.on("payment.failed", (resp: unknown) => {
+          console.error("Razorpay payment failed", resp);
+          reject(new Error("Payment failed. Please try again."));
+        });
+        rzp.open();
+      });
     } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : "Could not place order");
+      const msg = err instanceof Error ? err.message : "Could not place order";
+      if (msg !== "Payment cancelled") toast.error(msg);
+      else toast("Payment cancelled");
     } finally {
       setPlacing(false);
     }
@@ -110,7 +261,7 @@ function Checkout() {
 
   return (
     <SiteLayout>
-      <PageHero eyebrow="Checkout" title="Complete your booking" intro="Confirm your details and preferred slot to finish." crumbs={[{ label: "Home", to: "/" }, { label: "Cart", to: "/cart" }, { label: "Checkout" }]} />
+      <PageHero eyebrow="Checkout" title="Complete your booking" intro="Confirm your details, pick a slot and pay securely with Razorpay." crumbs={[{ label: "Home", to: "/" }, { label: "Cart", to: "/cart" }, { label: "Checkout" }]} />
 
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <form onSubmit={submit} noValidate className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
@@ -182,15 +333,13 @@ function Checkout() {
               </div>
             </div>
 
-
             <div className="rounded-3xl border border-primary/10 bg-white p-6 shadow-card">
               <h3 className="font-display text-lg font-semibold text-foreground">Payment method</h3>
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <PayOption id="razorpay" active={payment === "razorpay"} onSelect={setPayment} icon={<CreditCard className="h-5 w-5" />} label="Pay Online (Razorpay)" sub="UPI, Cards, NetBanking, Wallets" />
                 <PayOption id="cod" active={payment === "cod"} onSelect={setPayment} icon={<Wallet className="h-5 w-5" />} label="Pay at clinic" sub="Cash / card on visit" />
-                <PayOption id="upi" active={payment === "upi"} onSelect={setPayment} icon={<CreditCard className="h-5 w-5" />} label="UPI" sub="GPay, PhonePe, Paytm" />
-                <PayOption id="card" active={payment === "card"} onSelect={setPayment} icon={<Lock className="h-5 w-5" />} label="Card" sub="Debit / Credit" />
               </div>
-              <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><ShieldCheck className="h-4 w-4 text-emerald-accent" /> Secured & encrypted. We never store card details.</p>
+              <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><ShieldCheck className="h-4 w-4 text-emerald-accent" /> 100% secure. Payments handled by Razorpay — we never store card details.</p>
             </div>
           </div>
 
@@ -202,6 +351,7 @@ function Checkout() {
                   <img
                     src={i.product.image}
                     alt={i.product.title}
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
                     }}
@@ -218,10 +368,25 @@ function Checkout() {
             <div className="mt-4 space-y-2 text-sm">
               <Row label="Subtotal" value={formatINR(cartTotal)} />
               <Row label="Booking fee" value="Free" />
-              <div className="mt-3 flex justify-between border-t border-primary/10 pt-3 text-base"><span className="font-semibold">Total</span><span className="font-display text-xl font-bold text-foreground">{formatINR(cartTotal)}</span></div>
+              <Row label="GST" value="Included" />
+              <div className="mt-3 flex justify-between border-t border-primary/10 pt-3 text-base"><span className="font-semibold">Total (INR)</span><span className="font-display text-xl font-bold text-foreground">{formatINR(cartTotal)}</span></div>
             </div>
-            <button disabled={placing} type="submit" className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground shadow-glow disabled:opacity-70">
-              {placing ? "Placing order…" : "Place Order"}
+            <button
+              disabled={placing}
+              type="submit"
+              className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground shadow-glow disabled:opacity-70"
+            >
+              {placing ? (
+                <>
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground/40 border-t-primary-foreground" />
+                  Processing…
+                </>
+              ) : (
+                <>
+                  <Lock className="h-4 w-4" />
+                  {payment === "razorpay" ? `Pay ${formatINR(cartTotal)} Securely` : "Confirm Booking"}
+                </>
+              )}
             </button>
             <p className="mt-3 text-center text-[11px] text-muted-foreground">By placing this order you agree to our <Link to="/terms" className="underline">Terms</Link> and <Link to="/privacy-policy" className="underline">Privacy Policy</Link>.</p>
           </aside>
@@ -244,7 +409,7 @@ function Row({ label, value }: { label: string; value: string }) {
   return <div className="flex justify-between"><span className="text-muted-foreground">{label}</span><span className="font-semibold">{value}</span></div>;
 }
 
-function PayOption({ id, active, onSelect, icon, label, sub }: { id: "cod" | "upi" | "card"; active: boolean; onSelect: (v: "cod" | "upi" | "card") => void; icon: React.ReactNode; label: string; sub: string }) {
+function PayOption({ id, active, onSelect, icon, label, sub }: { id: "cod" | "razorpay"; active: boolean; onSelect: (v: "cod" | "razorpay") => void; icon: React.ReactNode; label: string; sub: string }) {
   return (
     <button
       type="button"
