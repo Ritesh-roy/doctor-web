@@ -117,7 +117,7 @@ function ThankYou() {
           <div className="rounded-3xl border border-primary/10 bg-white p-8 text-center shadow-card">
             <p className="text-muted-foreground">
               You will receive a confirmation on WhatsApp once your slot is assigned. For urgent needs, please call{" "}
-              <a href="tel:+918853515351" className="font-semibold text-primary">+91 88535 15351</a>.
+              <a href="tel:+917701986188" className="font-semibold text-primary">+91 77019 86188</a>.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link to="/" className="inline-flex h-12 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">Back to Home</Link>
@@ -152,7 +152,7 @@ h1{color:#0d9488;margin:0} .box{border:1px solid #e5e7eb;border-radius:12px;padd
 table{width:100%;border-collapse:collapse;margin-top:8px} td{padding:8px 0;border-bottom:1px solid #f1f5f9;font-size:14px}
 .total{font-weight:700;font-size:18px;color:#0d9488}</style></head>
 <body><h1>Sanjeevani Clinic Private Limited</h1>
-<p style="color:#64748b;margin:4px 0">Kirari, Delhi · +91 88535 15351</p>
+<p style="color:#64748b;margin:4px 0">Kirari, Delhi · +91 77019 86188</p>
 <div class="box"><h2 style="margin:0 0 8px 0">Booking Invoice</h2>
 <table>
 <tr><td>Order No.</td><td style="text-align:right"><b>${o.order_number ?? o.id}</b></td></tr>

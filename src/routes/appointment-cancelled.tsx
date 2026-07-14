@@ -22,7 +22,7 @@ function AppointmentCancelled() {
       <section className="mx-auto max-w-2xl px-4 pb-24 text-center sm:px-6">
         <p className="text-muted-foreground">
           We are sorry we could not see you this time. If this cancellation was unintended or you would like to reschedule, please book again below or call{" "}
-          <a href="tel:+918853515351" className="font-semibold text-primary">+91 88535 15351</a>.
+          <a href="tel:+917701986188" className="font-semibold text-primary">+91 77019 86188</a>.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/book-appointment" className="inline-flex h-12 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">Book Again</Link>
