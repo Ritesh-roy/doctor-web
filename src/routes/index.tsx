@@ -17,7 +17,7 @@ import {
   Phone,
   MessageCircle,
   Quote,
-  Home,
+  Home as HomeIcon,
   Leaf,
   BookOpen,
 } from "lucide-react";
