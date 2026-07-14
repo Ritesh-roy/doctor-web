@@ -68,7 +68,8 @@ function Book() {
     if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
     if (!isValidPhone(phone)) return toast.error("Enter a valid phone number (10–15 digits)");
     if (!isFutureOrToday(date)) return toast.error("Choose today or a future date");
-    const f = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const f = new FormData(form);
     setSaving(true);
     try {
       const { error } = await supabase.from("bookings").insert({
@@ -84,7 +85,7 @@ function Book() {
       if (error) throw error;
       toast.success("Appointment booked — we'll confirm shortly");
       setSent(true);
-      (e.currentTarget as HTMLFormElement).reset();
+      form.reset();
       setName(""); setPhone(""); setDate("");
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : "Could not save booking");
