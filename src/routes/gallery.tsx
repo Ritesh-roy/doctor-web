@@ -31,6 +31,73 @@ type GalleryItem = {
 
 const items: GalleryItem[] = [
   {
+    src: "/photos/cupping-back-real.jpg",
+    alt: "Real hijama / cupping therapy session at Sanjeevani Clinic",
+    title: "Cupping Therapy — In Action",
+    category: "Clinic",
+    description:
+      "A real cupping therapy session at Sanjeevani Clinic. Every cup is sterile, single-use and applied by a trained therapist — helpful for back pain, muscle tension and general detoxification.",
+    location: "Sanjeevani Clinic · Karan Vihar",
+  },
+  {
+    src: "/photos/massage-back-real.jpg",
+    alt: "Deep-tissue back massage therapy at Sanjeevani Clinic",
+    title: "Body Massage Therapy",
+    category: "Clinic",
+    description:
+      "Therapeutic back and full-body oil massage — a blend of Swedish and deep-tissue techniques to relieve stress and muscular stiffness.",
+  },
+  {
+    src: "/photos/paraffin-wax-hand.jpg",
+    alt: "Paraffin wax therapy — hand dipped in warm therapeutic wax",
+    title: "Paraffin Wax — Hand Therapy",
+    category: "Clinic",
+    description:
+      "Warm paraffin wax immersion for arthritis, joint stiffness and dry skin — the wax is kept at a comfortable therapeutic temperature.",
+  },
+  {
+    src: "/photos/paraffin-wax-foot.jpg",
+    alt: "Paraffin wax therapy — foot dipped in warm therapeutic wax",
+    title: "Paraffin Wax — Foot Therapy",
+    category: "Clinic",
+    description:
+      "Foot paraffin wax therapy — excellent for foot arthritis, plantar fasciitis, dry heels and post-work fatigue.",
+  },
+  {
+    src: "/photos/knee-pain-real.jpg",
+    alt: "Knee pain physiotherapy assessment",
+    title: "Knee Pain — Diagnosis & Care",
+    category: "Clinic",
+    description:
+      "From assessment to treatment — the clinic offers Jaanu Vasti, TENS, I.F.T and structured physiotherapy programmes for chronic and acute knee pain.",
+  },
+  {
+    src: "/photos/doctor-portrait-1.jpg",
+    alt: "Dr. B.P. Singh at his consulting desk with anatomy charts",
+    title: "The Original Consulting Room",
+    category: "Doctor",
+    description:
+      "The original consulting room where thousands of Kirari families first met Dr. B.P. Singh — anatomy charts on the wall and a promise to always listen carefully.",
+  },
+  {
+    src: "/photos/doctor-portrait-2.jpg",
+    alt: "Dr. B.P. Singh in the modern consulting room",
+    title: "The Modern Consulting Room",
+    category: "Doctor",
+    description:
+      "Same doctor, same values — in the upgraded, brightly-lit consulting room of today's Sanjeevani Clinic.",
+  },
+  {
+    src: "/photos/award-unity-desk.jpg",
+    alt: "Sardar Patel Unity Award 2026 on the founder's desk",
+    title: "Unity Award — On the Desk",
+    category: "Awards",
+    description:
+      "The Sardar Patel Unity Award 2026 sits on the founder's desk — a quiet reminder of the responsibility that comes with 15 years of family trust.",
+    date: "21 May 2026",
+    location: "New Delhi",
+  },
+  {
     src: "/photos/clinic-front.jpg",
     alt: "Sanjeevani Clinic front entrance in Karan Vihar, Kirari",
     title: "Sanjeevani Clinic — Karan Vihar",

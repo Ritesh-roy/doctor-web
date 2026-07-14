@@ -1,14 +1,21 @@
-// Real clinic photos only — each service uses a unique image.
-// Services without a matching photo fall back to the branded placeholder.
-const PLACEHOLDER = "/photos/placeholder.svg";
-const servicePhysio = "/photos/team-back-blue.jpg";
-const serviceRadiology = PLACEHOLDER;
-const serviceEye = "/photos/school-checkup-doctor.jpg";
-const serviceGeneral = "/photos/doctor-desk-2.jpg";
-const serviceCheckup = "/photos/school-checkup-lineup.jpg";
-const serviceBloodTest = "/photos/school-checkup-desk.jpg";
-const servicePathology = "/photos/school-checkup-hall.jpg";
+// The 10 therapies actively offered at Sanjeevani Clinic.
+// Real clinic photos are used wherever available; AI/reference fallbacks
+// only fill in for therapies without a matching uploaded photo.
 
+const IMG = {
+  cupping: "/photos/cupping-back-real.jpg",
+  fireCupping: "/photos/ai-fire-cupping.jpg",
+  hijama: "/photos/ai-hijama.jpg",
+  massage: "/photos/massage-back-real.jpg",
+  footMassage: "/photos/ai-yoga-massage.jpg",
+  paraffin: "/photos/paraffin-wax-hand.jpg",
+  paraffinFoot: "/photos/paraffin-wax-foot.jpg",
+  knee: "/photos/knee-pain-real.jpg",
+  ift: "/photos/team-back-blue.jpg",
+  tens: "/photos/doctor-desk-4.jpg",
+  cervical: "/photos/doctor-desk-2.jpg",
+  lumbar: "/photos/doctor-desk-3.jpg",
+};
 
 export type Service = {
   slug: string;
@@ -23,6 +30,8 @@ export type Service = {
     | "eye"
     | "stethoscope"
     | "heart";
+  price?: number;
+  duration?: string;
   benefits: string[];
   process: { step: string; detail: string }[];
   faqs: { q: string; a: string }[];
@@ -30,179 +39,273 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: "physiotherapy",
-    title: "Physiotherapy & Rehabilitation",
-    short:
-      "Personalised recovery for back pain, joint issues, sports injuries and post-op mobility.",
+    slug: "ift-therapy",
+    title: "I.F.T Therapy (Interferential)",
+    short: "Interferential current therapy for deep muscle & joint pain relief.",
     description:
-      "Our physiotherapy programme combines hands-on manual therapy, therapeutic exercise and modern modalities to restore movement, reduce pain and prevent recurrence. Sessions are one-to-one, unhurried and progress with you.",
-    image: servicePhysio,
+      "I.F.T (Interferential Therapy) uses two medium-frequency currents to reach deep muscle and joint tissue — reducing chronic pain, easing muscle spasm and speeding recovery. Ideal for arthritis, sciatica, back and shoulder pain.",
+    image: IMG.ift,
     icon: "activity",
+    price: 300,
+    duration: "20 min",
     benefits: [
-      "Relief from chronic back, neck and joint pain",
-      "Faster recovery after surgery or injury",
-      "Improved posture, balance and mobility",
-      "Sports and workplace injury rehab",
+      "Deep-tissue pain relief without medication",
+      "Reduces muscle spasm and inflammation",
+      "Great for arthritis, sciatica, back pain",
+      "Comfortable, drug-free treatment",
     ],
     process: [
-      { step: "Assessment", detail: "Detailed movement and pain assessment with the doctor." },
-      { step: "Personal plan", detail: "A weekly plan of therapy, exercises and goals is drawn up." },
-      { step: "Guided sessions", detail: "Supervised sessions using ultrasound, TENS, IFT and hands-on therapy." },
-      { step: "Home programme", detail: "Simple exercises and lifestyle changes to keep results lasting." },
+      { step: "Assessment", detail: "Doctor evaluates the pain area and mobility." },
+      { step: "Electrode placement", detail: "Sterile electrodes are placed on the target site." },
+      { step: "Therapy", detail: "Gentle interferential current is applied for 15–20 minutes." },
+      { step: "Reassess", detail: "Pain and mobility are re-checked; home advice given." },
     ],
     faqs: [
-      { q: "How many sessions will I need?", a: "Most patients feel meaningful relief within 6–10 sessions; chronic cases may need longer." },
-      { q: "Do I need a referral?", a: "No. You can book directly. If you have prior reports, please bring them." },
+      { q: "Is I.F.T painful?", a: "No — it feels like a mild tingling sensation and is fully drug-free." },
+      { q: "How many sessions do I need?", a: "Most patients feel relief within 5–8 sessions." },
     ],
   },
   {
-    slug: "blood-test",
-    title: "Blood Test & Sample Collection",
-    short: "Accurate blood work with same-day reports and optional home collection.",
+    slug: "tens-therapy",
+    title: "TENS Therapy",
+    short: "Transcutaneous Electrical Nerve Stimulation for fast pain relief.",
     description:
-      "From routine CBC and lipid profiles to specialised hormonal, diabetic and thyroid panels, our in-house pathology unit delivers accurate blood test reports quickly — with trained phlebotomists, low-discomfort sampling and clear pre-test guidance.",
-    image: serviceBloodTest,
-    icon: "microscope",
+      "TENS delivers low-voltage electrical pulses through skin electrodes to block pain signals and stimulate endorphin release — a proven non-drug approach for chronic back, neck, joint and post-injury pain.",
+    image: IMG.tens,
+    icon: "activity",
+    price: 300,
+    duration: "20 min",
     benefits: [
-      "Same-day reports for most common blood tests",
-      "Optional home sample collection in Kirari and nearby areas",
-      "Digital reports on WhatsApp and email",
-      "Reviewed personally by the doctor",
+      "Immediate short-term pain relief",
+      "Non-invasive and drug-free",
+      "Safe for chronic and post-surgical pain",
+      "Improves circulation to affected area",
     ],
     process: [
-      { step: "Book", detail: "Walk-in or call to schedule your fasting slot." },
-      { step: "Collection", detail: "Sample taken by a trained phlebotomist at the clinic or your home." },
-      { step: "Testing", detail: "Processed in-house on calibrated analysers." },
-      { step: "Report", detail: "Digital report shared, then reviewed with you." },
+      { step: "Consult", detail: "Doctor confirms TENS is suitable for your condition." },
+      { step: "Setup", detail: "Electrodes are placed near the painful area." },
+      { step: "Session", detail: "Controlled pulses are delivered for 15–20 minutes." },
+      { step: "Follow-up", detail: "Home-use protocol may be advised for chronic pain." },
     ],
     faqs: [
-      { q: "Do I need to fast before a blood test?", a: "Fasting is required for sugar, lipid and some liver tests — usually 8 to 12 hours." },
-      { q: "How quickly will I receive the report?", a: "Most reports are ready the same day; specialised tests may take 24 to 72 hours." },
+      { q: "Can I use TENS at home?", a: "After 2–3 clinic sessions, we can guide safe home use." },
+      { q: "Any side effects?", a: "TENS is very safe; mild skin redness may occur temporarily." },
     ],
   },
   {
-    slug: "diagnostics",
-    title: "Diagnostic & Pathology",
-    short: "In-house pathology and blood work with rapid, accurate reports.",
+    slug: "cupping-therapy",
+    title: "Cupping Therapy (Normal)",
+    short: "Traditional dry cupping to release muscle tension and improve circulation.",
     description:
-      "From routine blood tests to specialised panels, our in-house lab delivers timely, accurate reports so treatment never has to wait. Samples are collected in a clean, comfortable environment with clear pre-test guidance.",
-    image: servicePathology,
-    icon: "microscope",
+      "Dry cupping uses gentle suction over knots and tight muscles to lift fascia, boost local blood flow and speed recovery. Ideal for shoulder, back and neck stiffness — performed by our trained cupping therapist.",
+    image: IMG.cupping,
+    icon: "activity",
+    price: 300,
+    duration: "30 min",
     benefits: [
-      "Same-day reports for most common tests",
-      "Trained phlebotomists, low-discomfort sampling",
-      "Digital reports on WhatsApp and email",
-      "Home sample collection on request",
+      "Releases deep muscular tension",
+      "Improves local blood circulation",
+      "Sterile single-use cups",
+      "Immediate relief for stiffness",
     ],
     process: [
-      { step: "Consult", detail: "The doctor recommends only the tests you truly need." },
-      { step: "Sampling", detail: "Quick, careful sample collection at the clinic or your home." },
-      { step: "Analysis", detail: "Processed in-house with certified equipment." },
-      { step: "Review", detail: "Reports reviewed with you and next steps explained clearly." },
+      { step: "Assessment", detail: "Therapist identifies tight muscle groups." },
+      { step: "Cup placement", detail: "Sterile cups are applied with controlled suction." },
+      { step: "Retention", detail: "Cups stay in place for 10–15 minutes." },
+      { step: "Aftercare", detail: "Warm compress and hydration advice given." },
     ],
     faqs: [
-      { q: "Do you offer fasting tests early morning?", a: "Yes, collection starts at 9:00 AM daily." },
-      { q: "Will I get a soft copy?", a: "Yes, digital PDF reports are shared on WhatsApp/email." },
+      { q: "Do the marks last long?", a: "Circular marks typically fade within 3–7 days." },
+      { q: "Is cupping safe?", a: "Yes — performed with sterile, single-use cups by trained staff." },
     ],
   },
   {
-    slug: "radiology",
-    title: "Radiology & Imaging",
-    short: "Modern ultrasound, X-ray and CT scan support for precise diagnosis.",
+    slug: "fire-cupping-therapy",
+    title: "Fire Cupping Therapy",
+    short: "Classical fire-cupping for deeper muscular release and detox.",
     description:
-      "Advanced imaging with experienced radiographers helps us reach clear diagnoses fast — with minimal exposure, careful positioning and dignified care throughout your visit.",
-    image: serviceRadiology,
+      "Fire cupping applies traditional heat-based suction that goes deeper than dry cupping — recommended for chronic back pain, sciatica and post-exercise recovery.",
+    image: IMG.fireCupping,
+    icon: "activity",
+    price: 450,
+    duration: "35 min",
+    benefits: [
+      "Deeper suction than dry cupping",
+      "Effective for chronic pain",
+      "Improves circulation and lymph flow",
+      "Performed by trained cupping expert",
+    ],
+    process: [
+      { step: "Consult", detail: "Therapist reviews suitability and pain history." },
+      { step: "Heat & suction", detail: "Warm cups create a stronger vacuum on the target area." },
+      { step: "Retention", detail: "Cups remain for 8–12 minutes for deep release." },
+      { step: "Aftercare", detail: "Gentle stretches and hydration recommended." },
+    ],
+    faqs: [
+      { q: "Is fire cupping safe?", a: "Yes — the flame heats the cup, never touches your skin." },
+      { q: "How many sessions?", a: "Weekly sessions for 4–6 weeks give best results." },
+    ],
+  },
+  {
+    slug: "paraffin-wax-therapy",
+    title: "Paraffin Wax Therapy",
+    short: "Warm paraffin wax bath for arthritis, stiff joints and dry skin.",
+    description:
+      "Paraffin Wax Therapy immerses hands, feet or joints in warm therapeutic wax to relieve arthritis pain, ease stiffness and hydrate skin. Excellent for rheumatoid & osteoarthritis, tendonitis and post-fracture stiffness.",
+    image: IMG.paraffin,
     icon: "sparkles",
+    price: 450,
+    duration: "30 min",
     benefits: [
-      "Digital X-ray with low radiation dose",
-      "High-resolution ultrasound for OBG & abdominal studies",
-      "Coordinated CT scan support",
-      "Reports read by senior radiologists",
+      "Relieves joint stiffness & arthritis pain",
+      "Increases blood circulation",
+      "Softens and hydrates skin",
+      "Reduces muscle spasm around joints",
     ],
     process: [
-      { step: "Booking", detail: "Slot booked based on your test and preparation needed." },
-      { step: "Scan", detail: "Trained radiographers perform the scan with clear guidance." },
-      { step: "Reporting", detail: "Findings interpreted and delivered digitally." },
-      { step: "Follow-up", detail: "Doctor explains results and plans further care." },
+      { step: "Preparation", detail: "Skin is cleaned and inspected." },
+      { step: "Wax dipping", detail: "The affected area is dipped into warm paraffin 8–10 times." },
+      { step: "Retention", detail: "The area is wrapped and rested for 15–20 minutes." },
+      { step: "Removal", detail: "Wax is peeled off and gentle stretching is done." },
     ],
     faqs: [
-      { q: "Is fasting required for ultrasound?", a: "For abdominal scans, 6 hours of fasting is usually advised." },
-      { q: "How soon are reports ready?", a: "X-ray reports are typically available the same day." },
+      { q: "Is the wax too hot?", a: "The wax is kept at a comfortable, therapeutic 50–52°C." },
+      { q: "Good for feet as well?", a: "Yes — excellent for foot arthritis, plantar fasciitis and dry heels." },
     ],
   },
   {
-    slug: "eye-checkup",
-    title: "Eye Check-up & Care",
-    short: "Comprehensive eye examinations, refraction and screening for common conditions.",
+    slug: "body-massage-therapy",
+    title: "Body Massage Therapy",
+    short: "Full-body therapeutic oil massage for stress, stiffness & better sleep.",
     description:
-      "A relaxed, thorough eye examination for adults and children — visual acuity, refraction, pressure check and retina screening — to catch problems early and prescribe accurately.",
-    image: serviceEye,
-    icon: "eye",
-    benefits: [
-      "Accurate power check for spectacles/lenses",
-      "Screening for cataract, glaucoma and diabetic retinopathy",
-      "Child-friendly examinations",
-      "Referral to trusted eye surgeons when needed",
-    ],
-    process: [
-      { step: "History", detail: "Understanding your symptoms, lifestyle and screen time." },
-      { step: "Vision test", detail: "Chart-based and refractive assessment." },
-      { step: "Detailed exam", detail: "Anterior segment and fundus evaluation." },
-      { step: "Advice", detail: "Prescription, lifestyle guidance or specialist referral." },
-    ],
-    faqs: [
-      { q: "How often should I check my eyes?", a: "Once a year for adults; every 6 months if you are diabetic or wear glasses." },
-      { q: "Do you dispense spectacles here?", a: "We prescribe; you can use any optician of your choice." },
-    ],
-  },
-  {
-    slug: "general-medicine",
-    title: "General Medicine & Consultations",
-    short: "Everyday care for fever, infections, lifestyle diseases and family health.",
-    description:
-      "OPD consultations with unhurried listening and honest advice. From acute infections to long-term care for diabetes, hypertension and thyroid issues — we treat you like family.",
-    image: serviceGeneral,
-    icon: "stethoscope",
-    benefits: [
-      "Detailed history and honest, ethical advice",
-      "Chronic disease management (BP, sugar, thyroid)",
-      "Fewer, smarter prescriptions",
-      "Coordinated referrals when required",
-    ],
-    process: [
-      { step: "Consult", detail: "Walk-in or book a slot for a focused conversation." },
-      { step: "Examine", detail: "Careful clinical examination and vitals." },
-      { step: "Investigate", detail: "Only necessary tests suggested." },
-      { step: "Plan", detail: "Clear treatment plan and follow-up." },
-    ],
-    faqs: [
-      { q: "Do you accept walk-ins?", a: "Yes, walk-ins are welcome during clinic hours." },
-      { q: "Do you do home visits?", a: "For select cases in the neighbourhood — please call ahead." },
-    ],
-  },
-  {
-    slug: "health-checkup",
-    title: "Preventive Health Check-ups",
-    short: "Curated packages to catch problems early and stay ahead of lifestyle disease.",
-    description:
-      "Sensible check-up packages designed for every stage of life — for professionals, women, seniors and children — with clear explanation of what each test means for you.",
-    image: serviceCheckup,
+      "A therapeutic full-body oil massage that combines Swedish and deep-tissue techniques to relieve muscular stress, improve circulation and calm the nervous system.",
+    image: IMG.massage,
     icon: "heart",
+    price: 1299,
+    duration: "60 min",
     benefits: [
-      "Age and gender-appropriate packages",
-      "Combined lab + physician consult",
-      "Explanations in plain language",
-      "Personalised lifestyle plan",
+      "Full-body stress and stiffness relief",
+      "Improves sleep quality",
+      "Boosts circulation and lymph drainage",
+      "Warm herbal oils used",
     ],
     process: [
-      { step: "Choose", detail: "Pick a package or let us recommend one." },
-      { step: "Fast & test", detail: "Morning fasting sample and vitals." },
-      { step: "Consult", detail: "Doctor reviews results with you in detail." },
-      { step: "Plan", detail: "Diet, exercise and follow-up plan for the year." },
+      { step: "Consult", detail: "Discuss pressure preference and problem areas." },
+      { step: "Warm-up", detail: "Warm oil is applied; light strokes begin the session." },
+      { step: "Deep work", detail: "Targeted deep-tissue work on tight areas." },
+      { step: "Cool-down", detail: "Gentle strokes and stretches finish the session." },
     ],
     faqs: [
-      { q: "How long does a full check-up take?", a: "About 60–90 minutes at the clinic." },
-      { q: "Are family packages available?", a: "Yes — we offer combined pricing for couples and families." },
+      { q: "Which oils are used?", a: "Warm sesame or medicated herbal oils; nut-free options available." },
+      { q: "How often should I take it?", a: "Once every 2–4 weeks is ideal for maintenance." },
+    ],
+  },
+  {
+    slug: "foot-massage-therapy",
+    title: "Body Relaxation & Foot Massage",
+    short: "Relaxing foot & lower-leg massage with reflexology pressure points.",
+    description:
+      "A calming reflexology-based foot and lower-leg massage that eases fatigue, improves circulation and helps relieve headaches, insomnia and everyday stress.",
+    image: IMG.footMassage,
+    icon: "heart",
+    price: 500,
+    duration: "40 min",
+    benefits: [
+      "Deep relaxation and stress relief",
+      "Stimulates reflexology pressure points",
+      "Reduces foot & calf swelling",
+      "Improves sleep",
+    ],
+    process: [
+      { step: "Foot soak", detail: "Warm herbal foot soak to soften tissue." },
+      { step: "Reflexology", detail: "Pressure applied to targeted reflex points." },
+      { step: "Massage", detail: "Deep massage of calves, ankles and feet." },
+      { step: "Finish", detail: "Warm towel wrap and aftercare tips." },
+    ],
+    faqs: [
+      { q: "Good for diabetics?", a: "Yes — with gentle pressure. Please inform the therapist." },
+      { q: "Any side effects?", a: "None — it is a fully relaxing, non-invasive treatment." },
+    ],
+  },
+  {
+    slug: "hijama-therapy",
+    title: "Cupping Hijama Therapy",
+    short: "Sunnah-style hijama (wet cupping) performed by certified practitioner.",
+    description:
+      "Traditional wet cupping (hijama) performed with strict sterile technique — beneficial for chronic pain, migraines, high uric acid and general detoxification. Performed by a certified hijama practitioner using single-use blades and cups.",
+    image: IMG.hijama,
+    icon: "heart",
+    price: 1000,
+    duration: "45 min",
+    benefits: [
+      "Certified hijama practitioner",
+      "Fully sterile, single-use equipment",
+      "Helps migraines, chronic pain, high uric acid",
+      "Male & female slots available",
+    ],
+    process: [
+      { step: "Consult", detail: "Detailed history & suitability check." },
+      { step: "Dry cupping", detail: "Initial suction to prepare the area." },
+      { step: "Wet cupping", detail: "Small superficial incisions with sterile blade + suction." },
+      { step: "Aftercare", detail: "Site is cleaned, dressed and aftercare advice given." },
+    ],
+    faqs: [
+      { q: "Is hijama safe?", a: "Yes — when performed with sterile, single-use equipment by a trained practitioner." },
+      { q: "How often?", a: "Once every 2–3 months for maintenance; more frequent for chronic conditions." },
+    ],
+  },
+  {
+    slug: "digital-cervical-therapy",
+    title: "Digital Cervical Therapy",
+    short: "Computerised cervical traction & digital therapy for neck pain.",
+    description:
+      "Digital Cervical Therapy uses computerised traction and combined electro-therapy to relieve cervical spondylosis, disc issues, pinched nerves and chronic neck pain — with precise, patient-controlled intensity.",
+    image: IMG.cervical,
+    icon: "stethoscope",
+    price: 400,
+    duration: "25 min",
+    benefits: [
+      "Relief from cervical spondylosis & neck stiffness",
+      "Reduces nerve compression",
+      "Precise, computerised intensity",
+      "Drug-free treatment",
+    ],
+    process: [
+      { step: "X-ray review", detail: "Any prior imaging is reviewed by the doctor." },
+      { step: "Setup", detail: "Cervical harness & traction unit are calibrated to your comfort." },
+      { step: "Therapy", detail: "Gentle intermittent traction for 15–20 minutes." },
+      { step: "Post-therapy", detail: "Ergonomic and exercise guidance provided." },
+    ],
+    faqs: [
+      { q: "Is traction painful?", a: "No — traction is gradual and always within your comfort limit." },
+      { q: "How many sessions?", a: "Typically 8–12 sessions over 3–4 weeks." },
+    ],
+  },
+  {
+    slug: "digital-lumbar-therapy",
+    title: "Digital Lumbar Therapy",
+    short: "Computerised lumbar traction for back pain, sciatica & disc issues.",
+    description:
+      "Digital Lumbar Therapy uses precise computer-controlled traction to decompress the lumbar spine — highly effective for lower back pain, sciatica, disc bulge and lumbar spondylosis.",
+    image: IMG.lumbar,
+    icon: "stethoscope",
+    price: 400,
+    duration: "25 min",
+    benefits: [
+      "Effective for sciatica & disc bulge",
+      "Decompresses lumbar spine safely",
+      "Computerised, patient-controlled intensity",
+      "Drug-free, non-surgical",
+    ],
+    process: [
+      { step: "Assessment", detail: "Doctor reviews back-pain history and any MRI/X-ray." },
+      { step: "Positioning", detail: "You are secured on the lumbar traction unit." },
+      { step: "Therapy", detail: "Controlled intermittent traction for 15–20 minutes." },
+      { step: "Post-care", detail: "Core-strengthening exercises are advised." },
+    ],
+    faqs: [
+      { q: "Safe for disc bulge?", a: "Yes — traction is carefully calibrated for disc conditions." },
+      { q: "How soon can I feel results?", a: "Most patients notice improvement within 4–6 sessions." },
     ],
   },
 ];

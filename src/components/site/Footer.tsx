@@ -16,14 +16,14 @@ const cols = [
     ],
   },
   {
-    title: "Medical Services",
+    title: "Our Therapies",
     links: [
-      { label: "Physiotherapy", to: "/services/physiotherapy" },
-      { label: "Eye Care", to: "/services/eye-checkup" },
-      { label: "Blood Test", to: "/services/blood-test" },
-      { label: "Radiology & Imaging", to: "/services/radiology" },
-      { label: "General Medicine", to: "/services/general-medicine" },
-      { label: "Pharmacy", to: "/pharmacy" },
+      { label: "Cupping Therapy", to: "/services/cupping-therapy" },
+      { label: "Fire Cupping", to: "/services/fire-cupping-therapy" },
+      { label: "Hijama Therapy", to: "/services/hijama-therapy" },
+      { label: "Paraffin Wax", to: "/services/paraffin-wax-therapy" },
+      { label: "Body Massage", to: "/services/body-massage-therapy" },
+      { label: "Digital Lumbar", to: "/services/digital-lumbar-therapy" },
     ],
   },
   {
@@ -95,10 +95,13 @@ export function Footer() {
           <p className="text-xs text-background/60">
             © {new Date().getFullYear()} Sanjeevani Clinic · All rights reserved.
           </p>
-          <div className="flex items-center gap-3 text-background/70">
-            <a href="#" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full border border-background/15 hover:text-background"><Instagram className="h-4 w-4" /></a>
-            <a href="#" aria-label="Facebook" className="grid h-9 w-9 place-items-center rounded-full border border-background/15 hover:text-background"><Facebook className="h-4 w-4" /></a>
-            <a href="#" aria-label="YouTube" className="grid h-9 w-9 place-items-center rounded-full border border-background/15 hover:text-background"><Youtube className="h-4 w-4" /></a>
+          <div className="flex flex-wrap items-center gap-3 text-background/70">
+            <a href="https://www.sanjeevnionlineshop.com/" target="_blank" rel="noreferrer" className="rounded-full border border-emerald-accent/50 bg-emerald-accent/15 px-4 py-1.5 text-xs font-semibold text-emerald-accent hover:bg-emerald-accent/25">
+              NEOREO Online Store →
+            </a>
+            <a href="https://www.instagram.com/bhanu.pr2/" target="_blank" rel="noreferrer" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full border border-background/15 hover:text-background hover:bg-background/10 transition-colors"><Instagram className="h-4 w-4" /></a>
+            <a href="https://www.facebook.com/Bhanu.pr2" target="_blank" rel="noreferrer" aria-label="Facebook" className="grid h-9 w-9 place-items-center rounded-full border border-background/15 hover:text-background hover:bg-background/10 transition-colors"><Facebook className="h-4 w-4" /></a>
+            <a href="https://www.youtube.com/@HealthbusinesswithDrBPSingh" target="_blank" rel="noreferrer" aria-label="YouTube" className="grid h-9 w-9 place-items-center rounded-full border border-background/15 hover:text-background hover:bg-background/10 transition-colors"><Youtube className="h-4 w-4" /></a>
           </div>
         </div>
       </div>
