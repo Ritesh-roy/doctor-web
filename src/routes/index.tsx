@@ -17,7 +17,10 @@ import {
   Phone,
   MessageCircle,
   Quote,
-} from "lucide-react";
+  Home,
+  Leaf,
+  BookOpen,
+
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { CLINIC } from "@/data/clinic";
@@ -227,7 +230,7 @@ function DoctorStrip() {
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
               { k: "15+", l: "Years experience" },
-              { k: "25k+", l: "Patients cared for" },
+              { k: "70k+", l: "Patients cared for" },
               { k: "4.9★", l: "Google rating" },
             ].map((s) => (
               <div key={s.l} className="rounded-2xl border border-primary/10 bg-white p-4">

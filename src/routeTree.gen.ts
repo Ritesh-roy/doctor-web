@@ -25,6 +25,7 @@ import { Route as MedicalServicesRouteImport } from './routes/medical-services'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FreeEyeCheckupRouteImport } from './routes/free-eye-checkup'
+import { Route as FounderStoryRouteImport } from './routes/founder-story'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as FacilitiesRouteImport } from './routes/facilities'
@@ -125,6 +126,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const FreeEyeCheckupRoute = FreeEyeCheckupRouteImport.update({
   id: '/free-eye-checkup',
   path: '/free-eye-checkup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderStoryRoute = FounderStoryRouteImport.update({
+  id: '/founder-story',
+  path: '/founder-story',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
@@ -250,6 +256,7 @@ export interface FileRoutesByFullPath {
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
   '/forgot-password': typeof ForgotPasswordRoute
+  '/founder-story': typeof FounderStoryRoute
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
@@ -288,6 +295,7 @@ export interface FileRoutesByTo {
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
   '/forgot-password': typeof ForgotPasswordRoute
+  '/founder-story': typeof FounderStoryRoute
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
@@ -327,6 +335,7 @@ export interface FileRoutesById {
   '/facilities': typeof FacilitiesRoute
   '/faqs': typeof FaqsRoute
   '/forgot-password': typeof ForgotPasswordRoute
+  '/founder-story': typeof FounderStoryRoute
   '/free-eye-checkup': typeof FreeEyeCheckupRoute
   '/gallery': typeof GalleryRoute
   '/login': typeof LoginRoute
@@ -368,6 +377,7 @@ export interface FileRouteTypes {
     | '/facilities'
     | '/faqs'
     | '/forgot-password'
+    | '/founder-story'
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
@@ -406,6 +416,7 @@ export interface FileRouteTypes {
     | '/facilities'
     | '/faqs'
     | '/forgot-password'
+    | '/founder-story'
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
@@ -444,6 +455,7 @@ export interface FileRouteTypes {
     | '/facilities'
     | '/faqs'
     | '/forgot-password'
+    | '/founder-story'
     | '/free-eye-checkup'
     | '/gallery'
     | '/login'
@@ -484,6 +496,7 @@ export interface RootRouteChildren {
   FacilitiesRoute: typeof FacilitiesRoute
   FaqsRoute: typeof FaqsRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
+  FounderStoryRoute: typeof FounderStoryRoute
   FreeEyeCheckupRoute: typeof FreeEyeCheckupRoute
   GalleryRoute: typeof GalleryRoute
   LoginRoute: typeof LoginRoute
@@ -616,6 +629,13 @@ declare module '@tanstack/react-router' {
       path: '/free-eye-checkup'
       fullPath: '/free-eye-checkup'
       preLoaderRoute: typeof FreeEyeCheckupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder-story': {
+      id: '/founder-story'
+      path: '/founder-story'
+      fullPath: '/founder-story'
+      preLoaderRoute: typeof FounderStoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forgot-password': {
@@ -811,6 +831,7 @@ const rootRouteChildren: RootRouteChildren = {
   FacilitiesRoute: FacilitiesRoute,
   FaqsRoute: FaqsRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
+  FounderStoryRoute: FounderStoryRoute,
   FreeEyeCheckupRoute: FreeEyeCheckupRoute,
   GalleryRoute: GalleryRoute,
   LoginRoute: LoginRoute,
