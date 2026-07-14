@@ -113,50 +113,32 @@ function About() {
   );
 }
 
+const FOUNDER = {
+  name: "Dr. B.P. Singh",
+  qualification: "MBBS",
+  role: "Founder & Director",
+  org: "Sanjeevani Clinic Private Limited",
+} as const;
+
 const TEAM = [
-  {
-    name: "Dr. B.P. Singh",
-    role: "Founder & Chief Physician",
-    dept: "General Medicine",
-    bio: "Family physician with 15+ years of experience leading care at Sanjeevani Clinic.",
-    years: "15+ yrs",
-  },
-  {
-    name: "Clinical Nursing Team",
-    role: "Registered Nurses",
-    dept: "Patient Care & OPD",
-    bio: "Trained nursing staff who assist with consultations, injections, dressings and daily patient care.",
-    years: "8+ yrs",
-  },
-  {
-    name: "Lab & Diagnostics Team",
-    role: "Pathology Technicians",
-    dept: "In-house Laboratory",
-    bio: "Certified technicians handling sample collection, blood work and rapid diagnostic reports.",
-    years: "6+ yrs",
-  },
-  {
-    name: "Radiology Team",
-    role: "Imaging Technologists",
-    dept: "X-Ray & Ultrasound",
-    bio: "Skilled imaging staff supporting quick, safe X-ray and ultrasound investigations.",
-    years: "5+ yrs",
-  },
-  {
-    name: "Physiotherapy Team",
-    role: "Licensed Physiotherapists",
-    dept: "Rehabilitation & Recovery",
-    bio: "Hands-on therapists guiding post-injury, orthopedic and neuro rehab programmes.",
-    years: "6+ yrs",
-  },
-  {
-    name: "Front Desk & Reception",
-    role: "Patient Coordinators",
-    dept: "Reception · Appointments",
-    bio: "Friendly coordinators who help you book, register and navigate every visit smoothly.",
-    years: "4+ yrs",
-  },
+  { name: "Pradeep", role: "Marketing Executive Manager", years: "10+ Years", icon: "📣" },
+  { name: "Sandeep", role: "Manager", years: "5+ Years", icon: "🧑‍💼" },
+  { name: "Raju", role: "Senior Therapist", years: "5+ Years", icon: "💆" },
+  { name: "Firoz", role: "Marketing Executive", years: "5+ Years", icon: "📢" },
+  { name: "Sachin", role: "Assistant Manager", years: "2+ Years", icon: "🧑‍💼" },
+  { name: "Poonam", role: "Receptionist", years: null, icon: "☎️" },
+  { name: "Versha", role: "Nursing Staff", years: null, icon: "👩‍⚕️" },
+  { name: "Rupali", role: "Nursing Staff", years: null, icon: "👩‍⚕️" },
+  { name: "Prince", role: "Therapy Assistant", years: null, icon: "🤝" },
+  { name: "Alok", role: "Inventory Management", years: null, icon: "📦" },
+  { name: "Sagar", role: "Inventory Management", years: null, icon: "📦" },
+  { name: "Alam", role: "E-Commerce Management", years: null, icon: "🛒" },
+  { name: "Ashwani", role: "Graphic Designer", years: null, icon: "🎨" },
 ] as const;
+
+function initials(name: string) {
+  return name.split(" ").slice(0, 2).map((w) => w[0]).join("");
+}
 
 function TeamSection() {
   return (
@@ -164,11 +146,11 @@ function TeamSection() {
       <div className="mx-auto max-w-3xl text-center">
         <span className="text-xs font-medium uppercase tracking-[0.24em] text-primary">Our people</span>
         <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl md:text-5xl">
-          Meet Our Dedicated Healthcare Team
+          Meet Our Team
         </h2>
         <p className="mt-5 text-muted-foreground">
-          Sanjeevani Clinic is supported by an experienced team of doctors, nurses, lab and imaging technicians,
-          physiotherapists and patient coordinators — all working together with one goal: compassionate, honest care for every family that walks in.
+          Our experienced healthcare professionals are dedicated to delivering compassionate, ethical,
+          and high-quality care to every patient.
         </p>
       </div>
 
@@ -180,7 +162,6 @@ function TeamSection() {
           loading="lazy"
           className="aspect-[21/9] w-full object-cover object-center transition-transform duration-[1200ms] hover:scale-[1.03]"
         />
-
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-4 p-6 sm:p-8">
           <div className="text-white">
@@ -193,38 +174,80 @@ function TeamSection() {
         </div>
       </div>
 
-      {/* Team cards */}
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {TEAM.map((m, i) => (
-          <article
-            key={m.name}
-            className="group relative overflow-hidden rounded-3xl border border-white/60 bg-white/70 p-6 shadow-card backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
-          >
-            <div
-              className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-              style={{ background: i % 2 ? "var(--emerald-accent)" : "var(--primary)" }}
-              aria-hidden
-            />
-            <div className="flex items-start gap-4">
-              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary to-emerald-accent font-display text-lg font-semibold text-white shadow-soft">
-                {m.name.split(" ").slice(0, 2).map((w) => w[0]).join("")}
+      {/* Founder & Director */}
+      <div className="mt-14">
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-px flex-1 bg-primary/20" />
+          <span className="text-xs font-medium uppercase tracking-[0.24em] text-primary">Founder & Director</span>
+          <span className="h-px flex-1 bg-primary/20" />
+        </div>
+        <article className="group relative overflow-hidden rounded-[28px] border border-white/60 bg-gradient-to-br from-primary-soft/60 via-white/80 to-emerald-accent/10 p-8 shadow-glow transition-all duration-500 hover:-translate-y-1">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl" aria-hidden />
+          <div className="relative flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
+            <div className="grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary to-emerald-accent font-display text-3xl font-semibold text-white shadow-soft transition-transform duration-500 group-hover:scale-105">
+              🩺
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
+                {FOUNDER.name} <span className="text-lg font-medium text-muted-foreground">({FOUNDER.qualification})</span>
               </div>
-              <div className="min-w-0">
-                <div className="truncate font-display text-lg font-semibold text-foreground">{m.name}</div>
-                <div className="mt-0.5 text-sm font-medium text-primary">{m.role}</div>
+              <div className="mt-1 text-sm font-semibold uppercase tracking-wider text-primary">{FOUNDER.role}</div>
+              <div className="mt-2 text-sm text-muted-foreground">{FOUNDER.org}</div>
+              <Link to="/founder-story" className="mt-5 inline-flex h-10 items-center gap-2 rounded-full bg-foreground px-5 text-sm font-semibold text-background">
+                Read Founder Story
+              </Link>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      {/* Professional Team */}
+      <div className="mt-16">
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-px flex-1 bg-primary/20" />
+          <span className="text-xs font-medium uppercase tracking-[0.24em] text-primary">Our Professional Team</span>
+          <span className="h-px flex-1 bg-primary/20" />
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {TEAM.map((m, i) => (
+            <article
+              key={m.name}
+              className="group relative overflow-hidden rounded-3xl border border-white/60 bg-white/70 p-6 shadow-card backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow"
+            >
+              <div
+                className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                style={{ background: i % 2 ? "var(--emerald-accent)" : "var(--primary)" }}
+                aria-hidden
+              />
+              <div className="flex items-start gap-4">
+                <div className="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary to-emerald-accent font-display text-lg font-semibold text-white shadow-soft transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  {initials(m.name)}
+                  <span className="absolute -bottom-2 -right-2 grid h-8 w-8 place-items-center rounded-full bg-white text-lg shadow-soft">
+                    {m.icon}
+                  </span>
+                </div>
+                <div className="min-w-0">
+                  <div className="truncate font-display text-lg font-semibold text-foreground">{m.name}</div>
+                  <div className="mt-0.5 text-sm font-medium text-primary">{m.role}</div>
+                </div>
               </div>
-            </div>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary-soft/70 px-3 py-1 text-xs font-medium text-foreground">
-              {m.dept}
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
-            <div className="mt-5 flex items-center justify-between border-t border-primary/10 pt-4 text-xs">
-              <span className="font-medium text-foreground">{m.years} experience</span>
-              <span className="text-muted-foreground">Sanjeevani Clinic</span>
-            </div>
-          </article>
-        ))}
+              {m.years && (
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary-soft/70 px-3 py-1 text-xs font-medium text-foreground">
+                  ⏱ Experience: {m.years}
+                </div>
+              )}
+              <div className="mt-5 flex items-center justify-between border-t border-primary/10 pt-4 text-xs">
+                <span className="text-muted-foreground">Sanjeevani Clinic</span>
+                <span className="font-medium text-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  Trusted staff →
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+
