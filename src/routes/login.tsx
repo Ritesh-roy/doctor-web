@@ -20,15 +20,8 @@ export const Route = createFileRoute("/login")({
   }),
 });
 
-function normalizePhone(v: string) {
-  const digits = v.replace(/[^\d+]/g, "");
-  if (digits.startsWith("+")) return digits;
-  if (digits.length === 10) return `+91${digits}`;
-  return digits.startsWith("91") ? `+${digits}` : `+${digits}`;
-}
-
 function phoneToEmail(phone: string) {
-  return `${normalizePhone(phone).replace(/\D/g, "")}@phone.sanjeevaniclinc.in`;
+  return `${normalizeIndianMobile(phone)}@phone.sanjeevaniclinc.in`;
 }
 
 function Login() {

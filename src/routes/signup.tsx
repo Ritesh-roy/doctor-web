@@ -11,6 +11,9 @@ import {
   isValidPhone,
   sanitizeNameInput,
   sanitizePhoneInput,
+  normalizeIndianMobile,
+  MOBILE_INVALID_MSG,
+  MOBILE_DUPLICATE_MSG,
 } from "@/lib/validators";
 
 export const Route = createFileRoute("/signup")({
