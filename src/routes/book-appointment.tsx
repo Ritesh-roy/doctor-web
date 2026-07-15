@@ -138,7 +138,6 @@ function Book() {
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Preferred time</span>
               <select name="time" defaultValue="Morning · 9 AM – 1 PM" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
                 <option>Morning · 9 AM – 1 PM</option>
-                <option>Morning · 9 AM – 1 PM</option>
                 <option>Evening · 5 PM – 9 PM</option>
               </select>
             </label>
