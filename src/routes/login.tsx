@@ -50,11 +50,8 @@ function Login() {
     if (password.length < 6) return toast.error("Password must be at least 6 characters");
     setLoading(true);
     try {
-      const creds =
-        channel === "email"
-          ? { email: identifier.trim(), password }
-          : { phone: normalizePhone(identifier), password };
-      const { data, error } = await supabase.auth.signInWithPassword(creds);
+      const email = channel === "email" ? identifier.trim() : phoneToEmail(identifier);
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
       toast.success("Signed in");
       // Route admin to admin panel
