@@ -57,11 +57,11 @@ function Signup() {
     if (password !== confirm) return toast.error("Passwords do not match");
     setLoading(true);
     try {
-      const opts = { data: { full_name: fullName.trim() }, emailRedirectTo: `${window.location.origin}/my-account` };
-      const { error } =
-        channel === "email"
-          ? await supabase.auth.signUp({ email: email.trim(), password, options: opts })
-          : await supabase.auth.signUp({ phone: normalizePhone(phone), password, options: opts });
+      const authEmail = channel === "email" ? email.trim() : phoneToEmail(phone);
+      const meta: Record<string, string> = { full_name: fullName.trim() };
+      if (channel === "phone") meta.phone = normalizePhone(phone);
+      const opts = { data: meta, emailRedirectTo: `${window.location.origin}/my-account` };
+      const { error } = await supabase.auth.signUp({ email: authEmail, password, options: opts });
       if (error) throw error;
       toast.success("Account created — you're signed in");
       navigate({ to: "/my-account" });
