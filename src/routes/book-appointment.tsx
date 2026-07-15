@@ -48,7 +48,7 @@ function Book() {
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
-    if (!isValidPhone(phone)) return toast.error("Enter a valid phone number (10–15 digits)");
+    if (!isValidPhone(phone)) return toast.error(MOBILE_INVALID_MSG);
     if (!isFutureOrToday(date)) return toast.error("Choose today or a future date");
     const form = e.currentTarget;
     const f = new FormData(form);
@@ -57,7 +57,7 @@ function Book() {
       const { error } = await supabase.from("bookings").insert({
         user_id: user?.id ?? null,
         patient_name: name.trim(),
-        phone: phone.trim(),
+        phone: normalizeIndianMobile(phone),
         email: user?.email ?? null,
         service: String(f.get("service") || "General Consultation"),
         preferred_date: date,
@@ -107,12 +107,15 @@ function Book() {
               <input
                 name="phone"
                 required
-                inputMode="tel"
-                autoComplete="tel"
+                type="tel"
+                inputMode="numeric"
+                autoComplete="tel-national"
                 value={phone}
                 onChange={(e) => setPhone(sanitizePhoneInput(e.target.value))}
-                pattern="\+?\d{10,15}"
-                title="10–15 digits, digits only"
+                pattern="[6-9][0-9]{9}"
+                maxLength={10}
+                placeholder="10-digit mobile"
+                title="Enter a 10-digit Indian mobile number"
                 className="mt-1 w-full rounded-xl border border-primary/15 px-4 py-3 text-sm outline-none focus:border-primary"
               />
             </label>
