@@ -11,6 +11,9 @@ import {
   isValidPhone,
   sanitizeNameInput,
   sanitizePhoneInput,
+  normalizeIndianMobile,
+  MOBILE_INVALID_MSG,
+  MOBILE_DUPLICATE_MSG,
 } from "@/lib/validators";
 
 export const Route = createFileRoute("/signup")({
@@ -25,17 +28,10 @@ export const Route = createFileRoute("/signup")({
   }),
 });
 
-function normalizePhone(v: string) {
-  const digits = v.replace(/[^\d+]/g, "");
-  if (digits.startsWith("+")) return digits;
-  if (digits.length === 10) return `+91${digits}`;
-  return digits.startsWith("91") ? `+${digits}` : `+${digits}`;
-}
-
 // Convert a phone number into a stable synthetic email so we can use
 // email/password auth even when SMS provider isn't configured.
 function phoneToEmail(phone: string) {
-  return `${normalizePhone(phone).replace(/\D/g, "")}@phone.sanjeevaniclinc.in`;
+  return `${normalizeIndianMobile(phone)}@phone.sanjeevaniclinc.in`;
 }
 
 function Signup() {
@@ -52,17 +48,22 @@ function Signup() {
     e.preventDefault();
     if (!isValidName(fullName)) return toast.error("Name may only contain letters and spaces");
     if (channel === "email" && !isValidEmail(email)) return toast.error("Enter a valid email");
-    if (channel === "phone" && !isValidPhone(phone)) return toast.error("Enter a valid mobile number");
+    if (channel === "phone" && !isValidPhone(phone)) return toast.error(MOBILE_INVALID_MSG);
     if (password.length < 6) return toast.error("Password must be at least 6 characters");
     if (password !== confirm) return toast.error("Passwords do not match");
     setLoading(true);
     try {
       const authEmail = channel === "email" ? email.trim() : phoneToEmail(phone);
       const meta: Record<string, string> = { full_name: fullName.trim() };
-      if (channel === "phone") meta.phone = normalizePhone(phone);
+      if (channel === "phone") meta.phone = normalizeIndianMobile(phone);
       const opts = { data: meta, emailRedirectTo: `${window.location.origin}/my-account` };
       const { error } = await supabase.auth.signUp({ email: authEmail, password, options: opts });
-      if (error) throw error;
+      if (error) {
+        if (/already registered|already exists|duplicate/i.test(error.message) && channel === "phone") {
+          throw new Error(MOBILE_DUPLICATE_MSG);
+        }
+        throw error;
+      }
       toast.success("Account created — you're signed in");
       navigate({ to: "/my-account" });
     } catch (e: unknown) {
@@ -91,7 +92,7 @@ function Signup() {
             {channel === "email" ? (
               <Field label="Email" type="email" value={email} onChange={setEmail} placeholder="you@email.com" autoComplete="email" required />
             ) : (
-              <Field label="Mobile number" type="tel" inputMode="tel" value={phone} onChange={(v) => setPhone(sanitizePhoneInput(v))} placeholder="+91 XXXXX XXXXX" pattern="\+?\d{10,15}" autoComplete="tel" required />
+              <Field label="Mobile number" type="tel" inputMode="numeric" value={phone} onChange={(v) => setPhone(sanitizePhoneInput(v))} placeholder="10-digit mobile" pattern="[6-9][0-9]{9}" maxLength={10} autoComplete="tel-national" required />
             )}
             <Field label="Password" type="password" value={password} onChange={setPassword} placeholder="At least 6 characters" autoComplete="new-password" minLength={6} required />
             <Field label="Confirm password" type="password" value={confirm} onChange={setConfirm} placeholder="Re-enter password" autoComplete="new-password" minLength={6} required />

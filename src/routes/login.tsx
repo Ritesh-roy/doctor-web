@@ -6,7 +6,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Mail, Phone, Lock } from "lucide-react";
-import { isValidEmail, isValidPhone, sanitizePhoneInput } from "@/lib/validators";
+import { isValidEmail, isValidPhone, sanitizePhoneInput, normalizeIndianMobile, MOBILE_INVALID_MSG } from "@/lib/validators";
 
 export const Route = createFileRoute("/login")({
   component: Login,
@@ -20,15 +20,8 @@ export const Route = createFileRoute("/login")({
   }),
 });
 
-function normalizePhone(v: string) {
-  const digits = v.replace(/[^\d+]/g, "");
-  if (digits.startsWith("+")) return digits;
-  if (digits.length === 10) return `+91${digits}`;
-  return digits.startsWith("91") ? `+${digits}` : `+${digits}`;
-}
-
 function phoneToEmail(phone: string) {
-  return `${normalizePhone(phone).replace(/\D/g, "")}@phone.sanjeevaniclinc.in`;
+  return `${normalizeIndianMobile(phone)}@phone.sanjeevaniclinc.in`;
 }
 
 function Login() {
@@ -46,7 +39,7 @@ function Login() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (channel === "email" && !isValidEmail(identifier)) return toast.error("Enter a valid email");
-    if (channel === "phone" && !isValidPhone(identifier)) return toast.error("Enter a valid mobile number");
+    if (channel === "phone" && !isValidPhone(identifier)) return toast.error(MOBILE_INVALID_MSG);
     if (password.length < 6) return toast.error("Password must be at least 6 characters");
     setLoading(true);
     try {
@@ -83,11 +76,13 @@ function Login() {
             <span className="mb-1 block font-medium text-foreground">{channel === "email" ? "Email address" : "Mobile number"}</span>
             <input
               type={channel === "email" ? "email" : "tel"}
-              inputMode={channel === "phone" ? "tel" : undefined}
-              autoComplete={channel === "email" ? "email" : "tel"}
+              inputMode={channel === "phone" ? "numeric" : undefined}
+              autoComplete={channel === "email" ? "email" : "tel-national"}
               value={identifier}
               onChange={(e) => setIdentifier(channel === "phone" ? sanitizePhoneInput(e.target.value) : e.target.value)}
-              placeholder={channel === "email" ? "you@email.com" : "+91 XXXXX XXXXX"}
+              placeholder={channel === "email" ? "you@email.com" : "10-digit mobile"}
+              pattern={channel === "phone" ? "[6-9][0-9]{9}" : undefined}
+              maxLength={channel === "phone" ? 10 : undefined}
               className="h-12 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
               required
             />

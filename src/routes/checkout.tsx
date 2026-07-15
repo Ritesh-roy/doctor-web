@@ -17,6 +17,7 @@ import {
   sanitizeNameInput,
   sanitizePhoneInput,
   todayISO,
+  MOBILE_INVALID_MSG,
 } from "@/lib/validators";
 
 type RazorpayResponse = {
@@ -125,7 +126,7 @@ function Checkout() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
-    if (!isValidPhone(mobile)) return toast.error("Enter a valid mobile number");
+    if (!isValidPhone(mobile)) return toast.error(MOBILE_INVALID_MSG);
     if (email && !isValidEmail(email)) return toast.error("Enter a valid email");
     if (!date || !isFutureOrToday(date)) return toast.error("Choose today or a future date");
     if (!time) return toast.error("Please pick a preferred time slot");
@@ -137,7 +138,7 @@ function Checkout() {
       const inserted = await createCheckoutOrderFn({
         data: {
           customerName: name.trim(),
-          phone: mobile.trim(),
+          phone: mobile.replace(/\D/g, "").slice(-10),
           email: email.trim(),
           address: address.trim(),
           preferredDate: date,
@@ -277,13 +278,14 @@ function Checkout() {
                   <input
                     required
                     type="tel"
-                    inputMode="tel"
+                    inputMode="numeric"
                     value={mobile}
                     onChange={(e) => setMobile(sanitizePhoneInput(e.target.value))}
-                    pattern="\+?\d{10,15}"
-                    title="10–15 digits, digits only"
-                    placeholder="+91"
-                    autoComplete="tel"
+                    pattern="[6-9][0-9]{9}"
+                    maxLength={10}
+                    title="10-digit mobile number"
+                    placeholder="10-digit mobile"
+                    autoComplete="tel-national"
                     className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
                   />
                 </Field>

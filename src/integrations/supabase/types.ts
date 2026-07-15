@@ -21,7 +21,7 @@ export type Database = {
           id: string
           notes: string | null
           patient_name: string
-          phone: string
+          phone: string | null
           preferred_date: string
           preferred_time: string
           service: string
@@ -35,7 +35,7 @@ export type Database = {
           id?: string
           notes?: string | null
           patient_name: string
-          phone: string
+          phone?: string | null
           preferred_date: string
           preferred_time: string
           service: string
@@ -49,7 +49,7 @@ export type Database = {
           id?: string
           notes?: string | null
           patient_name?: string
-          phone?: string
+          phone?: string | null
           preferred_date?: string
           preferred_time?: string
           service?: string
@@ -69,7 +69,7 @@ export type Database = {
           items: Json
           order_number: string | null
           payment_method: string
-          phone: string
+          phone: string | null
           preferred_date: string | null
           preferred_time: string | null
           razorpay_order_id: string | null
@@ -90,7 +90,7 @@ export type Database = {
           items: Json
           order_number?: string | null
           payment_method: string
-          phone: string
+          phone?: string | null
           preferred_date?: string | null
           preferred_time?: string | null
           razorpay_order_id?: string | null
@@ -111,7 +111,7 @@ export type Database = {
           items?: Json
           order_number?: string | null
           payment_method?: string
-          phone?: string
+          phone?: string | null
           preferred_date?: string | null
           preferred_time?: string | null
           razorpay_order_id?: string | null
