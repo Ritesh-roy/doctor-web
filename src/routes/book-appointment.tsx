@@ -21,9 +21,9 @@ export const Route = createFileRoute("/book-appointment")({
   component: Book,
   head: () => ({
     meta: [
-      { title: "Book Appointment — Sanjeevani Clinic, Kirari" },
-      { name: "description", content: "Book your appointment with Dr. B.P. Singh at Sanjeevani Clinic, Kirari, Delhi." },
-      { property: "og:title", content: "Book Appointment — Sanjeevani Clinic" },
+      { title: "Book Appointment — Sanjeevani Clinc Private Limited, Kirari" },
+      { name: "description", content: "Book your appointment with Dr. B.P. Singh at Sanjeevani Clinc Private Limited, Kirari, Delhi." },
+      { property: "og:title", content: "Book Appointment — Sanjeevani Clinc Private Limited" },
       { property: "og:description", content: "Reserve a slot online in seconds." },
       { property: "og:url", content: "/book-appointment" },
     ],
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/book-appointment")({
 });
 
 function Book() {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const [sent, setSent] = useState(false);
   const [saving, setSaving] = useState(false);
   const [name, setName] = useState("");
@@ -40,27 +40,7 @@ function Book() {
   const [date, setDate] = useState("");
   const minDate = todayISO();
 
-  if (!loading && !user) {
-    return (
-      <SiteLayout>
-        <PageHero
-          eyebrow="Book appointment"
-          title="Please sign in to book an appointment."
-          intro="For your safety and to keep your booking history in one place, you need an account before booking."
-          crumbs={[{ label: "Home", to: "/" }, { label: "Book appointment" }]}
-        />
-        <section className="mx-auto max-w-2xl px-4 pb-24 sm:px-6">
-          <div className="rounded-3xl border border-primary/10 bg-white p-8 text-center shadow-card">
-            <p className="text-sm text-muted-foreground">Sign in or create a free account in seconds — then come right back to book.</p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <a href="/login" className="inline-flex h-11 items-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-glow transition-all hover:-translate-y-0.5">Sign in</a>
-              <a href="/signup" className="inline-flex h-11 items-center rounded-full border border-primary/20 px-6 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:bg-primary-soft/60">Create account</a>
-            </div>
-          </div>
-        </section>
-      </SiteLayout>
-    );
-  }
+
 
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -77,9 +57,9 @@ function Book() {
         patient_name: name.trim(),
         phone: phone.trim(),
         email: user?.email ?? null,
-        service: String(f.get("service") || ""),
+        service: String(f.get("service") || "General Consultation"),
         preferred_date: date,
-        preferred_time: String(f.get("time") || ""),
+        preferred_time: String(f.get("time") || "Morning · 9 AM – 1 PM"),
         notes: String(f.get("notes") || "") || null,
       });
       if (error) throw error;
@@ -136,8 +116,8 @@ function Book() {
             </label>
             <label className="block">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Service</span>
-              <select name="service" required defaultValue="" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
-                <option value="" disabled>Select a service</option>
+              <select name="service" defaultValue="General Consultation" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
+                <option value="General Consultation">General Consultation</option>
                 {SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
                 <option value="Other">Other</option>
               </select>
@@ -156,8 +136,7 @@ function Book() {
             </label>
             <label className="block">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Preferred time</span>
-              <select name="time" required defaultValue="" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
-                <option value="" disabled>Select a slot</option>
+              <select name="time" defaultValue="Morning · 9 AM – 1 PM" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
                 <option>Morning · 9 AM – 1 PM</option>
                 <option>Evening · 5 PM – 9 PM</option>
               </select>

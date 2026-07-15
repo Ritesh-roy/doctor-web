@@ -17,8 +17,8 @@ export const Route = createFileRoute("/signup")({
   component: Signup,
   head: () => ({
     meta: [
-      { title: "Create Account — Sanjeevani Clinic" },
-      { name: "description", content: "Create your Sanjeevani Clinic account using email or mobile and a password." },
+      { title: "Create Account — Sanjeevani Clinc Private Limited" },
+      { name: "description", content: "Create your Sanjeevani Clinc Private Limited account using email or mobile and a password." },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/signup" }],
@@ -30,6 +30,12 @@ function normalizePhone(v: string) {
   if (digits.startsWith("+")) return digits;
   if (digits.length === 10) return `+91${digits}`;
   return digits.startsWith("91") ? `+${digits}` : `+${digits}`;
+}
+
+// Convert a phone number into a stable synthetic email so we can use
+// email/password auth even when SMS provider isn't configured.
+function phoneToEmail(phone: string) {
+  return `${normalizePhone(phone).replace(/\D/g, "")}@phone.sanjeevaniclinc.in`;
 }
 
 function Signup() {
@@ -51,11 +57,11 @@ function Signup() {
     if (password !== confirm) return toast.error("Passwords do not match");
     setLoading(true);
     try {
-      const opts = { data: { full_name: fullName.trim() }, emailRedirectTo: `${window.location.origin}/my-account` };
-      const { error } =
-        channel === "email"
-          ? await supabase.auth.signUp({ email: email.trim(), password, options: opts })
-          : await supabase.auth.signUp({ phone: normalizePhone(phone), password, options: opts });
+      const authEmail = channel === "email" ? email.trim() : phoneToEmail(phone);
+      const meta: Record<string, string> = { full_name: fullName.trim() };
+      if (channel === "phone") meta.phone = normalizePhone(phone);
+      const opts = { data: meta, emailRedirectTo: `${window.location.origin}/my-account` };
+      const { error } = await supabase.auth.signUp({ email: authEmail, password, options: opts });
       if (error) throw error;
       toast.success("Account created — you're signed in");
       navigate({ to: "/my-account" });

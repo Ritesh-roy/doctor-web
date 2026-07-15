@@ -12,8 +12,8 @@ export const Route = createFileRoute("/login")({
   component: Login,
   head: () => ({
     meta: [
-      { title: "Sign In — Sanjeevani Clinic" },
-      { name: "description", content: "Sign in to Sanjeevani Clinic with your email or mobile and password." },
+      { title: "Sign In — Sanjeevani Clinc Private Limited" },
+      { name: "description", content: "Sign in to Sanjeevani Clinc Private Limited with your email or mobile and password." },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/login" }],
@@ -25,6 +25,10 @@ function normalizePhone(v: string) {
   if (digits.startsWith("+")) return digits;
   if (digits.length === 10) return `+91${digits}`;
   return digits.startsWith("91") ? `+${digits}` : `+${digits}`;
+}
+
+function phoneToEmail(phone: string) {
+  return `${normalizePhone(phone).replace(/\D/g, "")}@phone.sanjeevaniclinc.in`;
 }
 
 function Login() {
@@ -46,11 +50,8 @@ function Login() {
     if (password.length < 6) return toast.error("Password must be at least 6 characters");
     setLoading(true);
     try {
-      const creds =
-        channel === "email"
-          ? { email: identifier.trim(), password }
-          : { phone: normalizePhone(identifier), password };
-      const { data, error } = await supabase.auth.signInWithPassword(creds);
+      const email = channel === "email" ? identifier.trim() : phoneToEmail(identifier);
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
       toast.success("Signed in");
       // Route admin to admin panel

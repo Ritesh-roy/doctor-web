@@ -21,8 +21,8 @@ export const Route = createFileRoute("/services/$slug")({
   component: ServiceDetail,
   head: ({ loaderData, params }) => ({
     meta: [
-      { title: `${loaderData?.title ?? "Service"} — Sanjeevani Clinic` },
-      { name: "description", content: loaderData?.short ?? "Service at Sanjeevani Clinic" },
+      { title: `${loaderData?.title ?? "Service"} — Sanjeevani Clinc Private Limited` },
+      { name: "description", content: loaderData?.short ?? "Service at Sanjeevani Clinc Private Limited" },
       { property: "og:title", content: loaderData?.title ?? "Service" },
       { property: "og:description", content: loaderData?.short ?? "" },
       { property: "og:url", content: `/services/${params.slug}` },
