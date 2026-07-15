@@ -15,6 +15,8 @@ import {
   sanitizeNameInput,
   sanitizePhoneInput,
   todayISO,
+  normalizeIndianMobile,
+  MOBILE_INVALID_MSG,
 } from "@/lib/validators";
 
 export const Route = createFileRoute("/book-appointment")({

@@ -5,7 +5,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { CLINIC } from "@/data/clinic";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Ambulance } from "lucide-react";
-import { isValidName, isValidPhone, sanitizeNameInput, sanitizePhoneInput } from "@/lib/validators";
+import { isValidName, isValidPhone, sanitizeNameInput, sanitizePhoneInput, MOBILE_INVALID_MSG } from "@/lib/validators";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -28,7 +28,7 @@ function Contact() {
   const send = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
-    if (!isValidPhone(phone)) return toast.error("Enter a valid phone number");
+    if (!isValidPhone(phone)) return toast.error(MOBILE_INVALID_MSG);
     const f = new FormData(e.currentTarget);
     const msg = `Hi, I'd like to get in touch.%0A%0AName: ${name}%0APhone: ${phone}%0AMessage: ${f.get("message")}`;
     window.open(`${CLINIC.whatsapp}?text=${msg}`, "_blank");
@@ -91,12 +91,15 @@ function Contact() {
                 <input
                   name="phone"
                   required
-                  inputMode="tel"
+                  type="tel"
+                  inputMode="numeric"
                   value={phone}
                   onChange={(e) => setPhone(sanitizePhoneInput(e.target.value))}
-                  pattern="\+?\d{10,15}"
-                  title="10–15 digits, digits only"
-                  autoComplete="tel"
+                  pattern="[6-9][0-9]{9}"
+                  maxLength={10}
+                  placeholder="10-digit mobile"
+                  title="Enter a 10-digit Indian mobile number"
+                  autoComplete="tel-national"
                   className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary"
                 />
               </label>
