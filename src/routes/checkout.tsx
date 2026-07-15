@@ -138,7 +138,7 @@ function Checkout() {
       const inserted = await createCheckoutOrderFn({
         data: {
           customerName: name.trim(),
-          phone: mobile.trim(),
+          phone: mobile.replace(/\D/g, "").slice(-10),
           email: email.trim(),
           address: address.trim(),
           preferredDate: date,
