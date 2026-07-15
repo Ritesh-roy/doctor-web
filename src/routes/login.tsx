@@ -27,6 +27,10 @@ function normalizePhone(v: string) {
   return digits.startsWith("91") ? `+${digits}` : `+${digits}`;
 }
 
+function phoneToEmail(phone: string) {
+  return `${normalizePhone(phone).replace(/\D/g, "")}@phone.sanjeevaniclinc.in`;
+}
+
 function Login() {
   const navigate = useNavigate();
   const { user } = useAuth();
