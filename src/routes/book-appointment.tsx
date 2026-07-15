@@ -57,9 +57,9 @@ function Book() {
         patient_name: name.trim(),
         phone: phone.trim(),
         email: user?.email ?? null,
-        service: String(f.get("service") || ""),
+        service: String(f.get("service") || "General Consultation"),
         preferred_date: date,
-        preferred_time: String(f.get("time") || ""),
+        preferred_time: String(f.get("time") || "Morning · 9 AM – 1 PM"),
         notes: String(f.get("notes") || "") || null,
       });
       if (error) throw error;
