@@ -116,7 +116,7 @@ function Book() {
             </label>
             <label className="block">
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Service</span>
-              <select name="service" required defaultValue="" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
+              <select name="service" defaultValue="General Consultation" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
                 <option value="" disabled>Select a service</option>
                 {SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
                 <option value="Other">Other</option>
