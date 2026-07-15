@@ -6,7 +6,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth";
 import { Mail, Phone, Lock } from "lucide-react";
-import { isValidEmail, isValidPhone, sanitizePhoneInput } from "@/lib/validators";
+import { isValidEmail, isValidPhone, sanitizePhoneInput, normalizeIndianMobile, MOBILE_INVALID_MSG } from "@/lib/validators";
 
 export const Route = createFileRoute("/login")({
   component: Login,
