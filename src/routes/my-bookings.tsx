@@ -11,8 +11,8 @@ export const Route = createFileRoute("/my-bookings")({
   component: MyBookings,
   head: () => ({
     meta: [
-      { title: "My Bookings — Sanjeevani Clinic" },
-      { name: "description", content: "View your Sanjeevani Clinic appointments and orders." },
+      { title: "My Bookings — Sanjeevani Clinc Private Limited" },
+      { name: "description", content: "View your Sanjeevani Clinc Private Limited appointments and orders." },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/my-bookings" }],

@@ -33,13 +33,13 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Sanjeevani Clinic — Trusted Family Healthcare in Kirari, Delhi" },
+      { title: "Sanjeevani Clinc Private Limited — Trusted Family Healthcare in Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Sanjeevani Clinic, Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
+          "Sanjeevani Clinc Private Limited, Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
       },
-      { property: "og:title", content: "Sanjeevani Clinic — Premium Family Healthcare" },
+      { property: "og:title", content: "Sanjeevani Clinc Private Limited — Premium Family Healthcare" },
       { property: "og:description", content: "Warm, ethical, evidence-based care for you and your family in Kirari, Delhi." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -89,7 +89,7 @@ function Hero() {
             <span className="text-gradient">Family.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            For over {CLINIC.years} years, Sanjeevani Clinic has cared for families across
+            For over {CLINIC.years} years, Sanjeevani Clinc Private Limited has cared for families across
             Delhi with warm, expert medicine — from everyday consultations to
             physiotherapy, diagnostics and eye care, all under one roof.
           </p>
@@ -137,7 +137,7 @@ function Hero() {
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
             <div className="absolute -inset-6 rounded-[48px] bg-gradient-to-br from-primary/25 via-sky/40 to-emerald-accent/20 blur-2xl" />
             <div className="absolute inset-0 overflow-hidden rounded-[36px] border border-white/60 bg-white shadow-glow">
-              <img src={doctorAsset.url} alt="Dr. B.P. Singh — Sanjeevani Clinic" width={900} height={1125} className="h-full w-full object-cover" />
+              <img src={doctorAsset.url} alt="Dr. B.P. Singh — Sanjeevani Clinc Private Limited" width={900} height={1125} className="h-full w-full object-cover" />
             </div>
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }} className="glass-card absolute -left-3 top-8 flex items-center gap-3 rounded-2xl p-3 shadow-card sm:-left-6">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-accent/15 text-emerald-accent"><BadgeCheck className="h-5 w-5" /></span>
@@ -226,7 +226,7 @@ function DoctorStrip() {
           <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Dr. B.P. Singh — MBBS, MD</h2>
           <p className="mt-4 text-muted-foreground">
             With over 15 years of clinical experience, Dr. Singh is known in Karan Vihar and Kirari for his patience,
-            careful listening and honest, ethical advice. He leads Sanjeevani Clinic with the belief that great care
+            careful listening and honest, ethical advice. He leads Sanjeevani Clinc Private Limited with the belief that great care
             begins with feeling heard.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -310,7 +310,7 @@ function FounderPreview() {
             A single room in 2009. A mission bigger than any wall.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Mr. D.R. B.P. Singh started Sanjeevani Clinic in Kirari with limited resources
+            Mr. D.R. B.P. Singh started Sanjeevani Clinc Private Limited in Kirari with limited resources
             but a bigger vision — quality healthcare should never be a privilege for a few.
             15 years, 125+ countries and 70,000+ lives later, that mission has only grown.
           </p>
@@ -374,7 +374,7 @@ function NeoreoSection() {
             Our own healthcare brand — trusted, affordable, quality assured.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            NEOREO is Sanjeevani Clinic's in-house healthcare brand. Every product is
+            NEOREO is Sanjeevani Clinc Private Limited's in-house healthcare brand. Every product is
             developed with the same ethos we treat patients with — high quality, honest
             pricing and complete transparency. Because good health should never be a luxury.
           </p>
