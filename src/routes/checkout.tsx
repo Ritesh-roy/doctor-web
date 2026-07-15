@@ -126,7 +126,7 @@ function Checkout() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValidName(name)) return toast.error("Name may only contain letters and spaces");
-    if (!isValidPhone(mobile)) return toast.error("Enter a valid mobile number");
+    if (!isValidPhone(mobile)) return toast.error(MOBILE_INVALID_MSG);
     if (email && !isValidEmail(email)) return toast.error("Enter a valid email");
     if (!date || !isFutureOrToday(date)) return toast.error("Choose today or a future date");
     if (!time) return toast.error("Please pick a preferred time slot");
