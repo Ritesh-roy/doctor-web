@@ -2,7 +2,8 @@
 
 export const NAME_REGEX = /^[A-Za-z][A-Za-z\s.'-]{1,79}$/;
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-export const PHONE_DIGITS_REGEX = /^\d{10,15}$/;
+/** Exactly 10 digits, first digit 6–9 (Indian mobile). */
+export const INDIAN_MOBILE_REGEX = /^[6-9]\d{9}$/;
 
 export function isValidName(v: string) {
   return NAME_REGEX.test(v.trim());
@@ -12,11 +13,17 @@ export function isValidEmail(v: string) {
   return EMAIL_REGEX.test(v.trim());
 }
 
-/** Accepts an optional leading +, then 10–15 digits total. */
+/** Valid Indian mobile: exactly 10 digits starting with 6-9. Accepts optional +91/91 prefix which is stripped. */
 export function isValidPhone(v: string) {
-  const cleaned = v.replace(/[\s()-]/g, "");
-  if (cleaned.startsWith("+")) return /^\+\d{10,15}$/.test(cleaned);
-  return PHONE_DIGITS_REGEX.test(cleaned);
+  return INDIAN_MOBILE_REGEX.test(normalizeIndianMobile(v));
+}
+
+/** Return the 10-digit local mobile number after trimming spaces and stripping +91/91 prefix. */
+export function normalizeIndianMobile(v: string) {
+  let digits = (v || "").trim().replace(/\D/g, "");
+  if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
+  if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
+  return digits;
 }
 
 /** Today's date as YYYY-MM-DD in the browser's local timezone. */
@@ -37,9 +44,10 @@ export function sanitizeNameInput(v: string) {
   return v.replace(/[^A-Za-z\s.'-]/g, "").slice(0, 80);
 }
 
-/** Keep only digits and an optional leading + (for onChange handlers). */
+/** Keep only digits, max 10 (for onChange handlers on Indian mobile inputs). */
 export function sanitizePhoneInput(v: string) {
-  const hasPlus = v.trim().startsWith("+");
-  const digits = v.replace(/\D/g, "").slice(0, 15);
-  return hasPlus ? `+${digits}` : digits;
+  return (v || "").replace(/\D/g, "").slice(0, 10);
 }
+
+export const MOBILE_INVALID_MSG = "Please enter a valid 10-digit mobile number.";
+export const MOBILE_DUPLICATE_MSG = "This mobile number is already registered.";
