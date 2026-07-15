@@ -32,6 +32,12 @@ function normalizePhone(v: string) {
   return digits.startsWith("91") ? `+${digits}` : `+${digits}`;
 }
 
+// Convert a phone number into a stable synthetic email so we can use
+// email/password auth even when SMS provider isn't configured.
+function phoneToEmail(phone: string) {
+  return `${normalizePhone(phone).replace(/\D/g, "")}@phone.sanjeevaniclinc.in`;
+}
+
 function Signup() {
   const navigate = useNavigate();
   const [channel, setChannel] = useState<"email" | "phone">("email");
