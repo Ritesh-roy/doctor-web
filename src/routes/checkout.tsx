@@ -277,13 +277,14 @@ function Checkout() {
                   <input
                     required
                     type="tel"
-                    inputMode="tel"
+                    inputMode="numeric"
                     value={mobile}
                     onChange={(e) => setMobile(sanitizePhoneInput(e.target.value))}
-                    pattern="\+?\d{10,15}"
-                    title="10–15 digits, digits only"
-                    placeholder="+91"
-                    autoComplete="tel"
+                    pattern="[6-9][0-9]{9}"
+                    maxLength={10}
+                    title="10-digit mobile number"
+                    placeholder="10-digit mobile"
+                    autoComplete="tel-national"
                     className="h-11 w-full rounded-2xl border border-primary/15 bg-background px-4 text-sm"
                   />
                 </Field>
