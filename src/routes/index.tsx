@@ -258,7 +258,7 @@ function ServicesGrid() {
     {
       slug: "diagnose",
       title: "Sanjeevani Diagnostic Lab",
-      short: "Blood tests, pathology, sample collection & laboratory testing — with home sample pickup.",
+      short: "Blood Sample Test, Home Sample Available, and complete Diagnostic Lab details with doctor-guided reporting.",
       icon: FlaskConical,
       image: "/photos/doctor-desk-3.jpg",
       to: "/medical-services" as const,

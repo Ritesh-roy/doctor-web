@@ -24,9 +24,9 @@ export const PRODUCT_IMAGE_FALLBACK = "/photos/placeholder.svg";
 export const CATEGORIES: { slug: ProductCategorySlug; label: string; description: string; image: string }[] = [
   {
     slug: "physiotherapy",
-    label: "Therapy Services",
+    label: "Sanjeevani Physiotherapy Services",
     description:
-      "Evidence-based physiotherapy, traditional cupping and computerised traction therapies performed in-clinic and at home.",
+      "Evidence-based physiotherapy services, traditional cupping and computerised traction therapies performed in-clinic and at home.",
     image: "/photos/cupping-back-real.jpg",
   },
 ];

@@ -151,7 +151,7 @@ function invoiceHtml(o: LastOrder) {
 h1{color:#0d9488;margin:0} .box{border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-top:20px}
 table{width:100%;border-collapse:collapse;margin-top:8px} td{padding:8px 0;border-bottom:1px solid #f1f5f9;font-size:14px}
 .total{font-weight:700;font-size:18px;color:#0d9488}</style></head>
-<body><h1>Sanjeevani Clinic Pvt. Ltd. Private Limited</h1>
+<body><h1>Sanjeevani Clinic Pvt. Ltd.</h1>
 <p style="color:#64748b;margin:4px 0">Kirari, Delhi · +91 11 4701 3018</p>
 <div class="box"><h2 style="margin:0 0 8px 0">Booking Invoice</h2>
 <table>
