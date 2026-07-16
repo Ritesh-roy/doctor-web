@@ -152,22 +152,46 @@ function Hero() {
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
             <div className="absolute -inset-6 rounded-[48px] bg-gradient-to-br from-primary/25 via-sky/40 to-emerald-accent/20 blur-2xl" />
-            <div className="absolute inset-0 overflow-hidden rounded-[36px] border border-white/60 bg-white shadow-glow">
-              <img src={doctorAsset.url} alt="Dr. B.P. Singh — Sanjeevani Clinic Private Limited" width={900} height={1125} className="h-full w-full object-cover" />
-            </div>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }} className="glass-card absolute -left-3 top-8 flex items-center gap-3 rounded-2xl p-3 shadow-card sm:-left-6">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-accent/15 text-emerald-accent"><BadgeCheck className="h-5 w-5" /></span>
+            <HeroSlider slides={HERO_SLIDES} className="absolute inset-0 h-full w-full" />
+
+            {/* Family Physician glass badge */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity }}
+              className="glass-card absolute -left-3 top-8 z-10 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/70 p-3 shadow-card backdrop-blur-md sm:-left-6"
+            >
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary">
+                <UserRound className="h-5 w-5" />
+              </span>
               <div>
-                <div className="text-sm font-semibold text-foreground">MBBS · MD</div>
-                <div className="text-xs text-muted-foreground">15+ yrs experience</div>
+                <div className="text-sm font-semibold text-foreground">Family Physician</div>
+                <div className="text-xs text-muted-foreground">General &amp; Family Healthcare</div>
               </div>
             </motion.div>
-            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity }} className="glass-card absolute -right-2 bottom-20 flex items-center gap-3 rounded-2xl p-3 shadow-card sm:-right-4">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary"><Star className="h-5 w-5 fill-current" /></span>
+
+            {/* Day Care card */}
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 6, repeat: Infinity }}
+              className="glass-card absolute -right-2 bottom-24 z-10 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/75 p-3 shadow-card backdrop-blur-md sm:-right-4"
+            >
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-accent/15 text-emerald-accent">
+                <Clock className="h-5 w-5" />
+              </span>
               <div>
-                <div className="text-sm font-semibold text-foreground">{CLINIC.rating} / 5.0</div>
-                <div className="text-xs text-muted-foreground">Google Reviews</div>
+                <div className="text-sm font-semibold text-foreground">Day Care in 2–5 hrs</div>
+                <div className="text-xs text-muted-foreground">Same-day observation &amp; care</div>
               </div>
+            </motion.div>
+
+            {/* Google rating pill */}
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 5.5, repeat: Infinity }}
+              className="glass-card absolute -left-2 bottom-6 z-10 flex items-center gap-2 rounded-full border border-white/60 bg-white/75 px-3 py-1.5 shadow-card backdrop-blur-md sm:-left-4"
+            >
+              <Star className="h-4 w-4 fill-current text-emerald-accent" />
+              <span className="text-xs font-semibold text-foreground">{CLINIC.rating} · Google</span>
             </motion.div>
           </div>
         </motion.div>
