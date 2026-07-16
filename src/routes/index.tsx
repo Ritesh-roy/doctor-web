@@ -26,10 +26,21 @@ import {
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { ProductSlider } from "@/components/site/ProductSlider";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import { CLINIC } from "@/data/clinic";
 import { SERVICES } from "@/data/services";
 import doctorAsset from "@/assets/doctor-hero.asset.json";
 import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
+
+const HERO_SLIDES = [
+  { src: "/photos/doctor-portrait-1.jpg", alt: "Family physician at Sanjeevani Clinic", caption: "Family Physician · Trusted Care" },
+  { src: "/photos/doctor-desk-1.jpg", alt: "Doctor consulting a patient", caption: "Warm, unhurried consultations" },
+  { src: "/photos/doctor-desk-3.jpg", alt: "Doctor explaining medical reports", caption: "Clear, honest explanations" },
+  { src: "/photos/clinic-front.jpg", alt: "Sanjeevani Clinic reception and entrance", caption: "Modern, welcoming reception" },
+  { src: "/photos/doctor-desk-4.jpg", alt: "Consultation room at Sanjeevani Clinic", caption: "Private consultation rooms" },
+  { src: "/photos/ai-cervical-machine.jpg", alt: "Therapy and treatment equipment", caption: "Modern treatment equipment" },
+  { src: "/photos/clinic-street-bw.jpg", alt: "Sanjeevani Clinic exterior — Karan Vihar, Kirari", caption: "Serving Kirari since 2009" },
+];
 
 export const Route = createFileRoute("/")({
   component: Home,
