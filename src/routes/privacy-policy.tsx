@@ -7,8 +7,8 @@ export const Route = createFileRoute("/privacy-policy")({
   component: Privacy,
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Sanjeevani Clinic Private Limited" },
-      { name: "description", content: "How Sanjeevani Clinic Private Limited collects, uses and protects your personal and medical information." },
+      { title: "Privacy Policy — Sanjeevani Clinic Pvt. Ltd." },
+      { name: "description", content: "How Sanjeevani Clinic Pvt. Ltd. collects, uses and protects your personal and medical information." },
       { property: "og:url", content: "/privacy-policy" },
     ],
     links: [{ rel: "canonical", href: "/privacy-policy" }],
@@ -26,7 +26,7 @@ function Privacy() {
       />
       <article className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-24 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-foreground [&_h2]:mt-10 [&_h2]:mb-3 [&_p]:text-muted-foreground [&_p]:leading-relaxed [&_ul]:mt-2 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:text-muted-foreground">
         <p>
-          This page is maintained by Sanjeevani Clinic Private Limited to answer common privacy questions about how we handle your information when you visit our website or receive care at our clinic in Kirari, Delhi.
+          This page is maintained by Sanjeevani Clinic Pvt. Ltd. to answer common privacy questions about how we handle your information when you visit our website or receive care at our clinic in Kirari, Delhi.
         </p>
         <h2>Information we collect</h2>
         <ul>

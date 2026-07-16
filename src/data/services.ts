@@ -1,4 +1,4 @@
-// The 10 therapies actively offered at Sanjeevani Clinic Private Limited.
+// The 10 therapies actively offered at Sanjeevani Clinic Pvt. Ltd..
 // Real clinic photos are used wherever available; AI/reference fallbacks
 // only fill in for therapies without a matching uploaded photo.
 
