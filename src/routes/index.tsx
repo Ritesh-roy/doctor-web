@@ -88,7 +88,7 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
+
 
 function Hero() {
   return (
