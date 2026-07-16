@@ -223,26 +223,78 @@ function ValueProps() {
 }
 
 function ServicesGrid() {
+  const groups = [
+    {
+      title: "Sanjeevani Diagnose",
+      short: "Full-spectrum blood tests, health packages & home sample collection.",
+      icon: FlaskConical,
+      image: "/photos/doctor-desk-3.jpg",
+      to: "/medical-services",
+      badge: "Home Sample Available",
+      chips: ["CBC", "Lipid Profile", "Thyroid", "Diabetes", "LFT", "KFT", "Vitamin", "Urine"],
+    },
+    {
+      title: "Sanjeevani Eye Services",
+      short: "Comprehensive eye check-ups, refraction and specialist referral.",
+      icon: Eye,
+      image: "/photos/ai-lens-replace.jpg",
+      to: "/free-eye-checkup",
+      chips: ["Eye Check-up", "Refraction", "Cataract advice"],
+    },
+    {
+      title: "Sanjeevani Physiotherapy Services",
+      short: "IFT, TENS, cervical & lumbar traction, cupping and rehab.",
+      icon: Activity,
+      image: "/photos/ai-cervical-machine.jpg",
+      to: "/product-category/$slug",
+      params: { slug: "physiotherapy" },
+      chips: ["IFT", "TENS", "Cervical", "Lumbar", "Cupping"],
+    },
+    {
+      title: "Sanjeevani Radiology Services",
+      short: "In-clinic X-ray coordination, ultrasound and imaging support.",
+      icon: Scan,
+      image: "/photos/ai-radiology.jpg",
+      to: "/medical-services",
+      chips: ["X-Ray", "Ultrasound", "ECG"],
+    },
+  ] as const;
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto mb-12 max-w-2xl text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary-soft/50 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-primary">Our services</span>
         <h2 className="mt-4 font-display text-3xl leading-tight text-foreground sm:text-5xl">A full spectrum of care, under one calm roof.</h2>
-        <p className="mt-4 text-muted-foreground">From routine consultations to imaging and rehabilitation — thoughtfully coordinated by one clinical team.</p>
+        <p className="mt-4 text-muted-foreground">Four dedicated Sanjeevani service lines — thoughtfully coordinated by one clinical team.</p>
       </div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {SERVICES.map((s) => {
-          const I = ICONS[s.icon];
+      <div className="grid gap-5 sm:grid-cols-2">
+        {groups.map((g) => {
+          const I = g.icon;
           return (
-            <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-transform hover:-translate-y-1">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <span className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-xl bg-white/90 text-primary shadow-soft backdrop-blur"><I className="h-5 w-5" /></span>
+            <Link
+              key={g.title}
+              to={g.to}
+              params={("params" in g ? g.params : undefined) as never}
+              className="group relative overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-transform hover:-translate-y-1"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img src={g.image} alt={g.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <span className="absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-xl bg-white/90 text-primary shadow-soft backdrop-blur"><I className="h-5 w-5" /></span>
+                {"badge" in g && g.badge && (
+                  <span className="absolute right-4 top-4 rounded-full bg-emerald-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-soft">
+                    {g.badge}
+                  </span>
+                )}
               </div>
               <div className="p-6">
-                <div className="font-display text-xl font-semibold text-foreground">{s.title}</div>
-                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{s.short}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Explore more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+                <div className="font-display text-xl font-semibold text-foreground">{g.title}</div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.short}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {g.chips.map((c) => (
+                    <span key={c} className="rounded-full bg-primary-soft/60 px-2.5 py-1 text-[11px] font-medium text-primary">{c}</span>
+                  ))}
+                </div>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Explore more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
               </div>
             </Link>
           );
