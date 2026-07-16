@@ -535,7 +535,7 @@ function NeoreoSection() {
         <div className="relative">
           <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-emerald-accent/25 to-primary/15 blur-2xl" />
           <div className="relative overflow-hidden rounded-[24px] border border-white/60 bg-white shadow-glow">
-            <img src={neoreoAsset.url} alt="NEOREO Healthcare product range" loading="lazy" className="h-full w-full object-contain" />
+            <img src="/photos/neoreo-products.jpg" alt="NEOREO Healthcare product range" loading="lazy" className="h-full w-full object-contain" />
           </div>
         </div>
       </div>
