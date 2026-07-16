@@ -13,8 +13,8 @@ const IMG = {
   knee: "/photos/knee-pain-real.jpg",
   ift: "/photos/team-back-blue.jpg",
   tens: "/photos/doctor-desk-4.jpg",
-  cervical: "/photos/doctor-desk-2.jpg",
-  lumbar: "/photos/doctor-desk-3.jpg",
+  cervical: "/photos/ai-cervical-machine.jpg",
+  lumbar: "/photos/ai-lumbar-machine.jpg",
 };
 
 export type Service = {
@@ -256,10 +256,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "digital-cervical-therapy",
-    title: "Digital Cervical Therapy",
-    short: "Computerised cervical traction & digital therapy for neck pain.",
+    title: "Cervical Therapy",
+    short: "Computerised cervical traction therapy for neck pain.",
     description:
-      "Digital Cervical Therapy uses computerised traction and combined electro-therapy to relieve cervical spondylosis, disc issues, pinched nerves and chronic neck pain — with precise, patient-controlled intensity.",
+      "Cervical Therapy uses computerised traction and combined electro-therapy to relieve cervical spondylosis, disc issues, pinched nerves and chronic neck pain — with precise, patient-controlled intensity.",
     image: IMG.cervical,
     icon: "stethoscope",
     price: 400,
@@ -283,10 +283,10 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "digital-lumbar-therapy",
-    title: "Digital Lumbar Therapy",
+    title: "Lumbar Therapy",
     short: "Computerised lumbar traction for back pain, sciatica & disc issues.",
     description:
-      "Digital Lumbar Therapy uses precise computer-controlled traction to decompress the lumbar spine — highly effective for lower back pain, sciatica, disc bulge and lumbar spondylosis.",
+      "Lumbar Therapy uses precise computer-controlled traction to decompress the lumbar spine — highly effective for lower back pain, sciatica, disc bulge and lumbar spondylosis.",
     image: IMG.lumbar,
     icon: "stethoscope",
     price: 400,
