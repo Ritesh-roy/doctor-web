@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 export type HeroSlide = {
   src: string;
   alt: string;
-  caption?: string;
 };
 
 export function HeroSlider({
@@ -74,10 +73,11 @@ export function HeroSlider({
         alt={currentSlide.alt}
         loading={index === 0 ? "eager" : "lazy"}
         decoding="async"
-        initial={{ opacity: 0, scale: 1.02 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="absolute inset-0 block h-full w-full object-cover"
+        className="absolute inset-0 block h-full w-full object-cover object-center"
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
       />
 
       {/* Preload next image */}
