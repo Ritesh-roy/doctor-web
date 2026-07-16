@@ -10,8 +10,8 @@ export const Route = createFileRoute("/search")({
   component: SearchPage,
   head: () => ({
     meta: [
-      { title: "Search — Sanjeevani Clinc Private Limited" },
-      { name: "description", content: "Search services, blood tests, therapies and scans at Sanjeevani Clinc Private Limited." },
+      { title: "Search — Sanjeevani Clinic Private Limited" },
+      { name: "description", content: "Search services, blood tests, therapies and scans at Sanjeevani Clinic Private Limited." },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/search" }],

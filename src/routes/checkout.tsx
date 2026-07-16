@@ -57,8 +57,8 @@ export const Route = createFileRoute("/checkout")({
   component: Checkout,
   head: () => ({
     meta: [
-      { title: "Checkout — Sanjeevani Clinc Private Limited" },
-      { name: "description", content: "Complete your Sanjeevani Clinc Private Limited booking securely with Razorpay." },
+      { title: "Checkout — Sanjeevani Clinic Private Limited" },
+      { name: "description", content: "Complete your Sanjeevani Clinic Private Limited booking securely with Razorpay." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/checkout" },
     ],
@@ -186,7 +186,7 @@ function Checkout() {
           amount: rzpOrder.amount,
           currency: rzpOrder.currency,
           order_id: rzpOrder.orderId,
-          name: "Sanjeevani Clinc Private Limited",
+          name: "Sanjeevani Clinic Private Limited",
           description: therapyTitles.slice(0, 80),
           prefill: { name: name.trim(), email: email.trim() || undefined, contact: mobile.trim() },
           notes: { orderDbId: inserted.id },
