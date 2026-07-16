@@ -184,7 +184,7 @@ function Hero() {
             <motion.div
               animate={{ y: [0, 5, 0] }}
               transition={{ duration: 6.5, repeat: Infinity }}
-              className="glass-card absolute bottom-[5.35rem] left-1/2 z-10 max-w-[82%] -translate-x-1/2 rounded-full border border-white/60 bg-white/90 px-3 py-2 text-center text-[11px] font-semibold leading-tight text-foreground shadow-card backdrop-blur-md sm:bottom-[4.4rem] sm:max-w-none sm:px-3.5 sm:text-[12px]"
+              className="glass-card absolute bottom-[5.35rem] left-1/2 z-10 max-w-[92%] -translate-x-1/2 whitespace-nowrap rounded-full border border-white/60 bg-white/90 px-3 py-2 text-center text-[10px] font-semibold leading-tight text-foreground shadow-card backdrop-blur-md sm:bottom-[4.4rem] sm:max-w-none sm:px-3.5 sm:text-[12px]"
             >
               Warm, ethical, evidence-based care
             </motion.div>
@@ -205,7 +205,7 @@ function Hero() {
             <motion.div
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 7, repeat: Infinity }}
-              className="glass-card absolute left-1/2 top-[5.8rem] z-10 max-w-[78%] -translate-x-1/2 rounded-full border border-white/60 bg-white/90 px-3 py-2 text-center text-[11px] font-semibold leading-tight text-foreground shadow-card backdrop-blur-md sm:top-[5.9rem] sm:max-w-none sm:px-3.5 sm:text-[12px]"
+              className="glass-card absolute left-1/2 top-[5.8rem] z-10 max-w-[92%] -translate-x-1/2 whitespace-nowrap rounded-full border border-white/60 bg-white/90 px-3 py-2 text-center text-[10px] font-semibold leading-tight text-foreground shadow-card backdrop-blur-md sm:top-[5.9rem] sm:max-w-none sm:px-3.5 sm:text-[12px]"
             >
               15+ Years Serving Kirari Families
             </motion.div>
