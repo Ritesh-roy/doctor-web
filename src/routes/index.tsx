@@ -31,7 +31,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { ProductSlider } from "@/components/site/ProductSlider";
 import { HeroSlider } from "@/components/site/HeroSlider";
 import { CLINIC } from "@/data/clinic";
-import { SERVICES } from "@/data/services";
+
 import doctorAsset from "@/assets/doctor-hero.asset.json";
 import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
 
