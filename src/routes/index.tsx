@@ -2,11 +2,8 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Activity,
-  Microscope,
   Sparkles,
   Eye,
-  Stethoscope,
-  HeartPulse,
   Star,
   ArrowRight,
   ShieldCheck,
