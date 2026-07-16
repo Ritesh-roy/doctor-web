@@ -40,9 +40,9 @@ import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
 const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
 
 const HERO_SLIDES = [
-  { src: "/photos/doctor-portrait-1.jpg", alt: "Dr. B.P. Singh — family physician at Sanjeevani Clinic", caption: "MBBS & Family Physician · Trusted Care" },
+  { src: "/photos/doctor-portrait-1.jpg", alt: "Dr. B.P. Singh — MBBS & Family Physician at Sanjeevani Clinic", caption: "Family Physician · Trusted Care" },
   { src: "/photos/doctor-portrait-2.jpg", alt: "Dr. B.P. Singh — 15+ years of family medicine", caption: "15+ years serving Kirari families" },
-  { src: "/photos/doctor-with-award.jpg", alt: "Dr. B.P. Singh — award-winning family physician", caption: "Warm, ethical, evidence-based care" },
+  { src: "/photos/doctor-with-award.jpg", alt: "Dr. B.P. Singh receiving Sardar Patel Unity Award for healthcare service", caption: "Warm, ethical, evidence-based care" },
 ];
 
 export const Route = createFileRoute("/")({
