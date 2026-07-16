@@ -85,12 +85,6 @@ export function HeroSlider({
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
 
-      {slides[index].caption && (
-        <div className="absolute bottom-16 left-4 right-4 rounded-2xl bg-white/70 px-4 py-2 text-sm font-medium text-foreground backdrop-blur-md sm:left-6 sm:right-auto sm:max-w-xs">
-          {slides[index].caption}
-        </div>
-      )}
-
       <button
         onClick={prev}
         aria-label="Previous slide"
