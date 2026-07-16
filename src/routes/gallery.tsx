@@ -9,9 +9,9 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
   head: () => ({
     meta: [
-      { title: "Gallery — Sanjeevani Clinic Pvt. Ltd., Kirari, Delhi" },
-      { name: "description", content: "A look inside Sanjeevani Clinic Pvt. Ltd. — our clinic, doctor, team, community camps and awards." },
-      { property: "og:title", content: "Gallery — Sanjeevani Clinic Pvt. Ltd." },
+      { title: "Gallery — Sanjeevani Clinc Pvt. Ltd., Kirari, Delhi" },
+      { name: "description", content: "A look inside Sanjeevani Clinc Pvt. Ltd. — our clinic, doctor, team, community camps and awards." },
+      { property: "og:title", content: "Gallery — Sanjeevani Clinc Pvt. Ltd." },
       { property: "og:description", content: "A look inside our clinic." },
       { property: "og:url", content: "/gallery" },
     ],
@@ -32,16 +32,16 @@ type GalleryItem = {
 const items: GalleryItem[] = [
   {
     src: "/photos/cupping-back-real.jpg",
-    alt: "Real hijama / cupping therapy session at Sanjeevani Clinic Pvt. Ltd.",
+    alt: "Real hijama / cupping therapy session at Sanjeevani Clinc Pvt. Ltd.",
     title: "Cupping Therapy — In Action",
     category: "Clinic",
     description:
-      "A real cupping therapy session at Sanjeevani Clinic Pvt. Ltd.. Every cup is sterile, single-use and applied by a trained therapist — helpful for back pain, muscle tension and general detoxification.",
-    location: "Sanjeevani Clinic Pvt. Ltd. · Karan Vihar",
+      "A real cupping therapy session at Sanjeevani Clinc Pvt. Ltd.. Every cup is sterile, single-use and applied by a trained therapist — helpful for back pain, muscle tension and general detoxification.",
+    location: "Sanjeevani Clinc Pvt. Ltd. · Karan Vihar",
   },
   {
     src: "/photos/massage-back-real.jpg",
-    alt: "Deep-tissue back massage therapy at Sanjeevani Clinic Pvt. Ltd.",
+    alt: "Deep-tissue back massage therapy at Sanjeevani Clinc Pvt. Ltd.",
     title: "Body Massage Therapy",
     category: "Clinic",
     description:
@@ -85,7 +85,7 @@ const items: GalleryItem[] = [
     title: "The Modern Consulting Room",
     category: "Doctor",
     description:
-      "Same doctor, same values — in the upgraded, brightly-lit consulting room of today's Sanjeevani Clinic Pvt. Ltd..",
+      "Same doctor, same values — in the upgraded, brightly-lit consulting room of today's Sanjeevani Clinc Pvt. Ltd..",
   },
   {
     src: "/photos/award-unity-desk.jpg",
@@ -99,8 +99,8 @@ const items: GalleryItem[] = [
   },
   {
     src: "/photos/clinic-front.jpg",
-    alt: "Sanjeevani Clinic Pvt. Ltd. front entrance in Karan Vihar, Kirari",
-    title: "Sanjeevani Clinic Pvt. Ltd. — Karan Vihar",
+    alt: "Sanjeevani Clinc Pvt. Ltd. front entrance in Karan Vihar, Kirari",
+    title: "Sanjeevani Clinc Pvt. Ltd. — Karan Vihar",
     category: "Clinic",
     description:
       "Our clinic on Karan Vihar Road — the trusted neighbourhood healthcare address for families across Kirari, Delhi. Open 9 AM – 1 PM and 5 PM – 9 PM, seven days a week.",
@@ -108,11 +108,11 @@ const items: GalleryItem[] = [
   },
   {
     src: "/photos/clinic-street-bw.jpg",
-    alt: "Sanjeevani Clinic Pvt. Ltd. street view",
+    alt: "Sanjeevani Clinc Pvt. Ltd. street view",
     title: "A familiar corner of Kirari",
     category: "Clinic",
     description:
-      "You can spot the red Sanjeevani Clinic Pvt. Ltd. signboard from the top of Karan Vihar Road. A quiet, easy landmark for anyone walking in for the first time.",
+      "You can spot the red Sanjeevani Clinc Pvt. Ltd. signboard from the top of Karan Vihar Road. A quiet, easy landmark for anyone walking in for the first time.",
     location: "Karan Vihar, Kirari",
   },
   {
@@ -157,7 +157,7 @@ const items: GalleryItem[] = [
   },
   {
     src: "/photos/team-selfie.jpg",
-    alt: "Sanjeevani Clinic Pvt. Ltd. team selfie",
+    alt: "Sanjeevani Clinc Pvt. Ltd. team selfie",
     title: "The Sanjeevani Team",
     category: "Team",
     description:
@@ -185,7 +185,7 @@ const items: GalleryItem[] = [
     title: "Sardar Patel Unity Award — 2026",
     category: "Awards",
     description:
-      "Awarded to Dr. Bhanu Pratap Singh (Director, Sanjeevani Clinic Pvt. Ltd.) for Outstanding Contribution to Healthcare Services.",
+      "Awarded to Dr. Bhanu Pratap Singh (Director, Sanjeevani Clinc Pvt. Ltd.) for Outstanding Contribution to Healthcare Services.",
     date: "21 May 2026",
     location: "Shangri-La's Eros, New Delhi",
   },
@@ -318,7 +318,7 @@ function Gallery() {
     <SiteLayout>
       <PageHero
         eyebrow="Gallery"
-        title="A look inside Sanjeevani Clinic Pvt. Ltd.."
+        title="A look inside Sanjeevani Clinc Pvt. Ltd.."
         intro="Walk through our clinic, meet our team and see the community camps and awards that shape our everyday care. Click any photo to read the story behind it."
         crumbs={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
       />

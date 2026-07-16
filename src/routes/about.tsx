@@ -10,9 +10,9 @@ export const Route = createFileRoute("/about")({
   component: About,
   head: () => ({
     meta: [
-      { title: "About Sanjeevani Clinic Pvt. Ltd. — Family Healthcare in Kirari, Delhi" },
-      { name: "description", content: "Since 2009, Sanjeevani Clinic Pvt. Ltd. has cared for families across Karan Vihar and Kirari with honest, evidence-based medicine led by Dr. B.P. Singh." },
-      { property: "og:title", content: "About Sanjeevani Clinic Pvt. Ltd." },
+      { title: "About Sanjeevani Clinc Pvt. Ltd. — Family Healthcare in Kirari, Delhi" },
+      { name: "description", content: "Since 2009, Sanjeevani Clinc Pvt. Ltd. has cared for families across Karan Vihar and Kirari with honest, evidence-based medicine led by Dr. B.P. Singh." },
+      { property: "og:title", content: "About Sanjeevani Clinc Pvt. Ltd." },
       { property: "og:description", content: "Our story, mission and values." },
       { property: "og:url", content: "/about" },
     ],
@@ -26,7 +26,7 @@ function About() {
       <PageHero
         eyebrow="About us"
         title="A neighbourhood clinic with the standards of a modern hospital."
-        intro="Founded on the belief that ‘Sehat hi asli sampatti hai’, Sanjeevani Clinic Pvt. Ltd. has been the trusted first point of care for Kirari families for over 15 years."
+        intro="Founded on the belief that ‘Sehat hi asli sampatti hai’, Sanjeevani Clinc Pvt. Ltd. has been the trusted first point of care for Kirari families for over 15 years."
         crumbs={[{ label: "Home", to: "/" }, { label: "About" }]}
       />
 
@@ -35,14 +35,14 @@ function About() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-primary/20 to-emerald-accent/20 blur-2xl" />
             <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-glow">
-              <img src="/photos/clinic-front.jpg" alt="Sanjeevani Clinic Pvt. Ltd. — Karan Vihar, Kirari, Delhi" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+              <img src="/photos/clinic-front.jpg" alt="Sanjeevani Clinc Pvt. Ltd. — Karan Vihar, Kirari, Delhi" loading="lazy" className="aspect-[4/5] w-full object-cover" />
             </div>
           </div>
           <div>
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Our story</span>
             <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Care that started in a small room, and never lost its warmth.</h2>
             <p className="mt-5 text-muted-foreground">
-              Sanjeevani Clinic Pvt. Ltd. opened its doors in {CLINIC.since} on Karan Vihar Road with a single consulting room, a small pharmacy shelf and one clear promise:
+              Sanjeevani Clinc Pvt. Ltd. opened its doors in {CLINIC.since} on Karan Vihar Road with a single consulting room, a small pharmacy shelf and one clear promise:
               treat every patient with time, honesty and dignity. Fifteen years on, we're now a full family clinic with in-house pathology,
               physiotherapy, imaging support and preventive health programmes — but that same promise still runs the place.
             </p>
@@ -59,8 +59,8 @@ function About() {
               ))}
             </div>
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <img src="/photos/doctor-desk-1.jpg" alt="Dr. B.P. Singh consulting a patient at Sanjeevani Clinic Pvt. Ltd." loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card" />
-              <img src="/photos/clinic-street-bw.jpg" alt="Sanjeevani Clinic Pvt. Ltd. street view" loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card" />
+              <img src="/photos/doctor-desk-1.jpg" alt="Dr. B.P. Singh consulting a patient at Sanjeevani Clinc Pvt. Ltd." loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card" />
+              <img src="/photos/clinic-street-bw.jpg" alt="Sanjeevani Clinc Pvt. Ltd. street view" loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-card" />
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ const FOUNDER = {
   name: "Dr. B.P. Singh",
   qualification: "MBBS & Family Physician",
   role: "Founder & Director",
-  org: "Sanjeevani Clinic Pvt. Ltd.",
+  org: "Sanjeevani Clinc Pvt. Ltd.",
 } as const;
 
 const TEAM = [
@@ -158,7 +158,7 @@ function TeamSection() {
       <div className="relative mt-12 overflow-hidden rounded-[32px] border border-white/60 shadow-glow">
         <img
           src="/photos/team-selfie.jpg"
-          alt="The Sanjeevani Clinic Pvt. Ltd. team at Karan Vihar, Kirari"
+          alt="The Sanjeevani Clinc Pvt. Ltd. team at Karan Vihar, Kirari"
           loading="lazy"
           className="aspect-[21/9] w-full object-cover object-center transition-transform duration-[1200ms] hover:scale-[1.03]"
         />
@@ -238,7 +238,7 @@ function TeamSection() {
                 </div>
               )}
               <div className="mt-5 flex items-center justify-between border-t border-primary/10 pt-4 text-xs">
-                <span className="text-muted-foreground">Sanjeevani Clinic Pvt. Ltd.</span>
+                <span className="text-muted-foreground">Sanjeevani Clinc Pvt. Ltd.</span>
                 <span className="font-medium text-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   Trusted staff →
                 </span>

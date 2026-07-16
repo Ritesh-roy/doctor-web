@@ -13,9 +13,9 @@ export const Route = createFileRoute("/product-category/$slug")({
   component: CategoryPage,
   head: ({ loaderData, params }) => ({
     meta: [
-      { title: `${loaderData?.label ?? "Category"} — Sanjeevani Clinic Pvt. Ltd.` },
+      { title: `${loaderData?.label ?? "Category"} — Sanjeevani Clinc Pvt. Ltd.` },
       { name: "description", content: loaderData?.description ?? "" },
-      { property: "og:title", content: `${loaderData?.label ?? "Category"} — Sanjeevani Clinic Pvt. Ltd.` },
+      { property: "og:title", content: `${loaderData?.label ?? "Category"} — Sanjeevani Clinc Pvt. Ltd.` },
       { property: "og:description", content: loaderData?.description ?? "" },
       { property: "og:image", content: loaderData?.image ?? "" },
       { property: "og:url", content: `/product-category/${params.slug}` },

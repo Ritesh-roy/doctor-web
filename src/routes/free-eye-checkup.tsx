@@ -8,14 +8,14 @@ export const Route = createFileRoute("/free-eye-checkup")({
   component: FreeEyeCheckup,
   head: () => ({
     meta: [
-      { title: "Free Eye Check-up Campaign — Sanjeevani Clinic Pvt. Ltd., Kirari" },
+      { title: "Free Eye Check-up Campaign — Sanjeevani Clinc Pvt. Ltd., Kirari" },
       {
         name: "description",
         content:
-          "Join Sanjeevani Clinic Pvt. Ltd.'s free eye check-up campaign in Kirari, Delhi — vision test, refraction, cataract and diabetic retinopathy screening at no cost.",
+          "Join Sanjeevani Clinc Pvt. Ltd.'s free eye check-up campaign in Kirari, Delhi — vision test, refraction, cataract and diabetic retinopathy screening at no cost.",
       },
-      { name: "keywords", content: "free eye checkup Kirari, free eye camp Delhi, cataract screening, diabetic retinopathy Sanjeevani Clinic Pvt. Ltd." },
-      { property: "og:title", content: "Free Eye Check-up Campaign — Sanjeevani Clinic Pvt. Ltd." },
+      { name: "keywords", content: "free eye checkup Kirari, free eye camp Delhi, cataract screening, diabetic retinopathy Sanjeevani Clinc Pvt. Ltd." },
+      { property: "og:title", content: "Free Eye Check-up Campaign — Sanjeevani Clinc Pvt. Ltd." },
       { property: "og:description", content: "Free vision test, cataract & diabetic retinopathy screening for the community." },
       { property: "og:url", content: "/free-eye-checkup" },
     ],
