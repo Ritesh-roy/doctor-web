@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export type HeroSlide = {
   src: string;
@@ -68,20 +68,17 @@ export function HeroSlider({
       aria-roledescription="carousel"
       aria-label="Clinic gallery"
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.img
-          key={currentSlide.src}
-          src={currentSlide.src}
-          alt={currentSlide.alt}
-          loading={index === 0 ? "eager" : "lazy"}
-          decoding="async"
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="absolute inset-0 block h-full w-full object-cover"
-        />
-      </AnimatePresence>
+      <motion.img
+        key={currentSlide.src}
+        src={currentSlide.src}
+        alt={currentSlide.alt}
+        loading={index === 0 ? "eager" : "lazy"}
+        decoding="async"
+        initial={{ opacity: 0, scale: 1.02 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="absolute inset-0 block h-full w-full object-cover"
+      />
 
       {/* Preload next image */}
       <link rel="preload" as="image" href={slides[(index + 1) % slides.length].src} />
