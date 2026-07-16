@@ -36,11 +36,12 @@ import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 
 import doctorAsset from "@/assets/doctor-hero.asset.json";
 import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
+import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
 
 const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
 
 const HERO_SLIDES = [
-  { src: "/photos/doctor-portrait-1.jpg", alt: "Dr. B.P. Singh — MBBS & Family Physician at Sanjeevani Clinic", caption: "Family Physician · Trusted Care" },
+  { src: uploadedDoctorHeroAsset.url, alt: "Dr. B.P. Singh — MBBS & Family Physician at Sanjeevani Clinic", caption: "Family Physician · Trusted Care" },
   { src: "/photos/doctor-portrait-2.jpg", alt: "Dr. B.P. Singh — 15+ years of family medicine", caption: "15+ years serving Kirari families" },
   { src: "/photos/doctor-with-award.jpg", alt: "Dr. B.P. Singh receiving Sardar Patel Unity Award for healthcare service", caption: "Warm, ethical, evidence-based care" },
 ];
@@ -150,7 +151,7 @@ function Hero() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md sm:max-w-lg">
             <div className="absolute -inset-6 rounded-[48px] bg-gradient-to-br from-primary/25 via-sky/40 to-emerald-accent/20 blur-2xl" />
             <HeroSlider slides={HERO_SLIDES} className="absolute inset-0 h-full w-full" />
 
@@ -158,13 +159,13 @@ function Hero() {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity }}
-              className="glass-card absolute left-3 top-4 z-10 flex items-center gap-2.5 rounded-2xl border border-white/60 bg-white/80 p-2.5 shadow-card backdrop-blur-md sm:left-4 sm:top-6 sm:gap-3 sm:p-3"
+              className="glass-card absolute left-3 top-4 z-10 flex max-w-[58%] items-center gap-2 rounded-2xl border border-white/60 bg-white/85 p-2.5 shadow-card backdrop-blur-md sm:left-5 sm:top-6 sm:max-w-none sm:gap-3 sm:p-3"
             >
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary/15 text-primary sm:h-10 sm:w-10">
                 <UserRound className="h-4 w-4 sm:h-5 sm:w-5" />
               </span>
               <div>
-                <div className="text-[13px] font-semibold text-foreground sm:text-sm">MBBS &amp; Family Physician</div>
+                <div className="text-[12px] font-semibold leading-tight text-foreground sm:text-sm">MBBS &amp; Family Physician</div>
                 <div className="text-[11px] text-muted-foreground sm:text-xs">General &amp; Family Healthcare</div>
               </div>
             </motion.div>
@@ -173,36 +174,54 @@ function Hero() {
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 5.5, repeat: Infinity }}
-              className="glass-card absolute right-3 top-4 z-10 flex items-center gap-1.5 rounded-full border border-white/60 bg-white/85 px-3 py-1.5 shadow-card backdrop-blur-md sm:right-4 sm:top-6"
+              className="glass-card absolute right-3 top-4 z-10 flex items-center gap-1.5 rounded-full border border-white/60 bg-white/90 px-3 py-1.5 shadow-card backdrop-blur-md sm:right-5 sm:top-6"
             >
               <Star className="h-4 w-4 fill-current text-emerald-accent" />
-              <span className="text-xs font-semibold text-foreground">{CLINIC.rating} · Google</span>
+              <span className="text-xs font-semibold text-foreground">{CLINIC.rating} Google</span>
+            </motion.div>
+
+            {/* Warm ethical care (bottom center) */}
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 6.5, repeat: Infinity }}
+              className="glass-card absolute bottom-[4.4rem] left-1/2 z-10 hidden -translate-x-1/2 rounded-full border border-white/60 bg-white/90 px-3.5 py-2 text-center text-[12px] font-semibold text-foreground shadow-card backdrop-blur-md sm:block"
+            >
+              Warm, ethical, evidence-based care
             </motion.div>
 
             {/* Family Physician · Trusted Care (bottom left) */}
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 6, repeat: Infinity }}
-              className="glass-card absolute bottom-4 left-3 z-10 flex items-center gap-2 rounded-2xl border border-white/60 bg-white/85 px-3 py-2 shadow-card backdrop-blur-md sm:bottom-6 sm:left-4"
+              className="glass-card absolute bottom-4 left-3 z-10 flex max-w-[48%] items-center gap-2 rounded-2xl border border-white/60 bg-white/90 px-2.5 py-2 shadow-card backdrop-blur-md sm:bottom-6 sm:left-5 sm:max-w-none sm:px-3"
             >
               <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary/15 text-primary">
                 <Stethoscope className="h-4 w-4" />
               </span>
-              <div className="text-[12px] font-semibold text-foreground sm:text-sm">Family Physician · Trusted Care</div>
+              <div className="text-[11px] font-semibold leading-tight text-foreground sm:text-sm">Family Physician · Trusted Care</div>
+            </motion.div>
+
+            {/* Years serving Kirari families */}
+            <motion.div
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 7, repeat: Infinity }}
+              className="glass-card absolute left-1/2 top-[5.9rem] z-10 hidden -translate-x-1/2 rounded-full border border-white/60 bg-white/90 px-3.5 py-2 text-center text-[12px] font-semibold text-foreground shadow-card backdrop-blur-md sm:block"
+            >
+              15+ Years Serving Kirari Families
             </motion.div>
 
             {/* Day Care card (bottom right) */}
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 6, repeat: Infinity }}
-              className="glass-card absolute bottom-4 right-3 z-10 flex items-center gap-2.5 rounded-2xl border border-white/60 bg-white/85 p-2.5 shadow-card backdrop-blur-md sm:bottom-6 sm:right-4 sm:gap-3 sm:p-3"
+              className="glass-card absolute bottom-4 right-3 z-10 flex max-w-[49%] items-center gap-2 rounded-2xl border border-white/60 bg-white/90 p-2.5 shadow-card backdrop-blur-md sm:bottom-6 sm:right-5 sm:max-w-none sm:gap-3 sm:p-3"
             >
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-accent/15 text-emerald-accent sm:h-10 sm:w-10">
                 <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
               </span>
               <div>
-                <div className="text-[13px] font-semibold text-foreground sm:text-sm">Day Care in 2–5 hrs</div>
-                <div className="text-[11px] text-muted-foreground sm:text-xs">Same-day observation &amp; care</div>
+                <div className="text-[12px] font-semibold leading-tight text-foreground sm:text-sm">Day Care in 2–5 hrs</div>
+                <div className="text-[10px] leading-tight text-muted-foreground sm:text-xs">Same-day observation &amp; care</div>
               </div>
             </motion.div>
           </div>
@@ -247,7 +266,7 @@ function ServicesGrid() {
     },
     {
       slug: "eye",
-      title: "Sanjeevani Eye Care",
+      title: "Sanjeevani Eye Services",
       short: "Comprehensive eye check-ups, refraction and specialist referral.",
       icon: Eye,
       image: "/photos/ai-lens-replace.jpg",
@@ -255,7 +274,7 @@ function ServicesGrid() {
     },
     {
       slug: "physio",
-      title: "Sanjeevani Physiotherapy",
+      title: "Sanjeevani Physiotherapy Services",
       short: "IFT, TENS, cervical & lumbar traction, cupping and rehab.",
       icon: Activity,
       image: "/photos/ai-cervical-machine.jpg",
@@ -263,7 +282,7 @@ function ServicesGrid() {
     },
     {
       slug: "radiology",
-      title: "Sanjeevani Radiology",
+      title: "Sanjeevani Radiology Services",
       short: "CT scan, MRI, digital X-ray and ultrasound — imaging coordination in-clinic.",
       icon: Scan,
       image: "/photos/ai-radiology.jpg",
