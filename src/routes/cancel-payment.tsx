@@ -22,7 +22,7 @@ function CancelPayment() {
       <section className="mx-auto max-w-2xl px-4 pb-24 text-center sm:px-6">
         <p className="text-muted-foreground">
           If money was deducted, it will be automatically refunded by your bank within 5–7 working days. For any concerns, please contact us at{" "}
-          <a href="tel:+917701986188" className="font-semibold text-primary">+91 77019 86188</a>.
+          <a href="tel:+911147013018" className="font-semibold text-primary">+91 11 4701 3018</a>.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link to="/book-appointment" className="inline-flex h-12 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">Try Again</Link>
