@@ -185,7 +185,7 @@ const items: GalleryItem[] = [
     title: "Sardar Patel Unity Award — 2026",
     category: "Awards",
     description:
-      "Awarded to Dr. Bhanu Pratap Singh (Director, Sanjeevani Clinic Pvt. Ltd. Pvt. Ltd.) for Outstanding Contribution to Healthcare Services.",
+      "Awarded to Dr. Bhanu Pratap Singh (Director, Sanjeevani Clinic Pvt. Ltd.) for Outstanding Contribution to Healthcare Services.",
     date: "21 May 2026",
     location: "Shangri-La's Eros, New Delhi",
   },
