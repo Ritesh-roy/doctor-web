@@ -123,7 +123,14 @@ function Book() {
               <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Service</span>
               <select name="service" defaultValue="General Consultation" className="mt-1 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-sm outline-none focus:border-primary">
                 <option value="General Consultation">General Consultation</option>
-                {SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
+                <option value="Blood Test">Blood Test</option>
+                <option value="Radiology">Radiology</option>
+                <option value="Physiotherapy">Physiotherapy</option>
+                <option value="Eye Care">Eye Care</option>
+                <option value="Business Appointment">Business Appointment</option>
+                <optgroup label="Specific therapies">
+                  {SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
+                </optgroup>
                 <option value="Other">Other</option>
               </select>
             </label>
