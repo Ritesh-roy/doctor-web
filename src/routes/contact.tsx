@@ -47,6 +47,7 @@ function Contact() {
           {[
             { icon: MapPin, t: "Address", v: CLINIC.address, href: CLINIC.mapUrl },
             { icon: Phone, t: "Phone", v: CLINIC.phone, href: `tel:${CLINIC.phoneTel}` },
+            { icon: Phone, t: "Landline", v: CLINIC.landline, href: `tel:${CLINIC.landlineTel}` },
             { icon: MessageCircle, t: "WhatsApp", v: "Chat with us instantly", href: CLINIC.whatsapp },
             { icon: Mail, t: "Email", v: CLINIC.email, href: `mailto:${CLINIC.email}` },
             { icon: Clock, t: "Hours", v: CLINIC.hours },
