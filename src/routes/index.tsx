@@ -41,7 +41,7 @@ import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
 const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
 
 const HERO_SLIDES = [
-  { src: uploadedDoctorHeroAsset.url, alt: "Dr. B.P. Singh — MBBS & Family Physician at Sanjeevani Clinic" },
+  { src: "/photos/doctor-uploaded-hero.png", alt: "Dr. B.P. Singh — MBBS & Family Physician at Sanjeevani Clinic" },
   { src: "/photos/doctor-portrait-2.jpg", alt: "Dr. B.P. Singh — family physician at Sanjeevani Clinic" },
   { src: "/photos/doctor-with-award.jpg", alt: "Dr. B.P. Singh receiving Sardar Patel Unity Award for healthcare service" },
 ];
