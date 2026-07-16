@@ -9,7 +9,6 @@ import {
   HeartPulse,
   Star,
   ArrowRight,
-  BadgeCheck,
   ShieldCheck,
   Users,
   Award,
@@ -20,6 +19,10 @@ import {
   Home as HomeIcon,
   Leaf,
   BookOpen,
+  Clock,
+  UserRound,
+  FlaskConical,
+  Scan,
 } from "lucide-react";
 
 
