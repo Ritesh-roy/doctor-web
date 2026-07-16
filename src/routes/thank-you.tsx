@@ -22,8 +22,8 @@ export const Route = createFileRoute("/thank-you")({
   component: ThankYou,
   head: () => ({
     meta: [
-      { title: "Thank You — Sanjeevani Clinic Private Limited" },
-      { name: "description", content: "Thank you for booking with Sanjeevani Clinic Private Limited. Your appointment details are below." },
+      { title: "Thank You — Sanjeevani Clinic Pvt. Ltd." },
+      { name: "description", content: "Thank you for booking with Sanjeevani Clinic Pvt. Ltd.. Your appointment details are below." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/thank-you" },
     ],
@@ -151,7 +151,7 @@ function invoiceHtml(o: LastOrder) {
 h1{color:#0d9488;margin:0} .box{border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-top:20px}
 table{width:100%;border-collapse:collapse;margin-top:8px} td{padding:8px 0;border-bottom:1px solid #f1f5f9;font-size:14px}
 .total{font-weight:700;font-size:18px;color:#0d9488}</style></head>
-<body><h1>Sanjeevani Clinic Private Limited Private Limited</h1>
+<body><h1>Sanjeevani Clinic Pvt. Ltd. Private Limited</h1>
 <p style="color:#64748b;margin:4px 0">Kirari, Delhi · +91 11 4701 3018</p>
 <div class="box"><h2 style="margin:0 0 8px 0">Booking Invoice</h2>
 <table>
@@ -163,6 +163,6 @@ table{width:100%;border-collapse:collapse;margin-top:8px} td{padding:8px 0;borde
 <tr><td>Status</td><td style="text-align:right">${o.appointment_status}</td></tr>
 <tr><td class="total">Total (INR)</td><td class="total" style="text-align:right">₹${o.total_amount.toLocaleString("en-IN")}</td></tr>
 </table></div>
-<p style="color:#64748b;font-size:12px;margin-top:24px">Thank you for choosing Sanjeevani Clinic Private Limited. This is a system-generated invoice.</p>
+<p style="color:#64748b;font-size:12px;margin-top:24px">Thank you for choosing Sanjeevani Clinic Pvt. Ltd.. This is a system-generated invoice.</p>
 </body></html>`;
 }

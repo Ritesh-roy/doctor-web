@@ -45,20 +45,20 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "physiotherapy-at-home-rohini-benefits-cost",
     title: "Physiotherapy at Home in Rohini — Top 10 Benefits, Cost & How to Book",
     excerpt:
-      "A complete guide to at-home physiotherapy in Rohini and Kirari — benefits, indicative cost, session structure and how to arrange care through Sanjeevani Clinic Private Limited.",
+      "A complete guide to at-home physiotherapy in Rohini and Kirari — benefits, indicative cost, session structure and how to arrange care through Sanjeevani Clinic Pvt. Ltd..",
     category: "Physiotherapy",
     readMinutes: 9,
     publishedOn: "2025-11-10",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.physioHome,
     featuredImageAlt: "Physiotherapist treating a patient at home in Rohini",
     intro:
-      "Home physiotherapy has quietly become one of the most requested services at Sanjeevani Clinic Private Limited. For elderly patients, post-surgical recovery, stroke rehabilitation and even chronic back or knee pain, a licensed physiotherapist arriving at your doorstep in Rohini or Kirari removes almost every barrier to consistent recovery. This guide walks you through what home physiotherapy actually looks like, when it is the right choice, what it costs in Delhi, and how our team makes each session count.",
+      "Home physiotherapy has quietly become one of the most requested services at Sanjeevani Clinic Pvt. Ltd.. For elderly patients, post-surgical recovery, stroke rehabilitation and even chronic back or knee pain, a licensed physiotherapist arriving at your doorstep in Rohini or Kirari removes almost every barrier to consistent recovery. This guide walks you through what home physiotherapy actually looks like, when it is the right choice, what it costs in Delhi, and how our team makes each session count.",
     keyTakeaways: [
       "Home physiotherapy is ideal for elderly, post-op and mobility-limited patients.",
       "A typical session in Rohini costs ₹500–₹1,200 depending on complexity and duration.",
       "Consistency matters more than intensity — 3 sessions a week for 4–6 weeks is a common plan.",
-      "Every plan at Sanjeevani Clinic Private Limited is reviewed by a doctor, not just a therapist.",
+      "Every plan at Sanjeevani Clinic Pvt. Ltd. is reviewed by a doctor, not just a therapist.",
     ],
     sections: [
       {
@@ -79,7 +79,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Better adherence — patients skip sessions less often.",
           "Ideal for elderly parents whose mobility is limited.",
           "Faster progress after knee, hip or spine surgery.",
-          "Continuous doctor oversight when arranged through Sanjeevani Clinic Private Limited.",
+          "Continuous doctor oversight when arranged through Sanjeevani Clinic Pvt. Ltd..",
           "Progress is measurable — the same therapist tracks you week to week.",
         ],
       },
@@ -103,7 +103,7 @@ export const BLOG_POSTS: BlogPost[] = [
         ],
       },
       {
-        heading: "How to book with Sanjeevani Clinic Private Limited",
+        heading: "How to book with Sanjeevani Clinic Pvt. Ltd.",
         paragraphs: [
           "Booking is a two-step conversation. Call us on +91 11 4701 3018 or WhatsApp us on +91 11 4701 3018 with a short description of the case — age of the patient, condition, any recent surgery, current medications. We schedule a short doctor consultation (in-clinic or over the phone), assign the right therapist and confirm your first home visit within 24–48 hours across Rohini, Kirari, Karan Vihar, Sultanpuri and nearby areas.",
         ],
@@ -132,7 +132,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Physiotherapy",
     readMinutes: 8,
     publishedOn: "2025-10-22",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.fullBodyPhysio,
     featuredImageAlt: "Full body physiotherapy session for stress relief",
     intro:
@@ -192,17 +192,17 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "free-eye-checkup-campaign-kirari-delhi",
-    title: "Free Eye Check-up Campaign — Sanjeevani Clinic Private Limited Kirari",
+    title: "Free Eye Check-up Campaign — Sanjeevani Clinic Pvt. Ltd. Kirari",
     excerpt:
       "Details of our community free eye check-up drive: eligibility, what is covered, screening for cataract and diabetic retinopathy, and how to register.",
     category: "Campaigns",
     readMinutes: 5,
     publishedOn: "2025-09-05",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.eyeCampaign,
-    featuredImageAlt: "Free eye check-up campaign at Sanjeevani Clinic Private Limited",
+    featuredImageAlt: "Free eye check-up campaign at Sanjeevani Clinic Pvt. Ltd.",
     intro:
-      "Every year, Sanjeevani Clinic Private Limited runs a completely free eye check-up drive for families in Kirari, Karan Vihar and the surrounding colonies. It is our way of catching the eye problems that patients would otherwise ignore until vision has already been lost. This year the drive is bigger, and registration is open to anyone above the age of five.",
+      "Every year, Sanjeevani Clinic Pvt. Ltd. runs a completely free eye check-up drive for families in Kirari, Karan Vihar and the surrounding colonies. It is our way of catching the eye problems that patients would otherwise ignore until vision has already been lost. This year the drive is bigger, and registration is open to anyone above the age of five.",
     keyTakeaways: [
       "Full eye examination at zero cost during the campaign window.",
       "Includes vision test, refraction, IOP check and retina screening.",
@@ -253,7 +253,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Diagnostics",
     readMinutes: 7,
     publishedOn: "2025-08-18",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.bloodTest,
     featuredImageAlt: "Phlebotomist collecting a blood sample",
     intro:
@@ -300,7 +300,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         q: "How soon will I get the report?",
-        a: "Most basic reports at Sanjeevani Clinic Private Limited are ready the same day. Specialised tests take 24–72 hours.",
+        a: "Most basic reports at Sanjeevani Clinic Pvt. Ltd. are ready the same day. Specialised tests take 24–72 hours.",
       },
     ],
   },
@@ -312,7 +312,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Diagnostics",
     readMinutes: 10,
     publishedOn: "2025-07-30",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.bloodReport,
     featuredImageAlt: "Blood test report with highlighted values",
     intro:
@@ -371,7 +371,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Eye Care",
     readMinutes: 6,
     publishedOn: "2025-07-12",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.eyeCheck,
     featuredImageAlt: "Comprehensive eye examination at the clinic",
     intro:
@@ -433,7 +433,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "General Medicine",
     readMinutes: 9,
     publishedOn: "2025-06-24",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.diabetes,
     featuredImageAlt: "Doctor consulting a patient about diabetes management",
     intro:
@@ -496,7 +496,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "General Medicine",
     readMinutes: 8,
     publishedOn: "2025-06-05",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.bp,
     featuredImageAlt: "Blood pressure being measured at the clinic",
     intro:
@@ -547,11 +547,11 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Preventive Care",
     readMinutes: 11,
     publishedOn: "2025-05-16",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.annualCheck,
     featuredImageAlt: "Doctor reviewing an annual health check-up report",
     intro:
-      "Most 'executive health check-ups' are enormous packages padded with tests you do not need, priced to look thorough. A good annual check-up is the opposite: tight, purposeful and matched to your age, gender and family history. Here is what we actually order for our patients at Sanjeevani Clinic Private Limited.",
+      "Most 'executive health check-ups' are enormous packages padded with tests you do not need, priced to look thorough. A good annual check-up is the opposite: tight, purposeful and matched to your age, gender and family history. Here is what we actually order for our patients at Sanjeevani Clinic Pvt. Ltd..",
     keyTakeaways: [
       "In your 20s, less is more — a small annual panel is enough.",
       "40s is where things change: add cardiac and diabetes-related tests.",
@@ -613,7 +613,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Physiotherapy",
     readMinutes: 7,
     publishedOn: "2025-04-28",
-    author: "Sanjeevani Clinic Private Limited Team",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
     cover: IMG.backPain,
     featuredImageAlt: "Patient receiving a lower back assessment",
     intro:
