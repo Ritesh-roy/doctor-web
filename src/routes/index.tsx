@@ -57,7 +57,7 @@ export const Route = createFileRoute("/")({
           "Sanjeevani Clinc Pvt. Ltd., Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
       },
       { property: "og:title", content: "Sanjeevani Clinc Pvt. Ltd. — Premium Family Healthcare" },
-      { property: "og:description", content: "Warm, ethical, evidence-based care for you and your family in Kirari, Delhi." },
+      { property: "og:description", content: "Premium family healthcare, diagnostics, physiotherapy and eye care in Kirari, Delhi." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
