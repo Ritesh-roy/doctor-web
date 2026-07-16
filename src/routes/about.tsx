@@ -115,9 +115,9 @@ function About() {
 
 const FOUNDER = {
   name: "Dr. B.P. Singh",
-  qualification: "MBBS",
+  qualification: "Family Physician",
   role: "Founder & Director",
-  org: "Sanjeevani Clinic Private Limited Private Limited",
+  org: "Sanjeevani Clinic Private Limited",
 } as const;
 
 const TEAM = [
