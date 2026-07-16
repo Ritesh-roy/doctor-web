@@ -9,7 +9,7 @@ export const Route = createFileRoute("/doctor")({
   component: Doctor,
   head: () => ({
     meta: [
-      { title: "Dr. B.P. Singh — MBBS, MD · Sanjeevani Clinic Private Limited" },
+      { title: "Dr. B.P. Singh — Family Physician · Sanjeevani Clinic Private Limited" },
       { name: "description", content: "Meet Dr. B.P. Singh — 15+ years of family medicine experience in Karan Vihar, Kirari, Delhi." },
       { property: "og:title", content: "Dr. B.P. Singh — Sanjeevani Clinic Private Limited" },
       { property: "og:description", content: "Family physician known for honest, patient advice." },
@@ -24,7 +24,7 @@ function Doctor() {
     <SiteLayout>
       <PageHero
         eyebrow="Meet your doctor"
-        title="Dr. B.P. Singh — MBBS, MD"
+        title="Dr. B.P. Singh — Family Physician"
         intro="A trusted family physician in Kirari with 15+ years of clinical experience, known for careful listening, honest advice and ethical care."
         crumbs={[{ label: "Home", to: "/" }, { label: "Doctor" }]}
       />
@@ -39,7 +39,7 @@ function Doctor() {
           <div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { icon: GraduationCap, k: "Education", v: "MBBS, MD (General Medicine)" },
+                { icon: GraduationCap, k: "Role", v: "Family Physician (General Medicine)" },
                 { icon: Stethoscope, k: "Specialty", v: "Family Medicine · Preventive Care" },
                 { icon: Award, k: "Experience", v: "15+ years of practice" },
                 { icon: Languages, k: "Languages", v: "Hindi · English · Punjabi" },

@@ -40,13 +40,9 @@ import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
 const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
 
 const HERO_SLIDES = [
-  { src: "/photos/doctor-portrait-1.jpg", alt: "Family physician at Sanjeevani Clinic", caption: "Family Physician · Trusted Care" },
-  { src: "/photos/doctor-desk-1.jpg", alt: "Doctor consulting a patient", caption: "Warm, unhurried consultations" },
-  { src: "/photos/doctor-desk-3.jpg", alt: "Doctor explaining medical reports", caption: "Clear, honest explanations" },
-  { src: "/photos/clinic-front.jpg", alt: "Sanjeevani Clinic reception and entrance", caption: "Modern, welcoming reception" },
-  { src: "/photos/doctor-desk-4.jpg", alt: "Consultation room at Sanjeevani Clinic", caption: "Private consultation rooms" },
-  { src: "/photos/ai-cervical-machine.jpg", alt: "Therapy and treatment equipment", caption: "Modern treatment equipment" },
-  { src: "/photos/clinic-street-bw.jpg", alt: "Sanjeevani Clinic exterior — Karan Vihar, Kirari", caption: "Serving Kirari since 2009" },
+  { src: "/photos/doctor-portrait-1.jpg", alt: "Dr. B.P. Singh — family physician at Sanjeevani Clinic", caption: "Family Physician · Trusted Care" },
+  { src: "/photos/doctor-portrait-2.jpg", alt: "Dr. B.P. Singh — 15+ years of family medicine", caption: "15+ years serving Kirari families" },
+  { src: "/photos/doctor-with-award.jpg", alt: "Dr. B.P. Singh — award-winning family physician", caption: "Warm, ethical, evidence-based care" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -230,8 +226,8 @@ function ServicesGrid() {
   const groups = [
     {
       slug: "diagnose",
-      title: "Sanjeevani Diagnose",
-      short: "Full-spectrum blood tests, health packages & home sample collection.",
+      title: "Sanjeevani Diagnostic Lab",
+      short: "Blood tests, pathology, sample collection & laboratory testing — with home sample pickup.",
       icon: FlaskConical,
       image: "/photos/doctor-desk-3.jpg",
       to: "/medical-services" as const,
@@ -239,7 +235,7 @@ function ServicesGrid() {
     },
     {
       slug: "eye",
-      title: "Sanjeevani Eye Services",
+      title: "Sanjeevani Eye Care",
       short: "Comprehensive eye check-ups, refraction and specialist referral.",
       icon: Eye,
       image: "/photos/ai-lens-replace.jpg",
@@ -247,7 +243,7 @@ function ServicesGrid() {
     },
     {
       slug: "physio",
-      title: "Sanjeevani Physiotherapy Services",
+      title: "Sanjeevani Physiotherapy",
       short: "IFT, TENS, cervical & lumbar traction, cupping and rehab.",
       icon: Activity,
       image: "/photos/ai-cervical-machine.jpg",
@@ -255,11 +251,12 @@ function ServicesGrid() {
     },
     {
       slug: "radiology",
-      title: "Sanjeevani Radiology Services",
-      short: "In-clinic X-ray coordination, ultrasound and imaging support.",
+      title: "Sanjeevani Radiology",
+      short: "CT scan, MRI, digital X-ray and ultrasound — imaging coordination in-clinic.",
       icon: Scan,
       image: "/photos/ai-radiology.jpg",
       to: "/medical-services" as const,
+      badge: "New Radiology Shop",
     },
   ];
 
@@ -350,7 +347,7 @@ function DoctorStrip() {
         </div>
         <div className="flex flex-col justify-center">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Meet your doctor</span>
-          <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Dr. B.P. Singh — MBBS, MD</h2>
+          <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Dr. B.P. Singh — Family Physician</h2>
           <p className="mt-4 text-muted-foreground">
             With over 15 years of clinical experience, Dr. Singh is known in Karan Vihar and Kirari for his patience,
             careful listening and honest, ethical advice. He leads Sanjeevani Clinic Private Limited with the belief that great care
