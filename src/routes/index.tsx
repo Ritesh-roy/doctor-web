@@ -2,14 +2,10 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Activity,
-  Microscope,
   Sparkles,
   Eye,
-  Stethoscope,
-  HeartPulse,
   Star,
   ArrowRight,
-  BadgeCheck,
   ShieldCheck,
   Users,
   Award,
@@ -20,28 +16,43 @@ import {
   Home as HomeIcon,
   Leaf,
   BookOpen,
+  Clock,
+  UserRound,
+  FlaskConical,
+  Scan,
 } from "lucide-react";
 
 
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { ProductSlider } from "@/components/site/ProductSlider";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import { CLINIC } from "@/data/clinic";
-import { SERVICES } from "@/data/services";
+
 import doctorAsset from "@/assets/doctor-hero.asset.json";
 import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
+
+const HERO_SLIDES = [
+  { src: "/photos/doctor-portrait-1.jpg", alt: "Family physician at Sanjeevani Clinic", caption: "Family Physician · Trusted Care" },
+  { src: "/photos/doctor-desk-1.jpg", alt: "Doctor consulting a patient", caption: "Warm, unhurried consultations" },
+  { src: "/photos/doctor-desk-3.jpg", alt: "Doctor explaining medical reports", caption: "Clear, honest explanations" },
+  { src: "/photos/clinic-front.jpg", alt: "Sanjeevani Clinic reception and entrance", caption: "Modern, welcoming reception" },
+  { src: "/photos/doctor-desk-4.jpg", alt: "Consultation room at Sanjeevani Clinic", caption: "Private consultation rooms" },
+  { src: "/photos/ai-cervical-machine.jpg", alt: "Therapy and treatment equipment", caption: "Modern treatment equipment" },
+  { src: "/photos/clinic-street-bw.jpg", alt: "Sanjeevani Clinic exterior — Karan Vihar, Kirari", caption: "Serving Kirari since 2009" },
+];
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Sanjeevani Clinc Private Limited — Trusted Family Healthcare in Kirari, Delhi" },
+      { title: "Sanjeevani Clinic Private Limited — Trusted Family Healthcare in Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Sanjeevani Clinc Private Limited, Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
+          "Sanjeevani Clinic Private Limited, Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
       },
-      { property: "og:title", content: "Sanjeevani Clinc Private Limited — Premium Family Healthcare" },
+      { property: "og:title", content: "Sanjeevani Clinic Private Limited — Premium Family Healthcare" },
       { property: "og:description", content: "Warm, ethical, evidence-based care for you and your family in Kirari, Delhi." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -74,7 +85,7 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
+
 
 function Hero() {
   return (
@@ -91,7 +102,7 @@ function Hero() {
             <span className="text-gradient">Family.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            For over {CLINIC.years} years, Sanjeevani Clinc Private Limited has cared for families across
+            For over {CLINIC.years} years, Sanjeevani Clinic Private Limited has cared for families across
             Delhi with warm, expert medicine — from everyday consultations to
             physiotherapy, diagnostics and eye care, all under one roof.
           </p>
@@ -138,22 +149,46 @@ function Hero() {
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
             <div className="absolute -inset-6 rounded-[48px] bg-gradient-to-br from-primary/25 via-sky/40 to-emerald-accent/20 blur-2xl" />
-            <div className="absolute inset-0 overflow-hidden rounded-[36px] border border-white/60 bg-white shadow-glow">
-              <img src={doctorAsset.url} alt="Dr. B.P. Singh — Sanjeevani Clinc Private Limited" width={900} height={1125} className="h-full w-full object-cover" />
-            </div>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity }} className="glass-card absolute -left-3 top-8 flex items-center gap-3 rounded-2xl p-3 shadow-card sm:-left-6">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-accent/15 text-emerald-accent"><BadgeCheck className="h-5 w-5" /></span>
+            <HeroSlider slides={HERO_SLIDES} className="absolute inset-0 h-full w-full" />
+
+            {/* Family Physician glass badge */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity }}
+              className="glass-card absolute -left-3 top-8 z-10 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/70 p-3 shadow-card backdrop-blur-md sm:-left-6"
+            >
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary">
+                <UserRound className="h-5 w-5" />
+              </span>
               <div>
-                <div className="text-sm font-semibold text-foreground">MBBS · MD</div>
-                <div className="text-xs text-muted-foreground">15+ yrs experience</div>
+                <div className="text-sm font-semibold text-foreground">Family Physician</div>
+                <div className="text-xs text-muted-foreground">General &amp; Family Healthcare</div>
               </div>
             </motion.div>
-            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity }} className="glass-card absolute -right-2 bottom-20 flex items-center gap-3 rounded-2xl p-3 shadow-card sm:-right-4">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary"><Star className="h-5 w-5 fill-current" /></span>
+
+            {/* Day Care card */}
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 6, repeat: Infinity }}
+              className="glass-card absolute -right-2 bottom-24 z-10 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/75 p-3 shadow-card backdrop-blur-md sm:-right-4"
+            >
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-accent/15 text-emerald-accent">
+                <Clock className="h-5 w-5" />
+              </span>
               <div>
-                <div className="text-sm font-semibold text-foreground">{CLINIC.rating} / 5.0</div>
-                <div className="text-xs text-muted-foreground">Google Reviews</div>
+                <div className="text-sm font-semibold text-foreground">Day Care in 2–5 hrs</div>
+                <div className="text-xs text-muted-foreground">Same-day observation &amp; care</div>
               </div>
+            </motion.div>
+
+            {/* Google rating pill */}
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 5.5, repeat: Infinity }}
+              className="glass-card absolute -left-2 bottom-6 z-10 flex items-center gap-2 rounded-full border border-white/60 bg-white/75 px-3 py-1.5 shadow-card backdrop-blur-md sm:-left-4"
+            >
+              <Star className="h-4 w-4 fill-current text-emerald-accent" />
+              <span className="text-xs font-semibold text-foreground">{CLINIC.rating} · Google</span>
             </motion.div>
           </div>
         </motion.div>
@@ -185,26 +220,78 @@ function ValueProps() {
 }
 
 function ServicesGrid() {
+  const groups = [
+    {
+      title: "Sanjeevani Diagnose",
+      short: "Full-spectrum blood tests, health packages & home sample collection.",
+      icon: FlaskConical,
+      image: "/photos/doctor-desk-3.jpg",
+      to: "/medical-services",
+      badge: "Home Sample Available",
+      chips: ["CBC", "Lipid Profile", "Thyroid", "Diabetes", "LFT", "KFT", "Vitamin", "Urine"],
+    },
+    {
+      title: "Sanjeevani Eye Services",
+      short: "Comprehensive eye check-ups, refraction and specialist referral.",
+      icon: Eye,
+      image: "/photos/ai-lens-replace.jpg",
+      to: "/free-eye-checkup",
+      chips: ["Eye Check-up", "Refraction", "Cataract advice"],
+    },
+    {
+      title: "Sanjeevani Physiotherapy Services",
+      short: "IFT, TENS, cervical & lumbar traction, cupping and rehab.",
+      icon: Activity,
+      image: "/photos/ai-cervical-machine.jpg",
+      to: "/product-category/$slug",
+      params: { slug: "physiotherapy" },
+      chips: ["IFT", "TENS", "Cervical", "Lumbar", "Cupping"],
+    },
+    {
+      title: "Sanjeevani Radiology Services",
+      short: "In-clinic X-ray coordination, ultrasound and imaging support.",
+      icon: Scan,
+      image: "/photos/ai-radiology.jpg",
+      to: "/medical-services",
+      chips: ["X-Ray", "Ultrasound", "ECG"],
+    },
+  ] as const;
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto mb-12 max-w-2xl text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary-soft/50 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-primary">Our services</span>
         <h2 className="mt-4 font-display text-3xl leading-tight text-foreground sm:text-5xl">A full spectrum of care, under one calm roof.</h2>
-        <p className="mt-4 text-muted-foreground">From routine consultations to imaging and rehabilitation — thoughtfully coordinated by one clinical team.</p>
+        <p className="mt-4 text-muted-foreground">Four dedicated Sanjeevani service lines — thoughtfully coordinated by one clinical team.</p>
       </div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {SERVICES.map((s) => {
-          const I = ICONS[s.icon];
+      <div className="grid gap-5 sm:grid-cols-2">
+        {groups.map((g) => {
+          const I = g.icon;
           return (
-            <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-transform hover:-translate-y-1">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <span className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-xl bg-white/90 text-primary shadow-soft backdrop-blur"><I className="h-5 w-5" /></span>
+            <Link
+              key={g.title}
+              to={g.to}
+              params={("params" in g ? g.params : undefined) as never}
+              className="group relative overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-transform hover:-translate-y-1"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img src={g.image} alt={g.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <span className="absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-xl bg-white/90 text-primary shadow-soft backdrop-blur"><I className="h-5 w-5" /></span>
+                {"badge" in g && g.badge && (
+                  <span className="absolute right-4 top-4 rounded-full bg-emerald-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-soft">
+                    {g.badge}
+                  </span>
+                )}
               </div>
               <div className="p-6">
-                <div className="font-display text-xl font-semibold text-foreground">{s.title}</div>
-                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{s.short}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Explore more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+                <div className="font-display text-xl font-semibold text-foreground">{g.title}</div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.short}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {g.chips.map((c) => (
+                    <span key={c} className="rounded-full bg-primary-soft/60 px-2.5 py-1 text-[11px] font-medium text-primary">{c}</span>
+                  ))}
+                </div>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Explore more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
               </div>
             </Link>
           );
@@ -228,7 +315,7 @@ function DoctorStrip() {
           <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Dr. B.P. Singh — MBBS, MD</h2>
           <p className="mt-4 text-muted-foreground">
             With over 15 years of clinical experience, Dr. Singh is known in Karan Vihar and Kirari for his patience,
-            careful listening and honest, ethical advice. He leads Sanjeevani Clinc Private Limited with the belief that great care
+            careful listening and honest, ethical advice. He leads Sanjeevani Clinic Private Limited with the belief that great care
             begins with feeling heard.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -312,7 +399,7 @@ function FounderPreview() {
             A single room in 2009. A mission bigger than any wall.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Mr. D.R. B.P. Singh started Sanjeevani Clinc Private Limited in Kirari with limited resources
+            Mr. D.R. B.P. Singh started Sanjeevani Clinic Private Limited in Kirari with limited resources
             but a bigger vision — quality healthcare should never be a privilege for a few.
             15 years, 125+ countries and 70,000+ lives later, that mission has only grown.
           </p>
@@ -376,7 +463,7 @@ function NeoreoSection() {
             Our own healthcare brand — trusted, affordable, quality assured.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            NEOREO is Sanjeevani Clinc Private Limited's in-house healthcare brand. Every product is
+            NEOREO is Sanjeevani Clinic Private Limited's in-house healthcare brand. Every product is
             developed with the same ethos we treat patients with — high quality, honest
             pricing and complete transparency. Because good health should never be a luxury.
           </p>

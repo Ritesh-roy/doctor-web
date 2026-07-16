@@ -9,9 +9,9 @@ export const Route = createFileRoute("/faqs")({
   component: FAQsPage,
   head: () => ({
     meta: [
-      { title: "FAQs — Sanjeevani Clinc Private Limited, Kirari" },
-      { name: "description", content: "Answers to the most common questions about appointments, timings, services and payments at Sanjeevani Clinc Private Limited." },
-      { property: "og:title", content: "FAQs — Sanjeevani Clinc Private Limited" },
+      { title: "FAQs — Sanjeevani Clinic Private Limited, Kirari" },
+      { name: "description", content: "Answers to the most common questions about appointments, timings, services and payments at Sanjeevani Clinic Private Limited." },
+      { property: "og:title", content: "FAQs — Sanjeevani Clinic Private Limited" },
       { property: "og:description", content: "Common questions, clearly answered." },
       { property: "og:url", content: "/faqs" },
     ],

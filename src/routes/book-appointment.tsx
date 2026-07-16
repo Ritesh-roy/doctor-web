@@ -23,9 +23,9 @@ export const Route = createFileRoute("/book-appointment")({
   component: Book,
   head: () => ({
     meta: [
-      { title: "Book Appointment — Sanjeevani Clinc Private Limited, Kirari" },
-      { name: "description", content: "Book your appointment with Dr. B.P. Singh at Sanjeevani Clinc Private Limited, Kirari, Delhi." },
-      { property: "og:title", content: "Book Appointment — Sanjeevani Clinc Private Limited" },
+      { title: "Book Appointment — Sanjeevani Clinic Private Limited, Kirari" },
+      { name: "description", content: "Book your appointment with Dr. B.P. Singh at Sanjeevani Clinic Private Limited, Kirari, Delhi." },
+      { property: "og:title", content: "Book Appointment — Sanjeevani Clinic Private Limited" },
       { property: "og:description", content: "Reserve a slot online in seconds." },
       { property: "og:url", content: "/book-appointment" },
     ],

@@ -6,8 +6,8 @@ export const Route = createFileRoute("/cancel-payment")({
   component: CancelPayment,
   head: () => ({
     meta: [
-      { title: "Payment Cancelled — Sanjeevani Clinc Private Limited" },
-      { name: "description", content: "Your payment for the Sanjeevani Clinc Private Limited service was cancelled and no amount has been charged." },
+      { title: "Payment Cancelled — Sanjeevani Clinic Private Limited" },
+      { name: "description", content: "Your payment for the Sanjeevani Clinic Private Limited service was cancelled and no amount has been charged." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/cancel-payment" },
     ],

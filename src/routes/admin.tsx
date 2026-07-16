@@ -12,7 +12,7 @@ export const Route = createFileRoute("/admin")({
   component: Admin,
   head: () => ({
     meta: [
-      { title: "Admin Panel — Sanjeevani Clinc Private Limited" },
+      { title: "Admin Panel — Sanjeevani Clinic Private Limited" },
       { name: "robots", content: "noindex" },
     ],
   }),
