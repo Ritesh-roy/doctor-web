@@ -26,7 +26,7 @@ export const CATEGORIES: { slug: ProductCategorySlug; label: string; description
     slug: "physiotherapy",
     label: "Therapy Services",
     description:
-      "Evidence-based physiotherapy, traditional cupping and digital traction therapies performed in-clinic and at home.",
+      "Evidence-based physiotherapy, traditional cupping and computerised traction therapies performed in-clinic and at home.",
     image: "/photos/cupping-back-real.jpg",
   },
 ];
@@ -212,16 +212,16 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "digital-cervical-therapy",
-    title: "Digital Cervical Therapy",
+    title: "Cervical Therapy",
     category: "physiotherapy",
     categoryLabel: "Therapy Services",
     price: 500,
-    image: "/photos/ai-cervical-therapy.jpg",
+    image: "/photos/ai-cervical-machine.jpg",
     shortDescription: "Computerised cervical traction for neck pain and spondylosis.",
     description:
-      "Digital cervical traction gently stretches the neck to decompress discs and nerves — highly effective for cervical spondylosis, disc bulge and chronic neck pain.",
+      "Computerised cervical traction gently stretches the neck to decompress discs and nerves — highly effective for cervical spondylosis, disc bulge and chronic neck pain.",
     hindiDescription:
-      "डिजिटल सर्वाइकल थेरेपी में मशीन द्वारा गर्दन का नियंत्रित खिंचाव किया जाता है, जिससे सर्वाइकल स्पॉन्डिलाइटिस, डिस्क समस्या और गर्दन दर्द में आराम मिलता है।",
+      "सर्वाइकल थेरेपी में मशीन द्वारा गर्दन का नियंत्रित खिंचाव किया जाता है, जिससे सर्वाइकल स्पॉन्डिलाइटिस, डिस्क समस्या और गर्दन दर्द में आराम मिलता है।",
     highlights: ["Computerised traction", "Cervical spondylosis relief", "Disc decompression", "Trained physio"],
     benefits: [
       "Reduces neck and shoulder pain",
@@ -234,16 +234,16 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "digital-lumbar-therapy",
-    title: "Digital Lumbar Therapy",
+    title: "Lumbar Therapy",
     category: "physiotherapy",
     categoryLabel: "Therapy Services",
     price: 500,
-    image: "/photos/ai-lumbar-therapy.jpg",
+    image: "/photos/ai-lumbar-machine.jpg",
     shortDescription: "Computerised lumbar traction for back pain and sciatica.",
     description:
-      "Digital lumbar traction relieves pressure on lower spine discs and nerves — proven for lumbar spondylosis, slipped disc, and sciatica pain.",
+      "Computerised lumbar traction relieves pressure on lower spine discs and nerves — proven for lumbar spondylosis, slipped disc, and sciatica pain.",
     hindiDescription:
-      "डिजिटल लम्बर थेरेपी में मशीन द्वारा कमर का खिंचाव किया जाता है, जिससे स्लिप डिस्क, साइटिका और कमर दर्द में उत्तम लाभ मिलता है।",
+      "लम्बर थेरेपी में मशीन द्वारा कमर का खिंचाव किया जाता है, जिससे स्लिप डिस्क, साइटिका और कमर दर्द में उत्तम लाभ मिलता है।",
     highlights: ["Computerised traction", "Sciatica relief", "Disc decompression", "Trained physio"],
     benefits: [
       "Relieves lower back pain",

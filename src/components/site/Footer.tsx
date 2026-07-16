@@ -23,7 +23,7 @@ const cols = [
       { label: "Hijama Therapy", to: "/services/hijama-therapy" },
       { label: "Paraffin Wax", to: "/services/paraffin-wax-therapy" },
       { label: "Body Massage", to: "/services/body-massage-therapy" },
-      { label: "Digital Lumbar", to: "/services/digital-lumbar-therapy" },
+      { label: "Lumbar Therapy", to: "/services/digital-lumbar-therapy" },
     ],
   },
   {

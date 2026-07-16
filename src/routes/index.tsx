@@ -25,9 +25,11 @@ import {
 
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import { ProductSlider } from "@/components/site/ProductSlider";
 import { CLINIC } from "@/data/clinic";
 import { SERVICES } from "@/data/services";
 import doctorAsset from "@/assets/doctor-hero.asset.json";
+import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -397,8 +399,8 @@ function NeoreoSection() {
         </div>
         <div className="relative">
           <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-emerald-accent/25 to-primary/15 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white shadow-glow">
-            <img src="/photos/paraffin-wax-hand.jpg" alt="NEOREO Healthcare products" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+          <div className="relative overflow-hidden rounded-[24px] border border-white/60 bg-white shadow-glow">
+            <img src={neoreoAsset.url} alt="NEOREO Healthcare product range" loading="lazy" className="h-full w-full object-contain" />
           </div>
         </div>
       </div>
@@ -416,6 +418,7 @@ function Home() {
       <FounderPreview />
       <DoctorStrip />
       <NeoreoSection />
+      <ProductSlider />
       <ReviewStrip />
       <CtaBanner />
     </SiteLayout>
