@@ -10,8 +10,8 @@ export const Route = createFileRoute("/forgot-password")({
   component: ForgotPassword,
   head: () => ({
     meta: [
-      { title: "Forgot Password — Sanjeevani Clinic Pvt. Ltd." },
-      { name: "description", content: "Reset your Sanjeevani Clinic Pvt. Ltd. password via a link sent to your email." },
+      { title: "Forgot Password — Sanjeevani Clinc Pvt. Ltd." },
+      { name: "description", content: "Reset your Sanjeevani Clinc Pvt. Ltd. password via a link sent to your email." },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/forgot-password" }],

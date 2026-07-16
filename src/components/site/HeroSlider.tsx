@@ -21,6 +21,7 @@ export function HeroSlider({
   const [paused, setPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const currentSlide = slides[index];
 
   const goTo = useCallback((i: number) => {
     setIndex(((i % slides.length) + slides.length) % slides.length);
@@ -47,10 +48,12 @@ export function HeroSlider({
     return () => window.removeEventListener("keydown", onKey);
   }, [next, prev]);
 
+  if (!currentSlide) return null;
+
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden rounded-[32px] border border-white/60 bg-white shadow-glow ${className}`}
+      className={`relative overflow-hidden rounded-[32px] border border-white/60 bg-primary-soft shadow-glow ${className}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; setPaused(true); }}
@@ -67,16 +70,16 @@ export function HeroSlider({
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.img
-          key={index}
-          src={slides[index].src}
-          alt={slides[index].alt}
+          key={currentSlide.src}
+          src={currentSlide.src}
+          alt={currentSlide.alt}
           loading={index === 0 ? "eager" : "lazy"}
           decoding="async"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.02 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 block h-full w-full object-cover"
         />
       </AnimatePresence>
 

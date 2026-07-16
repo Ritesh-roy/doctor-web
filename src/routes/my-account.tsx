@@ -10,7 +10,7 @@ export const Route = createFileRoute("/my-account")({
   component: MyAccount,
   head: () => ({
     meta: [
-      { title: "My Account — Sanjeevani Clinic Pvt. Ltd." },
+      { title: "My Account — Sanjeevani Clinc Pvt. Ltd." },
       { name: "description", content: "Manage your profile, bookings, wishlist and prescriptions." },
       { name: "robots", content: "noindex" },
     ],

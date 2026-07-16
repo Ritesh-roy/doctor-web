@@ -6,8 +6,8 @@ export const Route = createFileRoute("/appointment-cancellation-confirmation")({
   component: CancellationConfirm,
   head: () => ({
     meta: [
-      { title: "Cancellation Confirmed — Sanjeevani Clinic Pvt. Ltd." },
-      { name: "description", content: "We have confirmed the cancellation of your Sanjeevani Clinic Pvt. Ltd. appointment." },
+      { title: "Cancellation Confirmed — Sanjeevani Clinc Pvt. Ltd." },
+      { name: "description", content: "We have confirmed the cancellation of your Sanjeevani Clinc Pvt. Ltd. appointment." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/appointment-cancellation-confirmation" },
     ],
