@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Youtube, MessageCircle } from "lucide-react";
 import { LogoMark } from "./Logo";
 import { CLINIC } from "@/data/clinic";
 
