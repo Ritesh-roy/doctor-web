@@ -309,7 +309,7 @@ function ServicesGrid() {
               <div className="flex flex-1 flex-col p-6">
                 <div className="font-display text-xl font-semibold text-foreground">{c.title}</div>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.short}</p>
-                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Explore more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"><Calendar className="h-4 w-4" /> Book Appointment <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
               </div>
             </Link>
           );
