@@ -34,6 +34,21 @@ function BlogIndex() {
         intro="Clear guides on physiotherapy, eye care, blood tests, general medicine and preventive health — written for real families, not textbooks."
         crumbs={[{ label: "Home", to: "/" }, { label: "Blog" }]}
       />
+      <section className="mx-auto max-w-5xl px-4 pb-12 sm:px-6">
+        <figure className="overflow-hidden rounded-3xl border border-primary/10 bg-foreground shadow-glow">
+          <video
+            src="/photos/blog-video.mp4"
+            poster="/photos/blog-video-poster.jpg"
+            controls
+            preload="metadata"
+            playsInline
+            className="aspect-video w-full object-contain"
+          />
+          <figcaption className="bg-background px-5 py-3 text-center text-sm text-muted-foreground">
+            Sanjeevani Clinlc — clinic and award highlights.
+          </figcaption>
+        </figure>
+      </section>
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {BLOG_POSTS.map((p) => (
@@ -43,8 +58,8 @@ function BlogIndex() {
               params={{ slug: p.slug }}
               className="group flex flex-col overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition hover:-translate-y-1 hover:shadow-glow"
             >
-              <div className="aspect-[16/10] overflow-hidden bg-primary-soft/30">
-                <img src={p.cover} alt={p.featuredImageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="flex aspect-[16/10] items-center justify-center overflow-hidden bg-primary-soft/30 p-10">
+                <img src="/logo-full.png" alt="Sanjeevani Clinlc logo" loading="lazy" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <span className="inline-flex w-fit items-center rounded-full bg-primary-soft px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">

@@ -84,22 +84,16 @@ function BlogPostPage() {
         </div>
       </PageHero>
 
-      <section className="mx-auto max-w-4xl px-4 pb-8 sm:px-6">
-        <div className="overflow-hidden rounded-3xl border border-primary/10 shadow-glow">
-          <img src={post.cover} alt={post.featuredImageAlt} className="aspect-[16/9] w-full object-cover" loading="eager" />
-        </div>
-      </section>
-
       {post.video && (
         <section className="mx-auto max-w-4xl px-4 pb-8 sm:px-6">
-          <figure className="overflow-hidden rounded-3xl border border-primary/10 bg-black shadow-glow">
+          <figure className="overflow-hidden rounded-3xl border border-primary/10 bg-foreground shadow-glow">
             <video
               src={post.video.src}
-              poster={post.video.poster}
+              poster="/photos/blog-video-poster.jpg"
               controls
-              preload="none"
+              preload="metadata"
               playsInline
-              className="aspect-video w-full"
+              className="aspect-video w-full object-contain"
             />
             {post.video.caption && (
               <figcaption className="bg-white px-5 py-3 text-center text-sm text-muted-foreground">
@@ -107,6 +101,14 @@ function BlogPostPage() {
               </figcaption>
             )}
           </figure>
+        </section>
+      )}
+
+      {!post.video && (
+        <section className="mx-auto max-w-4xl px-4 pb-8 sm:px-6">
+          <div className="flex aspect-video items-center justify-center overflow-hidden rounded-3xl border border-primary/10 bg-primary-soft/30 p-12 shadow-glow">
+            <img src="/logo-full.png" alt="Sanjeevani Clinlc logo" className="h-full w-full object-contain" loading="eager" />
+          </div>
         </section>
       )}
 
@@ -192,8 +194,8 @@ function BlogPostPage() {
                 params={{ slug: r.slug }}
                 className="group overflow-hidden rounded-2xl border border-primary/10 bg-white text-sm text-foreground shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
               >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img src={r.cover} alt={r.featuredImageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="flex aspect-[16/10] items-center justify-center overflow-hidden bg-primary-soft/30 p-5">
+                  <img src="/logo-full.png" alt="Sanjeevani Clinlc logo" loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-4">
                   <div className="text-[11px] font-semibold uppercase tracking-widest text-primary">{r.category}</div>

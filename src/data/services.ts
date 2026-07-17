@@ -375,6 +375,13 @@ export const SERVICES: Service[] = [
   })),
 ];
 
+// Every service card gets its own generated healthcare visual. Keeping this
+// assignment in the shared data source guarantees Home, All Services and
+// detail pages always show the same unique image for a given service.
+SERVICES.forEach((service, index) => {
+  service.image = `/photos/services-generated/service-${String(index + 1).padStart(2, "0")}.jpg`;
+});
+
 export function getService(slug: string) {
   return SERVICES.find((s) => s.slug === slug);
 }
