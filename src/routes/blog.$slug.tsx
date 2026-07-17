@@ -89,6 +89,7 @@ function BlogPostPage() {
           <figure className="overflow-hidden rounded-3xl border border-primary/10 bg-foreground shadow-glow">
             <video
               src={post.video.src}
+              poster="/photos/blog-video-poster.jpg"
               controls
               preload="metadata"
               playsInline

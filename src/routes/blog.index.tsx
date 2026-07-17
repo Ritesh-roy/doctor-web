@@ -38,6 +38,7 @@ function BlogIndex() {
         <figure className="overflow-hidden rounded-3xl border border-primary/10 bg-foreground shadow-glow">
           <video
             src="/photos/blog-video.mp4"
+            poster="/photos/blog-video-poster.jpg"
             controls
             preload="metadata"
             playsInline
