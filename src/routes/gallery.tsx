@@ -40,38 +40,6 @@ const items: GalleryItem[] = [
     location: "Sanjeevani Clinic · Karan Vihar",
   },
   {
-    src: "/photos/massage-back-real.jpg",
-    alt: "Deep-tissue back massage therapy at Sanjeevani Clinic",
-    title: "Body Massage Therapy",
-    category: "Clinic",
-    description:
-      "Therapeutic back and full-body oil massage — a blend of Swedish and deep-tissue techniques to relieve stress and muscular stiffness.",
-  },
-  {
-    src: "/photos/paraffin-wax-hand.jpg",
-    alt: "Paraffin wax therapy — hand dipped in warm therapeutic wax",
-    title: "Paraffin Wax — Hand Therapy",
-    category: "Clinic",
-    description:
-      "Warm paraffin wax immersion for arthritis, joint stiffness and dry skin — the wax is kept at a comfortable therapeutic temperature.",
-  },
-  {
-    src: "/photos/paraffin-wax-foot.jpg",
-    alt: "Paraffin wax therapy — foot dipped in warm therapeutic wax",
-    title: "Paraffin Wax — Foot Therapy",
-    category: "Clinic",
-    description:
-      "Foot paraffin wax therapy — excellent for foot arthritis, plantar fasciitis, dry heels and post-work fatigue.",
-  },
-  {
-    src: "/photos/knee-pain-real.jpg",
-    alt: "Knee pain physiotherapy assessment",
-    title: "Knee Pain — Diagnosis & Care",
-    category: "Clinic",
-    description:
-      "From assessment to treatment — the clinic offers Jaanu Vasti, TENS, I.F.T and structured physiotherapy programmes for chronic and acute knee pain.",
-  },
-  {
     src: "/photos/award-unity-desk.jpg",
     alt: "Sardar Patel Unity Award 2026 on the founder's desk",
     title: "Unity Award — On the Desk",
