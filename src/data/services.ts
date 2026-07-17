@@ -1,4 +1,4 @@
-// The 10 therapies actively offered at Sanjeevani Clinlc Pvt. Ltd..
+// The 10 therapies actively offered at Sanjeevani Clinic Pvt. Ltd..
 // Real clinic photos are used wherever available; AI/reference fallbacks
 // only fill in for therapies without a matching uploaded photo.
 
@@ -309,7 +309,7 @@ export const SERVICES: Service[] = [
     ],
   },
   ...([
-    ["family-physician","Family Physician","stethoscope","Trusted family doctor for all ages — from children to seniors.","Comprehensive family medicine at Sanjeevani Clinlc Pvt. Ltd. — routine consultations, chronic disease care, vaccinations and lifestyle advice for the whole family.","/photos/clinic-front.jpg",500,"20 min"],
+    ["family-physician","Family Physician","stethoscope","Trusted family doctor for all ages — from children to seniors.","Comprehensive family medicine at Sanjeevani Clinic Pvt. Ltd. — routine consultations, chronic disease care, vaccinations and lifestyle advice for the whole family.","/photos/clinic-front.jpg",500,"20 min"],
     ["general-opd","General OPD Consultation","stethoscope","Walk-in OPD for fever, cough, infections, pain and everyday illnesses.","Doctor-led OPD consultation for common acute and chronic issues, with clear diagnosis, honest treatment plans and prescriptions.","/photos/clinic-front.jpg",300,"15 min"],
     ["diagnostic-lab","Diagnostic Lab","microscope","Full-service in-house diagnostic lab with doctor-guided reporting.","NABL-standard sample handling, quick turnaround and interpretation of every report by our doctors before it reaches you.","/photos/ai-radiology.jpg",undefined,"Same-day"],
     ["blood-sample-collection","Blood Sample Collection","microscope","Trained phlebotomists — quick, painless sample collection at the clinic.","Sterile, single-use collection with proper labelling and lab transport chain — for accurate, reliable results.","/photos/ai-radiology.jpg",undefined,"10 min"],
@@ -357,7 +357,7 @@ export const SERVICES: Service[] = [
     price: price as number | undefined,
     duration: duration as string | undefined,
     benefits: [
-      `Delivered by the Sanjeevani Clinlc Pvt. Ltd. team`,
+      `Delivered by the Sanjeevani Clinic Pvt. Ltd. team`,
       `Evidence-based, honest and transparent care`,
       `Clear reporting and follow-up guidance`,
       homeVisit ? "Home visit available on request" : "Comfortable, hygienic in-clinic setting",

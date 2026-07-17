@@ -45,7 +45,7 @@ export function ProductSlider() {
             <Sparkles className="h-3.5 w-3.5" /> Featured Products
           </span>
           <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">
-            Trusted therapies &amp; NEOREO essentials
+            All Therapy are Available
           </h2>
         </div>
         <div className="hidden gap-2 sm:flex">

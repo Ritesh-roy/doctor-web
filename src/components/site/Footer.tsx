@@ -16,16 +16,21 @@ const cols = [
     ],
   },
   {
-    title: "Our Therapies",
+    title: "All Services",
     links: [
-      { label: "Cupping Therapy", to: "/services/cupping-therapy" },
-      { label: "Fire Cupping", to: "/services/fire-cupping-therapy" },
-      { label: "Hijama Therapy", to: "/services/hijama-therapy" },
-      { label: "Paraffin Wax", to: "/services/paraffin-wax-therapy" },
-      { label: "Body Massage", to: "/services/body-massage-therapy" },
-      { label: "Lumbar Therapy", to: "/services/digital-lumbar-therapy" },
+      { label: "Day Care", to: "/book-appointment" },
+      { label: "Family Physician", to: "/book-appointment" },
+      { label: "Pathology", to: "/book-appointment" },
+      { label: "MRI", to: "/book-appointment" },
+      { label: "Ultrasound", to: "/book-appointment" },
+      { label: "General OPD Consultation", to: "/book-appointment" },
+      { label: "Home Sample Collection", to: "/book-appointment" },
+      { label: "Health Check-up Packages", to: "/book-appointment" },
+      { label: "Physiotherapy", to: "/book-appointment" },
+      { label: "Eye Check-up", to: "/book-appointment" },
     ],
   },
+
   {
     title: "Support",
     links: [
@@ -55,7 +60,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <LogoMark className="h-11 w-11 rounded-xl" />
               <div>
-                <div className="font-display text-xl font-semibold">Sanjeevani Clinlc</div>
+                <div className="font-display text-xl font-semibold">Sanjeevani Clinic</div>
                 <div className="text-xs uppercase tracking-[0.22em] text-background/60">
                   Kirari · Delhi
                 </div>
@@ -95,7 +100,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col-reverse items-start justify-between gap-6 border-t border-background/10 pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-background/60">
-            © {new Date().getFullYear()} Sanjeevani Clinlc · All rights reserved.
+            © {new Date().getFullYear()} Sanjeevani Clinic · All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-3 text-background/70">
             <a href="https://www.sanjeevnionlineshop.com/" target="_blank" rel="noreferrer" className="rounded-full border border-emerald-accent/50 bg-emerald-accent/15 px-4 py-1.5 text-xs font-semibold text-emerald-accent hover:bg-emerald-accent/25">

@@ -9,8 +9,8 @@ export const Route = createFileRoute("/wishlist")({
   component: Wishlist,
   head: () => ({
     meta: [
-      { title: "My Wishlist — Sanjeevani Clinlc" },
-      { name: "description", content: "Services and packages you have saved for later at Sanjeevani Clinlc." },
+      { title: "My Wishlist — Sanjeevani Clinic" },
+      { name: "description", content: "Services and packages you have saved for later at Sanjeevani Clinic." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/wishlist" },
     ],

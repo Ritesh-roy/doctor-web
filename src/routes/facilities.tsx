@@ -13,9 +13,9 @@ export const Route = createFileRoute("/facilities")({
   component: Facilities,
   head: () => ({
     meta: [
-      { title: "Our Facilities — Sanjeevani Clinlc, Kirari" },
+      { title: "Our Facilities — Sanjeevani Clinic, Kirari" },
       { name: "description", content: "Modern, clean, patient-friendly facilities: consultation rooms, in-house lab, physiotherapy bay and imaging support in Kirari, Delhi." },
-      { property: "og:title", content: "Our Facilities — Sanjeevani Clinlc" },
+      { property: "og:title", content: "Our Facilities — Sanjeevani Clinic" },
       { property: "og:description", content: "See the clinic that Kirari families trust." },
       { property: "og:url", content: "/facilities" },
     ],
@@ -43,7 +43,7 @@ function Facilities() {
       <PageHero
         eyebrow="Facilities"
         title="Modern medicine in a calm, welcoming space."
-        intro="Every corner of Sanjeevani Clinlc is designed for one thing — to help you feel cared for from the moment you walk in."
+        intro="Every corner of Sanjeevani Clinic is designed for one thing — to help you feel cared for from the moment you walk in."
         crumbs={[{ label: "Home", to: "/" }, { label: "Facilities" }]}
       />
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24">

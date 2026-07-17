@@ -6,8 +6,8 @@ export const Route = createFileRoute("/appointment-cancelled")({
   component: AppointmentCancelled,
   head: () => ({
     meta: [
-      { title: "Appointment Cancelled — Sanjeevani Clinlc" },
-      { name: "description", content: "Your Sanjeevani Clinlc appointment has been cancelled. You can rebook any time." },
+      { title: "Appointment Cancelled — Sanjeevani Clinic" },
+      { name: "description", content: "Your Sanjeevani Clinic appointment has been cancelled. You can rebook any time." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/appointment-cancelled" },
     ],

@@ -31,32 +31,34 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { ProductSlider } from "@/components/site/ProductSlider";
 import { HeroSlider } from "@/components/site/HeroSlider";
 import { CLINIC } from "@/data/clinic";
-import { SERVICES } from "@/data/services";
+
 import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 
 import doctorAsset from "@/assets/doctor-hero.asset.json";
-import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
+import neoreoAsset from "@/assets/neoreo-products-new.png.asset.json";
 import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
+import heroAwardAsset from "@/assets/hero-award.png.asset.json";
 
-const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
+
 
 const HERO_SLIDES = [
-  { src: "/photos/hero/image-63.png", alt: "Dr. Bhanu Pratap Singh — MBBS & Family Physician at Sanjeevani Clinlc" },
+  { src: heroAwardAsset.url, alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding contribution to healthcare services" },
+  { src: "/photos/hero/image-63.png", alt: "Dr. Bhanu Pratap Singh — MBBS & Family Physician at Sanjeevani Clinic" },
   { src: "/photos/hero/image-61.png", alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding healthcare service" },
-  { src: "/photos/hero/image-62.png", alt: "Sardar Patel Unity Award 2026 presented to Sanjeevani Clinlc" },
+  { src: "/photos/hero/image-62.png", alt: "Sardar Patel Unity Award 2026 presented to Sanjeevani Clinic" },
 ];
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Sanjeevani Clinlc — Trusted Family Healthcare in Kirari, Delhi" },
+      { title: "Sanjeevani Clinic — Trusted Family Healthcare in Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Sanjeevani Clinlc, Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
+          "Sanjeevani Clinic, Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
       },
-      { property: "og:title", content: "Sanjeevani Clinlc — Premium Family Healthcare" },
+      { property: "og:title", content: "Sanjeevani Clinic — Premium Family Healthcare" },
       { property: "og:description", content: "Premium family healthcare, diagnostics, physiotherapy and eye care in Kirari, Delhi." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -106,7 +108,7 @@ function Hero() {
             <span className="text-gradient">Family.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            For over {CLINIC.years} years, Sanjeevani Clinlc has cared for families across
+            For over {CLINIC.years} years, Sanjeevani Clinic has cared for families across
             Delhi with warm, expert medicine — from everyday consultations to
             physiotherapy, diagnostics and eye care, all under one roof.
           </p>
@@ -259,26 +261,17 @@ function ServicesGrid() {
     badge?: string;
   };
 
-  const allCards: Card[] = [
-    ...groups.map((g) => ({
-      key: g.slug,
-      title: g.title,
-      short: g.short,
-      image: g.image,
-      icon: g.icon,
-      href: { to: g.to },
-      badge: "badge" in g ? g.badge : undefined,
-    })),
-    ...SERVICES.map((s) => ({
-      key: s.slug,
-      title: s.title,
-      short: s.short,
-      image: s.image,
-      icon: SERVICE_ICONS[s.icon],
-      href: { to: "/services/$slug", params: { slug: s.slug } },
-    })),
-  ];
-  const cards: Card[] = allCards.slice(0, 9);
+  const cards: Card[] = groups.map((g) => ({
+    key: g.slug,
+    title: g.title,
+    short: g.short,
+    image: g.image,
+    icon: g.icon,
+    href: { to: g.to },
+    badge: "badge" in g ? g.badge : undefined,
+  }));
+
+
 
 
   return (
@@ -316,7 +309,7 @@ function ServicesGrid() {
               <div className="flex flex-1 flex-col p-6">
                 <div className="font-display text-xl font-semibold text-foreground">{c.title}</div>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.short}</p>
-                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">Explore more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"><Calendar className="h-4 w-4" /> Book Appointment <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
               </div>
             </Link>
           );
@@ -347,7 +340,7 @@ function DoctorStrip() {
           <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Dr. B.P. Singh — MBBS & Family Physician</h2>
           <p className="mt-4 text-muted-foreground">
             With over 15 years of clinical experience, Dr. Singh is known in Karan Vihar and Kirari for his patience,
-            careful listening and honest, ethical advice. He leads Sanjeevani Clinlc with the belief that great care
+            careful listening and honest, ethical advice. He leads Sanjeevani Clinic with the belief that great care
             begins with feeling heard.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -420,7 +413,7 @@ function FounderPreview() {
         <div className="relative order-2 lg:order-1">
           <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-primary/20 to-emerald-accent/20 blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-glow">
-            <img src="/photos/doctor-portrait-2.jpg" alt="Mr. D.R. B.P. Singh — Founder" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            <img src={neoreoAsset.url} alt="NEOREO Healthcare products by Sanjeevani Clinic" loading="lazy" className="aspect-[4/5] w-full object-cover" />
           </div>
         </div>
         <div className="order-1 lg:order-2">
@@ -431,7 +424,7 @@ function FounderPreview() {
             A single room in 2009. A mission bigger than any wall.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Mr. D.R. B.P. Singh started Sanjeevani Clinlc in Kirari with limited resources
+            Mr. D.R. B.P. Singh started Sanjeevani Clinic in Kirari with limited resources
             but a bigger vision — quality healthcare should never be a privilege for a few.
             15 years, 125+ countries and 70,000+ lives later, that mission has only grown.
           </p>
@@ -495,7 +488,7 @@ function NeoreoSection() {
             Our own healthcare brand — trusted, affordable, quality assured.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            NEOREO is Sanjeevani Clinlc's in-house healthcare brand. Every product is
+            NEOREO is Sanjeevani Clinic's in-house healthcare brand. Every product is
             developed with the same ethos we treat patients with — high quality, honest
             pricing and complete transparency. Because good health should never be a luxury.
           </p>
@@ -519,7 +512,7 @@ function NeoreoSection() {
         <div className="relative">
           <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-emerald-accent/25 to-primary/15 blur-2xl" />
           <div className="relative overflow-hidden rounded-[24px] border border-white/60 bg-white shadow-glow">
-            <img src="/photos/neoreo-products.jpg" alt="NEOREO Healthcare product range" loading="lazy" className="h-full w-full object-contain" />
+            <img src={neoreoAsset.url} alt="NEOREO Healthcare product range" loading="lazy" className="h-full w-full object-contain" />
           </div>
         </div>
       </div>

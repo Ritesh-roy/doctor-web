@@ -9,14 +9,14 @@ export const Route = createFileRoute("/blog/")({
   component: BlogIndex,
   head: () => ({
     meta: [
-      { title: "Health Blog & Guides — Sanjeevani Clinlc Pvt. Ltd., Kirari, Delhi" },
+      { title: "Health Blog & Guides — Sanjeevani Clinic Pvt. Ltd., Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Reliable, doctor-reviewed articles on physiotherapy, eye care, diagnostics, general medicine and preventive health from Sanjeevani Clinlc Pvt. Ltd., Kirari.",
+          "Reliable, doctor-reviewed articles on physiotherapy, eye care, diagnostics, general medicine and preventive health from Sanjeevani Clinic Pvt. Ltd., Kirari.",
       },
       { name: "keywords", content: "health blog Delhi, physiotherapy tips, eye care articles, blood test guide, family health advice Kirari" },
-      { property: "og:title", content: "Health Blog & Guides — Sanjeevani Clinlc Pvt. Ltd." },
+      { property: "og:title", content: "Health Blog & Guides — Sanjeevani Clinic Pvt. Ltd." },
       { property: "og:description", content: "Doctor-reviewed articles on family health, physiotherapy, diagnostics and more." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/blog" },
@@ -45,7 +45,7 @@ function BlogIndex() {
             className="aspect-video w-full object-contain"
           />
           <figcaption className="bg-background px-5 py-3 text-center text-sm text-muted-foreground">
-            Sanjeevani Clinlc — clinic and award highlights.
+            Sanjeevani Clinic — clinic and award highlights.
           </figcaption>
         </figure>
       </section>
@@ -59,7 +59,7 @@ function BlogIndex() {
               className="group flex flex-col overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition hover:-translate-y-1 hover:shadow-glow"
             >
               <div className="flex aspect-[16/10] items-center justify-center overflow-hidden bg-primary-soft/30 p-10">
-                <img src="/logo-full.png" alt="Sanjeevani Clinlc logo" loading="lazy" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" />
+                <img src="/logo-full.png" alt="Sanjeevani Clinic logo" loading="lazy" className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <span className="inline-flex w-fit items-center rounded-full bg-primary-soft px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">

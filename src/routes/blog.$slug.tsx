@@ -19,14 +19,14 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Article Not Found — Sanjeevani Clinlc Pvt. Ltd." }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Article Not Found — Sanjeevani Clinic Pvt. Ltd." }, { name: "robots", content: "noindex" }] };
     }
     const p = loaderData.post;
     return {
       meta: [
-        { title: `${p.title} — Sanjeevani Clinlc Pvt. Ltd. Blog` },
+        { title: `${p.title} — Sanjeevani Clinic Pvt. Ltd. Blog` },
         { name: "description", content: p.excerpt },
-        { name: "keywords", content: `${p.category}, health blog Delhi, Sanjeevani Clinlc Pvt. Ltd. Kirari` },
+        { name: "keywords", content: `${p.category}, health blog Delhi, Sanjeevani Clinic Pvt. Ltd. Kirari` },
         { property: "og:title", content: p.title },
         { property: "og:description", content: p.excerpt },
         { property: "og:type", content: "article" },
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/blog/$slug")({
             image: p.cover,
             datePublished: p.publishedOn,
             author: { "@type": "Organization", name: p.author },
-            publisher: { "@type": "MedicalClinic", name: "Sanjeevani Clinlc Pvt. Ltd." },
+            publisher: { "@type": "MedicalClinic", name: "Sanjeevani Clinic Pvt. Ltd." },
           }),
         },
       ],
@@ -107,7 +107,7 @@ function BlogPostPage() {
       {!post.video && (
         <section className="mx-auto max-w-4xl px-4 pb-8 sm:px-6">
           <div className="flex aspect-video items-center justify-center overflow-hidden rounded-3xl border border-primary/10 bg-primary-soft/30 p-12 shadow-glow">
-            <img src="/logo-full.png" alt="Sanjeevani Clinlc logo" className="h-full w-full object-contain" loading="eager" />
+            <img src="/logo-full.png" alt="Sanjeevani Clinic logo" className="h-full w-full object-contain" loading="eager" />
           </div>
         </section>
       )}
@@ -174,7 +174,7 @@ function BlogPostPage() {
 
         <div className="mt-12 rounded-3xl border border-primary/10 bg-gradient-to-br from-primary-soft/50 to-white p-6 sm:p-8">
           <h3 className="font-display text-xl text-foreground">Have a personal question about this?</h3>
-          <p className="mt-2 text-sm text-muted-foreground">Book a short consultation with Dr. B.P. Singh at Sanjeevani Clinlc Pvt. Ltd., or WhatsApp us and we will guide you.</p>
+          <p className="mt-2 text-sm text-muted-foreground">Book a short consultation with Dr. B.P. Singh at Sanjeevani Clinic Pvt. Ltd., or WhatsApp us and we will guide you.</p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link to="/book-appointment" className="inline-flex h-11 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground">Book Appointment</Link>
             <a href="https://wa.me/918853515351" className="inline-flex h-11 items-center rounded-full border border-primary/20 px-5 text-sm font-semibold text-foreground">Chat on WhatsApp</a>
@@ -195,7 +195,7 @@ function BlogPostPage() {
                 className="group overflow-hidden rounded-2xl border border-primary/10 bg-white text-sm text-foreground shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
               >
                 <div className="flex aspect-[16/10] items-center justify-center overflow-hidden bg-primary-soft/30 p-5">
-                  <img src="/logo-full.png" alt="Sanjeevani Clinlc logo" loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                  <img src="/logo-full.png" alt="Sanjeevani Clinic logo" loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-4">
                   <div className="text-[11px] font-semibold uppercase tracking-widest text-primary">{r.category}</div>
