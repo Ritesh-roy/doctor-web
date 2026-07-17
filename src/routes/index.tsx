@@ -259,7 +259,7 @@ function ServicesGrid() {
     badge?: string;
   };
 
-  const cards: Card[] = [
+  const allCards: Card[] = [
     ...groups.map((g) => ({
       key: g.slug,
       title: g.title,
@@ -278,6 +278,8 @@ function ServicesGrid() {
       href: { to: "/services/$slug", params: { slug: s.slug } },
     })),
   ];
+  const cards: Card[] = allCards.slice(0, 9);
+
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
@@ -320,9 +322,15 @@ function ServicesGrid() {
           );
         })}
       </div>
+      <div className="mt-10 flex justify-center">
+        <Link to="/services" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:opacity-95">
+          View all services <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
     </section>
   );
 }
+
 
 
 function DoctorStrip() {
