@@ -8,14 +8,14 @@ export const Route = createFileRoute("/pharmacy")({
   component: Pharmacy,
   head: () => ({
     meta: [
-      { title: "In-house Pharmacy — Sanjeevani Clinc Pvt. Ltd., Kirari, Delhi" },
+      { title: "In-house Pharmacy — Sanjeevani Clinic Pvt. Ltd., Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Sanjeevani Clinc Pvt. Ltd.'s in-house pharmacy stocks genuine medicines, chronic-care refills and OTC essentials, with prescription verification by our doctor.",
+          "Sanjeevani Clinic Pvt. Ltd.'s in-house pharmacy stocks genuine medicines, chronic-care refills and OTC essentials, with prescription verification by our doctor.",
       },
-      { name: "keywords", content: "pharmacy Kirari, medicines near me, chronic care refills, Sanjeevani Clinc Pvt. Ltd. pharma" },
-      { property: "og:title", content: "In-house Pharmacy — Sanjeevani Clinc Pvt. Ltd." },
+      { name: "keywords", content: "pharmacy Kirari, medicines near me, chronic care refills, Sanjeevani Clinic Pvt. Ltd. pharma" },
+      { property: "og:title", content: "In-house Pharmacy — Sanjeevani Clinic Pvt. Ltd." },
       { property: "og:description", content: "Genuine medicines and chronic-care refills with doctor verification." },
       { property: "og:url", content: "/pharmacy" },
     ],
@@ -34,7 +34,7 @@ function Pharmacy() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Sanjeevani Clinc Pvt. Ltd. Pharma"
+        eyebrow="Sanjeevani Clinic Pvt. Ltd. Pharma"
         title="In-house pharmacy you can actually trust."
         intro="Genuine, well-stored medicines dispensed by our clinical team — with clear counselling on how and when to take each one."
         crumbs={[{ label: "Home", to: "/" }, { label: "Pharmacy" }]}

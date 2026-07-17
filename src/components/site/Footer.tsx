@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Youtube, MessageCircle } from "lucide-react";
 import { LogoMark } from "./Logo";
 import { CLINIC } from "@/data/clinic";
 
@@ -55,7 +55,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <LogoMark className="h-11 w-11 rounded-xl" />
               <div>
-                <div className="font-display text-xl font-semibold">Sanjeevani Clinc Pvt. Ltd.</div>
+                <div className="font-display text-xl font-semibold">Sanjeevani Clinic Pvt. Ltd.</div>
                 <div className="text-xs uppercase tracking-[0.22em] text-background/60">
                   Kirari · Delhi
                 </div>
@@ -68,6 +68,8 @@ export function Footer() {
             <div className="mt-6 space-y-3 text-sm text-background/85">
               <div className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> <span>{CLINIC.address}</span></div>
               <div className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0" /> <a href={`tel:${CLINIC.phoneTel}`}>{CLINIC.phone}</a></div>
+              <div className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0" /> <a href={`tel:${CLINIC.phoneAltTel}`}>{CLINIC.phoneAlt}</a></div>
+              <div className="flex items-center gap-3"><MessageCircle className="h-4 w-4 shrink-0" /> <a href={CLINIC.whatsapp} target="_blank" rel="noreferrer">WhatsApp {CLINIC.whatsappNumber}</a></div>
               <div className="flex items-center gap-3"><Mail className="h-4 w-4 shrink-0" /> <a href={`mailto:${CLINIC.email}`}>{CLINIC.email}</a></div>
               <div className="flex items-start gap-3"><Clock className="mt-0.5 h-4 w-4 shrink-0" /> <span>{CLINIC.hours}</span></div>
             </div>
@@ -93,7 +95,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col-reverse items-start justify-between gap-6 border-t border-background/10 pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-background/60">
-            © {new Date().getFullYear()} Sanjeevani Clinc Pvt. Ltd. · All rights reserved.
+            © {new Date().getFullYear()} Sanjeevani Clinic Pvt. Ltd. · All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-3 text-background/70">
             <a href="https://www.sanjeevnionlineshop.com/" target="_blank" rel="noreferrer" className="rounded-full border border-emerald-accent/50 bg-emerald-accent/15 px-4 py-1.5 text-xs font-semibold text-emerald-accent hover:bg-emerald-accent/25">

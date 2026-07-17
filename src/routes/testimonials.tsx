@@ -9,9 +9,9 @@ export const Route = createFileRoute("/testimonials")({
   component: Testimonials,
   head: () => ({
     meta: [
-      { title: "Reviews — Sanjeevani Clinc Pvt. Ltd., Kirari" },
-      { name: "description", content: "What Kirari families say about Sanjeevani Clinc Pvt. Ltd. and Dr. B.P. Singh." },
-      { property: "og:title", content: "Patient Reviews — Sanjeevani Clinc Pvt. Ltd." },
+      { title: "Reviews — Sanjeevani Clinic Pvt. Ltd., Kirari" },
+      { name: "description", content: "What Kirari families say about Sanjeevani Clinic Pvt. Ltd. and Dr. B.P. Singh." },
+      { property: "og:title", content: "Patient Reviews — Sanjeevani Clinic Pvt. Ltd." },
       { property: "og:description", content: "Real feedback from our patients." },
       { property: "og:url", content: "/testimonials" },
     ],

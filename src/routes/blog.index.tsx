@@ -9,14 +9,14 @@ export const Route = createFileRoute("/blog/")({
   component: BlogIndex,
   head: () => ({
     meta: [
-      { title: "Health Blog & Guides — Sanjeevani Clinc Pvt. Ltd., Kirari, Delhi" },
+      { title: "Health Blog & Guides — Sanjeevani Clinic Pvt. Ltd., Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Reliable, doctor-reviewed articles on physiotherapy, eye care, diagnostics, general medicine and preventive health from Sanjeevani Clinc Pvt. Ltd., Kirari.",
+          "Reliable, doctor-reviewed articles on physiotherapy, eye care, diagnostics, general medicine and preventive health from Sanjeevani Clinic Pvt. Ltd., Kirari.",
       },
       { name: "keywords", content: "health blog Delhi, physiotherapy tips, eye care articles, blood test guide, family health advice Kirari" },
-      { property: "og:title", content: "Health Blog & Guides — Sanjeevani Clinc Pvt. Ltd." },
+      { property: "og:title", content: "Health Blog & Guides — Sanjeevani Clinic Pvt. Ltd." },
       { property: "og:description", content: "Doctor-reviewed articles on family health, physiotherapy, diagnostics and more." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/blog" },
