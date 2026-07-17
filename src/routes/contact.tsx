@@ -46,9 +46,10 @@ function Contact() {
         <div className="space-y-4">
           {[
             { icon: MapPin, t: "Address", v: CLINIC.address, href: CLINIC.mapUrl },
-            { icon: Phone, t: "Phone", v: CLINIC.phone, href: `tel:${CLINIC.phoneTel}` },
-            { icon: Phone, t: "Landline", v: CLINIC.landline, href: `tel:${CLINIC.landlineTel}` },
-            { icon: MessageCircle, t: "WhatsApp", v: "Chat with us instantly", href: CLINIC.whatsapp },
+            { icon: Phone, t: "Call", v: CLINIC.phone, href: `tel:${CLINIC.phoneTel}` },
+            { icon: Phone, t: "Landline", v: CLINIC.phoneAlt, href: `tel:${CLINIC.phoneAltTel}` },
+            { icon: MessageCircle, t: "WhatsApp", v: CLINIC.whatsappNumber, href: CLINIC.whatsapp },
+            { icon: Ambulance, t: "Emergency 24×7", v: `Call ${CLINIC.phone}`, href: `tel:${CLINIC.phoneTel}` },
             { icon: Mail, t: "Email", v: CLINIC.email, href: `mailto:${CLINIC.email}` },
             { icon: Clock, t: "Hours", v: CLINIC.hours },
             { icon: Ambulance, t: "Emergency", v: `24×7 · Call ${CLINIC.phone}`, href: `tel:${CLINIC.phoneTel}` },
