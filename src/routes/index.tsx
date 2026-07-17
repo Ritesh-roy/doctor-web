@@ -35,12 +35,14 @@ import { SERVICES } from "@/data/services";
 import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 
 import doctorAsset from "@/assets/doctor-hero.asset.json";
-import neoreoAsset from "@/assets/neoreo-products.png.asset.json";
+import neoreoAsset from "@/assets/neoreo-products-new.png.asset.json";
 import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
+import heroAwardAsset from "@/assets/hero-award.png.asset.json";
 
 const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
 
 const HERO_SLIDES = [
+  { src: heroAwardAsset.url, alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding contribution to healthcare services" },
   { src: "/photos/hero/image-63.png", alt: "Dr. Bhanu Pratap Singh — MBBS & Family Physician at Sanjeevani Clinic" },
   { src: "/photos/hero/image-61.png", alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding healthcare service" },
   { src: "/photos/hero/image-62.png", alt: "Sardar Patel Unity Award 2026 presented to Sanjeevani Clinic" },
