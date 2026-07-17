@@ -18,17 +18,17 @@ export const Route = createFileRoute("/founder-story")({
   component: FounderStory,
   head: () => ({
     meta: [
-      { title: "Founder Story — Dr. B.P. Singh | Sanjeevani Clinic Pvt. Ltd." },
+      { title: "Founder Story — Dr. B.P. Singh | Sanjeevani Clinlc Pvt. Ltd." },
       {
         name: "description",
         content:
-          "The story of Mr. D.R. B.P. Singh — founder & director of Sanjeevani Clinic Pvt. Ltd. From a single room in 2009 to a mission to bring affordable, ethical healthcare to every Indian family.",
+          "The story of Mr. D.R. B.P. Singh — founder & director of Sanjeevani Clinlc Pvt. Ltd. From a single room in 2009 to a mission to bring affordable, ethical healthcare to every Indian family.",
       },
       { property: "og:title", content: "Founder Story — Dr. B.P. Singh" },
       {
         property: "og:description",
         content:
-          "From a single room in 2009 to Sardar Patel Unity Award 2026 — the journey of the founder of Sanjeevani Clinic Pvt. Ltd. and NEOREO Healthcare.",
+          "From a single room in 2009 to Sardar Patel Unity Award 2026 — the journey of the founder of Sanjeevani Clinlc Pvt. Ltd. and NEOREO Healthcare.",
       },
       { property: "og:url", content: "/founder-story" },
       { property: "og:type", content: "article" },
@@ -60,8 +60,8 @@ const TIMELINE = [
   },
   {
     year: "2021",
-    title: "Sanjeevani Clinic Pvt. Ltd. — a mission, not a business",
-    body: "Sanjeevani Clinic Pvt. Ltd. is formalised — not just as a healthcare company, but as a mission to build healthier communities, generate employment and empower local entrepreneurs.",
+    title: "Sanjeevani Clinlc Pvt. Ltd. — a mission, not a business",
+    body: "Sanjeevani Clinlc Pvt. Ltd. is formalised — not just as a healthcare company, but as a mission to build healthier communities, generate employment and empower local entrepreneurs.",
     icon: Target,
   },
   {
@@ -98,7 +98,7 @@ const AUTOBIOGRAPHY = [
   "My journey began in 2009, not from a big office or a luxurious building, but from a small room with a simple dream. At that time, I had very limited resources, but my vision was much bigger than my circumstances. I always believed that quality healthcare should not be a privilege reserved for a few. Every person, regardless of where they live or how much they earn, deserves access to affordable, trusted, and ethical healthcare.",
   "Over the years, I have been fortunate to explore more than 125 countries, learning from different healthcare systems, business models, and cultures. Every journey taught me something valuable and strengthened my belief that India deserves a healthcare ecosystem that is accessible, affordable, and built on trust. That vision remains unchanged even today.",
   "My mission has always been to make quality healthcare reach every corner of India, especially rural communities, where people often travel long distances even for basic medical care. I dream of a future where no family is denied treatment because of distance or financial limitations, and where every patient receives healthcare with dignity, compassion, and strong ethical values.",
-  "With this purpose, we built Sanjeevani Clinic Pvt. Ltd. — not just as a healthcare company, but as a mission to create healthier communities while generating employment opportunities and empowering local entrepreneurs.",
+  "With this purpose, we built Sanjeevani Clinlc Pvt. Ltd. — not just as a healthcare company, but as a mission to create healthier communities while generating employment opportunities and empowering local entrepreneurs.",
   "To make trusted healthcare products affordable for everyone, we also introduced our own brand, NEOREO. Every product under the NEOREO brand is developed with the vision of providing high-quality, reliable healthcare solutions at reasonable prices — because I believe good health should never become a luxury.",
   "For me, healthcare is not just a business. It is a responsibility. Every clinic we establish, every product we create, and every life we touch brings us one step closer to our mission. I know this journey is far from over. My dream is much bigger. I want to continue expanding our healthcare network, reaching more villages, creating more employment opportunities, and building a future where affordable healthcare is available to every Indian family.",
   "Because I truly believe that when you serve humanity with honesty, success becomes a by-product — not the destination.",
@@ -111,7 +111,7 @@ function FounderStory() {
       <PageHero
         eyebrow="Founder Story"
         title="A single room in 2009. A mission that outgrew every wall."
-        intro="The story of Mr. D.R. B.P. Singh — Founder & Director of Sanjeevani Clinic Pvt. Ltd., visionary healthcare entrepreneur and the man behind NEOREO Healthcare."
+        intro="The story of Mr. D.R. B.P. Singh — Founder & Director of Sanjeevani Clinlc Pvt. Ltd., visionary healthcare entrepreneur and the man behind NEOREO Healthcare."
         crumbs={[{ label: "Home", to: "/" }, { label: "Founder Story" }]}
       />
 
@@ -123,7 +123,7 @@ function FounderStory() {
             <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white shadow-glow">
               <img
                 src="/photos/doctor-portrait-2.jpg"
-                alt="Mr. D.R. B.P. Singh — Founder, Sanjeevani Clinic Pvt. Ltd."
+                alt="Mr. D.R. B.P. Singh — Founder, Sanjeevani Clinlc Pvt. Ltd."
                 loading="eager"
                 className="aspect-[4/5] w-full object-cover"
               />
@@ -135,7 +135,7 @@ function FounderStory() {
               Mr. D.R. B.P. Singh
             </h2>
             <p className="mt-2 text-sm font-medium text-emerald-accent">
-              Visionary Healthcare Entrepreneur · Sanjeevani Clinic Pvt. Ltd.
+              Visionary Healthcare Entrepreneur · Sanjeevani Clinlc Pvt. Ltd.
             </p>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-foreground/85">
               {AUTOBIOGRAPHY.slice(0, 3).map((p, i) => (
@@ -238,7 +238,7 @@ function FounderStory() {
             </div>
             <div>
               <div className="font-display text-lg font-semibold text-foreground">Mr. D.R. B.P. Singh</div>
-              <div className="text-sm text-muted-foreground">Founder &amp; Director · Sanjeevani Clinic Pvt. Ltd.</div>
+              <div className="text-sm text-muted-foreground">Founder &amp; Director · Sanjeevani Clinlc Pvt. Ltd.</div>
             </div>
           </div>
         </div>
