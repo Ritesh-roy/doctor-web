@@ -12,7 +12,7 @@ const IMG = {
   paraffinFoot: "/photos/paraffin-wax-foot.jpg",
   knee: "/photos/knee-pain-real.jpg",
   ift: "/photos/team-back-blue.jpg",
-  tens: "/photos/doctor-desk-4.jpg",
+  tens: "/photos/ai-tens-therapy.jpg",
   cervical: "/photos/ai-cervical-machine.jpg",
   lumbar: "/photos/ai-lumbar-machine.jpg",
 };

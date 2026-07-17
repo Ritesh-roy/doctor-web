@@ -25,20 +25,18 @@ export type BlogPost = {
 };
 
 
-// Real clinic photos only. Posts without a matching photo use a soft
-// branded gradient placeholder (no logo, no stock imagery).
-const PLACEHOLDER = "/photos/placeholder.svg";
+// Website / clinic photos only — no doctor portraits used as blog covers.
 const IMG = {
-  physioHome: PLACEHOLDER,
-  fullBodyPhysio: PLACEHOLDER,
-  eyeCampaign: "/photos/school-checkup-students.jpg",
-  bloodTest: "/photos/school-checkup-desk.jpg",
-  bloodReport: "/photos/school-checkup-hall.jpg",
-  eyeCheck: "/photos/school-checkup-doctor.jpg",
-  diabetes: PLACEHOLDER,
-  bp: PLACEHOLDER,
-  annualCheck: "/photos/school-checkup-lineup.jpg",
-  backPain: PLACEHOLDER,
+  physioHome: "/photos/ai-tens-therapy.jpg",
+  fullBodyPhysio: "/photos/massage-back-real.jpg",
+  eyeCampaign: "/photos/ai-lens-replace.jpg",
+  bloodTest: "/photos/ai-radiology.jpg",
+  bloodReport: "/photos/ai-xray.jpg",
+  eyeCheck: "/photos/ai-lens-replace.jpg",
+  diabetes: "/photos/ai-body-massage.jpg",
+  bp: "/photos/ai-cervical-therapy.jpg",
+  annualCheck: "/photos/ai-radiology.jpg",
+  backPain: "/photos/knee-pain-real.jpg",
 };
 
 
@@ -52,11 +50,11 @@ export const BLOG_POSTS: BlogPost[] = [
     readMinutes: 3,
     publishedOn: "2026-07-17",
     author: "Sanjeevani Clinlc Pvt. Ltd. Team",
-    cover: "/photos/school-checkup-hall.jpg",
+    cover: "/photos/clinic-front.jpg",
     featuredImageAlt: "Inside Sanjeevani Clinlc Pvt. Ltd. — patient care in progress",
     video: {
       src: "/photos/blog-video.mp4",
-      poster: "/photos/school-checkup-hall.jpg",
+      poster: "/photos/clinic-front.jpg",
       caption: "A short walkthrough of Sanjeevani Clinlc Pvt. Ltd., Kirari.",
     },
     intro:
