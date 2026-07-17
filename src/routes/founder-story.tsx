@@ -279,7 +279,7 @@ function FounderStory() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-emerald-accent/20 to-primary/20 blur-2xl" />
             <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white shadow-glow">
-              <img src="/__l5e/assets-v1/placeholder" alt="NEOREO Healthcare products" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+              <img src={neoreoAsset.url} alt="NEOREO Healthcare products by Sanjeevani Clinic" loading="lazy" className="aspect-[4/3] w-full object-cover" />
             </div>
           </div>
         </div>
