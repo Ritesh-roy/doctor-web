@@ -322,9 +322,15 @@ function ServicesGrid() {
           );
         })}
       </div>
+      <div className="mt-10 flex justify-center">
+        <Link to="/services" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:opacity-95">
+          View all services <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
     </section>
   );
 }
+
 
 
 function DoctorStrip() {
