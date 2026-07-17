@@ -9,9 +9,9 @@ export const Route = createFileRoute("/doctor")({
   component: Doctor,
   head: () => ({
     meta: [
-      { title: "Dr. B.P. Singh — MBBS & Family Physician · Sanjeevani Clinic" },
+      { title: "Dr. B.P. Singh — MBBS & Family Physician · Sanjeevani Clinlc" },
       { name: "description", content: "Meet Dr. B.P. Singh — 15+ years of family medicine experience in Karan Vihar, Kirari, Delhi." },
-      { property: "og:title", content: "Dr. B.P. Singh — Sanjeevani Clinic" },
+      { property: "og:title", content: "Dr. B.P. Singh — Sanjeevani Clinlc" },
       { property: "og:description", content: "Family physician known for honest, patient advice." },
       { property: "og:url", content: "/doctor" },
     ],

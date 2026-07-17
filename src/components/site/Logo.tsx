@@ -5,7 +5,7 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   return (
     <img
       src={logoAsset.url}
-      alt="Sanjeevani Clinic"
+      alt="Sanjeevani Clinlc"
       className={`${className} object-contain`}
       loading="eager"
       decoding="async"
@@ -15,13 +15,13 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <Link to="/" className="flex min-w-0 items-center gap-2.5 shrink-0" aria-label="Sanjeevani Clinic — Home">
+    <Link to="/" className="flex min-w-0 items-center gap-2.5 shrink-0" aria-label="Sanjeevani Clinlc — Home">
       <LogoMark className="h-10 w-10 shrink-0 sm:h-11 sm:w-11" />
       {!compact && (
         <span className="min-w-0 leading-tight">
           <span className="block font-display text-sm font-semibold text-foreground sm:text-base xl:text-lg">
-            <span className="xl:hidden">Sanjeevani Clinic</span>
-            <span className="hidden xl:inline">Sanjeevani Clinic</span>
+            <span className="xl:hidden">Sanjeevani Clinlc</span>
+            <span className="hidden xl:inline">Sanjeevani Clinlc</span>
           </span>
           <span className="hidden text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground sm:block">
             Care · Compassion · Cure

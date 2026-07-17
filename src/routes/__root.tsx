@@ -82,14 +82,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sanjeevani Clinic — Trusted Family Healthcare in Kirari, Delhi" },
+      { title: "Sanjeevani Clinlc — Trusted Family Healthcare in Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Sanjeevani Clinic in Karan Vihar, Kirari, Delhi. 15+ years of trusted care led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and family medicine.",
+          "Sanjeevani Clinlc in Karan Vihar, Kirari, Delhi. 15+ years of trusted care led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and family medicine.",
       },
-      { name: "author", content: "Sanjeevani Clinic" },
-      { property: "og:site_name", content: "Sanjeevani Clinic" },
+      { name: "author", content: "Sanjeevani Clinlc" },
+      { property: "og:site_name", content: "Sanjeevani Clinlc" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#1d4ed8" },

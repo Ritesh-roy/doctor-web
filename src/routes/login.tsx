@@ -12,8 +12,8 @@ export const Route = createFileRoute("/login")({
   component: Login,
   head: () => ({
     meta: [
-      { title: "Sign In — Sanjeevani Clinic" },
-      { name: "description", content: "Sign in to Sanjeevani Clinic with your email or mobile and password." },
+      { title: "Sign In — Sanjeevani Clinlc" },
+      { name: "description", content: "Sign in to Sanjeevani Clinlc with your email or mobile and password." },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/login" }],
