@@ -72,22 +72,6 @@ const items: GalleryItem[] = [
       "From assessment to treatment — the clinic offers Jaanu Vasti, TENS, I.F.T and structured physiotherapy programmes for chronic and acute knee pain.",
   },
   {
-    src: "/photos/doctor-portrait-1.jpg",
-    alt: "Dr. B.P. Singh at his consulting desk with anatomy charts",
-    title: "The Original Consulting Room",
-    category: "Doctor",
-    description:
-      "The original consulting room where thousands of Kirari families first met Dr. B.P. Singh — anatomy charts on the wall and a promise to always listen carefully.",
-  },
-  {
-    src: "/photos/doctor-portrait-2.jpg",
-    alt: "Dr. B.P. Singh in the modern consulting room",
-    title: "The Modern Consulting Room",
-    category: "Doctor",
-    description:
-      "Same doctor, same values — in the upgraded, brightly-lit consulting room of today's Sanjeevani Clinic.",
-  },
-  {
     src: "/photos/award-unity-desk.jpg",
     alt: "Sardar Patel Unity Award 2026 on the founder's desk",
     title: "Unity Award — On the Desk",

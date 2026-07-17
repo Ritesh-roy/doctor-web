@@ -88,14 +88,14 @@ export function HeroSlider({
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/40 text-foreground shadow-soft backdrop-blur-md transition hover:bg-white/70"
+        className="absolute left-3 bottom-14 grid h-11 w-11 place-items-center rounded-full border border-white/50 bg-white/40 text-foreground shadow-soft backdrop-blur-md transition hover:bg-white/70"
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-white/40 text-foreground shadow-soft backdrop-blur-md transition hover:bg-white/70"
+        className="absolute right-3 bottom-14 grid h-11 w-11 place-items-center rounded-full border border-white/50 bg-white/40 text-foreground shadow-soft backdrop-blur-md transition hover:bg-white/70"
       >
         <ChevronRight className="h-5 w-5" />
       </button>
