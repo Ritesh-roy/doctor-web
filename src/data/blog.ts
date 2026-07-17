@@ -17,11 +17,13 @@ export type BlogPost = {
   author: string;
   cover: string;
   featuredImageAlt: string;
+  video?: { src: string; poster?: string; caption?: string };
   intro: string;
   keyTakeaways: string[];
   sections: BlogSection[];
   faqs: BlogFAQ[];
 };
+
 
 // Real clinic photos only. Posts without a matching photo use a soft
 // branded gradient placeholder (no logo, no stock imagery).
