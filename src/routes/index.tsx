@@ -39,7 +39,7 @@ import neoreoAsset from "@/assets/neoreo-products-new.png.asset.json";
 import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
 import heroAwardAsset from "@/assets/hero-award.png.asset.json";
 
-const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
+
 
 const HERO_SLIDES = [
   { src: heroAwardAsset.url, alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding contribution to healthcare services" },
