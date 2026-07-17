@@ -221,7 +221,7 @@ function ServicesGrid() {
       short: "Blood Sample Test, Home Sample Available, and complete Diagnostic Lab details with doctor-guided reporting.",
       icon: FlaskConical,
       image: "/photos/ai-xray.jpg",
-      to: "/medical-services" as const,
+      to: "/book-appointment" as const,
       badge: "Home Sample Available",
     },
     {
@@ -230,7 +230,7 @@ function ServicesGrid() {
       short: "Comprehensive eye check-ups, refraction and specialist referral.",
       icon: Eye,
       image: "/photos/ai-lens-replace.jpg",
-      to: "/free-eye-checkup" as const,
+      to: "/book-appointment" as const,
     },
     {
       slug: "physio",
@@ -238,7 +238,7 @@ function ServicesGrid() {
       short: "IFT, TENS, cervical & lumbar traction, cupping and rehab.",
       icon: Activity,
       image: "/photos/ai-cervical-machine.jpg",
-      to: "/services" as const,
+      to: "/book-appointment" as const,
     },
     {
       slug: "radiology",
@@ -246,7 +246,7 @@ function ServicesGrid() {
       short: "CT scan, MRI, digital X-ray and ultrasound — imaging coordination in-clinic.",
       icon: Scan,
       image: "/photos/ai-radiology.jpg",
-      to: "/medical-services" as const,
+      to: "/book-appointment" as const,
       badge: "New Radiology Shop",
     },
   ];
