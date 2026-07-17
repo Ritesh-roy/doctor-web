@@ -375,11 +375,63 @@ export const SERVICES: Service[] = [
   })),
 ];
 
-// Every service card gets its own generated healthcare visual. Keeping this
-// assignment in the shared data source guarantees Home, All Services and
-// detail pages always show the same unique image for a given service.
-SERVICES.forEach((service, index) => {
-  service.image = `/photos/services-generated/service-${String(index + 1).padStart(2, "0")}.jpg`;
+// Map each service to a matching uploaded photo. Services without a direct
+// upload fall back to the closest related image.
+const SERVICE_IMAGES: Record<string, string> = {
+  "ift-therapy": "/services-uploads/tens-therapy.jpg",
+  "tens-therapy": "/services-uploads/tens-therapy.jpg",
+  "cupping-therapy": "/services-uploads/cupping-therapy.jpg",
+  "fire-cupping-therapy": "/services-uploads/fire-cupping.jpg",
+  "paraffin-wax-therapy": "/services-uploads/paraffin-wax.jpg",
+  "body-massage-therapy": "/services-uploads/body-massage-therapy.jpg",
+  "foot-massage-therapy": "/services-uploads/foot-massage.jpg",
+  "hijama-therapy": "/services-uploads/hijama-therapy.jpg",
+  "digital-cervical-therapy": "/services-uploads/cervical-therapy.jpg",
+  "digital-lumbar-therapy": "/services-uploads/lumbar-therapy.jpg",
+  "family-physician": "/services-uploads/family-physician.jpg",
+  "general-opd": "/services-uploads/family-physician.jpg",
+  "diagnostic-lab": "/services-uploads/complete-blood-test.jpg",
+  "blood-sample-collection": "/services-uploads/blood-sample-collection.jpg",
+  "home-blood-sample-collection": "/services-uploads/blood-sample-collection.jpg",
+  "complete-blood-test": "/services-uploads/complete-blood-test.jpg",
+  "cbc-test": "/services-uploads/cbc-test.jpg",
+  "blood-sugar-test": "/services-uploads/blood-sugar-test.jpg",
+  "hba1c-test": "/services-uploads/hba1c-test.jpg",
+  "thyroid-profile": "/services-uploads/thyroid-test.jpg",
+  "lipid-profile": "/services-uploads/lipid-profile.jpg",
+  "liver-function-test": "/services-uploads/lft-test.jpg",
+  "kidney-function-test": "/services-uploads/kft-test.jpg",
+  "urine-test": "/services-uploads/urine-test.jpg",
+  "stool-test": "/services-uploads/stool-test.jpg",
+  "vitamin-b12-test": "/services-uploads/vitamin-d-test.jpg",
+  "vitamin-d-test": "/services-uploads/vitamin-d-test.jpg",
+  "ecg": "/services-uploads/ecg-test.jpg",
+  "digital-xray": "/services-uploads/digital-ecg.jpg",
+  "ultrasound-usg": "/services-uploads/ultrasound.jpg",
+  "radiology-services": "/services-uploads/ultrasound.jpg",
+  "eye-care-services": "/services-uploads/eye-care.jpg",
+  "eye-checkup": "/services-uploads/eye-checkup.jpg",
+  "vision-screening": "/services-uploads/vision-screening.jpg",
+  "cataract-screening": "/services-uploads/eye-checkup.jpg",
+  "physiotherapy": "/services-uploads/physiotherapy.jpg",
+  "home-physiotherapy": "/services-uploads/physiotherapy.jpg",
+  "neck-pain-treatment": "/services-uploads/neck-pain.jpg",
+  "back-pain-treatment": "/services-uploads/lumbar-therapy.jpg",
+  "knee-pain-treatment": "/services-uploads/knee-pain.jpg",
+  "joint-pain-treatment": "/services-uploads/joint-pain.jpg",
+  "sports-injury-rehab": "/services-uploads/knee-pain.jpg",
+  "pain-management": "/services-uploads/joint-pain.jpg",
+  "senior-citizen-care": "/services-uploads/health-camps.jpg",
+  "health-checkup-packages": "/services-uploads/complete-blood-test.jpg",
+  "preventive-health-checkup": "/services-uploads/health-camps.jpg",
+  "health-camps": "/services-uploads/health-camps.jpg",
+  "home-visit-consultation": "/services-uploads/family-physician.jpg",
+};
+
+SERVICES.forEach((service) => {
+  if (SERVICE_IMAGES[service.slug]) {
+    service.image = SERVICE_IMAGES[service.slug];
+  }
 });
 
 export function getService(slug: string) {
