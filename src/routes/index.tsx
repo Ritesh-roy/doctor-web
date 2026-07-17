@@ -36,6 +36,8 @@ import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 
 import doctorAsset from "@/assets/doctor-hero.asset.json";
 import doctorNewAsset from "@/assets/doctor-new.jpg.asset.json";
+import doctorDeskOldAsset from "@/assets/doctor-desk-old.jpg.asset.json";
+import doctorCertificatesAsset from "@/assets/doctor-certificates.jpg.asset.json";
 import neoreoAsset from "@/assets/neoreo-products-new.png.asset.json";
 import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
 import heroAwardAsset from "@/assets/hero-award.png.asset.json";
@@ -333,7 +335,7 @@ function DoctorStrip() {
       <div className="grid gap-10 overflow-hidden rounded-3xl border border-primary/10 bg-gradient-to-br from-primary-soft/40 to-white p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="relative">
           <div className="overflow-hidden rounded-2xl border border-white/60 bg-white shadow-glow">
-            <img src={doctorNewAsset.url} alt="Dr. B.P. Singh — MBBS & Family Physician" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            <img src={doctorCertificatesAsset.url} alt="Dr. B.P. Singh at Sanjeevani Clinic with certificates and awards" loading="lazy" className="aspect-[4/5] w-full object-cover" />
           </div>
         </div>
         <div className="flex flex-col justify-center">
@@ -414,7 +416,7 @@ function FounderPreview() {
         <div className="relative order-2 lg:order-1">
           <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-primary/20 to-emerald-accent/20 blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-glow">
-            <img src={neoreoAsset.url} alt="NEOREO Healthcare products by Sanjeevani Clinic" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            <img src={doctorDeskOldAsset.url} alt="Dr. B.P. Singh at his consulting desk in Sanjeevani Clinic" loading="lazy" className="aspect-[4/5] w-full object-cover" />
           </div>
         </div>
         <div className="order-1 lg:order-2">
