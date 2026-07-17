@@ -333,7 +333,7 @@ function DoctorStrip() {
       <div className="grid gap-10 overflow-hidden rounded-3xl border border-primary/10 bg-gradient-to-br from-primary-soft/40 to-white p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="relative">
           <div className="overflow-hidden rounded-2xl border border-white/60 bg-white shadow-glow">
-            <img src={doctorAsset.url} alt="Dr. B.P. Singh" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            <img src={doctorNewAsset.url} alt="Dr. B.P. Singh — MBBS & Family Physician" loading="lazy" className="aspect-[4/5] w-full object-cover" />
           </div>
         </div>
         <div className="flex flex-col justify-center">
