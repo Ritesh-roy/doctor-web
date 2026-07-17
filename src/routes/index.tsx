@@ -187,7 +187,7 @@ function Hero() {
   );
 }
 // removed floating overlay badges (Family Physician · Trusted Care and Day Care in 2–5 hrs) per request
-function _RemovedBadges() { return null;
+
 
 function ValueProps() {
   const items = [
