@@ -180,38 +180,14 @@ function Hero() {
               <span className="text-xs font-semibold text-foreground">{CLINIC.rating} Google</span>
             </motion.div>
 
-            {/* Family Physician · Trusted Care (bottom left) */}
-            <motion.div
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 6, repeat: Infinity }}
-              className="glass-card absolute bottom-4 left-3 z-10 flex max-w-[48%] items-center gap-2 rounded-2xl border border-white/60 bg-white/90 px-2.5 py-2 shadow-card backdrop-blur-md sm:bottom-6 sm:left-5 sm:max-w-none sm:px-3"
-            >
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary/15 text-primary">
-                <Stethoscope className="h-4 w-4" />
-              </span>
-              <div className="text-[11px] font-semibold leading-tight text-foreground sm:text-sm">Family Physician · Trusted Care</div>
-            </motion.div>
-
-            {/* Day Care card (bottom right) */}
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 6, repeat: Infinity }}
-              className="glass-card absolute bottom-4 right-3 z-10 flex max-w-[49%] items-center gap-2 rounded-2xl border border-white/60 bg-white/90 p-2.5 shadow-card backdrop-blur-md sm:bottom-6 sm:right-5 sm:max-w-none sm:gap-3 sm:p-3"
-            >
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-accent/15 text-emerald-accent sm:h-10 sm:w-10">
-                <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
-              </span>
-              <div>
-                <div className="text-[12px] font-semibold leading-tight text-foreground sm:text-sm">Day Care in 2–5 hrs</div>
-                <div className="text-[10px] leading-tight text-muted-foreground sm:text-xs">Same-day observation &amp; care</div>
-              </div>
-            </motion.div>
           </div>
         </motion.div>
       </div>
     </section>
   );
 }
+// removed floating overlay badges (Family Physician · Trusted Care and Day Care in 2–5 hrs) per request
+function _RemovedBadges() { return null;
 
 function ValueProps() {
   const items = [
