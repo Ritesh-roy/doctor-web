@@ -1,5 +1,5 @@
 export const CLINIC = {
-  name: "Sanjeevani Clinc Pvt. Ltd.",
+  name: "Sanjeevani Clinic Pvt. Ltd.",
   tagline: "Trusted Family Healthcare · Kirari, Delhi",
   phone: "+91 11 4701 3018",
   phoneTel: "+911147013018",

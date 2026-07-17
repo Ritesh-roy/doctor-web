@@ -55,7 +55,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <LogoMark className="h-11 w-11 rounded-xl" />
               <div>
-                <div className="font-display text-xl font-semibold">Sanjeevani Clinc Pvt. Ltd.</div>
+                <div className="font-display text-xl font-semibold">Sanjeevani Clinic Pvt. Ltd.</div>
                 <div className="text-xs uppercase tracking-[0.22em] text-background/60">
                   Kirari · Delhi
                 </div>
@@ -93,7 +93,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col-reverse items-start justify-between gap-6 border-t border-background/10 pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-background/60">
-            © {new Date().getFullYear()} Sanjeevani Clinc Pvt. Ltd. · All rights reserved.
+            © {new Date().getFullYear()} Sanjeevani Clinic Pvt. Ltd. · All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-3 text-background/70">
             <a href="https://www.sanjeevnionlineshop.com/" target="_blank" rel="noreferrer" className="rounded-full border border-emerald-accent/50 bg-emerald-accent/15 px-4 py-1.5 text-xs font-semibold text-emerald-accent hover:bg-emerald-accent/25">

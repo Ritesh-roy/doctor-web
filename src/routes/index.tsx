@@ -50,13 +50,13 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Sanjeevani Clinc Pvt. Ltd. — Trusted Family Healthcare in Kirari, Delhi" },
+      { title: "Sanjeevani Clinic Pvt. Ltd. — Trusted Family Healthcare in Kirari, Delhi" },
       {
         name: "description",
         content:
-          "Sanjeevani Clinc Pvt. Ltd., Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
+          "Sanjeevani Clinic Pvt. Ltd., Karan Vihar (Kirari), Delhi. 15+ years of trusted family healthcare led by Dr. B.P. Singh — physiotherapy, diagnostics, radiology, eye care and more.",
       },
-      { property: "og:title", content: "Sanjeevani Clinc Pvt. Ltd. — Premium Family Healthcare" },
+      { property: "og:title", content: "Sanjeevani Clinic Pvt. Ltd. — Premium Family Healthcare" },
       { property: "og:description", content: "Premium family healthcare, diagnostics, physiotherapy and eye care in Kirari, Delhi." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -106,7 +106,7 @@ function Hero() {
             <span className="text-gradient">Family.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            For over {CLINIC.years} years, Sanjeevani Clinc Pvt. Ltd. has cared for families across
+            For over {CLINIC.years} years, Sanjeevani Clinic Pvt. Ltd. has cared for families across
             Delhi with warm, expert medicine — from everyday consultations to
             physiotherapy, diagnostics and eye care, all under one roof.
           </p>
@@ -363,7 +363,7 @@ function DoctorStrip() {
           <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Dr. B.P. Singh — MBBS & Family Physician</h2>
           <p className="mt-4 text-muted-foreground">
             With over 15 years of clinical experience, Dr. Singh is known in Karan Vihar and Kirari for his patience,
-            careful listening and honest, ethical advice. He leads Sanjeevani Clinc Pvt. Ltd. with the belief that great care
+            careful listening and honest, ethical advice. He leads Sanjeevani Clinic Pvt. Ltd. with the belief that great care
             begins with feeling heard.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -447,7 +447,7 @@ function FounderPreview() {
             A single room in 2009. A mission bigger than any wall.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Mr. D.R. B.P. Singh started Sanjeevani Clinc Pvt. Ltd. in Kirari with limited resources
+            Mr. D.R. B.P. Singh started Sanjeevani Clinic Pvt. Ltd. in Kirari with limited resources
             but a bigger vision — quality healthcare should never be a privilege for a few.
             15 years, 125+ countries and 70,000+ lives later, that mission has only grown.
           </p>
@@ -511,7 +511,7 @@ function NeoreoSection() {
             Our own healthcare brand — trusted, affordable, quality assured.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            NEOREO is Sanjeevani Clinc Pvt. Ltd.'s in-house healthcare brand. Every product is
+            NEOREO is Sanjeevani Clinic Pvt. Ltd.'s in-house healthcare brand. Every product is
             developed with the same ethos we treat patients with — high quality, honest
             pricing and complete transparency. Because good health should never be a luxury.
           </p>

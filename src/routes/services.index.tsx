@@ -10,9 +10,9 @@ export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
   head: () => ({
     meta: [
-      { title: "Services — Sanjeevani Clinc Pvt. Ltd., Kirari Delhi" },
+      { title: "Services — Sanjeevani Clinic Pvt. Ltd., Kirari Delhi" },
       { name: "description", content: "Physiotherapy, diagnostics, radiology, eye care, general medicine and preventive health check-ups — under one roof." },
-      { property: "og:title", content: "All Services — Sanjeevani Clinc Pvt. Ltd." },
+      { property: "og:title", content: "All Services — Sanjeevani Clinic Pvt. Ltd." },
       { property: "og:description", content: "A full spectrum of family healthcare services in Kirari, Delhi." },
       { property: "og:url", content: "/services" },
     ],
@@ -28,7 +28,7 @@ function ServicesIndex() {
       <PageHero
         eyebrow="Our care"
         title="Complete family healthcare — thoughtfully coordinated."
-        intro="Explore the full range of services at Sanjeevani Clinc Pvt. Ltd.. Each is doctor-led, evidence-based and delivered with the warmth we're known for."
+        intro="Explore the full range of services at Sanjeevani Clinic Pvt. Ltd.. Each is doctor-led, evidence-based and delivered with the warmth we're known for."
         crumbs={[{ label: "Home", to: "/" }, { label: "Services" }]}
       />
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24">
