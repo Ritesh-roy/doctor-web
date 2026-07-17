@@ -35,6 +35,7 @@ import { CLINIC } from "@/data/clinic";
 import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 
 import doctorAsset from "@/assets/doctor-hero.asset.json";
+import doctorNewAsset from "@/assets/doctor-new.jpg.asset.json";
 import neoreoAsset from "@/assets/neoreo-products-new.png.asset.json";
 import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
 import heroAwardAsset from "@/assets/hero-award.png.asset.json";
