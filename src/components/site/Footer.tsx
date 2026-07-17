@@ -68,6 +68,8 @@ export function Footer() {
             <div className="mt-6 space-y-3 text-sm text-background/85">
               <div className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> <span>{CLINIC.address}</span></div>
               <div className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0" /> <a href={`tel:${CLINIC.phoneTel}`}>{CLINIC.phone}</a></div>
+              <div className="flex items-center gap-3"><Phone className="h-4 w-4 shrink-0" /> <a href={`tel:${CLINIC.phoneAltTel}`}>{CLINIC.phoneAlt}</a></div>
+              <div className="flex items-center gap-3"><MessageCircle className="h-4 w-4 shrink-0" /> <a href={CLINIC.whatsapp} target="_blank" rel="noreferrer">WhatsApp {CLINIC.whatsappNumber}</a></div>
               <div className="flex items-center gap-3"><Mail className="h-4 w-4 shrink-0" /> <a href={`mailto:${CLINIC.email}`}>{CLINIC.email}</a></div>
               <div className="flex items-start gap-3"><Clock className="mt-0.5 h-4 w-4 shrink-0" /> <span>{CLINIC.hours}</span></div>
             </div>
