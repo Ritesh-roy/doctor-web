@@ -11,9 +11,9 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact — Sanjeevani Clinic Pvt. Ltd., Kirari, Delhi" },
-      { name: "description", content: `Visit Sanjeevani Clinic Pvt. Ltd. at ${CLINIC.address}. Call ${CLINIC.phone} or email ${CLINIC.email}.` },
-      { property: "og:title", content: "Contact — Sanjeevani Clinic Pvt. Ltd." },
+      { title: "Contact — Sanjeevani Clinic, Kirari, Delhi" },
+      { name: "description", content: `Visit Sanjeevani Clinic at ${CLINIC.address}. Call ${CLINIC.phone} or email ${CLINIC.email}.` },
+      { property: "og:title", content: "Contact — Sanjeevani Clinic" },
       { property: "og:description", content: "Address, phone, email and hours." },
       { property: "og:url", content: "/contact" },
     ],
@@ -117,7 +117,7 @@ function Contact() {
 
           <div className="mt-6 overflow-hidden rounded-3xl border border-primary/10 shadow-card">
             <iframe
-              title="Sanjeevani Clinic Pvt. Ltd. location"
+              title="Sanjeevani Clinic location"
               src={CLINIC.mapEmbed}
               loading="lazy"
               className="h-72 w-full border-0"

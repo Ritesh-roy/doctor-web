@@ -9,10 +9,10 @@ export const Route = createFileRoute("/shop")({
   component: Shop,
   head: () => ({
     meta: [
-      { title: "Shop All Services — Sanjeevani Clinic Pvt. Ltd." },
-      { name: "description", content: "Browse all Sanjeevani Clinic Pvt. Ltd. services and packages — physiotherapy, blood tests, radiology, eye care and more. Book online with transparent pricing." },
-      { property: "og:title", content: "Shop All Services — Sanjeevani Clinic Pvt. Ltd." },
-      { property: "og:description", content: "Every service and package offered by Sanjeevani Clinic Pvt. Ltd. with real prices." },
+      { title: "Shop All Services — Sanjeevani Clinic" },
+      { name: "description", content: "Browse all Sanjeevani Clinic services and packages — physiotherapy, blood tests, radiology, eye care and more. Book online with transparent pricing." },
+      { property: "og:title", content: "Shop All Services — Sanjeevani Clinic" },
+      { property: "og:description", content: "Every service and package offered by Sanjeevani Clinic with real prices." },
       { property: "og:url", content: "/shop" },
     ],
     links: [{ rel: "canonical", href: "/shop" }],
