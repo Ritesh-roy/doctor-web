@@ -26,13 +26,14 @@ export type BlogPost = {
 
 
 // Website / clinic photos only — no doctor portraits used as blog covers.
+// Each blog post gets a unique cover — no repeats.
 const IMG = {
   physioHome: "/photos/ai-tens-therapy.jpg",
   fullBodyPhysio: "/photos/massage-back-real.jpg",
   eyeCampaign: "/photos/ai-lens-replace.jpg",
-  bloodTest: "/photos/ai-radiology.jpg",
+  bloodTest: "/photos/ai-mri.jpg",
   bloodReport: "/photos/ai-xray.jpg",
-  eyeCheck: "/photos/ai-lens-replace.jpg",
+  eyeCheck: "/photos/ai-ct-scan.jpg",
   diabetes: "/photos/ai-body-massage.jpg",
   bp: "/photos/ai-cervical-therapy.jpg",
   annualCheck: "/photos/ai-radiology.jpg",

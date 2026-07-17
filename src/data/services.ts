@@ -346,7 +346,7 @@ export const SERVICES: Service[] = [
     ["health-checkup-packages","Health Check-up Packages","microscope","Curated annual health packages for men, women and seniors.","Age-appropriate combinations of lab tests, ECG and doctor consultation — priced fairly and explained clearly.","/photos/ai-radiology.jpg",undefined,"2 hrs"],
     ["preventive-health-checkup","Preventive Health Check-up","heart","Yearly preventive review — catch issues before they become problems.","Focused on early detection of diabetes, cholesterol, BP, thyroid and lifestyle risk factors.","/photos/ai-body-massage.jpg",undefined,"Yearly"],
     ["health-camps","Health Camps","heart","Community health camps at schools, offices and RWAs.","We regularly organise BP, sugar, eye and general check-up camps in Kirari and nearby areas.","/photos/clinic-front.jpg",undefined,"By arrangement"],
-    ["home-visit-consultation","Home Visit Consultation","stethoscope","Doctor home visit for bedridden, elderly or emergency reviews.","On-request doctor visit at home — assessment, prescription and coordination with clinic for follow-up.","/photos/family-with-doctor.jpg",800,"30 min at home",true],
+    ["home-visit-consultation","Home Visit Consultation","stethoscope","Doctor home visit for bedridden, elderly or emergency reviews.","On-request doctor visit at home — assessment, prescription and coordination with clinic for follow-up.","/photos/clinic-front.jpg",800,"30 min at home",true],
   ] as const).map(([slug,title,icon,short,description,image,price,duration,homeVisit]) => ({
     slug,
     title,
