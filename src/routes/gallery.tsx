@@ -84,22 +84,6 @@ const items: GalleryItem[] = [
       "Every blood report, ECG or scan is walked through with the patient — in Hindi, English or Bhojpuri — until the plan is clearly understood.",
   },
   {
-    src: "/photos/doctor-desk-3.jpg",
-    alt: "Doctor at work in the consulting room",
-    title: "Behind the Desk",
-    category: "Doctor",
-    description:
-      "A calm, brightly lit consulting room designed so families feel comfortable talking about their health without hesitation.",
-  },
-  {
-    src: "/photos/doctor-desk-4.jpg",
-    alt: "Doctor writing notes",
-    title: "Clinical Notes",
-    category: "Doctor",
-    description:
-      "Detailed clinical notes for every patient — because good follow-up starts with a good record.",
-  },
-  {
     src: "/photos/doctor-with-award.jpg",
     alt: "Dr. B.P. Singh holding an award plaque",
     title: "A Quiet Moment of Pride",
@@ -124,14 +108,6 @@ const items: GalleryItem[] = [
       "The Sanjeevani blue — worn every day by the physiotherapy and OPD team.",
   },
   {
-    src: "/photos/family-with-doctor.jpg",
-    alt: "A family with Dr. B.P. Singh at a community event",
-    title: "Family Medicine, Literally",
-    category: "Community",
-    description:
-      "Many of our patients are second-generation — we now care for the children of the families we started with in 2009.",
-  },
-  {
     src: "/photos/award-unity-frame-1.jpg",
     alt: "Sardar Patel Unity Award 2026 frame",
     title: "Sardar Patel Unity Award — 2026",
@@ -140,23 +116,6 @@ const items: GalleryItem[] = [
       "Awarded to Dr. Bhanu Pratap Singh (Director, Sanjeevani Clinic) for Outstanding Contribution to Healthcare Services.",
     date: "21 May 2026",
     location: "Shangri-La's Eros, New Delhi",
-  },
-  {
-    src: "/photos/award-unity-frame-2.jpg",
-    alt: "Sardar Patel Unity Award — framed close-up",
-    title: "The Unity Award — Framed",
-    category: "Awards",
-    description:
-      "A close-up of the framed Sardar Patel Unity Award 2026 citation.",
-    date: "2026",
-  },
-  {
-    src: "/photos/award-unity-side.jpg",
-    alt: "Sardar Patel Unity Award frame side view",
-    title: "The Unity Citation",
-    category: "Awards",
-    description:
-      "The Unity Award citation on display at the clinic's certificate wall.",
   },
   {
     src: "/photos/award-trophy-black.jpg",
@@ -216,24 +175,6 @@ const items: GalleryItem[] = [
     category: "Camps",
     description:
       "A free full health check-up camp for students at Bal Deep Model School — part of our regular community outreach.",
-    location: "Bal Deep Model School",
-  },
-  {
-    src: "/photos/school-checkup-students.jpg",
-    alt: "Students queued for check-up",
-    title: "One School, One Day, Every Child",
-    category: "Camps",
-    description:
-      "A day-long screening drive covering hundreds of children in a single visit.",
-    location: "Bal Deep Model School",
-  },
-  {
-    src: "/photos/school-checkup-lineup.jpg",
-    alt: "Students in line for the health camp",
-    title: "Line Up, Get Checked, Go Play",
-    category: "Camps",
-    description:
-      "Vitals, vision and general examination — students are back in class or on the playground within minutes.",
     location: "Bal Deep Model School",
   },
   {
