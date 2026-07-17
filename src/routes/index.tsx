@@ -413,7 +413,7 @@ function FounderPreview() {
         <div className="relative order-2 lg:order-1">
           <div className="absolute -inset-4 rounded-[36px] bg-gradient-to-br from-primary/20 to-emerald-accent/20 blur-2xl" />
           <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-glow">
-            <img src="/photos/doctor-portrait-2.jpg" alt="Mr. D.R. B.P. Singh — Founder" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            <img src={neoreoAsset.url} alt="NEOREO Healthcare products by Sanjeevani Clinic" loading="lazy" className="aspect-[4/5] w-full object-cover" />
           </div>
         </div>
         <div className="order-1 lg:order-2">
