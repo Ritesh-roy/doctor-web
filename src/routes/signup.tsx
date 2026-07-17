@@ -20,8 +20,8 @@ export const Route = createFileRoute("/signup")({
   component: Signup,
   head: () => ({
     meta: [
-      { title: "Create Account — Sanjeevani Clinlc" },
-      { name: "description", content: "Create your Sanjeevani Clinlc account using email or mobile and a password." },
+      { title: "Create Account — Sanjeevani Clinic" },
+      { name: "description", content: "Create your Sanjeevani Clinic account using email or mobile and a password." },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/signup" }],
