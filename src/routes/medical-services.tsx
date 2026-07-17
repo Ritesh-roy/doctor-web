@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
-import { CATEGORIES, PRODUCTS, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
-import { ArrowRight, Home } from "lucide-react";
+import { SERVICES } from "@/data/services";
+import { PRODUCT_IMAGE_FALLBACK } from "@/data/products";
+import { Activity, Microscope, Sparkles, Eye, Stethoscope, HeartPulse, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/medical-services")({
   component: MedicalServices,
@@ -19,6 +20,7 @@ export const Route = createFileRoute("/medical-services")({
 });
 
 function MedicalServices() {
+  const icons = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
   return (
     <SiteLayout>
       <PageHero
@@ -30,36 +32,32 @@ function MedicalServices() {
 
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((c) => {
-            const count = PRODUCTS.filter((p) => p.category === c.slug).length;
+          {SERVICES.map((service) => {
+            const Icon = icons[service.icon];
             return (
               <Link
-                key={c.slug}
-                to="/product-category/$slug"
-                params={{ slug: c.slug }}
+                key={service.slug}
+                to="/services/$slug"
+                params={{ slug: service.slug }}
                 className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
-                    src={c.image}
-                    alt={c.label}
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = PRODUCT_IMAGE_FALLBACK;
                     }}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
-                    {count} {count === 1 ? "Product" : "Products"}
-                  </div>
+                  <span className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-xl bg-white/90 text-primary shadow-soft backdrop-blur"><Icon className="h-5 w-5" /></span>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-xl font-semibold text-foreground group-hover:text-primary">{c.label}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{c.description}</p>
-                  <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-emerald-accent/10 px-3 py-1 text-xs font-semibold text-emerald-accent">
-                    <Home className="h-3.5 w-3.5" /> Home visit available
-                  </div>
+                  <h3 className="font-display text-xl font-semibold text-foreground group-hover:text-primary">{service.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{service.short}</p>
                   <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                    View products <ArrowRight className="h-4 w-4" />
+                    View service <ArrowRight className="h-4 w-4" />
                   </div>
                 </div>
               </Link>
