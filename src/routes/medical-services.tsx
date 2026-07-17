@@ -8,9 +8,9 @@ export const Route = createFileRoute("/medical-services")({
   component: MedicalServices,
   head: () => ({
     meta: [
-      { title: "Medical Services — Sanjeevani Clinic Pvt. Ltd., Kirari, Delhi" },
-      { name: "description", content: "All medical services at Sanjeevani Clinic Pvt. Ltd. — physiotherapy, diagnostics, radiology, eye treatment and more. Home visits available." },
-      { property: "og:title", content: "Medical Services — Sanjeevani Clinic Pvt. Ltd." },
+      { title: "Medical Services — Sanjeevani Clinic, Kirari, Delhi" },
+      { name: "description", content: "All medical services at Sanjeevani Clinic — physiotherapy, diagnostics, radiology, eye treatment and more. Home visits available." },
+      { property: "og:title", content: "Medical Services — Sanjeevani Clinic" },
       { property: "og:description", content: "Physiotherapy, diagnostics, radiology, eye treatment, general medical — all under one roof." },
       { property: "og:url", content: "/medical-services" },
     ],

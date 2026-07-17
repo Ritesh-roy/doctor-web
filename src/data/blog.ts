@@ -17,11 +17,13 @@ export type BlogPost = {
   author: string;
   cover: string;
   featuredImageAlt: string;
+  video?: { src: string; poster?: string; caption?: string };
   intro: string;
   keyTakeaways: string[];
   sections: BlogSection[];
   faqs: BlogFAQ[];
 };
+
 
 // Real clinic photos only. Posts without a matching photo use a soft
 // branded gradient placeholder (no logo, no stock imagery).
@@ -41,6 +43,49 @@ const IMG = {
 
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "inside-sanjeevani-clinic-video-tour",
+    title: "Inside Sanjeevani Clinic — A Short Video Tour of Our Care",
+    excerpt:
+      "Take a two-minute walk through Sanjeevani Clinic Pvt. Ltd. — our consultation rooms, physiotherapy bay, diagnostic corner and the everyday warmth of our team.",
+    category: "Clinic",
+    readMinutes: 3,
+    publishedOn: "2026-07-17",
+    author: "Sanjeevani Clinic Pvt. Ltd. Team",
+    cover: "/photos/school-checkup-hall.jpg",
+    featuredImageAlt: "Inside Sanjeevani Clinic Pvt. Ltd. — patient care in progress",
+    video: {
+      src: "/photos/blog-video.mp4",
+      poster: "/photos/school-checkup-hall.jpg",
+      caption: "A short walkthrough of Sanjeevani Clinic Pvt. Ltd., Kirari.",
+    },
+    intro:
+      "We often get asked what a visit to Sanjeevani Clinic Pvt. Ltd. actually feels like. Instead of describing it in words, we thought a short video would say it best. Press play below for a quick walk through our clinic — the reception, the consultation rooms, the physiotherapy bay and the small everyday moments of care that define who we are.",
+    keyTakeaways: [
+      "A quick visual introduction to Sanjeevani Clinic Pvt. Ltd. in Kirari, Delhi.",
+      "See our consultation, physiotherapy and diagnostic areas.",
+      "Meet the team you will be cared for by.",
+    ],
+    sections: [
+      {
+        heading: "Watch: a walk through our clinic",
+        paragraphs: [
+          "The video above captures a normal day at Sanjeevani Clinic Pvt. Ltd. — no staging, no stock footage. What you see is what you get when you walk in through our doors.",
+        ],
+      },
+      {
+        heading: "What we care about",
+        paragraphs: [
+          "Every corner of the clinic is designed around one idea: unhurried, honest care. From the way we greet families at the front desk to how our physiotherapists structure a session, we optimise for trust — not throughput.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Where is the clinic located?", a: "Karan Vihar, Kirari, Delhi. Full address and directions are on the Contact page." },
+      { q: "Do I need an appointment?", a: "Walk-ins are welcome, but booking online guarantees a shorter wait." },
+    ],
+  },
+
   {
     slug: "physiotherapy-at-home-rohini-benefits-cost",
     title: "Physiotherapy at Home in Rohini — Top 10 Benefits, Cost & How to Book",

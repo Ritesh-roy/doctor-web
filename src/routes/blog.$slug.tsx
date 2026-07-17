@@ -90,6 +90,27 @@ function BlogPostPage() {
         </div>
       </section>
 
+      {post.video && (
+        <section className="mx-auto max-w-4xl px-4 pb-8 sm:px-6">
+          <figure className="overflow-hidden rounded-3xl border border-primary/10 bg-black shadow-glow">
+            <video
+              src={post.video.src}
+              poster={post.video.poster}
+              controls
+              preload="none"
+              playsInline
+              className="aspect-video w-full"
+            />
+            {post.video.caption && (
+              <figcaption className="bg-white px-5 py-3 text-center text-sm text-muted-foreground">
+                {post.video.caption}
+              </figcaption>
+            )}
+          </figure>
+        </section>
+      )}
+
+
       <article className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-24">
         <p className="text-lg leading-relaxed text-muted-foreground">{post.intro}</p>
 
