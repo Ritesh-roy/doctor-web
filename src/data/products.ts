@@ -33,6 +33,28 @@ export const CATEGORIES: { slug: ProductCategorySlug; label: string; description
 
 export const PRODUCTS: Product[] = [
   {
+    slug: "ecg-test",
+    title: "ECG (Electrocardiogram)",
+    category: "physiotherapy",
+    categoryLabel: "Diagnostic Services",
+    price: 250,
+    image: "/photos/ai-ecg-test.jpg",
+    shortDescription: "Quick heart rhythm test — reports the same day.",
+    description:
+      "A 12-lead Electrocardiogram (ECG) records the electrical activity of your heart to detect arrhythmias, blocks, ischemia and other cardiac conditions. Painless, non-invasive and completed in a few minutes at Sanjeevani Clinic.",
+    hindiDescription:
+      "ईसीजी टेस्ट से हृदय की धड़कन और विद्युत गतिविधि की जाँच होती है। सीने में दर्द, घबराहट, हाई बीपी या दिल की बीमारी की स्क्रीनिंग के लिए ज़रूरी। दर्द रहित और कुछ ही मिनटों में पूरा।",
+    highlights: ["12-lead digital ECG", "Same-day report", "Painless & non-invasive", "Doctor review included"],
+    benefits: [
+      "Detects arrhythmias and heart blocks",
+      "Screens for heart attack risk",
+      "Useful before surgery and health check-ups",
+      "Quick 5-minute procedure",
+    ],
+    duration: "5 min",
+    homeVisit: true,
+  },
+  {
     slug: "ift-therapy",
     title: "I.F.T. Therapy",
     category: "physiotherapy",
