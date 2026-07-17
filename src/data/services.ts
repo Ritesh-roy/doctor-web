@@ -375,10 +375,9 @@ export const SERVICES: Service[] = [
   })),
 ];
 
-// Map each service to a matching uploaded photo. Services without a direct
-// upload fall back to the closest related image.
+// Each uploaded photo is assigned to exactly ONE service. Services without
+// a matching upload keep their original /photos/ image from the tuple above.
 const SERVICE_IMAGES: Record<string, string> = {
-  "ift-therapy": "/services-uploads/tens-therapy.jpg",
   "tens-therapy": "/services-uploads/tens-therapy.jpg",
   "cupping-therapy": "/services-uploads/cupping-therapy.jpg",
   "fire-cupping-therapy": "/services-uploads/fire-cupping.jpg",
@@ -389,10 +388,7 @@ const SERVICE_IMAGES: Record<string, string> = {
   "digital-cervical-therapy": "/services-uploads/cervical-therapy.jpg",
   "digital-lumbar-therapy": "/services-uploads/lumbar-therapy.jpg",
   "family-physician": "/services-uploads/family-physician.jpg",
-  "general-opd": "/services-uploads/family-physician.jpg",
-  "diagnostic-lab": "/services-uploads/complete-blood-test.jpg",
   "blood-sample-collection": "/services-uploads/blood-sample-collection.jpg",
-  "home-blood-sample-collection": "/services-uploads/blood-sample-collection.jpg",
   "complete-blood-test": "/services-uploads/complete-blood-test.jpg",
   "cbc-test": "/services-uploads/cbc-test.jpg",
   "blood-sugar-test": "/services-uploads/blood-sugar-test.jpg",
@@ -403,29 +399,18 @@ const SERVICE_IMAGES: Record<string, string> = {
   "kidney-function-test": "/services-uploads/kft-test.jpg",
   "urine-test": "/services-uploads/urine-test.jpg",
   "stool-test": "/services-uploads/stool-test.jpg",
-  "vitamin-b12-test": "/services-uploads/vitamin-d-test.jpg",
   "vitamin-d-test": "/services-uploads/vitamin-d-test.jpg",
   "ecg": "/services-uploads/ecg-test.jpg",
   "digital-xray": "/services-uploads/digital-ecg.jpg",
   "ultrasound-usg": "/services-uploads/ultrasound.jpg",
-  "radiology-services": "/services-uploads/ultrasound.jpg",
   "eye-care-services": "/services-uploads/eye-care.jpg",
   "eye-checkup": "/services-uploads/eye-checkup.jpg",
   "vision-screening": "/services-uploads/vision-screening.jpg",
-  "cataract-screening": "/services-uploads/eye-checkup.jpg",
   "physiotherapy": "/services-uploads/physiotherapy.jpg",
-  "home-physiotherapy": "/services-uploads/physiotherapy.jpg",
   "neck-pain-treatment": "/services-uploads/neck-pain.jpg",
-  "back-pain-treatment": "/services-uploads/lumbar-therapy.jpg",
   "knee-pain-treatment": "/services-uploads/knee-pain.jpg",
   "joint-pain-treatment": "/services-uploads/joint-pain.jpg",
-  "sports-injury-rehab": "/services-uploads/knee-pain.jpg",
-  "pain-management": "/services-uploads/joint-pain.jpg",
-  "senior-citizen-care": "/services-uploads/health-camps.jpg",
-  "health-checkup-packages": "/services-uploads/complete-blood-test.jpg",
-  "preventive-health-checkup": "/services-uploads/health-camps.jpg",
   "health-camps": "/services-uploads/health-camps.jpg",
-  "home-visit-consultation": "/services-uploads/family-physician.jpg",
 };
 
 SERVICES.forEach((service) => {
