@@ -16,16 +16,21 @@ const cols = [
     ],
   },
   {
-    title: "Our Therapies",
+    title: "All Services",
     links: [
-      { label: "Cupping Therapy", to: "/services/cupping-therapy" },
-      { label: "Fire Cupping", to: "/services/fire-cupping-therapy" },
-      { label: "Hijama Therapy", to: "/services/hijama-therapy" },
-      { label: "Paraffin Wax", to: "/services/paraffin-wax-therapy" },
-      { label: "Body Massage", to: "/services/body-massage-therapy" },
-      { label: "Lumbar Therapy", to: "/services/digital-lumbar-therapy" },
+      { label: "Day Care", to: "/book-appointment" },
+      { label: "Family Physician", to: "/book-appointment" },
+      { label: "Pathology", to: "/book-appointment" },
+      { label: "MRI", to: "/book-appointment" },
+      { label: "Ultrasound", to: "/book-appointment" },
+      { label: "General OPD Consultation", to: "/book-appointment" },
+      { label: "Home Sample Collection", to: "/book-appointment" },
+      { label: "Health Check-up Packages", to: "/book-appointment" },
+      { label: "Physiotherapy", to: "/book-appointment" },
+      { label: "Eye Check-up", to: "/book-appointment" },
     ],
   },
+
   {
     title: "Support",
     links: [
