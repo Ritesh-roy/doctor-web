@@ -13,6 +13,8 @@ import {
   Trophy,
   Users,
 } from "lucide-react";
+import neoreoAsset from "@/assets/neoreo-products-new.png.asset.json";
+
 
 export const Route = createFileRoute("/founder-story")({
   component: FounderStory,
