@@ -259,7 +259,7 @@ function ServicesGrid() {
     badge?: string;
   };
 
-  const cards: Card[] = [
+  const allCards: Card[] = [
     ...groups.map((g) => ({
       key: g.slug,
       title: g.title,
@@ -278,6 +278,8 @@ function ServicesGrid() {
       href: { to: "/services/$slug", params: { slug: s.slug } },
     })),
   ];
+  const cards: Card[] = allCards.slice(0, 9);
+
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
