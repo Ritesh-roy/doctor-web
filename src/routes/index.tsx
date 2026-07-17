@@ -261,26 +261,17 @@ function ServicesGrid() {
     badge?: string;
   };
 
-  const allCards: Card[] = [
-    ...groups.map((g) => ({
-      key: g.slug,
-      title: g.title,
-      short: g.short,
-      image: g.image,
-      icon: g.icon,
-      href: { to: g.to },
-      badge: "badge" in g ? g.badge : undefined,
-    })),
-    ...SERVICES.map((s) => ({
-      key: s.slug,
-      title: s.title,
-      short: s.short,
-      image: s.image,
-      icon: SERVICE_ICONS[s.icon],
-      href: { to: "/services/$slug", params: { slug: s.slug } },
-    })),
-  ];
-  const cards: Card[] = allCards.slice(0, 9);
+  const cards: Card[] = groups.map((g) => ({
+    key: g.slug,
+    title: g.title,
+    short: g.short,
+    image: g.image,
+    icon: g.icon,
+    href: { to: g.to },
+    badge: "badge" in g ? g.badge : undefined,
+  }));
+
+
 
 
   return (
