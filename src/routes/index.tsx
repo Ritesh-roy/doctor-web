@@ -41,9 +41,9 @@ import uploadedDoctorHeroAsset from "@/assets/doctor-uploaded-hero.asset.json";
 const SERVICE_ICONS = { activity: Activity, microscope: Microscope, sparkles: Sparkles, eye: Eye, stethoscope: Stethoscope, heart: HeartPulse } as const;
 
 const HERO_SLIDES = [
-  { src: "/photos/doctor-uploaded-hero.png", alt: "Dr. B.P. Singh — MBBS & Family Physician at Sanjeevani Clinic" },
-  { src: "/photos/doctor-portrait-2.jpg", alt: "Dr. B.P. Singh — family physician at Sanjeevani Clinic" },
-  { src: "/photos/doctor-with-award.jpg", alt: "Dr. B.P. Singh receiving Sardar Patel Unity Award for healthcare service" },
+  { src: "/photos/hero/image-63.png", alt: "Dr. Bhanu Pratap Singh — MBBS & Family Physician at Sanjeevani Clinic Pvt. Ltd." },
+  { src: "/photos/hero/image-61.png", alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding healthcare service" },
+  { src: "/photos/hero/image-62.png", alt: "Sardar Patel Unity Award 2026 presented to Sanjeevani Clinic Pvt. Ltd." },
 ];
 
 export const Route = createFileRoute("/")({
