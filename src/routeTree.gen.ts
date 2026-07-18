@@ -47,6 +47,7 @@ import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 import { Route as ProductCategorySlugRouteImport } from './routes/product-category.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ApiPublicCheckoutRouteImport } from './routes/api/public/checkout'
 
 const WishlistRoute = WishlistRouteImport.update({
   id: '/wishlist',
@@ -239,6 +240,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const ApiPublicCheckoutRoute = ApiPublicCheckoutRouteImport.update({
+  id: '/api/public/checkout',
+  path: '/api/public/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -279,6 +285,7 @@ export interface FileRoutesByFullPath {
   '/services/$slug': typeof ServicesSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/checkout': typeof ApiPublicCheckoutRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -317,6 +324,7 @@ export interface FileRoutesByTo {
   '/services/$slug': typeof ServicesSlugRoute
   '/blog': typeof BlogIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/api/public/checkout': typeof ApiPublicCheckoutRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -358,6 +366,7 @@ export interface FileRoutesById {
   '/services/$slug': typeof ServicesSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/checkout': typeof ApiPublicCheckoutRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -400,6 +409,7 @@ export interface FileRouteTypes {
     | '/services/$slug'
     | '/blog/'
     | '/services/'
+    | '/api/public/checkout'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -438,6 +448,7 @@ export interface FileRouteTypes {
     | '/services/$slug'
     | '/blog'
     | '/services'
+    | '/api/public/checkout'
   id:
     | '__root__'
     | '/'
@@ -478,6 +489,7 @@ export interface FileRouteTypes {
     | '/services/$slug'
     | '/blog/'
     | '/services/'
+    | '/api/public/checkout'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -515,6 +527,7 @@ export interface RootRouteChildren {
   WishlistRoute: typeof WishlistRoute
   ProductCategorySlugRoute: typeof ProductCategorySlugRoute
   ProductSlugRoute: typeof ProductSlugRoute
+  ApiPublicCheckoutRoute: typeof ApiPublicCheckoutRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -785,6 +798,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/api/public/checkout': {
+      id: '/api/public/checkout'
+      path: '/api/public/checkout'
+      fullPath: '/api/public/checkout'
+      preLoaderRoute: typeof ApiPublicCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -850,17 +870,8 @@ const rootRouteChildren: RootRouteChildren = {
   WishlistRoute: WishlistRoute,
   ProductCategorySlugRoute: ProductCategorySlugRoute,
   ProductSlugRoute: ProductSlugRoute,
+  ApiPublicCheckoutRoute: ApiPublicCheckoutRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

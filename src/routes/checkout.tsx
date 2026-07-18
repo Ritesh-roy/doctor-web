@@ -1,5 +1,4 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { CreditCard, Lock, Wallet, ShieldCheck } from "lucide-react";
@@ -8,7 +7,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { useStore } from "@/lib/store";
 import { formatINR, PRODUCT_IMAGE_FALLBACK } from "@/data/products";
 import { useAuth } from "@/lib/auth";
-import { createCheckoutOrder, createRazorpayOrder, verifyRazorpayPayment } from "@/lib/razorpay.functions";
+import { supabase } from "@/integrations/supabase/client";
 import {
   isValidName,
   isValidPhone,
@@ -33,6 +32,21 @@ declare global {
 }
 
 const RAZORPAY_SCRIPT = "https://checkout.razorpay.com/v1/checkout.js";
+const CHECKOUT_API = "https://project--8f6e1fc9-745b-439e-ad50-b3ddce6e594d.lovable.app/api/public/checkout";
+
+async function checkoutRequest<T>(body: Record<string, unknown>): Promise<T> {
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  if (!token) throw new Error("Please sign in again");
+  const response = await fetch(CHECKOUT_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify(body),
+  });
+  const result = (await response.json().catch(() => ({}))) as T & { error?: string };
+  if (!response.ok) throw new Error(result.error || "Checkout is temporarily unavailable");
+  return result;
+}
 
 function loadRazorpay(): Promise<boolean> {
   return new Promise((resolve) => {
@@ -70,9 +84,6 @@ function Checkout() {
   const { cartItems, cartTotal, clearCart } = useStore();
   const { user, loading } = useAuth();
   const navigate = useNavigate();
-  const createCheckoutOrderFn = useServerFn(createCheckoutOrder);
-  const createRazorpayOrderFn = useServerFn(createRazorpayOrder);
-  const verifyRazorpayPaymentFn = useServerFn(verifyRazorpayPayment);
   const [payment, setPayment] = useState<"cod" | "razorpay">("razorpay");
   const [placing, setPlacing] = useState(false);
   const [name, setName] = useState("");
@@ -135,8 +146,8 @@ function Checkout() {
     setPlacing(true);
     try {
       const therapyTitles = cartItems.map((i) => `${i.product.title} × ${i.qty}`).join(", ");
-      const inserted = await createCheckoutOrderFn({
-        data: {
+      const inserted = await checkoutRequest<{ id: string; order_number: string | null }>({
+          action: "create-order",
           customerName: name.trim(),
           phone: mobile.replace(/\D/g, "").slice(-10),
           email: email.trim(),
@@ -147,7 +158,6 @@ function Checkout() {
           totalAmount: cartTotal,
           paymentMethod: payment,
           therapyTitles,
-        },
       });
 
       // ------- COD flow -------
@@ -176,8 +186,11 @@ function Checkout() {
         throw new Error("Payment gateway failed to load. Please check your internet and try again.");
       }
 
-      const rzpOrder = await createRazorpayOrderFn({
-        data: { orderDbId: inserted.id, amount: Math.round(cartTotal), currency: "INR" },
+      const rzpOrder = await checkoutRequest<{ keyId: string; orderId: string; amount: number; currency: string }>({
+        action: "create-payment",
+        orderDbId: inserted.id,
+        amount: Math.round(cartTotal),
+        currency: "INR",
       });
 
       await new Promise<void>((resolve, reject) => {
@@ -196,13 +209,12 @@ function Checkout() {
           },
           handler: async (response: RazorpayResponse) => {
             try {
-              await verifyRazorpayPaymentFn({
-                data: {
+              await checkoutRequest<{ ok: true }>({
+                  action: "verify-payment",
                   orderDbId: inserted.id,
                   razorpay_order_id: response.razorpay_order_id,
                   razorpay_payment_id: response.razorpay_payment_id,
                   razorpay_signature: response.razorpay_signature,
-                },
               });
               persistLastOrder({
                 order_number: inserted.order_number,
