@@ -132,6 +132,7 @@ function Book() {
                 <option>Health Check-up Packages</option>
                 <option>Physiotherapy</option>
                 <option>Eye Check-up</option>
+                <option>ECG</option>
               </select>
             </label>
             <label className="block">
