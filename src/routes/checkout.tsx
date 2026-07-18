@@ -32,7 +32,7 @@ declare global {
 }
 
 const RAZORPAY_SCRIPT = "https://checkout.razorpay.com/v1/checkout.js";
-const CHECKOUT_API = "https://project--8f6e1fc9-745b-439e-ad50-b3ddce6e594d.lovable.app/api/public/checkout";
+const CHECKOUT_API = "https://project--8f6e1fc9-745b-439e-ad50-b3ddce6e594d-dev.lovable.app/api/public/checkout";
 
 async function checkoutRequest<T>(body: Record<string, unknown>): Promise<T> {
   const { data } = await supabase.auth.getSession();
