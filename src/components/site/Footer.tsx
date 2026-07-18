@@ -28,6 +28,7 @@ const cols = [
       { label: "Health Check-up Packages", to: "/book-appointment" },
       { label: "Physiotherapy", to: "/book-appointment" },
       { label: "Eye Check-up", to: "/book-appointment" },
+      { label: "ECG", to: "/book-appointment" },
     ],
   },
 

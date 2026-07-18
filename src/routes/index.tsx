@@ -46,6 +46,7 @@ import heroAwardAsset from "@/assets/hero-award.png.asset.json";
 
 const HERO_SLIDES = [
   { src: heroAwardAsset.url, alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding contribution to healthcare services" },
+  { src: "/photos/doctor-desk-award.jpg", alt: "Dr. Bhanu Pratap Singh at his desk at Sanjeevani Clinic with awards and certifications" },
   { src: "/photos/hero/image-63.png", alt: "Dr. Bhanu Pratap Singh — MBBS & Family Physician at Sanjeevani Clinic" },
   { src: "/photos/hero/image-61.png", alt: "Dr. Bhanu Pratap Singh receiving Sardar Patel Unity Award 2026 for outstanding healthcare service" },
   { src: "/photos/hero/image-62.png", alt: "Sardar Patel Unity Award 2026 presented to Sanjeevani Clinic" },
