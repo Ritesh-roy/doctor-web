@@ -12,8 +12,8 @@ export const CLINIC = {
   whatsapp: "https://wa.me/918853515351",
   email: "sanjeevaniclinic793@gmail.com",
   address:
-    "Kirari, Suleman Nagar, Delhi 110086",
-  addressShort: "Kirari, Suleman Nagar, Delhi 110086",
+    "B 327A Karan Vihar Part - 5, Kirari Suleman Nagar, Delhi 110086",
+  addressShort: "B 327A Karan Vihar Part - 5, Kirari Suleman Nagar, Delhi 110086",
   hours: "Mon–Sun · 9:00 AM – 1:00 PM  &  5:00 PM – 9:00 PM",
   hoursShort: "9 AM – 1 PM & 5 PM – 9 PM",
   mapUrl: "https://maps.app.goo.gl/KPGuNdS1Pjr9fmt89",
