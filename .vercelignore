@@ -1,0 +1,8 @@
+node_modules
+dist
+.vscode
+.git
+.env
+package-lock.json
+.pnp.js
+.pnp.cjs
