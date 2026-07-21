@@ -9,184 +9,59 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WishlistRouteImport } from './routes/wishlist'
-import { Route as ThankYouRouteImport } from './routes/thank-you'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as TermsRouteImport } from './routes/terms'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as ShopRouteImport } from './routes/shop'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SearchRouteImport } from './routes/search'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as PharmacyRouteImport } from './routes/pharmacy'
-import { Route as MyBookingsRouteImport } from './routes/my-bookings'
-import { Route as MyAccountRouteImport } from './routes/my-account'
-import { Route as MedicalServicesRouteImport } from './routes/medical-services'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as FreeEyeCheckupRouteImport } from './routes/free-eye-checkup'
-import { Route as FounderStoryRouteImport } from './routes/founder-story'
-import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
-import { Route as FaqsRouteImport } from './routes/faqs'
-import { Route as FacilitiesRouteImport } from './routes/facilities'
-import { Route as DoctorRouteImport } from './routes/doctor'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CheckoutRouteImport } from './routes/checkout'
-import { Route as CartRouteImport } from './routes/cart'
-import { Route as CancelPaymentRouteImport } from './routes/cancel-payment'
-import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
-import { Route as BlogRouteImport } from './routes/blog'
-import { Route as AppointmentCancelledRouteImport } from './routes/appointment-cancelled'
-import { Route as AppointmentCancellationConfirmationRouteImport } from './routes/appointment-cancellation-confirmation'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AppointmentCancellationConfirmationRouteImport } from './routes/appointment-cancellation-confirmation'
+import { Route as AppointmentCancelledRouteImport } from './routes/appointment-cancelled'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
+import { Route as CancelPaymentRouteImport } from './routes/cancel-payment'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DoctorRouteImport } from './routes/doctor'
+import { Route as FacilitiesRouteImport } from './routes/facilities'
+import { Route as FaqsRouteImport } from './routes/faqs'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as FounderStoryRouteImport } from './routes/founder-story'
+import { Route as FreeEyeCheckupRouteImport } from './routes/free-eye-checkup'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MedicalServicesRouteImport } from './routes/medical-services'
+import { Route as MyAccountRouteImport } from './routes/my-account'
+import { Route as MyBookingsRouteImport } from './routes/my-bookings'
+import { Route as PharmacyRouteImport } from './routes/pharmacy'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
+import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
-import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
-import { Route as ProductSlugRouteImport } from './routes/product.$slug'
-import { Route as ProductCategorySlugRouteImport } from './routes/product-category.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ProductCategorySlugRouteImport } from './routes/product-category.$slug'
+import { Route as ProductSlugRouteImport } from './routes/product.$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as ApiPublicCheckoutRouteImport } from './routes/api/public/checkout'
 
-const WishlistRoute = WishlistRouteImport.update({
-  id: '/wishlist',
-  path: '/wishlist',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ThankYouRoute = ThankYouRouteImport.update({
-  id: '/thank-you',
-  path: '/thank-you',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TermsRoute = TermsRouteImport.update({
-  id: '/terms',
-  path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ShopRoute = ShopRouteImport.update({
-  id: '/shop',
-  path: '/shop',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SearchRoute = SearchRouteImport.update({
-  id: '/search',
-  path: '/search',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PharmacyRoute = PharmacyRouteImport.update({
-  id: '/pharmacy',
-  path: '/pharmacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MyBookingsRoute = MyBookingsRouteImport.update({
-  id: '/my-bookings',
-  path: '/my-bookings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MyAccountRoute = MyAccountRouteImport.update({
-  id: '/my-account',
-  path: '/my-account',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MedicalServicesRoute = MedicalServicesRouteImport.update({
-  id: '/medical-services',
-  path: '/medical-services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FreeEyeCheckupRoute = FreeEyeCheckupRouteImport.update({
-  id: '/free-eye-checkup',
-  path: '/free-eye-checkup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FounderStoryRoute = FounderStoryRouteImport.update({
-  id: '/founder-story',
-  path: '/founder-story',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
-  id: '/forgot-password',
-  path: '/forgot-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqsRoute = FaqsRouteImport.update({
-  id: '/faqs',
-  path: '/faqs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FacilitiesRoute = FacilitiesRouteImport.update({
-  id: '/facilities',
-  path: '/facilities',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DoctorRoute = DoctorRouteImport.update({
-  id: '/doctor',
-  path: '/doctor',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CheckoutRoute = CheckoutRouteImport.update({
-  id: '/checkout',
-  path: '/checkout',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CartRoute = CartRouteImport.update({
-  id: '/cart',
-  path: '/cart',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CancelPaymentRoute = CancelPaymentRouteImport.update({
-  id: '/cancel-payment',
-  path: '/cancel-payment',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookAppointmentRoute = BookAppointmentRouteImport.update({
-  id: '/book-appointment',
-  path: '/book-appointment',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppointmentCancelledRoute = AppointmentCancelledRouteImport.update({
-  id: '/appointment-cancelled',
-  path: '/appointment-cancelled',
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppointmentCancellationConfirmationRoute =
@@ -195,19 +70,164 @@ const AppointmentCancellationConfirmationRoute =
     path: '/appointment-cancellation-confirmation',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
+const AppointmentCancelledRoute = AppointmentCancelledRouteImport.update({
+  id: '/appointment-cancelled',
+  path: '/appointment-cancelled',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const BookAppointmentRoute = BookAppointmentRouteImport.update({
+  id: '/book-appointment',
+  path: '/book-appointment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CancelPaymentRoute = CancelPaymentRouteImport.update({
+  id: '/cancel-payment',
+  path: '/cancel-payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoctorRoute = DoctorRouteImport.update({
+  id: '/doctor',
+  path: '/doctor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilitiesRoute = FacilitiesRouteImport.update({
+  id: '/facilities',
+  path: '/facilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderStoryRoute = FounderStoryRouteImport.update({
+  id: '/founder-story',
+  path: '/founder-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeEyeCheckupRoute = FreeEyeCheckupRouteImport.update({
+  id: '/free-eye-checkup',
+  path: '/free-eye-checkup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicalServicesRoute = MedicalServicesRouteImport.update({
+  id: '/medical-services',
+  path: '/medical-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyAccountRoute = MyAccountRouteImport.update({
+  id: '/my-account',
+  path: '/my-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyBookingsRoute = MyBookingsRouteImport.update({
+  id: '/my-bookings',
+  path: '/my-bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmacyRoute = PharmacyRouteImport.update({
+  id: '/pharmacy',
+  path: '/pharmacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const ProductCategorySlugRoute = ProductCategorySlugRouteImport.update({
+  id: '/product-category/$slug',
+  path: '/product-category/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductSlugRoute = ProductSlugRouteImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -215,30 +235,10 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => BlogRoute,
-} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => ServicesRoute,
-} as any)
-const ProductSlugRoute = ProductSlugRouteImport.update({
-  id: '/product/$slug',
-  path: '/product/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductCategorySlugRoute = ProductCategorySlugRouteImport.update({
-  id: '/product-category/$slug',
-  path: '/product-category/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
 } as any)
 const ApiPublicCheckoutRoute = ApiPublicCheckoutRouteImport.update({
   id: '/api/public/checkout',
@@ -532,214 +532,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/wishlist': {
-      id: '/wishlist'
-      path: '/wishlist'
-      fullPath: '/wishlist'
-      preLoaderRoute: typeof WishlistRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/thank-you': {
-      id: '/thank-you'
-      path: '/thank-you'
-      fullPath: '/thank-you'
-      preLoaderRoute: typeof ThankYouRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shop': {
-      id: '/shop'
-      path: '/shop'
-      fullPath: '/shop'
-      preLoaderRoute: typeof ShopRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/search': {
-      id: '/search'
-      path: '/search'
-      fullPath: '/search'
-      preLoaderRoute: typeof SearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pharmacy': {
-      id: '/pharmacy'
-      path: '/pharmacy'
-      fullPath: '/pharmacy'
-      preLoaderRoute: typeof PharmacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/my-bookings': {
-      id: '/my-bookings'
-      path: '/my-bookings'
-      fullPath: '/my-bookings'
-      preLoaderRoute: typeof MyBookingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/my-account': {
-      id: '/my-account'
-      path: '/my-account'
-      fullPath: '/my-account'
-      preLoaderRoute: typeof MyAccountRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/medical-services': {
-      id: '/medical-services'
-      path: '/medical-services'
-      fullPath: '/medical-services'
-      preLoaderRoute: typeof MedicalServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/free-eye-checkup': {
-      id: '/free-eye-checkup'
-      path: '/free-eye-checkup'
-      fullPath: '/free-eye-checkup'
-      preLoaderRoute: typeof FreeEyeCheckupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/founder-story': {
-      id: '/founder-story'
-      path: '/founder-story'
-      fullPath: '/founder-story'
-      preLoaderRoute: typeof FounderStoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/forgot-password': {
-      id: '/forgot-password'
-      path: '/forgot-password'
-      fullPath: '/forgot-password'
-      preLoaderRoute: typeof ForgotPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faqs': {
-      id: '/faqs'
-      path: '/faqs'
-      fullPath: '/faqs'
-      preLoaderRoute: typeof FaqsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/facilities': {
-      id: '/facilities'
-      path: '/facilities'
-      fullPath: '/facilities'
-      preLoaderRoute: typeof FacilitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/doctor': {
-      id: '/doctor'
-      path: '/doctor'
-      fullPath: '/doctor'
-      preLoaderRoute: typeof DoctorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/checkout': {
-      id: '/checkout'
-      path: '/checkout'
-      fullPath: '/checkout'
-      preLoaderRoute: typeof CheckoutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cart': {
-      id: '/cart'
-      path: '/cart'
-      fullPath: '/cart'
-      preLoaderRoute: typeof CartRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cancel-payment': {
-      id: '/cancel-payment'
-      path: '/cancel-payment'
-      fullPath: '/cancel-payment'
-      preLoaderRoute: typeof CancelPaymentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/book-appointment': {
-      id: '/book-appointment'
-      path: '/book-appointment'
-      fullPath: '/book-appointment'
-      preLoaderRoute: typeof BookAppointmentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/appointment-cancelled': {
-      id: '/appointment-cancelled'
-      path: '/appointment-cancelled'
-      fullPath: '/appointment-cancelled'
-      preLoaderRoute: typeof AppointmentCancelledRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/appointment-cancellation-confirmation': {
-      id: '/appointment-cancellation-confirmation'
-      path: '/appointment-cancellation-confirmation'
-      fullPath: '/appointment-cancellation-confirmation'
-      preLoaderRoute: typeof AppointmentCancellationConfirmationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -749,11 +546,242 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appointment-cancellation-confirmation': {
+      id: '/appointment-cancellation-confirmation'
+      path: '/appointment-cancellation-confirmation'
+      fullPath: '/appointment-cancellation-confirmation'
+      preLoaderRoute: typeof AppointmentCancellationConfirmationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appointment-cancelled': {
+      id: '/appointment-cancelled'
+      path: '/appointment-cancelled'
+      fullPath: '/appointment-cancelled'
+      preLoaderRoute: typeof AppointmentCancelledRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-appointment': {
+      id: '/book-appointment'
+      path: '/book-appointment'
+      fullPath: '/book-appointment'
+      preLoaderRoute: typeof BookAppointmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancel-payment': {
+      id: '/cancel-payment'
+      path: '/cancel-payment'
+      fullPath: '/cancel-payment'
+      preLoaderRoute: typeof CancelPaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doctor': {
+      id: '/doctor'
+      path: '/doctor'
+      fullPath: '/doctor'
+      preLoaderRoute: typeof DoctorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facilities': {
+      id: '/facilities'
+      path: '/facilities'
+      fullPath: '/facilities'
+      preLoaderRoute: typeof FacilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder-story': {
+      id: '/founder-story'
+      path: '/founder-story'
+      fullPath: '/founder-story'
+      preLoaderRoute: typeof FounderStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-eye-checkup': {
+      id: '/free-eye-checkup'
+      path: '/free-eye-checkup'
+      fullPath: '/free-eye-checkup'
+      preLoaderRoute: typeof FreeEyeCheckupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medical-services': {
+      id: '/medical-services'
+      path: '/medical-services'
+      fullPath: '/medical-services'
+      preLoaderRoute: typeof MedicalServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-account': {
+      id: '/my-account'
+      path: '/my-account'
+      fullPath: '/my-account'
+      preLoaderRoute: typeof MyAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-bookings': {
+      id: '/my-bookings'
+      path: '/my-bookings'
+      fullPath: '/my-bookings'
+      preLoaderRoute: typeof MyBookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacy': {
+      id: '/pharmacy'
+      path: '/pharmacy'
+      fullPath: '/pharmacy'
+      preLoaderRoute: typeof PharmacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
       path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/product-category/$slug': {
+      id: '/product-category/$slug'
+      path: '/product-category/$slug'
+      fullPath: '/product-category/$slug'
+      preLoaderRoute: typeof ProductCategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -763,40 +791,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof BlogRoute
-    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof ServicesRoute
-    }
-    '/product/$slug': {
-      id: '/product/$slug'
-      path: '/product/$slug'
-      fullPath: '/product/$slug'
-      preLoaderRoute: typeof ProductSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/product-category/$slug': {
-      id: '/product-category/$slug'
-      path: '/product-category/$slug'
-      fullPath: '/product-category/$slug'
-      preLoaderRoute: typeof ProductCategorySlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
     }
     '/api/public/checkout': {
       id: '/api/public/checkout'
@@ -875,3 +875,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
